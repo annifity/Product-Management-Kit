@@ -1,0 +1,12 @@
+---
+description: 'Annifity skill uat: Create or review User Acceptance Testing plans and test cases from PRDs, specs, user stories, acceptance criteria, or release scope. Use for UAT coverage, role-based scenarios, happy paths, unhappy paths, boundary cases, and signoff readiness.'
+alwaysApply: false
+---
+
+# uat
+
+Use this rule when the request matches the description above.
+
+Canonical source: skills/uat/SKILL.md
+
+Read the canonical skill file before acting, then load only the referenced _refs/ files needed for the task. If generated adapter text conflicts with the canonical source, the canonical source wins.

@@ -1,0 +1,12 @@
+---
+description: 'Annifity skill po-plan: Convert a confirmed product spec into a delivery plan, epic map, release slices, dependency map, milestone plan, and team handoff sequence. Use after specification and before execution or story writing.'
+alwaysApply: false
+---
+
+# po-plan
+
+Use this rule when the request matches the description above.
+
+Canonical source: skills/po-plan/SKILL.md
+
+Read the canonical skill file before acting, then load only the referenced _refs/ files needed for the task. If generated adapter text conflicts with the canonical source, the canonical source wins.

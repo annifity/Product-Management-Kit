@@ -1,0 +1,5 @@
+pre-commit:
+  parallel: false
+  commands:
+    annifity-sync:
+      run: powershell -NoProfile -ExecutionPolicy Bypass -File tools/pre-commit-annifity.ps1

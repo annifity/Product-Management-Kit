@@ -1,0 +1,12 @@
+---
+description: 'Annifity skill po-review: Review product artifacts before handoff, sprint commitment, QA, or release. Use for reviewing PRDs, specs, user stories, acceptance criteria, UAT cases, risks, edge cases, readiness, and document quality.'
+alwaysApply: false
+---
+
+# po-review
+
+Use this rule when the request matches the description above.
+
+Canonical source: skills/po-review/SKILL.md
+
+Read the canonical skill file before acting, then load only the referenced _refs/ files needed for the task. If generated adapter text conflicts with the canonical source, the canonical source wins.

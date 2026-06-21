@@ -1,0 +1,12 @@
+---
+description: 'Annifity skill change: Manage requirement changes to existing PRDs, specs, user stories, UAT, or release scope. Use when requirements change mid-flight, a stakeholder updates scope, a document needs controlled edits, or impact analysis and changelog are required.'
+alwaysApply: false
+---
+
+# change
+
+Use this rule when the request matches the description above.
+
+Canonical source: skills/change/SKILL.md
+
+Read the canonical skill file before acting, then load only the referenced _refs/ files needed for the task. If generated adapter text conflicts with the canonical source, the canonical source wins.

@@ -1,0 +1,12 @@
+---
+description: 'Annifity skill po-brainstorming: Explore early product ideas, stakeholder asks, vague feature requests, or unclear problems before writing specs or artifacts. Use when the user needs PO-style brainstorming, problem framing, discovery questions, option exploration, scope clarification, or a Superpowers-like gate before moving to specification.'
+alwaysApply: false
+---
+
+# po-brainstorming
+
+Use this rule when the request matches the description above.
+
+Canonical source: skills/po-brainstorming/SKILL.md
+
+Read the canonical skill file before acting, then load only the referenced _refs/ files needed for the task. If generated adapter text conflicts with the canonical source, the canonical source wins.

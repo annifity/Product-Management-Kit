@@ -1,0 +1,10 @@
+---
+description: 'Annifity AI Product Manager skill suite index and source-of-truth policy.'
+alwaysApply: true
+---
+
+# Annifity Skill Source
+
+Annifity is a portable AI Product Manager skill suite. Treat top-level skills/*/SKILL.md files as the canonical source of skill behavior and _refs/ as shared reference material.
+
+Generated folders (.claude/skills, .github/skills, .agents/skills, .codex/skills) and Cursor rules are adapters. Do not edit them manually; update skills/ or _refs/, then run tools/sync-ai-skill-structures.ps1.

@@ -1,0 +1,12 @@
+---
+description: 'Annifity skill user-story: Create, split, refine, review, or export user stories and acceptance criteria from a PRD, BRD, feature spec, or confirmed product plan. Use for INVEST stories, story maps, Jira-ready stories, Given/When/Then acceptance criteria, and story quality review.'
+alwaysApply: false
+---
+
+# user-story
+
+Use this rule when the request matches the description above.
+
+Canonical source: skills/user-story/SKILL.md
+
+Read the canonical skill file before acting, then load only the referenced _refs/ files needed for the task. If generated adapter text conflicts with the canonical source, the canonical source wins.

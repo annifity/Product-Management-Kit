@@ -1,0 +1,414 @@
+[CmdletBinding()]
+param(
+    [switch]$Check
+)
+
+Set-StrictMode -Version Latest
+$ErrorActionPreference = "Stop"
+
+$Utf8NoBom = [System.Text.UTF8Encoding]::new($false)
+$Root = (Resolve-Path (Join-Path $PSScriptRoot "..")).Path
+$SourceRoot = Join-Path $Root "skills"
+
+if (-not (Test-Path -LiteralPath $SourceRoot)) {
+    throw "Canonical skills directory not found: $SourceRoot"
+}
+
+function ConvertTo-RepoPath {
+    param([Parameter(Mandatory = $true)][string]$Path)
+
+    $fullPath = (Resolve-Path -LiteralPath $Path).Path
+    $rootPath = (Resolve-Path -LiteralPath $Root).Path.TrimEnd([char[]]"\/")
+    if (-not $fullPath.StartsWith($rootPath, [System.StringComparison]::OrdinalIgnoreCase)) {
+        throw "Path is outside repository root: $Path"
+    }
+
+    return $fullPath.Substring($rootPath.Length).TrimStart([char[]]"\/").Replace("\", "/")
+}
+
+function Read-Text {
+    param([Parameter(Mandatory = $true)][string]$Path)
+    return [System.IO.File]::ReadAllText($Path, $Utf8NoBom)
+}
+
+function Write-Text {
+    param(
+        [Parameter(Mandatory = $true)][string]$Path,
+        [Parameter(Mandatory = $true)][string]$Content
+    )
+
+    $parent = Split-Path -Parent $Path
+    if ($parent -and -not (Test-Path -LiteralPath $parent)) {
+        New-Item -ItemType Directory -Path $parent | Out-Null
+    }
+
+    $normalized = $Content -replace "`r`n", "`n"
+    [System.IO.File]::WriteAllText($Path, $normalized, $Utf8NoBom)
+}
+
+function Remove-PathIfExists {
+    param([Parameter(Mandatory = $true)][string]$Path)
+
+    if (Test-Path -LiteralPath $Path) {
+        Remove-Item -LiteralPath $Path -Recurse -Force
+    }
+}
+
+function Get-ScalarValue {
+    param([Parameter(Mandatory = $true)][string]$Value)
+
+    $trimmed = $Value.Trim()
+    if ($trimmed.Length -ge 2) {
+        if (($trimmed.StartsWith("'")) -and ($trimmed.EndsWith("'"))) {
+            return $trimmed.Substring(1, $trimmed.Length - 2).Replace("''", "'")
+        }
+        if (($trimmed.StartsWith('"')) -and ($trimmed.EndsWith('"'))) {
+            return $trimmed.Substring(1, $trimmed.Length - 2).Replace('\"', '"')
+        }
+    }
+    return $trimmed
+}
+
+function ConvertTo-YamlSingleQuoted {
+    param([Parameter(Mandatory = $true)][string]$Value)
+    return "'" + $Value.Replace("'", "''") + "'"
+}
+
+function Get-SkillFrontmatter {
+    param([Parameter(Mandatory = $true)][string]$Path)
+
+    $content = (Read-Text -Path $Path) -replace "`r`n", "`n"
+    $lines = $content -split "`n"
+
+    if ($lines.Count -lt 3 -or $lines[0].Trim() -ne "---") {
+        throw "Missing YAML frontmatter: $(ConvertTo-RepoPath $Path)"
+    }
+
+    $endIndex = -1
+    for ($i = 1; $i -lt $lines.Count; $i++) {
+        if ($lines[$i].Trim() -eq "---") {
+            $endIndex = $i
+            break
+        }
+    }
+
+    if ($endIndex -lt 0) {
+        throw "Unclosed YAML frontmatter: $(ConvertTo-RepoPath $Path)"
+    }
+
+    $name = $null
+    $description = $null
+    for ($i = 1; $i -lt $endIndex; $i++) {
+        $line = $lines[$i]
+        if ($line -match "^\s*name\s*:\s*(.+?)\s*$") {
+            $name = Get-ScalarValue $Matches[1]
+        }
+        elseif ($line -match "^\s*description\s*:\s*(.+?)\s*$") {
+            $description = Get-ScalarValue $Matches[1]
+        }
+    }
+
+    if ([string]::IsNullOrWhiteSpace($name)) {
+        throw "Missing name in frontmatter: $(ConvertTo-RepoPath $Path)"
+    }
+    if ([string]::IsNullOrWhiteSpace($description)) {
+        throw "Missing description in frontmatter: $(ConvertTo-RepoPath $Path)"
+    }
+    if ($name -notmatch "^[a-z0-9]+(-[a-z0-9]+)*$") {
+        throw "Invalid skill name '$name' in $(ConvertTo-RepoPath $Path). Use lowercase hyphen-case."
+    }
+    if ($name.Length -gt 64) {
+        throw "Skill name is longer than 64 characters: $name"
+    }
+
+    return [pscustomobject]@{
+        Name = $name
+        Description = $description
+        SourceRel = ConvertTo-RepoPath $Path
+    }
+}
+
+function Get-CanonicalSkills {
+    $files = Get-ChildItem -LiteralPath $SourceRoot -Directory |
+        ForEach-Object { Get-ChildItem -LiteralPath $_.FullName -Filter "SKILL.md" -File } |
+        Sort-Object FullName
+
+    $seen = @{}
+    $skills = @()
+    foreach ($file in $files) {
+        $skill = Get-SkillFrontmatter -Path $file.FullName
+        if ($seen.ContainsKey($skill.Name)) {
+            throw "Duplicate skill name '$($skill.Name)' in $($skill.SourceRel) and $($seen[$skill.Name])"
+        }
+        $seen[$skill.Name] = $skill.SourceRel
+        $skills += $skill
+    }
+
+    return $skills | Sort-Object Name
+}
+
+function New-SkillAdapter {
+    param(
+        [Parameter(Mandatory = $true)]$Skill,
+        [Parameter(Mandatory = $true)][string]$Platform
+    )
+
+    $quotedDescription = ConvertTo-YamlSingleQuoted $Skill.Description
+    return @"
+---
+name: $($Skill.Name)
+description: $quotedDescription
+---
+
+# $($Skill.Name)
+
+Generated adapter for $Platform. Do not edit this file directly.
+
+Canonical source: $($Skill.SourceRel)
+
+When this skill triggers:
+
+1. Read $($Skill.SourceRel) from the repository root.
+2. Follow the canonical instructions exactly; if this adapter conflicts with the source, the source wins.
+3. Load only the referenced _refs/ files needed for the current task.
+4. Match the user's language by default; Annifity is designed for Vietnamese and English PM work.
+
+"@
+}
+
+function New-CursorRule {
+    param([Parameter(Mandatory = $true)]$Skill)
+
+    $description = "Annifity skill $($Skill.Name): $($Skill.Description)"
+    $quotedDescription = ConvertTo-YamlSingleQuoted $description
+    return @"
+---
+description: $quotedDescription
+alwaysApply: false
+---
+
+# $($Skill.Name)
+
+Use this rule when the request matches the description above.
+
+Canonical source: $($Skill.SourceRel)
+
+Read the canonical skill file before acting, then load only the referenced _refs/ files needed for the task. If generated adapter text conflicts with the canonical source, the canonical source wins.
+
+"@
+}
+
+function New-CursorIndexRule {
+    return @"
+---
+description: 'Annifity AI Product Manager skill suite index and source-of-truth policy.'
+alwaysApply: true
+---
+
+# Annifity Skill Source
+
+Annifity is a portable AI Product Manager skill suite. Treat top-level skills/*/SKILL.md files as the canonical source of skill behavior and _refs/ as shared reference material.
+
+Generated folders (.claude/skills, .github/skills, .agents/skills, .codex/skills) and Cursor rules are adapters. Do not edit them manually; update skills/ or _refs/, then run tools/sync-ai-skill-structures.ps1.
+
+"@
+}
+
+function New-AgentInstructions {
+    param([Parameter(Mandatory = $true)]$Skills)
+
+    $skillRows = @(
+        foreach ($skill in $Skills) {
+            "- " + $skill.Name + ": " + $skill.Description + " Source: " + $skill.SourceRel
+        }
+    ) -join "`n"
+
+    return @"
+# Annifity AI Product Manager Skills
+
+Annifity is a portable PO operating system for brainstorming, specification, planning, execution support, review, shipping, documentation, memory, and product artifacts.
+
+## Source Of Truth
+
+- Canonical skill files live under top-level skills/*/SKILL.md only.
+- Shared PM templates, checklists, and workflows live under _refs/.
+- Generated adapters live under .claude/skills/, .github/skills/, .agents/skills/, .codex/skills/, and .cursor/rules/.
+- Do not edit generated adapters manually. Edit skills/ or _refs/, then run tools/sync-ai-skill-structures.ps1.
+
+## Working Rules
+
+- Match the user's language by default; Vietnamese and English are both first-class.
+- Follow the PO phase gates: po-brainstorming -> po-spec -> po-plan -> po-execution -> po-review -> po-ship.
+- Use docs to save and index artifacts, and memories to persist durable context across workflow gates.
+- For ambiguous requirements, clarify before drafting final deliverables.
+- Load only the relevant skill and reference files for the task; avoid pulling the whole repository into context.
+- If an adapter conflicts with a canonical skill file, the canonical skill file wins.
+
+## Available Skills
+
+$skillRows
+
+"@
+}
+
+function New-CopilotInstructions {
+    param([Parameter(Mandatory = $true)]$Skills)
+
+    $topSkills = $Skills | Where-Object {
+        $_.SourceRel -match "^skills/[^/]+/SKILL\.md$"
+    }
+
+    $skillRows = @(
+        foreach ($skill in $topSkills) {
+            "- " + $skill.Name + ": " + $skill.Description
+        }
+    ) -join "`n"
+
+    return @"
+# Annifity AI PM Instructions
+
+Use Annifity for product-management work: PO brainstorming, product specs, delivery planning, execution support, artifact review, shipping, docs, memories, PRDs, user stories, UAT, change management, and org knowledge lookup.
+
+Canonical source lives in top-level skills/*/SKILL.md and _refs/. Generated Copilot skill adapters live in .github/skills/; do not edit adapters manually. Update skills/ or _refs/, then run tools/sync-ai-skill-structures.ps1.
+
+Match the user's language by default. Follow the PO phase gates when doing end-to-end product work. Use docs to save artifacts and memories to preserve durable product context. Clarify ambiguous requirements before drafting final deliverables.
+
+Top-level skills:
+
+$skillRows
+
+"@
+}
+
+function Write-GeneratedSkillAdapters {
+    param(
+        [Parameter(Mandatory = $true)]$Skills,
+        [Parameter(Mandatory = $true)][string]$RelativeRoot,
+        [Parameter(Mandatory = $true)][string]$Platform
+    )
+
+    $targetRoot = Join-Path $Root $RelativeRoot
+    Remove-PathIfExists -Path $targetRoot
+    New-Item -ItemType Directory -Path $targetRoot | Out-Null
+    Write-Text -Path (Join-Path $targetRoot ".annifity-generated") -Content "Generated by tools/sync-ai-skill-structures.ps1 from skills/**/SKILL.md.`n"
+
+    foreach ($skill in $Skills) {
+        $skillDir = Join-Path $targetRoot $skill.Name
+        $content = New-SkillAdapter -Skill $skill -Platform $Platform
+        Write-Text -Path (Join-Path $skillDir "SKILL.md") -Content $content
+    }
+}
+
+function Write-CursorRules {
+    param([Parameter(Mandatory = $true)]$Skills)
+
+    $targetRoot = Join-Path $Root ".cursor/rules"
+    if (-not (Test-Path -LiteralPath $targetRoot)) {
+        New-Item -ItemType Directory -Path $targetRoot | Out-Null
+    }
+
+    Get-ChildItem -LiteralPath $targetRoot -Filter "annifity-*.mdc" -ErrorAction SilentlyContinue |
+        Remove-Item -Force
+
+    Write-Text -Path (Join-Path $targetRoot ".annifity-generated") -Content "Generated by tools/sync-ai-skill-structures.ps1 from skills/**/SKILL.md.`n"
+    Write-Text -Path (Join-Path $targetRoot "annifity-index.mdc") -Content (New-CursorIndexRule)
+
+    foreach ($skill in $Skills) {
+        $content = New-CursorRule -Skill $skill
+        Write-Text -Path (Join-Path $targetRoot "annifity-$($skill.Name).mdc") -Content $content
+    }
+}
+
+function Write-ClaudePluginManifest {
+    $pluginDir = Join-Path $Root ".claude-plugin"
+    if (-not (Test-Path -LiteralPath $pluginDir)) {
+        New-Item -ItemType Directory -Path $pluginDir | Out-Null
+    }
+
+    $manifest = [ordered]@{
+        '$schema' = "https://json.schemastore.org/claude-code-plugin-manifest.json"
+        name = "annifity"
+        displayName = "Annifity"
+        version = "1.0.0"
+        description = "AI Product Manager skill suite for PO brainstorming, specification, planning, execution support, review, shipping, documentation, memory, PRDs, user stories, UAT, change management, and organizational knowledge retrieval."
+        author = [ordered]@{
+            name = "nghiatt15"
+            email = "nghiatt15@onemount.com"
+        }
+        keywords = @(
+            "product-management",
+            "prd",
+            "user-story",
+            "brd",
+            "requirements",
+            "pm",
+            "skills",
+            "bilingual",
+            "vietnamese",
+            "onemount"
+        )
+        skills = @("./skills")
+    }
+
+    $json = $manifest | ConvertTo-Json -Depth 10
+    Write-Text -Path (Join-Path $pluginDir "plugin.json") -Content ($json + "`n")
+}
+
+function Get-ExpectedGeneratedFiles {
+    param([Parameter(Mandatory = $true)]$Skills)
+
+    $files = @(
+        "AGENTS.md",
+        ".claude-plugin/plugin.json",
+        ".github/copilot-instructions.md",
+        ".cursor/rules/.annifity-generated",
+        ".cursor/rules/annifity-index.mdc",
+        ".claude/skills/.annifity-generated",
+        ".github/skills/.annifity-generated",
+        ".agents/skills/.annifity-generated",
+        ".codex/skills/.annifity-generated"
+    )
+
+    foreach ($skill in $Skills) {
+        $files += ".claude/skills/$($skill.Name)/SKILL.md"
+        $files += ".github/skills/$($skill.Name)/SKILL.md"
+        $files += ".agents/skills/$($skill.Name)/SKILL.md"
+        $files += ".codex/skills/$($skill.Name)/SKILL.md"
+        $files += ".cursor/rules/annifity-$($skill.Name).mdc"
+    }
+
+    return $files
+}
+
+$skills = @(Get-CanonicalSkills)
+if ($skills.Count -eq 0) {
+    throw "No top-level canonical SKILL.md files found under $SourceRoot"
+}
+
+Write-GeneratedSkillAdapters -Skills $skills -RelativeRoot ".claude/skills" -Platform "Claude Code standalone"
+Write-GeneratedSkillAdapters -Skills $skills -RelativeRoot ".github/skills" -Platform "GitHub Copilot agent skills"
+Write-GeneratedSkillAdapters -Skills $skills -RelativeRoot ".agents/skills" -Platform "shared agent skills"
+Write-GeneratedSkillAdapters -Skills $skills -RelativeRoot ".codex/skills" -Platform "Codex-compatible project skills"
+Write-CursorRules -Skills $skills
+Write-ClaudePluginManifest
+Write-Text -Path (Join-Path $Root "AGENTS.md") -Content (New-AgentInstructions -Skills $skills)
+Write-Text -Path (Join-Path $Root ".github/copilot-instructions.md") -Content (New-CopilotInstructions -Skills $skills)
+
+$expectedFiles = Get-ExpectedGeneratedFiles -Skills $skills
+$missing = @()
+foreach ($relativePath in $expectedFiles) {
+    if (-not (Test-Path -LiteralPath (Join-Path $Root $relativePath))) {
+        $missing += $relativePath
+    }
+}
+
+if ($missing.Count -gt 0) {
+    throw "Generated sync is incomplete. Missing: $($missing -join ', ')"
+}
+
+if ($Check) {
+    Write-Host "Annifity AI skill structures are in sync ($($skills.Count) skills)."
+}
+else {
+    Write-Host "Synced Annifity AI skill structures for $($skills.Count) skills."
+}

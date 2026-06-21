@@ -1,0 +1,12 @@
+---
+description: 'Annifity skill prd: Create, revise, review, translate, or export Product Requirement Documents. Use when the user asks for a PRD, PRD draft, PRD review, product requirements document, product spec document, PRD translation, PRD export, or Confluence-ready PRD.'
+alwaysApply: false
+---
+
+# prd
+
+Use this rule when the request matches the description above.
+
+Canonical source: skills/prd/SKILL.md
+
+Read the canonical skill file before acting, then load only the referenced _refs/ files needed for the task. If generated adapter text conflicts with the canonical source, the canonical source wins.

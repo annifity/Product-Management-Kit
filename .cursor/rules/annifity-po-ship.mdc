@@ -1,0 +1,12 @@
+---
+description: 'Annifity skill po-ship: Prepare a product change for release or stakeholder handoff. Use for release readiness, signoff, final document bundle, release notes, decision summary, UAT signoff, and post-ship memory capture.'
+alwaysApply: false
+---
+
+# po-ship
+
+Use this rule when the request matches the description above.
+
+Canonical source: skills/po-ship/SKILL.md
+
+Read the canonical skill file before acting, then load only the referenced _refs/ files needed for the task. If generated adapter text conflicts with the canonical source, the canonical source wins.

@@ -1,0 +1,25 @@
+#!/usr/bin/env sh
+set -eu
+
+# Fallback hook for environments that have not installed Lefthook.
+# Lefthook runs the same tools/pre-commit-annifity.ps1 script.
+
+ROOT="$(git rev-parse --show-toplevel)"
+PRECOMMIT_SCRIPT="$ROOT/tools/pre-commit-annifity.ps1"
+
+if command -v cygpath >/dev/null 2>&1; then
+  PRECOMMIT_SCRIPT="$(cygpath -w "$PRECOMMIT_SCRIPT")"
+fi
+
+if command -v pwsh >/dev/null 2>&1; then
+  PS_CMD="pwsh"
+elif command -v powershell.exe >/dev/null 2>&1; then
+  PS_CMD="powershell.exe"
+elif command -v powershell >/dev/null 2>&1; then
+  PS_CMD="powershell"
+else
+  echo "PowerShell is required to sync Annifity AI skill structures." >&2
+  exit 1
+fi
+
+"$PS_CMD" -NoProfile -ExecutionPolicy Bypass -File "$PRECOMMIT_SCRIPT"
