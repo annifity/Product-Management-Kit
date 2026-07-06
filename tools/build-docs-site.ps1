@@ -7,6 +7,7 @@ $ErrorActionPreference = "Stop"
 $Utf8NoBom = [System.Text.UTF8Encoding]::new($false)
 $Root = (Resolve-Path (Join-Path $PSScriptRoot "..")).Path
 $DocsData = Join-Path $Root "docs/data"
+$CatalogPath = Join-Path $DocsData "catalog.js"
 
 if (-not (Test-Path -LiteralPath $DocsData)) {
     New-Item -ItemType Directory -Path $DocsData | Out-Null
@@ -88,6 +89,22 @@ function Get-SkillMetadata {
     }
 }
 
+function Get-CatalogGeneratedAt {
+    if ($env:ANNIFITY_CATALOG_TIMESTAMP) {
+        return $env:ANNIFITY_CATALOG_TIMESTAMP
+    }
+
+    if (Test-Path -LiteralPath $CatalogPath) {
+        $existing = [System.IO.File]::ReadAllText($CatalogPath, $Utf8NoBom)
+        $match = [regex]::Match($existing, '"generatedAt"\s*:\s*"([^"]+)"')
+        if ($match.Success) {
+            return $match.Groups[1].Value
+        }
+    }
+
+    return (Get-Date).ToUniversalTime().ToString("yyyy-MM-ddTHH:mm:ssZ")
+}
+
 $skillsRoot = Join-Path $Root "skills"
 $skillFiles = Get-ChildItem -LiteralPath $skillsRoot -Directory |
     ForEach-Object { Get-ChildItem -LiteralPath $_.FullName -Filter "SKILL.md" -File } |
@@ -113,7 +130,7 @@ $references = @(
 )
 
 $catalog = [ordered]@{
-    generatedAt = (Get-Date).ToUniversalTime().ToString("yyyy-MM-ddTHH:mm:ssZ")
+    generatedAt = Get-CatalogGeneratedAt
     summary = [ordered]@{
         skillCount = $skills.Count
         referenceCount = $references.Count
@@ -127,6 +144,6 @@ $catalog = [ordered]@{
 
 $json = $catalog | ConvertTo-Json -Depth 20
 $content = "window.ANNIFITY_CATALOG = " + $json + ";`n"
-[System.IO.File]::WriteAllText((Join-Path $DocsData "catalog.js"), $content, $Utf8NoBom)
+[System.IO.File]::WriteAllText($CatalogPath, $content, $Utf8NoBom)
 
 Write-Host "Built docs catalog: docs/data/catalog.js ($($skills.Count) skills, $($references.Count) refs)."

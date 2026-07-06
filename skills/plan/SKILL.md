@@ -31,6 +31,8 @@ Use this when the spec is stable enough to plan delivery.
 
 ## Required References
 
+- `_refs/operating-model/routing.md`
+- `_refs/operating-model/builder-packs.md`
 - `_refs/workflows/spec-to-delivery-plan.md`
 - `_refs/templates/plan/product-roadmap.md`
 - `_refs/templates/plan/grooming-questions.md`
@@ -41,4 +43,6 @@ Use this when the spec is stable enough to plan delivery.
 - `_refs/checklists/definition-of-ready.md`
 - `_refs/checklists/ship-readiness.md`
 - `_refs/checklists/risk-review.md`
+- `_refs/checklists/stakeholder-governance.md`
+- `_refs/checklists/security-privacy-accessibility.md`
 - `_refs/workflows/market-sizing.md`

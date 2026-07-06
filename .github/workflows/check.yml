@@ -1,0 +1,23 @@
+name: check
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+jobs:
+  check:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npm install --ignore-scripts --no-package-lock
+      - run: npm run guard
+      - run: npm run ref:check
+      - run: npm run sync
+      - run: npm run docs:build
+      - run: npm run contract:test
+      - run: npm test
+      - run: git diff --exit-code

@@ -2,14 +2,17 @@
   "name": "annifity",
   "version": "2.0.0",
   "private": true,
-  "description": "Portable AI Product Manager skill suite for Claude, Codex, Cursor, Copilot, and shared agents.",
+  "description": "Portable AI Product Builder Kit for Claude, Codex, Cursor, Copilot, and shared agents.",
   "scripts": {
     "prepare": "lefthook install",
     "sync": "powershell -NoProfile -ExecutionPolicy Bypass -File tools/sync-ai-skill-structures.ps1",
     "docs:build": "powershell -NoProfile -ExecutionPolicy Bypass -File tools/build-docs-site.ps1",
     "guard": "powershell -NoProfile -ExecutionPolicy Bypass -File tools/check-self-contained.ps1",
+    "ref:check": "powershell -NoProfile -ExecutionPolicy Bypass -File tools/check-ref-integrity.ps1",
+    "contract:test": "powershell -NoProfile -ExecutionPolicy Bypass -File tools/test-skill-contracts.ps1",
+    "workspace:init": "powershell -NoProfile -ExecutionPolicy Bypass -File tools/init-annifity-workspace.ps1",
     "test": "powershell -NoProfile -ExecutionPolicy Bypass -File tools/test-annifity.ps1",
-    "check": "npm run guard && npm run sync && npm run docs:build && npm test",
+    "check": "npm run guard && npm run ref:check && npm run sync && npm run docs:build && npm run contract:test && npm test",
     "precommit": "powershell -NoProfile -ExecutionPolicy Bypass -File tools/pre-commit-annifity.ps1"
   },
   "devDependencies": {

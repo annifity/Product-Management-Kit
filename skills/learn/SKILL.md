@@ -5,16 +5,17 @@ description: Use when discovery, prototype, experiment, validation, release, or 
 
 # Learn
 
-Use this to close the loop after validation or release and turn evidence into a decision.
+Use this to close the loop after validation, prototype feedback, experiment, or release and turn evidence into a decision.
 
 ## Process
 
 1. Read the experiment plan, validation notes, evidence, decisions, docs, and relevant memories.
 2. Separate observations from interpretations and recommendations.
 3. Compare results to the original hypothesis, success metrics, and decision criteria.
-4. Identify reusable insights, product implications, and unresolved questions.
-5. Recommend iterate, specify, plan, ship, park, or reject.
-6. Ask `docs` to save the artifact and `memories` to persist durable outcomes.
+4. For prototype feedback, summarize feedback, evidence strength, validated value, usability issues, requested changes, risks, and recommendation.
+5. Identify reusable insights, product implications, and unresolved questions.
+6. Recommend iterate prototype, write PRD, specify, plan, ship, park, reject, or run another experiment.
+7. Ask `docs` to save the artifact and `memories` to persist durable outcomes.
 
 ## Output
 
@@ -28,11 +29,14 @@ Use this to close the loop after validation or release and turn evidence into a 
 
 ## Required References
 
+- `_refs/operating-model/builder-packs.md`
+- `_refs/workflows/prototype-first.md`
 - `_refs/workflows/learning-synthesis.md`
 - `_refs/templates/learning/insight-summary.md`
 - `_refs/templates/learning/product-retrospective.md`
 - `_refs/templates/learning/decision-memo.md`
 - `_refs/templates/learning/roadmap-recommendation.md`
+- `_refs/templates/prototype/prototype-feedback-summary.md`
 - `_refs/templates/memories/decision-outcomes.md`
 - `_refs/templates/docs/decision-ledger.md`
 - `_refs/operating-model/learning-loop.md`

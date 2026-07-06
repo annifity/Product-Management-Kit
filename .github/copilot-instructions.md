@@ -1,10 +1,10 @@
-# Annifity AI PM Instructions
+# Annifity AI Product Builder Kit Instructions
 
-Use Annifity for product-management work: discovery, briefs, prototypes, experiments, validation, learning, product specs, delivery planning, execution support, shipping, docs, memories, PRDs, user stories, UAT, change management, and org knowledge lookup.
+Use Annifity for product-building work: discovery, briefs, prototypes, experiments, validation, learning, product specs, delivery planning, execution support, shipping, docs, memories, PRDs, user stories, UAT, change management, and org knowledge lookup.
 
 Canonical source lives in top-level skills/*/SKILL.md and _refs/. Generated Copilot skill adapters live in .github/skills/; do not edit adapters manually. Update skills/ or _refs/, then run tools/sync-ai-skill-structures.ps1.
 
-Match the user's language by default. Follow the Annifity learning and delivery path when doing end-to-end product work. Use docs to save artifacts and memories to preserve durable product context. Clarify ambiguous requirements before drafting final deliverables.
+Match the user's language by default. Follow the Annifity builder path when doing end-to-end product work. Use docs to save artifacts and memories to preserve durable product context. Clarify ambiguous requirements before drafting final deliverables.
 
 Top-level skills:
 
@@ -18,8 +18,8 @@ Top-level skills:
 - learn: Use when discovery, prototype, experiment, validation, release, or post-ship evidence needs to become an insight summary, product retrospective, decision memo, roadmap recommendation, memory update, or next-loop recommendation.
 - memories: Maintain durable Annifity product memory. Use before and after PO workflows to read and update product context, team preferences, terminology, stakeholder constraints, decisions, decision outcomes, assumptions, template preferences, lessons learned, and open questions in `.annifity/memories/`.
 - plan: Use when a confirmed product spec needs a delivery plan, roadmap slice, prioritization decision, business case, market/finance-informed investment decision, epic map, release slices, dependency map, milestone plan, grooming questions, or team handoff sequence before execution, story writing, sprint planning, or roadmap communication.
-- prd: Create, revise, review, translate, or export Product Requirement Documents and BRD-style requirement artifacts. Use when the user asks for a PRD, BRD, one-pager, product requirements document, product spec document, PRD/BRD review, translation, export, Confluence-ready document, or strict Confluence HTML.
-- prototype: Use when a product brief or validated direction needs a build-to-learn prototype plan, user flow, screen list, wireframe description, clickable mockup prompt, Claude Code prompt, Lovable prompt, Bolt prompt, or prototype handoff before experimentation or specification.
+- prd: Create, revise, review, translate, or export Product Requirement Documents and BRD-style requirement artifacts. Use when the user asks for a PRD, BRD, one-pager, product requirements document, product spec document, PRD/BRD review, translation, export, Confluence-ready document, strict Confluence HTML, or PRD from PRO + Client Feedback after prototype review, validation result, learning summary, or stakeholder decision.
+- prototype: Use when a product brief, raw idea, pain point, or validated direction needs a build-to-learn prototype plan, PRO - Prototyping Requirements One-Pager, user flow, screen list, wireframe description, clickable mockup prompt, Claude Code prompt, Lovable prompt, frontend prototype builder input, or prototype handoff before experimentation or specification.
 - ship: Use when a product change needs release, rollout, stakeholder handoff, support handoff, retirement, release readiness, launch planning, support notes, rollback planning, EOL communication, signoff, final document bundle, release notes, decision summary, UAT signoff, or post-ship memory capture.
 - spec: Use when a confirmed product idea, PRD input, BRD, meeting note, discovery brief, roadmap item, learning outcome, or brainstorming brief needs to become a precise product specification with scope, business rules, workflows, state behavior, edge cases, data/API rules, non-functional requirements, assumptions, risks, and open questions before delivery planning.
 - uat: Create or review User Acceptance Testing plans, scenario tests, test case registers, and coverage reports from PRDs, BRDs, specs, user stories, acceptance criteria, or release scope. Use for UAT coverage, role-based scenarios, happy paths, unhappy paths, boundary cases, permission validation, NFR scenarios, execution logs, and signoff readiness.

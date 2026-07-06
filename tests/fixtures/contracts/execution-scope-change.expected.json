@@ -1,0 +1,17 @@
+{
+  "name": "execution-scope-change",
+  "skill": "execution",
+  "input": "execution-scope-change.input.md",
+  "sourceFiles": [
+    "skills/change/SKILL.md",
+    "_refs/workflows/change-governance.md",
+    "_refs/templates/change/impact-analysis.md",
+    "_refs/templates/change/changelog.md"
+  ],
+  "requiredTerms": [
+    "Escalate to `change`",
+    "impact analysis",
+    "changelog",
+    "committed scope"
+  ]
+}

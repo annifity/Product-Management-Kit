@@ -19,10 +19,12 @@ Use this when requirements or stories are ready for acceptance validation.
 
 ## Required References
 
+- `_refs/operating-model/builder-packs.md`
 - `_refs/templates/uat/uat-plan.md`
 - `_refs/templates/uat/test-case-register.md`
 - `_refs/templates/uat/scenario-test.md`
 - `_refs/checklists/uat-coverage.md`
+- `_refs/checklists/security-privacy-accessibility.md`
 - `_refs/templates/traceability/rtm.md`
 
 ## Output

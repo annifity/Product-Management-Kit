@@ -19,7 +19,25 @@ Use when sequencing roadmap items, release slices, epics, stories, or backlog it
 - Dependency impact.
 - Risk reduction or learning value.
 - Owner and decision maker.
+- Decision record for material priority choices.
+- Review date or trigger when confidence is low.
 
 ## Output
 
 Return the ranking, framework used, reasoning, accepted trade-offs, and items not doing now.
+
+## Decision Record
+
+For material priority decisions, capture:
+
+| Field | Value |
+|---|---|
+| Decision | [Decision] |
+| Options considered | [Options] |
+| Chosen option | [Option] |
+| Why | [Rationale] |
+| Evidence | [Evidence] |
+| Trade-offs | [Trade-offs] |
+| Risks accepted | [Risks] |
+| Owner | [Owner] |
+| Review date | [Date or trigger] |

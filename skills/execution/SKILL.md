@@ -12,7 +12,7 @@ Use this during sprint or implementation work when the team needs PO support.
 1. Load the active spec, stories, decisions, open questions, and memories.
 2. Classify the request as clarification, scope decision, blocker, defect triage, or change.
 3. Answer from source documents when possible.
-4. If the answer changes committed scope, invoke `change`.
+4. Escalate to `change` if the answer changes committed scope, acceptance criteria, launch scope, or user-visible behavior.
 5. For active implementation changes, include affected tickets, AC, UAT, and AI context impact.
 6. Record durable decisions through `docs` and `memories`.
 
@@ -27,8 +27,10 @@ Use this during sprint or implementation work when the team needs PO support.
 
 ## Required References
 
+- `_refs/operating-model/routing.md`
 - `_refs/workflows/execution-support.md`
 - `_refs/workflows/change-governance.md`
+- `_refs/checklists/stakeholder-governance.md`
 - `_refs/templates/docs/decision-log.md`
 - `_refs/templates/docs/decision-ledger.md`
 - `_refs/templates/change/spec-change-context.md`

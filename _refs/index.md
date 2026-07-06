@@ -5,6 +5,7 @@ Annifity keeps skill files short and loads detailed guidance from `_refs/` only 
 ## Routing
 
 - Operating model: `_refs/operating-model/`
+- Routing and builder packs: `_refs/operating-model/routing.md`, `_refs/operating-model/builder-packs.md`
 - End-to-end process: `_refs/workflows/`
 - Quality checks: `_refs/checklists/`
 - Artifact templates: `_refs/templates/`
@@ -23,11 +24,17 @@ Skills should load only the relevant reference files for the current task.
 - Delivery and review: sprint readiness, edge case review, risk register, traceability matrix, UAT, operational readiness.
 - Shipping and change: release readiness, rollout plan, change governance, spec change context.
 - Documentation and memory: docs index, evidence ledger, decision ledger, template registry, initiative state, metrics events, memory schemas, context manifest for AI-native workflows.
+- Governance and risk: stakeholder governance, security/privacy/accessibility, risk acceptance, AI risk review.
 
 ## High-ROI Capability Routes
 
 | Need | Reference |
 |---|---|
+| Choose the right Annifity skill | `_refs/operating-model/routing.md` |
+| Package output as a Product Builder Kit handoff | `_refs/operating-model/builder-packs.md` |
+| Create prompt-ready input for a runnable frontend prototype | `_refs/templates/prototype/prototyping-requirements-one-pager.md` + `_refs/checklists/pro-quality.md` |
+| Run prototype-first before PRD | `_refs/workflows/prototype-first.md` |
+| Turn prototype feedback into PRD input | `_refs/templates/prototype/prototype-feedback-summary.md` + `_refs/templates/prd/prd-from-pro-feedback.md` |
 | Analyze raw BRD or vague requirements | `_refs/workflows/requirement-analysis.md` + `_refs/checklists/business-analysis.md` |
 | Map a workflow deeply | `_refs/templates/spec/workflow-spec.md` |
 | Stress-test edge cases | `_refs/checklists/edge-cases.md` |
@@ -48,3 +55,5 @@ Skills should load only the relevant reference files for the current task.
 | Apply finance or SaaS decision metrics | `_refs/checklists/finance-metrics.md` |
 | Map opportunities before solutions | `_refs/templates/strategy/opportunity-solution-tree.md` |
 | Improve AI workflow context design | `_refs/templates/ai/context-manifest.md` |
+| Review stakeholder decision rights | `_refs/checklists/stakeholder-governance.md` |
+| Review security, privacy, accessibility, or AI risk | `_refs/checklists/security-privacy-accessibility.md` |

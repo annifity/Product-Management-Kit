@@ -1,0 +1,16 @@
+{
+  "name": "traditional-prd-from-spec",
+  "skill": "prd",
+  "input": "traditional-prd-from-spec.input.md",
+  "sourceFiles": [
+    "_refs/workflows/prototype-first.md",
+    "_refs/operating-model/routing.md",
+    "skills/prd/SKILL.md"
+  ],
+  "requiredTerms": [
+    "Traditional Workflow",
+    "Confirmed spec + user asks for PRD",
+    "spec -> PRD",
+    "Spec is the source of truth"
+  ]
+}

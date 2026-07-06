@@ -1,6 +1,6 @@
 ---
 name: prototype
-description: 'Use when a product brief or validated direction needs a build-to-learn prototype plan, user flow, screen list, wireframe description, clickable mockup prompt, Claude Code prompt, Lovable prompt, Bolt prompt, or prototype handoff before experimentation or specification.'
+description: 'Use when a product brief, raw idea, pain point, or validated direction needs a build-to-learn prototype plan, PRO - Prototyping Requirements One-Pager, user flow, screen list, wireframe description, clickable mockup prompt, Claude Code prompt, Lovable prompt, frontend prototype builder input, or prototype handoff before experimentation or specification.'
 ---
 
 # prototype

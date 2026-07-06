@@ -1,0 +1,8 @@
+{
+  "name": "skill-contract-minimal",
+  "skill": "brief",
+  "input": "skill-contract-minimal.input.md",
+  "requiredTerms": [
+    "Problem"
+  ]
+}

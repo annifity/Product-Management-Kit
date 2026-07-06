@@ -1,6 +1,6 @@
-# Annifity AI Product Manager Skills
+# Annifity AI Product Builder Kit Skills
 
-Annifity is a portable PO operating system for discovery, briefs, prototypes, experiments, validation, learning, specification, planning, execution support, shipping, documentation, memory, and product artifacts.
+Annifity is a portable Product Builder Kit for discovery, briefs, prototypes, experiments, validation, learning, specification, planning, execution support, shipping, documentation, memory, and product artifacts.
 
 ## Source Of Truth
 
@@ -12,7 +12,7 @@ Annifity is a portable PO operating system for discovery, briefs, prototypes, ex
 ## Working Rules
 
 - Match the user's language by default; Vietnamese and English are both first-class.
-- Follow the Annifity learning and delivery path: discovery -> brief -> prototype -> experiment -> validate -> learn -> spec -> plan -> execution -> ship.
+- Follow the Annifity builder path: discovery -> brief -> prototype -> experiment -> validate -> learn -> spec -> plan -> execution -> ship.
 - Use docs to save and index artifacts, and memories to persist durable context across workflow gates.
 - For ambiguous requirements, clarify before drafting final deliverables.
 - Load only the relevant skill and reference files for the task; avoid pulling the whole repository into context.
@@ -30,8 +30,8 @@ Annifity is a portable PO operating system for discovery, briefs, prototypes, ex
 - learn: Use when discovery, prototype, experiment, validation, release, or post-ship evidence needs to become an insight summary, product retrospective, decision memo, roadmap recommendation, memory update, or next-loop recommendation. Source: skills/learn/SKILL.md
 - memories: Maintain durable Annifity product memory. Use before and after PO workflows to read and update product context, team preferences, terminology, stakeholder constraints, decisions, decision outcomes, assumptions, template preferences, lessons learned, and open questions in `.annifity/memories/`. Source: skills/memories/SKILL.md
 - plan: Use when a confirmed product spec needs a delivery plan, roadmap slice, prioritization decision, business case, market/finance-informed investment decision, epic map, release slices, dependency map, milestone plan, grooming questions, or team handoff sequence before execution, story writing, sprint planning, or roadmap communication. Source: skills/plan/SKILL.md
-- prd: Create, revise, review, translate, or export Product Requirement Documents and BRD-style requirement artifacts. Use when the user asks for a PRD, BRD, one-pager, product requirements document, product spec document, PRD/BRD review, translation, export, Confluence-ready document, or strict Confluence HTML. Source: skills/prd/SKILL.md
-- prototype: Use when a product brief or validated direction needs a build-to-learn prototype plan, user flow, screen list, wireframe description, clickable mockup prompt, Claude Code prompt, Lovable prompt, Bolt prompt, or prototype handoff before experimentation or specification. Source: skills/prototype/SKILL.md
+- prd: Create, revise, review, translate, or export Product Requirement Documents and BRD-style requirement artifacts. Use when the user asks for a PRD, BRD, one-pager, product requirements document, product spec document, PRD/BRD review, translation, export, Confluence-ready document, strict Confluence HTML, or PRD from PRO + Client Feedback after prototype review, validation result, learning summary, or stakeholder decision. Source: skills/prd/SKILL.md
+- prototype: Use when a product brief, raw idea, pain point, or validated direction needs a build-to-learn prototype plan, PRO - Prototyping Requirements One-Pager, user flow, screen list, wireframe description, clickable mockup prompt, Claude Code prompt, Lovable prompt, frontend prototype builder input, or prototype handoff before experimentation or specification. Source: skills/prototype/SKILL.md
 - ship: Use when a product change needs release, rollout, stakeholder handoff, support handoff, retirement, release readiness, launch planning, support notes, rollback planning, EOL communication, signoff, final document bundle, release notes, decision summary, UAT signoff, or post-ship memory capture. Source: skills/ship/SKILL.md
 - spec: Use when a confirmed product idea, PRD input, BRD, meeting note, discovery brief, roadmap item, learning outcome, or brainstorming brief needs to become a precise product specification with scope, business rules, workflows, state behavior, edge cases, data/API rules, non-functional requirements, assumptions, risks, and open questions before delivery planning. Source: skills/spec/SKILL.md
 - uat: Create or review User Acceptance Testing plans, scenario tests, test case registers, and coverage reports from PRDs, BRDs, specs, user stories, acceptance criteria, or release scope. Use for UAT coverage, role-based scenarios, happy paths, unhappy paths, boundary cases, permission validation, NFR scenarios, execution logs, and signoff readiness. Source: skills/uat/SKILL.md

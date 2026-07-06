@@ -1,0 +1,38 @@
+{
+  "name": "pro-one-pager",
+  "skill": "prototype",
+  "input": "pro-one-pager.input.md",
+  "sourceFiles": [
+    "_refs/templates/prototype/prototyping-requirements-one-pager.md",
+    "_refs/checklists/pro-quality.md",
+    "_refs/operating-model/routing.md",
+    "_refs/operating-model/builder-packs.md"
+  ],
+  "requiredTerms": [
+    "PRO - Prototyping Requirements One-Pager",
+    "frontend prototype builder",
+    "selected builder",
+    "not a PRD",
+    "not a full product spec",
+    "not an engineering handoff",
+    "runnable frontend prototype",
+    "AI considerations",
+    "assumptions",
+    "edge cases",
+    "next steps"
+  ],
+  "requiredHeadings": [
+    "Problem Statement And Goal",
+    "Target Users And Use Case",
+    "Key Requirements And Features",
+    "AI Considerations",
+    "Golden Paths",
+    "Edge Cases And Risks",
+    "Assumptions And Constraints",
+    "Success Metrics Or Criteria",
+    "Non-Goals",
+    "Prompt-Ready Input For AI Prototyping",
+    "Next Steps"
+  ],
+  "maxWords": 500
+}

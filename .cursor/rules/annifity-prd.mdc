@@ -1,5 +1,5 @@
 ---
-description: 'Annifity skill prd: Create, revise, review, translate, or export Product Requirement Documents and BRD-style requirement artifacts. Use when the user asks for a PRD, BRD, one-pager, product requirements document, product spec document, PRD/BRD review, translation, export, Confluence-ready document, or strict Confluence HTML.'
+description: 'Annifity skill prd: Create, revise, review, translate, or export Product Requirement Documents and BRD-style requirement artifacts. Use when the user asks for a PRD, BRD, one-pager, product requirements document, product spec document, PRD/BRD review, translation, export, Confluence-ready document, strict Confluence HTML, or PRD from PRO + Client Feedback after prototype review, validation result, learning summary, or stakeholder decision.'
 alwaysApply: false
 ---
 

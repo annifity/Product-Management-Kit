@@ -29,11 +29,14 @@ Use this after `discovery` when the direction is clear enough to summarize, but 
 
 ## Required References
 
+- `_refs/operating-model/routing.md`
+- `_refs/operating-model/builder-packs.md`
 - `_refs/templates/prd/one-pager.md`
 - `_refs/templates/metrics/metric-tree.md`
 - `_refs/templates/ai/context-manifest.md`
 - `_refs/checklists/business-analysis.md`
 - `_refs/checklists/edge-cases.md`
+- `_refs/checklists/stakeholder-governance.md`
 - `_refs/workflows/ai-native-pm-loop.md`
 - `_refs/operating-model/learning-loop.md`
 

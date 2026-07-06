@@ -201,13 +201,13 @@ Read the canonical skill file before acting, then load only the referenced _refs
 function New-CursorIndexRule {
     return @"
 ---
-description: 'Annifity AI Product Manager skill suite index and source-of-truth policy.'
+description: 'Annifity AI Product Builder Kit index and source-of-truth policy.'
 alwaysApply: true
 ---
 
 # Annifity Skill Source
 
-Annifity is a portable AI Product Manager skill suite. Treat top-level skills/*/SKILL.md files as the canonical source of skill behavior and _refs/ as shared reference material.
+Annifity is a portable AI Product Builder Kit. Treat top-level skills/*/SKILL.md files as the canonical source of skill behavior and _refs/ as shared reference material.
 
 Generated folders (.claude/skills, .github/skills, .agents/skills, .codex/skills) and Cursor rules are adapters. Do not edit them manually; update skills/ or _refs/, then run tools/sync-ai-skill-structures.ps1.
 
@@ -224,9 +224,9 @@ function New-AgentInstructions {
     ) -join "`n"
 
     return @"
-# Annifity AI Product Manager Skills
+# Annifity AI Product Builder Kit Skills
 
-Annifity is a portable PO operating system for discovery, briefs, prototypes, experiments, validation, learning, specification, planning, execution support, shipping, documentation, memory, and product artifacts.
+Annifity is a portable Product Builder Kit for discovery, briefs, prototypes, experiments, validation, learning, specification, planning, execution support, shipping, documentation, memory, and product artifacts.
 
 ## Source Of Truth
 
@@ -238,7 +238,7 @@ Annifity is a portable PO operating system for discovery, briefs, prototypes, ex
 ## Working Rules
 
 - Match the user's language by default; Vietnamese and English are both first-class.
-- Follow the Annifity learning and delivery path: discovery -> brief -> prototype -> experiment -> validate -> learn -> spec -> plan -> execution -> ship.
+- Follow the Annifity builder path: discovery -> brief -> prototype -> experiment -> validate -> learn -> spec -> plan -> execution -> ship.
 - Use docs to save and index artifacts, and memories to persist durable context across workflow gates.
 - For ambiguous requirements, clarify before drafting final deliverables.
 - Load only the relevant skill and reference files for the task; avoid pulling the whole repository into context.
@@ -265,13 +265,13 @@ function New-CopilotInstructions {
     ) -join "`n"
 
     return @"
-# Annifity AI PM Instructions
+# Annifity AI Product Builder Kit Instructions
 
-Use Annifity for product-management work: discovery, briefs, prototypes, experiments, validation, learning, product specs, delivery planning, execution support, shipping, docs, memories, PRDs, user stories, UAT, change management, and org knowledge lookup.
+Use Annifity for product-building work: discovery, briefs, prototypes, experiments, validation, learning, product specs, delivery planning, execution support, shipping, docs, memories, PRDs, user stories, UAT, change management, and org knowledge lookup.
 
 Canonical source lives in top-level skills/*/SKILL.md and _refs/. Generated Copilot skill adapters live in .github/skills/; do not edit adapters manually. Update skills/ or _refs/, then run tools/sync-ai-skill-structures.ps1.
 
-Match the user's language by default. Follow the Annifity learning and delivery path when doing end-to-end product work. Use docs to save artifacts and memories to preserve durable product context. Clarify ambiguous requirements before drafting final deliverables.
+Match the user's language by default. Follow the Annifity builder path when doing end-to-end product work. Use docs to save artifacts and memories to preserve durable product context. Clarify ambiguous requirements before drafting final deliverables.
 
 Top-level skills:
 
@@ -330,12 +330,13 @@ function Write-ClaudePluginManifest {
         name = "annifity"
         displayName = "Annifity"
         version = "2.0.0"
-        description = "AI Product Manager skill suite for discovery, briefs, prototypes, experiments, validation, learning, specification, planning, execution support, shipping, documentation, memory, PRDs, user stories, UAT, change management, and organizational knowledge retrieval."
+        description = "AI Product Builder Kit for discovery, briefs, prototypes, experiments, validation, learning, specification, planning, execution support, shipping, documentation, memory, PRDs, user stories, UAT, change management, and organizational knowledge retrieval."
         author = [ordered]@{
             name = "nghiatt15"
             email = "nghiatt15@onemount.com"
         }
         keywords = @(
+            "product-builder-kit",
             "product-management",
             "prd",
             "user-story",

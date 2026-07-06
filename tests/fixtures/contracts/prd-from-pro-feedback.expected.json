@@ -1,0 +1,35 @@
+{
+  "name": "prd-from-pro-feedback",
+  "skill": "prd",
+  "input": "prd-from-pro-feedback.input.md",
+  "sourceFiles": [
+    "_refs/templates/prd/prd-from-pro-feedback.md",
+    "_refs/templates/prototype/prototype-feedback-summary.md",
+    "_refs/workflows/prototype-first.md",
+    "skills/prd/SKILL.md"
+  ],
+  "requiredTerms": [
+    "PRD from PRO + Client Feedback",
+    "Validated / Changed / Rejected Assumptions",
+    "What was validated",
+    "What changed after feedback",
+    "What remains assumption",
+    "ready for delivery specification"
+  ],
+  "requiredHeadings": [
+    "Background",
+    "Validated Problem",
+    "Target Users",
+    "Product Goals",
+    "Validated / Changed / Rejected Assumptions",
+    "Scope",
+    "User Experience Requirements",
+    "Functional Requirements",
+    "Business Rules",
+    "AI Behavior",
+    "Success Metrics",
+    "Risks & Open Questions",
+    "Next Step"
+  ],
+  "headingSource": "_refs/templates/prd/prd-from-pro-feedback.md"
+}

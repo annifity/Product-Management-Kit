@@ -28,8 +28,14 @@ Use this when the team is preparing to release, hand off, or publish final produ
 
 ## Required References
 
+- `_refs/operating-model/routing.md`
+- `_refs/operating-model/builder-packs.md`
 - `_refs/workflows/release-readiness.md`
 - `_refs/checklists/ship-readiness.md`
 - `_refs/checklists/operational-readiness.md`
+- `_refs/checklists/stakeholder-governance.md`
+- `_refs/checklists/security-privacy-accessibility.md`
+- `_refs/templates/risk/risk-register.md`
+- `_refs/templates/traceability/rtm.md`
 - `_refs/templates/release/rollout-plan.md`
 - `_refs/templates/docs/release-note.md`

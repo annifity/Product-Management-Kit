@@ -5,7 +5,7 @@ description: Use when product artifacts, prototypes, experiments, sprint scope, 
 
 # Validate
 
-Use this when the user asks whether an artifact, prototype, experiment, release package, or delivery handoff is ready, complete, testable, clear, or safe to proceed.
+Use this when the user asks whether an artifact, prototype, experiment, release package, or delivery handoff is ready, complete, testable, clear, or safe to proceed. Use it to summarize prototype feedback before `learn` or PRD-from-PRO work. Use `uat` to create acceptance tests, `ship` to create release packages, and `spec` or `plan` when the request is creation rather than readiness review.
 
 ## Process
 
@@ -28,6 +28,8 @@ Use this when the user asks whether an artifact, prototype, experiment, release 
 
 ## Required References
 
+- `_refs/operating-model/routing.md`
+- `_refs/workflows/prototype-first.md`
 - `_refs/workflows/sprint-readiness.md`
 - `_refs/checklists/artifact-quality-scorecard.md`
 - `_refs/checklists/business-analysis.md`
@@ -40,6 +42,9 @@ Use this when the user asks whether an artifact, prototype, experiment, release 
 - `_refs/checklists/definition-of-ready.md`
 - `_refs/checklists/definition-of-done.md`
 - `_refs/checklists/ship-readiness.md`
+- `_refs/checklists/stakeholder-governance.md`
+- `_refs/checklists/security-privacy-accessibility.md`
 - `_refs/templates/risk/risk-register.md`
 - `_refs/templates/traceability/rtm.md`
 - `_refs/templates/experiment/decision-criteria.md`
+- `_refs/templates/prototype/prototype-feedback-summary.md`

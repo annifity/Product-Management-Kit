@@ -1,6 +1,6 @@
 # Learning Loop
 
-Annifity separates learning work from delivery work. Use the learning loop when the team still needs evidence. Use the delivery path when the team is ready to commit scope.
+Annifity is a Product Builder Kit. It separates learning work from delivery work so a team can move from idea to evidence, build handoff, release, and learning without losing context.
 
 ## Core Loop
 
@@ -19,6 +19,9 @@ Annifity separates learning work from delivery work. Use the learning loop when 
 - Artifact skills: `prd`, `user-story`, `uat`, `change`.
 - Habit and system skills: `docs`, `memories`, `knowledge`.
 
+Use `_refs/operating-model/builder-packs.md` to decide which package of artifacts the user should receive at each stage.
+Use `_refs/operating-model/routing.md` when a request could match multiple skills.
+
 ## Routing Rules
 
 - If the user asks "should we build this?", start with `discovery`.
@@ -28,3 +31,4 @@ Annifity separates learning work from delivery work. Use the learning loop when 
 - If the team is ready to build, use `spec` then `plan`.
 - If delivery is underway, use `execution`.
 - If release or handoff is near, use `ship`.
+- If the user asks for "the build pack", "handoff pack", "release pack", or similar packaged output, use `_refs/operating-model/builder-packs.md`.

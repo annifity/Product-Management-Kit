@@ -29,6 +29,7 @@ Use this to design how the team will test a product hypothesis with real evidenc
 
 ## Required References
 
+- `_refs/operating-model/builder-packs.md`
 - `_refs/workflows/experiment-design.md`
 - `_refs/templates/experiment/hypothesis.md`
 - `_refs/templates/experiment/experiment-plan.md`
@@ -37,6 +38,7 @@ Use this to design how the team will test a product hypothesis with real evidenc
 - `_refs/templates/experiment/sample-size.md`
 - `_refs/schemas/metrics-event.md`
 - `_refs/templates/docs/evidence-ledger.md`
+- `_refs/checklists/security-privacy-accessibility.md`
 - `_refs/operating-model/learning-loop.md`
 
 ## Handoff

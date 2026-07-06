@@ -38,7 +38,9 @@ Return a compact discovery brief:
 
 ## Required References
 
+- Use `_refs/operating-model/routing.md` when the request could match multiple skills.
 - Use `_refs/operating-model/learning-loop.md` for the overall phase model.
+- Use `_refs/operating-model/builder-packs.md` when discovery should produce a packaged Discovery Pack.
 - Use `_refs/operating-model/phase-gates.md` to decide whether discovery is ready to progress.
 - Use `_refs/workflows/product-discovery.md` for strategic or feature-level discovery.
 - Use `_refs/workflows/workshop-facilitation.md` for interactive discovery, strategy, prioritization, or workshop-style sessions.

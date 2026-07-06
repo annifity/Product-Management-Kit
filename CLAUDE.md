@@ -1,6 +1,6 @@
-# Annifity - AI Product Manager Skills
+# Annifity - AI Product Builder Kit Skills
 
-Annifity is a portable PO operating system for Claude, Codex, Cursor, Copilot, and shared agent environments.
+Annifity is a portable Product Builder Kit for Claude, Codex, Cursor, Copilot, and shared agent environments.
 
 ## Source Of Truth
 
@@ -11,7 +11,7 @@ Annifity is a portable PO operating system for Claude, Codex, Cursor, Copilot, a
 
 ## Skill Map
 
-### Learning And Delivery Flow
+### Builder Path
 
 | Skill | Use |
 |---|---|
@@ -46,7 +46,7 @@ Annifity is a portable PO operating system for Claude, Codex, Cursor, Copilot, a
 ## Working Rules
 
 - Match the user's language by default.
-- Follow the Annifity learning and delivery path for end-to-end work: `discovery -> brief -> prototype -> experiment -> validate -> learn -> spec -> plan -> execution -> ship`.
+- Follow the Annifity builder path for end-to-end work: `discovery -> brief -> prototype -> experiment -> validate -> learn -> spec -> plan -> execution -> ship`.
 - Use `docs` after artifact creation or phase gates.
 - Use `memories` before workflows and after durable decisions.
 - Load only relevant `_refs/` files for the current task.
@@ -75,8 +75,11 @@ npm install
 The Lefthook pre-commit runs `tools/pre-commit-annifity.ps1`, which:
 
 1. Runs `tools/check-self-contained.ps1`
-2. Runs `tools/sync-ai-skill-structures.ps1`
-3. Runs `tools/test-annifity.ps1`
-4. Stages generated adapter files
+2. Runs `tools/check-ref-integrity.ps1`
+3. Runs `tools/sync-ai-skill-structures.ps1`
+4. Runs `tools/build-docs-site.ps1`
+5. Runs `tools/test-skill-contracts.ps1`
+6. Runs `tools/test-annifity.ps1`
+7. Stages generated adapter files and `docs/data/catalog.js`
 
 If Lefthook is unavailable, `.githooks/pre-commit` calls the same script as a fallback.

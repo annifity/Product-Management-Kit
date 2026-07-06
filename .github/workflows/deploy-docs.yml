@@ -1,0 +1,58 @@
+name: deploy-docs
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - "docs/**"
+      - "skills/**"
+      - "_refs/**"
+      - "package.json"
+      - "tools/build-docs-site.ps1"
+      - "tools/check-ref-integrity.ps1"
+      - "tools/check-self-contained.ps1"
+      - "tools/sync-ai-skill-structures.ps1"
+      - "tools/test-annifity.ps1"
+      - "tools/test-skill-contracts.ps1"
+      - ".github/workflows/deploy-docs.yml"
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npm install --ignore-scripts --no-package-lock
+      - run: npm run guard
+      - run: npm run ref:check
+      - run: npm run sync
+      - run: npm run docs:build
+      - run: npm run contract:test
+      - run: npm test
+      - run: git diff --exit-code
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: docs
+
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

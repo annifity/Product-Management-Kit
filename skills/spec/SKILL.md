@@ -37,6 +37,8 @@ Use this after `discovery`, `brief`, `prototype`, `experiment`, or `learn` when 
 
 ## Required References
 
+- `_refs/operating-model/routing.md`
+- `_refs/operating-model/builder-packs.md`
 - `_refs/templates/spec/product-spec.md`
 - `_refs/templates/spec/workflow-spec.md`
 - `_refs/templates/spec/data-requirements.md`
@@ -50,6 +52,8 @@ Use this after `discovery`, `brief`, `prototype`, `experiment`, or `learn` when 
 - `_refs/checklists/solution-quality.md`
 - `_refs/checklists/edge-cases.md`
 - `_refs/checklists/risk-review.md`
+- `_refs/checklists/stakeholder-governance.md`
+- `_refs/checklists/security-privacy-accessibility.md`
 - `_refs/workflows/feature-design.md`
 - `_refs/workflows/requirement-analysis.md`
 - `_refs/workflows/research-evidence.md`

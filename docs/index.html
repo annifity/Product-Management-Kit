@@ -3,136 +3,123 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Annifity Skill Capabilities</title>
-  <meta name="description" content="Annifity product owner skill capabilities, workflows, references, and deployment docs.">
+  <title>Annifity Product Builder Kit</title>
+  <meta name="description" content="Annifity Product Builder Kit capabilities, skills, builder packs, and GitHub Pages documentation.">
   <link rel="icon" href="assets/annifity-mark.svg" type="image/svg+xml">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <header class="topbar">
-    <a class="brand" href="#overview" aria-label="Annifity overview">
-      <img src="assets/annifity-mark.svg" alt="" width="40" height="40">
+    <a class="brand" href="#top" aria-label="Annifity Product Builder Kit">
+      <img src="assets/annifity-mark.svg" alt="" width="36" height="36">
       <span>
         <strong>Annifity</strong>
-        <small>AI Product Owner skill suite</small>
+        <small>Product Builder Kit</small>
       </span>
     </a>
     <nav class="nav" aria-label="Site navigation">
-      <a href="#capabilities">Capabilities</a>
+      <a href="#packs">Packs</a>
+      <a href="#loop">Loop</a>
       <a href="#skills">Skills</a>
-      <a href="#references">References</a>
       <a href="#deploy">Deploy</a>
     </nav>
   </header>
 
-  <main>
-    <section class="overview" id="overview">
-      <div class="overview-copy">
-        <p class="eyebrow">Portable PO operating system</p>
-        <h1>Small skill surface, deep product logic.</h1>
-        <p class="lead">Annifity keeps the consumer-facing skill list compact while routing detailed PO workflows, checklists, templates, and integration rules through reusable references.</p>
+  <main id="top">
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">Portable AI product system</p>
+        <h1>Product work, packaged for builders.</h1>
+        <p class="lead">Annifity turns raw ideas into discovery evidence, PRO prototypes, experiments, PRDs, specs, Jira/UAT packs, release handoffs, and durable product memory.</p>
       </div>
-      <div class="overview-panel" aria-label="Annifity summary">
-        <div class="metric">
-          <span id="skillCount">13</span>
-          <small>skills</small>
-        </div>
-        <div class="metric">
-          <span id="referenceCount">86</span>
-          <small>refs</small>
-        </div>
-        <div class="metric">
-          <span id="workflowCount">10</span>
-          <small>workflows</small>
-        </div>
-        <div class="metric">
-          <span id="templateCount">0</span>
-          <small>templates</small>
-        </div>
+      <div class="stat-grid" aria-label="Catalog summary">
+        <article class="stat-card">
+          <span id="skillCount">--</span>
+          <small>Skills</small>
+        </article>
+        <article class="stat-card">
+          <span id="referenceCount">--</span>
+          <small>References</small>
+        </article>
+        <article class="stat-card">
+          <span id="workflowCount">--</span>
+          <small>Workflows</small>
+        </article>
+        <article class="stat-card">
+          <span id="templateCount">--</span>
+          <small>Templates</small>
+        </article>
       </div>
     </section>
 
-    <section class="section" id="capabilities">
+    <section class="section" id="packs">
       <div class="section-heading">
-        <p class="eyebrow">Capability map</p>
-        <h2>What the skill suite can do</h2>
+        <p class="eyebrow">Builder packs</p>
+        <h2>Clear outputs at each product gate.</h2>
       </div>
-      <div class="capability-grid" id="capabilityGrid"></div>
+      <div class="pack-grid" id="packGrid"></div>
     </section>
 
-    <section class="section split">
-      <div>
-        <div class="section-heading compact">
-          <p class="eyebrow">Operating flow</p>
-          <h2>Six front doors cover the PO lifecycle</h2>
-        </div>
-        <div class="flow" id="flowList"></div>
+    <section class="section loop-section" id="loop">
+      <div class="section-heading">
+        <p class="eyebrow">Prototype first</p>
+        <h2>Learn before writing the long PRD.</h2>
       </div>
-      <aside class="surface-panel">
-        <h3>Consumer mental model</h3>
-        <p>Use a flow skill for product work. Use artifact skills only when the request names a concrete artifact.</p>
-        <div class="tag-row">
-          <span>Discovery</span>
-          <span>Spec</span>
-          <span>Plan</span>
-          <span>Execute</span>
-          <span>Review</span>
-          <span>Ship</span>
-        </div>
-      </aside>
+      <div class="loop-grid" id="loopGrid"></div>
     </section>
 
     <section class="section" id="skills">
       <div class="section-heading with-actions">
         <div>
-          <p class="eyebrow">Skill catalog</p>
-          <h2>Canonical skills</h2>
+          <p class="eyebrow">Skills</p>
+          <h2>Small front door, deep references.</h2>
         </div>
         <label class="search">
-          <span>Search</span>
-          <input id="searchInput" type="search" placeholder="Filter skills or capabilities" autocomplete="off">
+          <span>Filter</span>
+          <input id="searchInput" type="search" placeholder="Search skills or refs" autocomplete="off">
         </label>
       </div>
-      <div class="filters" id="filters" aria-label="Capability filters"></div>
+      <div class="capability-grid" id="capabilityGrid"></div>
+      <div class="skill-toolbar">
+        <div class="filters" id="filters" aria-label="Skill filters"></div>
+        <p id="skillResultCount" class="result-count"></p>
+      </div>
       <div class="skill-grid" id="skillGrid"></div>
     </section>
 
-    <section class="section" id="references">
-      <div class="section-heading">
-        <p class="eyebrow">Reference system</p>
-        <h2>Deep logic lives in refs</h2>
-      </div>
-      <div class="reference-layout">
-        <div class="reference-groups" id="referenceGroups"></div>
-        <div class="surface-panel reference-note">
-          <h3>Progressive disclosure</h3>
-          <p>Each skill loads only the refs needed for the task: workflows for process, checklists for gates, templates for artifacts, schemas for persistence, and integrations for Jira or Confluence behavior.</p>
+    <section class="section info-layout" id="deploy">
+      <div>
+        <div class="section-heading">
+          <p class="eyebrow">GitHub Pages</p>
+          <h2>Docs deploy from the generated catalog.</h2>
+        </div>
+        <div class="deploy-steps">
+          <article class="info-card">
+            <span class="step-number">01</span>
+            <h3>Build catalog</h3>
+            <p><code>npm run docs:build</code> reads canonical skills and references into <code>docs/data/catalog.js</code>.</p>
+          </article>
+          <article class="info-card">
+            <span class="step-number">02</span>
+            <h3>Upload docs</h3>
+            <p><code>.github/workflows/deploy-docs.yml</code> uploads the static <code>docs/</code> folder.</p>
+          </article>
+          <article class="info-card">
+            <span class="step-number">03</span>
+            <h3>Publish Pages</h3>
+            <p>GitHub Pages serves the latest validated docs after push to <code>main</code> or manual dispatch.</p>
+          </article>
         </div>
       </div>
-    </section>
-
-    <section class="section deploy" id="deploy">
-      <div class="section-heading compact">
-        <p class="eyebrow">GitHub Pages</p>
-        <h2>Deployment path</h2>
-      </div>
-      <div class="deploy-grid">
-        <div class="surface-panel">
-          <h3>Action workflow</h3>
-          <p>The workflow builds the docs catalog from `skills/` and `_refs/`, uploads `docs/`, and deploys to GitHub Pages.</p>
-          <code>.github/workflows/deploy-docs.yml</code>
-        </div>
-        <div class="surface-panel">
-          <h3>Local refresh</h3>
-          <p>Refresh the generated catalog after skill or reference changes.</p>
-          <code>npm run docs:build</code>
-        </div>
-      </div>
+      <aside class="reference-card">
+        <h3>Reference library</h3>
+        <div id="referenceSummary" class="reference-summary"></div>
+      </aside>
     </section>
   </main>
 
   <footer class="footer">
-    <span>Generated from Annifity skills and references.</span>
+    <span>Generated from canonical Annifity skills and refs.</span>
     <span id="generatedAt"></span>
   </footer>
 

@@ -1,17 +1,19 @@
 ---
 name: prd
-description: Create, revise, review, translate, or export Product Requirement Documents and BRD-style requirement artifacts. Use when the user asks for a PRD, BRD, one-pager, product requirements document, product spec document, PRD/BRD review, translation, export, Confluence-ready document, or strict Confluence HTML.
+description: Create, revise, review, translate, or export Product Requirement Documents and BRD-style requirement artifacts. Use when the user asks for a PRD, BRD, one-pager, product requirements document, product spec document, PRD/BRD review, translation, export, Confluence-ready document, strict Confluence HTML, or PRD from PRO + Client Feedback after prototype review, validation result, learning summary, or stakeholder decision.
 ---
 
 # PRD
 
-Use this for PRD and BRD-style artifacts. For fuzzy ideas, start with `discovery`; for concise one-page direction, use `brief`; for detailed requirements, use the confirmed `spec` output.
+Use this for PRD and BRD-style artifacts. For fuzzy ideas, start with `discovery`; for concise one-page direction, use `brief`; for detailed requirements, use the confirmed `spec` output. If a confirmed spec exists, treat the PRD as a stakeholder communication artifact derived from that source of truth.
+
+Use `PRD from PRO + Client Feedback` when the user is in Prototype First Workflow and provides PRO, prototype behavior, client/user feedback, validation result, learning summary, or stakeholder decision. In this mode, the PRD must separate what was validated, what changed after feedback, what remains assumption, and what is ready for delivery specification.
 
 ## Process
 
 1. Confirm whether the user needs draft, revision, review, translation, or export.
 2. Read relevant docs and memories.
-3. Select the correct artifact type: BRD, PRD, one-pager, Confluence HTML, or export package.
+3. Select the correct artifact type: BRD, PRD, PRD from PRO + Client Feedback, one-pager, Confluence HTML, or export package.
 4. Use the selected template or default to `_refs/templates/prd/default-prd.md`.
 5. Preserve explicit assumptions and open questions instead of inventing facts.
 6. Ask for confirmation before publishing/exporting.
@@ -19,12 +21,16 @@ Use this for PRD and BRD-style artifacts. For fuzzy ideas, start with `discovery
 
 ## Required References
 
+- `_refs/operating-model/routing.md`
+- `_refs/workflows/prototype-first.md`
 - `_refs/templates/prd/default-prd.md`
+- `_refs/templates/prd/prd-from-pro-feedback.md`
 - `_refs/templates/prd/one-pager.md`
 - `_refs/templates/prd/confluence-html.md`
 - `_refs/templates/prd/confluence-html-strict.md`
 - `_refs/templates/prd/prd-export-html.html`
 - `_refs/templates/brd/default-brd.md`
+- `_refs/templates/prototype/prototype-feedback-summary.md`
 - `_refs/templates/metrics/metric-tree.md`
 - `_refs/templates/strategy/market-sizing.md`
 - `_refs/templates/strategy/company-research-brief.md`
@@ -32,6 +38,7 @@ Use this for PRD and BRD-style artifacts. For fuzzy ideas, start with `discovery
 - `_refs/checklists/spec-quality.md`
 - `_refs/checklists/business-analysis.md`
 - `_refs/checklists/finance-metrics.md`
+- `_refs/checklists/stakeholder-governance.md`
 - `_refs/workflows/research-evidence.md`
 - `_refs/integrations/confluence.md`
 

@@ -1,0 +1,18 @@
+{
+  "name": "prototype-first-raw-idea",
+  "skill": "prototype",
+  "input": "prototype-first-raw-idea.input.md",
+  "sourceFiles": [
+    "_refs/workflows/prototype-first.md",
+    "_refs/operating-model/routing.md",
+    "skills/prototype/SKILL.md"
+  ],
+  "requiredTerms": [
+    "Prototype First Workflow",
+    "Create PRO first",
+    "generate prototype",
+    "collect feedback",
+    "then produce PRD",
+    "Do not create PRD before PRO"
+  ]
+}

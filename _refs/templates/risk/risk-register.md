@@ -2,9 +2,9 @@
 
 ## Summary
 
-| ID | Risk | Category | Likelihood | Impact | Score | Owner | Status | Trigger |
-|---|---|---|---|---|---|---|---|---|
-| RI-001 | [Risk] | Product / Market-Business / Technical / Operational / Data-Privacy / Compliance-Legal / Schedule-Resource / Stakeholder | High / Medium / Low | High / Medium / Low | Critical / High / Medium / Low | [Owner] | Open / Mitigated / Accepted | [Trigger] |
+| ID | Risk | Category | Likelihood | Impact | Score | Impacted Users | Owner | Status | Trigger | Review Date |
+|---|---|---|---|---|---|---|---|---|---|---|
+| RI-001 | [Risk] | Product / Market-Business / Technical / Operational / Data-Privacy / Compliance-Legal / Security / Accessibility / AI / Schedule-Resource / Stakeholder | High / Medium / Low | High / Medium / Low | Critical / High / Medium / Low | [Users] | [Owner] | Open / Mitigated / Accepted | [Trigger] | [Date] |
 
 ## Risk Detail
 
@@ -15,11 +15,15 @@
 - Likelihood: [High / Medium / Low] - [Rationale.]
 - Impact: [High / Medium / Low] - [Consequence.]
 - Score: [Critical / High / Medium / Low.]
+- Impacted users: [User segment or operational group.]
 - Trigger: [What would make the risk materialize or require action.]
 - Mitigation: [Action that reduces likelihood or impact.]
 - Contingency: [Action if risk happens.]
 - Decision: [Mitigate / Accept / Transfer / Avoid.]
 - Decision owner: [Owner.]
+- Accepted by: [Name, only when accepted.]
+- Accepted date: [Date, only when accepted.]
+- Residual risk: [What risk remains after mitigation or acceptance.]
 - Due or review date: [Date or milestone.]
 
 ## Stakeholder Summary

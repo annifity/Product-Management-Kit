@@ -28,7 +28,7 @@ Proceed only when observations, interpretations, decision, roadmap implication, 
 
 ## Spec Gate
 
-Proceed only when requirements are testable, scope boundaries are clear, risks are visible, and artifact quality score is reviewed when the work is high stakes.
+Proceed only when requirements are testable, scope boundaries are clear, risks are visible, security/privacy/accessibility implications are reviewed when relevant, and artifact quality score is reviewed when the work is high stakes.
 
 ## Plan Gate
 
@@ -40,4 +40,4 @@ Escalate to `change` when an answer modifies committed scope or acceptance crite
 
 ## Ship Gate
 
-Release only when UAT, operational readiness, stakeholder communication, rollback/support, and post-launch memory capture are ready or accepted as risks.
+Release only when UAT, operational readiness, stakeholder communication, rollback/support, security/privacy/accessibility risk, and post-launch memory capture are ready or accepted as risks with named owners.

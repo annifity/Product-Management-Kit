@@ -1,0 +1,16 @@
+{
+  "name": "prototype-first-prd-with-prototype",
+  "skill": "prototype",
+  "input": "prototype-first-prd-with-prototype.input.md",
+  "sourceFiles": [
+    "_refs/workflows/prototype-first.md",
+    "_refs/operating-model/routing.md",
+    "skills/prd/SKILL.md"
+  ],
+  "requiredTerms": [
+    "Raw idea + user asks for PRD but also mentions prototype",
+    "recommend Prototype First before PRD",
+    "PRO is the first artifact",
+    "PRD after prototype feedback"
+  ]
+}

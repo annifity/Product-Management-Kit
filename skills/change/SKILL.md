@@ -20,11 +20,13 @@ Use this for controlled product requirement changes.
 
 ## Required References
 
+- `_refs/operating-model/routing.md`
 - `_refs/workflows/change-governance.md`
 - `_refs/templates/change/change-plan.md`
 - `_refs/templates/change/impact-analysis.md`
 - `_refs/templates/change/changelog.md`
 - `_refs/templates/change/spec-change-context.md`
+- `_refs/checklists/stakeholder-governance.md`
 - `_refs/integrations/jira.md`
 - `_refs/integrations/confluence.md`
 

@@ -1,0 +1,17 @@
+{
+  "name": "release-candidate-readiness",
+  "skill": "ship",
+  "input": "release-candidate-readiness.input.md",
+  "sourceFiles": [
+    "_refs/workflows/release-readiness.md",
+    "_refs/checklists/ship-readiness.md",
+    "_refs/checklists/operational-readiness.md"
+  ],
+  "requiredTerms": [
+    "UAT signoff",
+    "support",
+    "rollback",
+    "Stakeholders",
+    "accepted"
+  ]
+}

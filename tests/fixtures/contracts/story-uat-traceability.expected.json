@@ -1,0 +1,17 @@
+{
+  "name": "story-uat-traceability",
+  "skill": "user-story",
+  "input": "story-uat-traceability.input.md",
+  "sourceFiles": [
+    "skills/uat/SKILL.md",
+    "_refs/templates/traceability/rtm.md",
+    "_refs/templates/user-story/acceptance-criteria-gwt.md"
+  ],
+  "requiredTerms": [
+    "Given",
+    "When",
+    "Then",
+    "Trace",
+    "Requirement Traceability Matrix"
+  ]
+}

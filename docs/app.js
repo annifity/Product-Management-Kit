@@ -6,79 +6,34 @@
     references: []
   };
 
+  const packs = [
+    ["Discovery Pack", "Shape the opportunity", "Problem, users, evidence, options, assumptions, metric draft.", ["discovery", "brief"], "teal"],
+    ["PRO Pack", "Prototype before PRD", "11-section PRO, golden paths, AI considerations, risks, prompt-ready builder input.", ["prototype"], "blue"],
+    ["Experiment Pack", "Design the evidence", "Hypothesis, sample, metrics, guardrails, tracking, decision thresholds.", ["experiment", "validate"], "amber"],
+    ["Build Handoff Pack", "Make scope buildable", "Spec IDs, workflows, business rules, data/API, NFRs, risk, traceability.", ["spec", "plan"], "purple"],
+    ["Jira/UAT Pack", "Split and accept", "Epics, stories, acceptance criteria, UAT register, coverage matrix.", ["user-story", "uat"], "green"],
+    ["Release Pack", "Ship and learn", "Readiness, rollout, rollback, support handoff, release notes, memory updates.", ["ship", "learn"], "red"]
+  ];
+
+  const loop = [
+    ["Idea", "Raw ask or fuzzy opportunity"],
+    ["PRO", "One-pager with goal, users, golden paths, risks, metrics"],
+    ["Builder", "Tool-agnostic frontend prototype input"],
+    ["Prototype", "Runnable FE with mock data"],
+    ["Feedback", "Client/user review and observations"],
+    ["Learn/Validate", "Evidence, decision, and next-loop recommendation"],
+    ["PRD", "Detailed requirement after learning"]
+  ];
+
   const capabilityGroups = [
-    {
-      id: "discovery",
-      title: "Discovery and Brief",
-      summary: "Frame opportunities, compare solution directions, and turn confirmed direction into a concise brief.",
-      skills: ["discovery", "brief", "prd"],
-      refs: ["product-discovery", "solution-exploration", "one-pager", "metric-tree"],
-      tone: "teal"
-    },
-    {
-      id: "learning",
-      title: "Prototype, Experiment, Learn",
-      summary: "Build to learn, test hypotheses, validate results, and turn evidence into decisions.",
-      skills: ["prototype", "experiment", "validate", "learn"],
-      refs: ["idea-to-prototype", "experiment-design", "learning-synthesis", "decision-criteria"],
-      tone: "blue"
-    },
-    {
-      id: "specification",
-      title: "Specification",
-      summary: "Turn validated learning, BRDs, workflows, data rules, and APIs into testable product specifications.",
-      skills: ["spec", "prd", "knowledge"],
-      refs: ["feature-design", "requirement-analysis", "default-brd", "workflow-spec", "api-contract"],
-      tone: "amber"
-    },
-    {
-      id: "planning",
-      title: "Planning and Roadmap",
-      summary: "Prioritize work, slice releases, build epics, prepare grooming, and expose dependency risk.",
-      skills: ["plan", "user-story"],
-      refs: ["prioritization", "product-roadmap", "story-map", "grooming-questions"],
-      tone: "teal"
-    },
-    {
-      id: "delivery",
-      title: "Delivery Readiness",
-      summary: "Check definition of ready, sprint readiness, risk, traceability, operations, and UAT coverage.",
-      skills: ["validate", "uat", "execution"],
-      refs: ["sprint-readiness", "definition-of-ready", "risk-register", "rtm", "operational-readiness"],
-      tone: "blue"
-    },
-    {
-      id: "change",
-      title: "Execution and Change",
-      summary: "Answer implementation questions, govern requirement changes, update context, and preserve audit trail.",
-      skills: ["execution", "change", "docs", "memories"],
-      refs: ["change-governance", "spec-change-context", "decision-ledger", "jira", "confluence"],
-      tone: "amber"
-    },
-    {
-      id: "shipping",
-      title: "Ship and Learn",
-      summary: "Prepare release packages, rollout plans, support handoff, rollback, decision outcomes, and post-ship memory.",
-      skills: ["ship", "learn", "docs", "memories", "knowledge"],
-      refs: ["release-readiness", "rollout-plan", "release-note", "decision-outcomes"],
-      tone: "amber"
-    }
+    ["Discovery", "Find the right problem", ["discovery", "brief", "knowledge"], "teal"],
+    ["Prototype", "Make ideas inspectable", ["prototype", "experiment", "validate", "learn"], "blue"],
+    ["Requirements", "Turn evidence into scope", ["prd", "spec", "plan"], "amber"],
+    ["Delivery", "Split, test, ship", ["user-story", "uat", "execution", "ship"], "green"],
+    ["System", "Preserve context", ["docs", "memories", "change"], "purple"]
   ];
 
-  const flow = [
-    ["01", "discovery", "Fuzzy ideas, stakeholder asks, discovery, strategy, solution options."],
-    ["02", "brief", "One-page direction, goals, scope, metrics, AI requirements, risks."],
-    ["03", "prototype", "Build-to-learn flows, screens, wireframes, and builder prompts."],
-    ["04", "experiment", "Hypotheses, metrics, tracking, sample logic, and decision criteria."],
-    ["05", "validate", "Artifact, experiment, readiness, risk, traceability, UAT, and delivery gates."],
-    ["06", "learn", "Insight synthesis, retrospectives, decision memos, roadmap recommendations."],
-    ["07", "spec", "BRD, PRD input, workflow, data/API rules, requirements, edge cases."],
-    ["08", "plan", "Roadmap, prioritization, release slices, epics, dependencies, grooming."],
-    ["09", "execution", "Developer questions, blockers, scope decisions, implementation context."],
-    ["10", "ship", "Release, rollout, support handoff, release notes, post-ship memory."]
-  ];
-
-  const artifactSkills = new Set(["prd", "user-story", "uat", "change", "docs", "memories", "knowledge"]);
+  const flowSkillNames = new Set(["discovery", "brief", "prototype", "experiment", "validate", "learn", "spec", "plan", "execution", "ship"]);
   let activeFilter = "all";
 
   function byId(id) {
@@ -94,10 +49,6 @@
       .replaceAll("'", "&#039;");
   }
 
-  function skillByName(name) {
-    return catalog.skills.find((skill) => skill.name === name);
-  }
-
   function setText(id, value) {
     const node = byId(id);
     if (node) node.textContent = value;
@@ -108,55 +59,66 @@
     setText("referenceCount", catalog.summary.referenceCount);
     setText("workflowCount", catalog.summary.workflowCount);
     setText("templateCount", catalog.summary.templateCount);
+
     const generated = byId("generatedAt");
     if (generated && catalog.generatedAt) {
-      generated.textContent = `Catalog: ${catalog.generatedAt}`;
+      generated.textContent = `Catalog ${catalog.generatedAt}`;
     }
   }
 
-  function renderCapabilities() {
-    const grid = byId("capabilityGrid");
-    grid.innerHTML = capabilityGroups.map((group) => `
-      <article class="card">
-        <div class="card-kicker">
-          <span>${escapeHtml(group.id)}</span>
-          <span class="pill ${group.tone}">${group.skills.length} skills</span>
+  function renderPacks() {
+    byId("packGrid").innerHTML = packs.map(([title, label, summary, skills, tone], index) => `
+      <article class="info-card pack-card tone-${tone}">
+        <div class="card-topline">
+          <span class="step-number">${String(index + 1).padStart(2, "0")}</span>
+          <span>${escapeHtml(label)}</span>
         </div>
-        <h3>${escapeHtml(group.title)}</h3>
-        <p>${escapeHtml(group.summary)}</p>
-        <div class="skill-list">
-          ${group.skills.map((skill) => `<span class="pill ${group.tone}">${escapeHtml(skill)}</span>`).join("")}
+        <h3>${escapeHtml(title)}</h3>
+        <p>${escapeHtml(summary)}</p>
+        <div class="tag-row">
+          ${skills.map((skill) => `<span>${escapeHtml(skill)}</span>`).join("")}
         </div>
       </article>
     `).join("");
   }
 
-  function renderFlow() {
-    const list = byId("flowList");
-    list.innerHTML = flow.map(([number, skill, summary]) => `
-      <div class="flow-step">
-        <strong>${escapeHtml(number)} ${escapeHtml(skill)}</strong>
+  function renderLoop() {
+    byId("loopGrid").innerHTML = loop.map(([title, summary], index) => `
+      <article class="loop-card">
+        <span>${String(index + 1).padStart(2, "0")}</span>
+        <h3>${escapeHtml(title)}</h3>
         <p>${escapeHtml(summary)}</p>
-      </div>
+      </article>
+    `).join("");
+  }
+
+  function renderCapabilities() {
+    byId("capabilityGrid").innerHTML = capabilityGroups.map(([title, summary, skills, tone]) => `
+      <article class="capability-card tone-${tone}">
+        <h3>${escapeHtml(title)}</h3>
+        <p>${escapeHtml(summary)}</p>
+        <div class="mini-list">
+          ${skills.map((skill) => `<span>${escapeHtml(skill)}</span>`).join("")}
+        </div>
+      </article>
     `).join("");
   }
 
   function renderFilters() {
-    const filters = byId("filters");
-    const items = [
+    const filters = [
       ["all", "All"],
-      ["flow", "Flow skills"],
-      ["artifact", "Artifact skills"],
-      ...capabilityGroups.map((group) => [group.id, group.title])
+      ["flow", "Flow"],
+      ["artifact", "Artifacts"],
+      ["system", "System"]
     ];
 
-    filters.innerHTML = items.map(([id, label]) => `
+    byId("filters").innerHTML = filters.map(([id, label]) => `
       <button type="button" data-filter="${escapeHtml(id)}" class="${id === activeFilter ? "active" : ""}">
         ${escapeHtml(label)}
       </button>
     `).join("");
 
-    filters.querySelectorAll("button").forEach((button) => {
+    byId("filters").querySelectorAll("button").forEach((button) => {
       button.addEventListener("click", () => {
         activeFilter = button.dataset.filter;
         renderFilters();
@@ -165,101 +127,77 @@
     });
   }
 
+  function skillType(skill) {
+    if (["docs", "memories", "knowledge"].includes(skill.name)) return "system";
+    return flowSkillNames.has(skill.name) ? "flow" : "artifact";
+  }
+
   function skillMatchesFilter(skill) {
-    if (activeFilter === "all") return true;
-    if (activeFilter === "artifact") return artifactSkills.has(skill.name);
-    if (activeFilter === "flow") return !artifactSkills.has(skill.name);
-    const group = capabilityGroups.find((item) => item.id === activeFilter);
-    return group ? group.skills.includes(skill.name) : true;
+    return activeFilter === "all" || skillType(skill) === activeFilter;
   }
 
   function skillMatchesSearch(skill, query) {
     if (!query) return true;
-    const haystack = [
-      skill.name,
-      skill.description,
-      skill.source,
-      ...(skill.references || [])
-    ].join(" ").toLowerCase();
-    return haystack.includes(query);
+    return [skill.name, skill.description, skill.source, ...(skill.references || [])]
+      .join(" ")
+      .toLowerCase()
+      .includes(query);
   }
 
   function renderSkills() {
     const query = byId("searchInput").value.trim().toLowerCase();
     const skills = catalog.skills
-      .filter((skill) => skillMatchesFilter(skill))
+      .filter(skillMatchesFilter)
       .filter((skill) => skillMatchesSearch(skill, query));
 
-    const grid = byId("skillGrid");
+    byId("skillResultCount").textContent = `${skills.length} of ${catalog.skills.length} skills`;
+
     if (!skills.length) {
-      grid.innerHTML = `<div class="empty">No skills match the current filter.</div>`;
+      byId("skillGrid").innerHTML = `<div class="empty">No skills match this filter.</div>`;
       return;
     }
 
-    grid.innerHTML = skills.map((skill) => {
-      const relatedGroups = capabilityGroups
-        .filter((group) => group.skills.includes(skill.name))
-        .map((group) => group.title);
-      const refs = (skill.references || []).slice(0, 5);
+    byId("skillGrid").innerHTML = skills.map((skill) => {
+      const refs = skill.references || [];
       return `
-        <article class="card skill-card">
-          <div class="card-kicker">
-            <span>${artifactSkills.has(skill.name) ? "artifact" : "flow"}</span>
-            <span class="pill blue">${refs.length} refs</span>
+        <article class="skill-card">
+          <div class="card-topline">
+            <span>${escapeHtml(skillType(skill))}</span>
+            <span>${refs.length} refs</span>
           </div>
           <h3>${escapeHtml(skill.name)}</h3>
           <p>${escapeHtml(skill.description)}</p>
-          <div class="skill-list">
-            ${relatedGroups.map((group) => `<span class="pill teal">${escapeHtml(group)}</span>`).join("")}
-          </div>
-          <div class="ref-list">
-            ${refs.map((ref) => `<code>${escapeHtml(ref.replace("_refs/", ""))}</code>`).join("")}
-          </div>
-          <code class="path">${escapeHtml(skill.source)}</code>
+          <code>${escapeHtml(skill.source)}</code>
         </article>
       `;
     }).join("");
   }
 
   function renderReferences() {
-    const target = byId("referenceGroups");
     const groups = catalog.references.reduce((acc, ref) => {
-      acc[ref.group] = acc[ref.group] || [];
-      acc[ref.group].push(ref);
+      acc[ref.group] = acc[ref.group] || 0;
+      acc[ref.group] += 1;
       return acc;
     }, {});
 
-    const preferredOrder = ["overview", "workflows", "checklists", "templates", "schemas", "integrations", "operating-model"];
-    const names = Object.keys(groups).sort((a, b) => {
-      const ai = preferredOrder.indexOf(a);
-      const bi = preferredOrder.indexOf(b);
-      if (ai === -1 && bi === -1) return a.localeCompare(b);
-      if (ai === -1) return 1;
-      if (bi === -1) return -1;
-      return ai - bi;
-    });
-
-    target.innerHTML = names.map((name) => {
-      const refs = groups[name];
-      return `
-        <article class="reference-card">
-          <h3>${escapeHtml(name)} <span>${refs.length}</span></h3>
-          <div class="ref-list">
-            ${refs.slice(0, 12).map((ref) => `<code>${escapeHtml(ref.path.replace(`_refs/${name}/`, ""))}</code>`).join("")}
-          </div>
-        </article>
-      `;
-    }).join("");
+    byId("referenceSummary").innerHTML = Object.entries(groups)
+      .sort(([a], [b]) => a.localeCompare(b))
+      .map(([group, count]) => `
+        <div class="reference-row">
+          <span>${escapeHtml(group)}</span>
+          <strong>${count}</strong>
+        </div>
+      `).join("");
   }
 
   function bindSearch() {
-    const input = byId("searchInput");
-    input.addEventListener("input", renderSkills);
+    byId("searchInput").addEventListener("input", renderSkills);
   }
 
   renderSummary();
+  renderPacks();
+  renderLoop();
   renderCapabilities();
-  renderFlow();
   renderFilters();
   renderSkills();
   renderReferences();

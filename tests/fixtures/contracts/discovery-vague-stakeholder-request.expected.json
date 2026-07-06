@@ -1,0 +1,16 @@
+{
+  "name": "discovery-vague-stakeholder-request",
+  "skill": "discovery",
+  "input": "discovery-vague-stakeholder-request.input.md",
+  "sourceFiles": [
+    "_refs/workflows/product-discovery.md",
+    "_refs/workflows/solution-exploration.md"
+  ],
+  "requiredTerms": [
+    "Separate the real user problem from proposed solutions",
+    "Assumptions",
+    "Open questions",
+    "evidence",
+    "success metrics"
+  ]
+}

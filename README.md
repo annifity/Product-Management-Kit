@@ -1,12 +1,12 @@
 # Annifity
 
-Annifity is a portable AI Product Owner operating system. It helps an AI assistant support product work from early discovery to brief, prototype, experiment, validation, learning, specification, planning, execution, shipping, documentation, and memory.
+Annifity is a portable AI Product Builder Kit. It helps an AI assistant turn product ideas into evidence, build-ready requirements, delivery handoff packs, UAT coverage, release packages, documentation, and durable product memory.
 
-The design goal is simple: keep routing clear, and put detailed PO logic into reusable references under `_refs/`. Consumers should learn a predictable loop, not memorize a pile of procedures.
+The design goal is simple: keep routing clear, package output into builder-ready artifacts, and put detailed product logic into reusable references under `_refs/`. Consumers should learn a predictable build path, not memorize a pile of procedures.
 
 ## Mental Model
 
-Use these flow skills for most work:
+Use these flow skills for most product-building work:
 
 | Need | Use |
 |---|---|
@@ -33,9 +33,44 @@ Use artifact skills only when the user asks for a concrete artifact:
 | Persist durable product context, decisions, terminology, preferences | `memories` |
 | Look up existing context, decisions, docs, Jira/Confluence knowledge | `knowledge` |
 
+## Builder Packs
+
+Annifity packages work into handoff-friendly bundles instead of leaving users with isolated documents:
+
+| Pack | When to use | Typical contents |
+|---|---|---|
+| Discovery Pack | The opportunity is shaped but not committed | Problem, users, evidence, options, assumptions, open questions, metric draft |
+| Prototype Pack | The team needs proof-of-life before commitment | Learning objective, riskiest assumptions, flow, screen list, wireframe or builder prompt |
+| PRO | A raw idea needs prompt-ready frontend prototype input | 11-section Prototyping Requirements One-Pager for a selected builder, capped at 500 words |
+| Experiment Pack | Evidence is needed before delivery scope | Hypothesis, sample, tracking, metrics, guardrails, decision thresholds |
+| Build Handoff Pack | A validated direction is ready for implementation planning | Spec IDs, workflows, data/API, NFRs, risk register, traceability, plan |
+| Jira/UAT Pack | Scope must be split, assigned, tested, and accepted | Epics, stories, Given/When/Then AC, UAT register, REQ -> STORY -> AC -> UAT coverage |
+| Release Pack | The team is preparing to ship or hand off | Readiness verdict, UAT signoff, rollout, rollback, support, stakeholder comms, accepted risks |
+| Learning Pack | Evidence or release outcomes need to become decisions | Observations, interpretation, decision memo, roadmap recommendation, memory updates |
+
+Use `_refs/operating-model/builder-packs.md` for the detailed pack contract and `_refs/operating-model/routing.md` when a request could match multiple skills.
+
+## Prototype First vs Traditional
+
+Prototype First avoids writing a long PRD too early:
+
+```text
+Idea -> PRO -> Frontend Prototype Builder (for example sdcorejs-agent) -> Runnable FE Prototype -> Feedback -> Learn/Validate -> PRD
+```
+
+Use it when the user wants quick validation, a UI demo, mockup, runnable FE prototype, test idea, client feedback before build, or is not sure the solution is right. `sdcorejs-agent` can be used as an external example builder for runnable FE with mock data, but the workflow is tool-agnostic.
+
+Traditional remains available for clear requirements:
+
+```text
+Spec -> PRD
+```
+
+Use it when a confirmed spec exists, the user asks for a detailed PRD immediately, or the team needs stakeholder documentation / delivery handoff. PRO is not a PRD; it is a lightweight prompt-ready artifact for learning before detailed requirements.
+
 ## What Annifity Covers
 
-Annifity now covers these PO capabilities through a clearer learning and delivery skill map:
+Annifity covers these Product Builder Kit capabilities through a clearer learning and delivery skill map:
 
 - Discovery: strategic discovery, feature-level discovery, opportunity scoring, discovery brief.
 - Research and evidence: source-backed external research, company research, evidence quality, citation discipline.
@@ -56,6 +91,8 @@ Annifity now covers these PO capabilities through a clearer learning and deliver
 - Shipping: rollout plan, rollback, support notes, release notes, post-launch review.
 - AI-native learning loop: initiative state, evidence ledger, metrics event schema, artifact quality scorecard, context manifest, approval gates.
 - Knowledge and memory: decision ledger, evidence ledger, decision outcomes, template registry, docs index, AI context manifest.
+- Product builder packaging: discovery, prototype, experiment, build handoff, Jira/UAT, release, and learning packs.
+- Governance and risk: stakeholder decision rights, accepted risk ownership, security, privacy, accessibility, and AI-specific risk checks.
 
 ## Repository Layout
 
@@ -117,6 +154,8 @@ Run checks:
 
 ```powershell
 npm run guard
+npm run ref:check
+npm run contract:test
 npm test
 ```
 
@@ -130,6 +169,12 @@ Full local check:
 
 ```powershell
 npm run check
+```
+
+Initialize a local `.annifity/` workspace for generated docs and memories:
+
+```powershell
+npm run workspace:init
 ```
 
 ## Docs Site

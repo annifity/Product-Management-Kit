@@ -20,6 +20,7 @@ Use this after `plan` or when the user provides enough source context to write i
 
 ## Required References
 
+- `_refs/operating-model/builder-packs.md`
 - `_refs/templates/user-story/default-user-story.md`
 - `_refs/templates/user-story/jira-user-story.md`
 - `_refs/templates/user-story/jira-epic.md`
@@ -28,6 +29,7 @@ Use this after `plan` or when the user provides enough source context to write i
 - `_refs/templates/user-story/confluence-html.md`
 - `_refs/checklists/story-quality-invest.md`
 - `_refs/checklists/story-splitting.md`
+- `_refs/templates/traceability/rtm.md`
 - `_refs/workflows/workshop-facilitation.md`
 - `_refs/integrations/jira.md`
 - `_refs/integrations/confluence.md`
