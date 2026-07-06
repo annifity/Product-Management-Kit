@@ -6,18 +6,22 @@ $ErrorActionPreference = "Stop"
 
 $Root = (Resolve-Path (Join-Path $PSScriptRoot "..")).Path
 $ExpectedSkills = @(
+    "brief",
     "change",
+    "discovery",
     "docs",
+    "execution",
+    "experiment",
     "knowledge",
+    "learn",
     "memories",
-    "po-brainstorming",
-    "po-execution",
-    "po-plan",
-    "po-review",
-    "po-ship",
-    "po-spec",
+    "plan",
     "prd",
+    "prototype",
+    "ship",
+    "spec",
     "uat",
+    "validate",
     "user-story"
 )
 

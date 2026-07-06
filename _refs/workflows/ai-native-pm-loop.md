@@ -2,14 +2,21 @@
 
 Use when a product workflow should run as a grounded, auditable AI-assisted operating loop rather than a one-off prompt.
 
-## Loop
+## Learning Loop
 
 1. Retrieve context: load only relevant docs, memories, decisions, evidence, and current initiative state.
-2. Plan: state objective, phase, needed artifacts, assumptions, and approval gates.
-3. Execute: produce or update the artifact with source traceability.
-4. Critique: use `_refs/checklists/artifact-quality-scorecard.md`, risk, edge, and UAT gates as appropriate.
-5. Verify: check claims against `_refs/templates/docs/evidence-ledger.md` and local sources.
-6. Handoff: update initiative state, docs index, decisions, open questions, and recommended next skill.
+2. Frame: state objective, current skill, needed artifacts, assumptions, and approval gates.
+3. Produce: create or update the brief, prototype, experiment, spec, plan, or release artifact with source traceability.
+4. Critique: use `_refs/checklists/artifact-quality-scorecard.md`, risk, edge, UAT, or experiment criteria as appropriate.
+5. Validate: check claims against `_refs/templates/docs/evidence-ledger.md`, local sources, prototype results, or experiment results.
+6. Learn: capture insight, decision, confidence, and roadmap implication.
+7. Handoff: update initiative state, docs index, decisions, open questions, and recommended next skill.
+
+## Skill Path
+
+`discovery -> brief -> prototype -> experiment -> validate -> learn -> spec -> plan -> execution -> ship`
+
+Skip steps only when the user has already provided the required evidence or explicitly accepts the risk.
 
 ## Context Rules
 

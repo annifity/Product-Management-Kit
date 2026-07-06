@@ -36,4 +36,4 @@
 
 ## Handoff
 
-Next phase: `po-spec`.
+Next phase: `brief` when a one-page direction is needed, `prototype` or `experiment` when the team should learn before committing, or `spec` when detailed delivery requirements are ready.

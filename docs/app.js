@@ -9,61 +9,73 @@
   const capabilityGroups = [
     {
       id: "discovery",
-      title: "Discovery and Strategy",
-      summary: "Frame opportunities, validate problems, compare solution directions, and define success signals.",
-      skills: ["po-brainstorming", "po-spec", "prd"],
-      refs: ["product-discovery", "solution-exploration", "business-model-canvas", "metric-tree"],
+      title: "Discovery and Brief",
+      summary: "Frame opportunities, compare solution directions, and turn confirmed direction into a concise brief.",
+      skills: ["discovery", "brief", "prd"],
+      refs: ["product-discovery", "solution-exploration", "one-pager", "metric-tree"],
       tone: "teal"
+    },
+    {
+      id: "learning",
+      title: "Prototype, Experiment, Learn",
+      summary: "Build to learn, test hypotheses, validate results, and turn evidence into decisions.",
+      skills: ["prototype", "experiment", "validate", "learn"],
+      refs: ["idea-to-prototype", "experiment-design", "learning-synthesis", "decision-criteria"],
+      tone: "blue"
     },
     {
       id: "specification",
       title: "Specification",
-      summary: "Turn BRDs, raw notes, workflows, data rules, and APIs into testable product specifications.",
-      skills: ["po-spec", "prd", "knowledge"],
+      summary: "Turn validated learning, BRDs, workflows, data rules, and APIs into testable product specifications.",
+      skills: ["spec", "prd", "knowledge"],
       refs: ["feature-design", "requirement-analysis", "default-brd", "workflow-spec", "api-contract"],
-      tone: "blue"
+      tone: "amber"
     },
     {
       id: "planning",
       title: "Planning and Roadmap",
       summary: "Prioritize work, slice releases, build epics, prepare grooming, and expose dependency risk.",
-      skills: ["po-plan", "user-story"],
+      skills: ["plan", "user-story"],
       refs: ["prioritization", "product-roadmap", "story-map", "grooming-questions"],
-      tone: "amber"
+      tone: "teal"
     },
     {
       id: "delivery",
       title: "Delivery Readiness",
       summary: "Check definition of ready, sprint readiness, risk, traceability, operations, and UAT coverage.",
-      skills: ["po-review", "uat", "po-execution"],
+      skills: ["validate", "uat", "execution"],
       refs: ["sprint-readiness", "definition-of-ready", "risk-register", "rtm", "operational-readiness"],
-      tone: "teal"
+      tone: "blue"
     },
     {
       id: "change",
       title: "Execution and Change",
       summary: "Answer implementation questions, govern requirement changes, update context, and preserve audit trail.",
-      skills: ["po-execution", "change", "docs", "memories"],
+      skills: ["execution", "change", "docs", "memories"],
       refs: ["change-governance", "spec-change-context", "decision-ledger", "jira", "confluence"],
-      tone: "blue"
+      tone: "amber"
     },
     {
       id: "shipping",
       title: "Ship and Learn",
       summary: "Prepare release packages, rollout plans, support handoff, rollback, decision outcomes, and post-ship memory.",
-      skills: ["po-ship", "docs", "memories", "knowledge"],
+      skills: ["ship", "learn", "docs", "memories", "knowledge"],
       refs: ["release-readiness", "rollout-plan", "release-note", "decision-outcomes"],
       tone: "amber"
     }
   ];
 
   const flow = [
-    ["01", "po-brainstorming", "Fuzzy ideas, stakeholder asks, discovery, strategy, solution options."],
-    ["02", "po-spec", "BRD, PRD input, workflow, data/API rules, requirements, edge cases."],
-    ["03", "po-plan", "Roadmap, prioritization, release slices, epics, dependencies, grooming."],
-    ["04", "po-execution", "Developer questions, blockers, scope decisions, implementation context."],
-    ["05", "po-review", "Artifact quality, readiness, risk, traceability, UAT and delivery gates."],
-    ["06", "po-ship", "Release, rollout, support handoff, release notes, post-ship learning."]
+    ["01", "discovery", "Fuzzy ideas, stakeholder asks, discovery, strategy, solution options."],
+    ["02", "brief", "One-page direction, goals, scope, metrics, AI requirements, risks."],
+    ["03", "prototype", "Build-to-learn flows, screens, wireframes, and builder prompts."],
+    ["04", "experiment", "Hypotheses, metrics, tracking, sample logic, and decision criteria."],
+    ["05", "validate", "Artifact, experiment, readiness, risk, traceability, UAT, and delivery gates."],
+    ["06", "learn", "Insight synthesis, retrospectives, decision memos, roadmap recommendations."],
+    ["07", "spec", "BRD, PRD input, workflow, data/API rules, requirements, edge cases."],
+    ["08", "plan", "Roadmap, prioritization, release slices, epics, dependencies, grooming."],
+    ["09", "execution", "Developer questions, blockers, scope decisions, implementation context."],
+    ["10", "ship", "Release, rollout, support handoff, release notes, post-ship memory."]
   ];
 
   const artifactSkills = new Set(["prd", "user-story", "uat", "change", "docs", "memories", "knowledge"]);

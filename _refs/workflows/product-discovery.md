@@ -25,7 +25,7 @@ Use before specification when the team must answer "should we build this?" befor
 3. Plan interviews with `_refs/templates/discovery/interview-plan.md`, desk research, data review, or operational observation.
 4. Synthesize pain points, frequency, intensity, and evidence.
 5. Recommend solution direction without designing the full solution.
-6. Produce `_refs/templates/discovery/discovery-brief.md` and hand off to `po-spec`.
+6. Produce `_refs/templates/discovery/discovery-brief.md` and hand off to `brief`, `prototype`, `experiment`, or `spec` based on confidence and delivery readiness.
 
 ## Gates
 

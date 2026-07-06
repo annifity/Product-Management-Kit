@@ -22,7 +22,7 @@ Use `.annifity/memories/` for workspace-specific memory:
 
 ## Read Before Work
 
-Before `po-brainstorming`, `po-spec`, `po-plan`, `po-execution`, `po-review`, or artifact creation, read only the memory files relevant to the request.
+Before `discovery`, `brief`, `prototype`, `experiment`, `validate`, `learn`, `spec`, `plan`, `execution`, `ship`, or artifact creation, read only the memory files relevant to the request.
 
 ## Write After Gates
 

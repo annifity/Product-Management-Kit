@@ -11,16 +11,20 @@ Annifity is a portable PO operating system for Claude, Codex, Cursor, Copilot, a
 
 ## Skill Map
 
-### PO Flow
+### Learning And Delivery Flow
 
 | Skill | Use |
 |---|---|
-| `po-brainstorming` | Frame fuzzy ideas, clarify problem, explore options, confirm direction |
-| `po-spec` | Convert confirmed direction into requirements, workflows, risks, and open questions |
-| `po-plan` | Build delivery plan, epic map, milestones, dependencies, and release slices |
-| `po-execution` | Support active delivery, answer questions, triage decisions, manage scope |
-| `po-review` | Review specs, PRDs, stories, UAT, readiness, and risks |
-| `po-ship` | Prepare release package, final docs, signoff, and post-ship memory |
+| `discovery` | Frame fuzzy ideas, clarify problem, explore options, confirm direction |
+| `brief` | Convert confirmed direction into a one-page product outline |
+| `prototype` | Prepare build-to-learn user flows, screens, wireframes, and builder prompts |
+| `experiment` | Define hypotheses, metrics, tracking plans, samples, and decision criteria |
+| `validate` | Review prototypes, experiments, specs, PRDs, stories, UAT, readiness, and risks |
+| `learn` | Synthesize insight, retrospective, decision memo, and roadmap recommendation |
+| `spec` | Convert confirmed learning or direction into requirements, workflows, risks, and open questions |
+| `plan` | Build delivery plan, epic map, milestones, dependencies, and release slices |
+| `execution` | Support active delivery, answer questions, triage decisions, manage scope |
+| `ship` | Prepare release package, final docs, signoff, and post-ship memory |
 
 ### Background Habits
 
@@ -42,7 +46,7 @@ Annifity is a portable PO operating system for Claude, Codex, Cursor, Copilot, a
 ## Working Rules
 
 - Match the user's language by default.
-- Follow gated PO flow for end-to-end work: `po-brainstorming -> po-spec -> po-plan -> po-execution -> po-review -> po-ship`.
+- Follow the Annifity learning and delivery path for end-to-end work: `discovery -> brief -> prototype -> experiment -> validate -> learn -> spec -> plan -> execution -> ship`.
 - Use `docs` after artifact creation or phase gates.
 - Use `memories` before workflows and after durable decisions.
 - Load only relevant `_refs/` files for the current task.

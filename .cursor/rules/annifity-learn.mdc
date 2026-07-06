@@ -1,0 +1,12 @@
+---
+description: 'Annifity skill learn: Use when discovery, prototype, experiment, validation, release, or post-ship evidence needs to become an insight summary, product retrospective, decision memo, roadmap recommendation, memory update, or next-loop recommendation.'
+alwaysApply: false
+---
+
+# learn
+
+Use this rule when the request matches the description above.
+
+Canonical source: skills/learn/SKILL.md
+
+Read the canonical skill file before acting, then load only the referenced _refs/ files needed for the task. If generated adapter text conflicts with the canonical source, the canonical source wins.

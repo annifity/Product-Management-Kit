@@ -1,4 +1,4 @@
-# Discovery To Spec
+# Discovery To Brief Or Spec
 
 1. Capture the raw idea or stakeholder ask.
 2. Identify problem, users, outcome, constraints, and assumptions.
@@ -7,6 +7,8 @@
 5. Use `_refs/workflows/market-sizing.md` and `_refs/checklists/finance-metrics.md` when opportunity size, pricing, ROI, or SaaS economics drive priority.
 6. Explore options and select a recommended direction.
 7. Confirm scope boundaries with the user.
-8. Convert the confirmed brief into requirements, workflows, data, risks, and open questions.
-9. Save the brief and spec through `docs`.
-10. Persist durable context through `memories`.
+8. Use `brief` when the team needs a concise Product Requirements Outline.
+9. Use `prototype` or `experiment` when evidence is still needed before delivery commitment.
+10. Convert the confirmed direction into requirements, workflows, data, risks, and open questions with `spec` when delivery is justified.
+11. Save the brief and spec through `docs`.
+12. Persist durable context through `memories`.

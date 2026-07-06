@@ -1,6 +1,6 @@
 {
   "name": "annifity",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "private": true,
   "description": "Portable AI Product Manager skill suite for Claude, Codex, Cursor, Copilot, and shared agents.",
   "scripts": {

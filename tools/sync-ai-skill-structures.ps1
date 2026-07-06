@@ -226,7 +226,7 @@ function New-AgentInstructions {
     return @"
 # Annifity AI Product Manager Skills
 
-Annifity is a portable PO operating system for brainstorming, specification, planning, execution support, review, shipping, documentation, memory, and product artifacts.
+Annifity is a portable PO operating system for discovery, briefs, prototypes, experiments, validation, learning, specification, planning, execution support, shipping, documentation, memory, and product artifacts.
 
 ## Source Of Truth
 
@@ -238,7 +238,7 @@ Annifity is a portable PO operating system for brainstorming, specification, pla
 ## Working Rules
 
 - Match the user's language by default; Vietnamese and English are both first-class.
-- Follow the PO phase gates: po-brainstorming -> po-spec -> po-plan -> po-execution -> po-review -> po-ship.
+- Follow the Annifity learning and delivery path: discovery -> brief -> prototype -> experiment -> validate -> learn -> spec -> plan -> execution -> ship.
 - Use docs to save and index artifacts, and memories to persist durable context across workflow gates.
 - For ambiguous requirements, clarify before drafting final deliverables.
 - Load only the relevant skill and reference files for the task; avoid pulling the whole repository into context.
@@ -267,11 +267,11 @@ function New-CopilotInstructions {
     return @"
 # Annifity AI PM Instructions
 
-Use Annifity for product-management work: PO brainstorming, product specs, delivery planning, execution support, artifact review, shipping, docs, memories, PRDs, user stories, UAT, change management, and org knowledge lookup.
+Use Annifity for product-management work: discovery, briefs, prototypes, experiments, validation, learning, product specs, delivery planning, execution support, shipping, docs, memories, PRDs, user stories, UAT, change management, and org knowledge lookup.
 
 Canonical source lives in top-level skills/*/SKILL.md and _refs/. Generated Copilot skill adapters live in .github/skills/; do not edit adapters manually. Update skills/ or _refs/, then run tools/sync-ai-skill-structures.ps1.
 
-Match the user's language by default. Follow the PO phase gates when doing end-to-end product work. Use docs to save artifacts and memories to preserve durable product context. Clarify ambiguous requirements before drafting final deliverables.
+Match the user's language by default. Follow the Annifity learning and delivery path when doing end-to-end product work. Use docs to save artifacts and memories to preserve durable product context. Clarify ambiguous requirements before drafting final deliverables.
 
 Top-level skills:
 
@@ -329,8 +329,8 @@ function Write-ClaudePluginManifest {
         '$schema' = "https://json.schemastore.org/claude-code-plugin-manifest.json"
         name = "annifity"
         displayName = "Annifity"
-        version = "1.0.0"
-        description = "AI Product Manager skill suite for PO brainstorming, specification, planning, execution support, review, shipping, documentation, memory, PRDs, user stories, UAT, change management, and organizational knowledge retrieval."
+        version = "2.0.0"
+        description = "AI Product Manager skill suite for discovery, briefs, prototypes, experiments, validation, learning, specification, planning, execution support, shipping, documentation, memory, PRDs, user stories, UAT, change management, and organizational knowledge retrieval."
         author = [ordered]@{
             name = "nghiatt15"
             email = "nghiatt15@onemount.com"

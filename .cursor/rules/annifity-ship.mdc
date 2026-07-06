@@ -1,0 +1,12 @@
+---
+description: 'Annifity skill ship: Use when a product change needs release, rollout, stakeholder handoff, support handoff, retirement, release readiness, launch planning, support notes, rollback planning, EOL communication, signoff, final document bundle, release notes, decision summary, UAT signoff, or post-ship memory capture.'
+alwaysApply: false
+---
+
+# ship
+
+Use this rule when the request matches the description above.
+
+Canonical source: skills/ship/SKILL.md
+
+Read the canonical skill file before acting, then load only the referenced _refs/ files needed for the task. If generated adapter text conflicts with the canonical source, the canonical source wins.

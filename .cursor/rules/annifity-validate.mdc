@@ -1,0 +1,12 @@
+---
+description: 'Annifity skill validate: Use when product artifacts, prototypes, experiments, sprint scope, QA packages, release readiness, stakeholder handoff, or implementation inputs need validation. Applies to PRDs, BRDs, specs, user stories, acceptance criteria, UAT cases, risk registers, traceability, edge cases, sprint readiness, operational readiness, delivery readiness, experiment outcomes, and document quality.'
+alwaysApply: false
+---
+
+# validate
+
+Use this rule when the request matches the description above.
+
+Canonical source: skills/validate/SKILL.md
+
+Read the canonical skill file before acting, then load only the referenced _refs/ files needed for the task. If generated adapter text conflicts with the canonical source, the canonical source wins.

@@ -1,0 +1,12 @@
+---
+description: 'Annifity skill spec: Use when a confirmed product idea, PRD input, BRD, meeting note, discovery brief, roadmap item, learning outcome, or brainstorming brief needs to become a precise product specification with scope, business rules, workflows, state behavior, edge cases, data/API rules, non-functional requirements, assumptions, risks, and open questions before delivery planning.'
+alwaysApply: false
+---
+
+# spec
+
+Use this rule when the request matches the description above.
+
+Canonical source: skills/spec/SKILL.md
+
+Read the canonical skill file before acting, then load only the referenced _refs/ files needed for the task. If generated adapter text conflicts with the canonical source, the canonical source wins.

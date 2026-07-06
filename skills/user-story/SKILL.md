@@ -5,7 +5,7 @@ description: Create, split, refine, review, map, or export user stories, epics, 
 
 # User Story
 
-Use this after `po-plan` or when the user provides enough source context to write implementation-ready stories.
+Use this after `plan` or when the user provides enough source context to write implementation-ready stories.
 
 ## Process
 

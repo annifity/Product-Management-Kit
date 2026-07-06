@@ -1,0 +1,12 @@
+---
+description: 'Annifity skill brief: Use when a confirmed discovery direction needs a concise one-pager or Product Requirements Outline before prototype, experiment, spec, roadmap, or stakeholder alignment work. Applies to problem framing, goals, target users, scope, success metrics, AI-specific requirements, edge cases, and risks.'
+alwaysApply: false
+---
+
+# brief
+
+Use this rule when the request matches the description above.
+
+Canonical source: skills/brief/SKILL.md
+
+Read the canonical skill file before acting, then load only the referenced _refs/ files needed for the task. If generated adapter text conflicts with the canonical source, the canonical source wins.

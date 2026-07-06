@@ -5,7 +5,7 @@ description: Create, revise, review, translate, or export Product Requirement Do
 
 # PRD
 
-Use this for PRD and BRD-style artifacts. For fuzzy ideas, start with `po-brainstorming`; for detailed requirements, use the confirmed `po-spec` output.
+Use this for PRD and BRD-style artifacts. For fuzzy ideas, start with `discovery`; for concise one-page direction, use `brief`; for detailed requirements, use the confirmed `spec` output.
 
 ## Process
 

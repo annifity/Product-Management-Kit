@@ -1,21 +1,25 @@
 # Annifity
 
-Annifity is a portable AI Product Owner operating system. It helps an AI assistant support product work from early discovery to specification, planning, execution, review, shipping, documentation, and memory.
+Annifity is a portable AI Product Owner operating system. It helps an AI assistant support product work from early discovery to brief, prototype, experiment, validation, learning, specification, planning, execution, shipping, documentation, and memory.
 
-The design goal is simple: keep the number of skills small, and put detailed PO logic into reusable references under `_refs/`. Consumers should remember a few front-door skills, not a long menu.
+The design goal is simple: keep routing clear, and put detailed PO logic into reusable references under `_refs/`. Consumers should learn a predictable loop, not memorize a pile of procedures.
 
 ## Mental Model
 
-Use these six flow skills for most work:
+Use these flow skills for most work:
 
 | Need | Use |
 |---|---|
-| Fuzzy idea, stakeholder ask, discovery, strategy, opportunity, solution options | `po-brainstorming` |
-| BRD/PRD input, raw requirements, workflow, data/API rules, feature spec | `po-spec` |
-| Roadmap, prioritization, delivery slices, epics, dependencies, grooming | `po-plan` |
-| Active sprint support, developer questions, blockers, scope decisions | `po-execution` |
-| PRD/spec/story/UAT/risk/readiness/traceability review | `po-review` |
-| Release, rollout, support handoff, release notes, post-ship memory | `po-ship` |
+| Fuzzy idea, stakeholder ask, discovery, strategy, opportunity, solution options | `discovery` |
+| Confirmed direction that needs a one-page product outline | `brief` |
+| Build-to-learn flow, screen list, wireframe description, or builder prompt | `prototype` |
+| Hypothesis, metrics, tracking plan, sample, and decision criteria | `experiment` |
+| Prototype, experiment, artifact, UAT, risk, readiness, or traceability review | `validate` |
+| Insight summary, retrospective, decision memo, roadmap recommendation | `learn` |
+| BRD/PRD input, raw requirements, workflow, data/API rules, feature spec | `spec` |
+| Roadmap, prioritization, delivery slices, epics, dependencies, grooming | `plan` |
+| Active sprint support, developer questions, blockers, scope decisions | `execution` |
+| Release, rollout, support handoff, release notes, post-ship memory | `ship` |
 
 Use artifact skills only when the user asks for a concrete artifact:
 
@@ -31,7 +35,7 @@ Use artifact skills only when the user asks for a concrete artifact:
 
 ## What Annifity Covers
 
-Annifity now covers these PO capabilities without adding more top-level skills:
+Annifity now covers these PO capabilities through a clearer learning and delivery skill map:
 
 - Discovery: strategic discovery, feature-level discovery, opportunity scoring, discovery brief.
 - Research and evidence: source-backed external research, company research, evidence quality, citation discipline.
@@ -39,6 +43,10 @@ Annifity now covers these PO capabilities without adding more top-level skills:
 - Solution exploration: diverge/converge, option matrix, trade-offs, riskiest assumptions.
 - Strategy and business case: opportunity solution tree, market sizing, TAM/SAM/SOM, finance metrics, SaaS economics, pricing/ROI decision support.
 - Workshop facilitation: guided mode, context dump mode, best guess mode, one-question turns, progress labels.
+- Briefing: one-pager/Product Requirements Outline, goals, scope, metrics, AI-specific requirements, edge cases.
+- Prototyping: user flows, screen lists, wireframe descriptions, Claude Code/Lovable/Bolt prompts.
+- Experimentation: hypotheses, success metrics, tracking plans, sample logic, decision criteria.
+- Learning: insight summaries, retrospectives, decision memos, roadmap recommendations.
 - Specification: BRD, PRD, product spec, workflow map, data requirements, API contract, NFRs.
 - Planning: prioritization, opportunity scoring, roadmap, release slices, epic map, dependency matrix, grooming questions.
 - Delivery readiness: definition of ready, sprint readiness, operational readiness, risk register.
@@ -46,7 +54,7 @@ Annifity now covers these PO capabilities without adding more top-level skills:
 - UAT: happy path, unhappy path, edge, boundary, permission, NFR scenario, priority, pass criteria, traceability, signoff.
 - Change governance: minor/material/breaking changes, surgical edits, changelog, spec change context.
 - Shipping: rollout plan, rollback, support notes, release notes, post-launch review.
-- AI-native operating loop: initiative state, evidence ledger, artifact quality scorecard, context manifest, approval gates.
+- AI-native learning loop: initiative state, evidence ledger, metrics event schema, artifact quality scorecard, context manifest, approval gates.
 - Knowledge and memory: decision ledger, evidence ledger, decision outcomes, template registry, docs index, AI context manifest.
 
 ## Repository Layout
@@ -98,7 +106,7 @@ Do not edit generated adapters manually. Edit canonical files, then run sync.
 - Prefer reading memory and existing docs before asking the user again.
 - Keep skill bodies short; move reusable detail to `_refs/`.
 - Do not invent facts. Mark assumptions and open questions.
-- Use phase gates: discovery/brainstorming -> spec -> plan -> execution -> review -> ship.
+- Use phase gates: discovery -> brief -> prototype -> experiment -> validate -> learn -> spec -> plan -> execution -> ship.
 - Save artifacts through `docs` and durable context through `memories`.
 - Treat baselined artifacts as change-controlled. Use `change` after baseline.
 - Draft edits do not increase version; accepted published/spec changes do.
@@ -136,7 +144,7 @@ npm run docs:build
 
 Open `docs/index.html` locally after building. If PowerShell blocks `npm.ps1`, use `npm.cmd run docs:build`.
 
-The GitHub Pages workflow at `.github/workflows/deploy-docs.yml` rebuilds the catalog, validates skills, uploads `docs/`, and deploys it on pushes to `main` that touch docs, skills, refs, or the docs build workflow.
+If you publish the docs site, rebuild the catalog, validate skills, upload `docs/`, and deploy from the generated static files.
 
 ## Extension Guidelines
 

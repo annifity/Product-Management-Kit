@@ -1,0 +1,12 @@
+---
+description: 'Annifity skill experiment: Use when a product hypothesis, prototype, or brief needs a validation experiment with success metrics, tracking plan, decision criteria, sample size, learning plan, or evidence design. Applies before building production scope and differs from UAT, which verifies acceptance of committed delivery.'
+alwaysApply: false
+---
+
+# experiment
+
+Use this rule when the request matches the description above.
+
+Canonical source: skills/experiment/SKILL.md
+
+Read the canonical skill file before acting, then load only the referenced _refs/ files needed for the task. If generated adapter text conflicts with the canonical source, the canonical source wins.

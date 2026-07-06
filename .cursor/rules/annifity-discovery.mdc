@@ -1,0 +1,12 @@
+---
+description: 'Annifity skill discovery: Use when early product ideas, stakeholder asks, vague feature requests, product discovery, opportunity framing, strategy questions, solution options, scope clarification, market sizing, finance or business model thinking, workshop facilitation, external research, AI context design, or problem framing need shaping before a brief, prototype, experiment, spec, or artifact.'
+alwaysApply: false
+---
+
+# discovery
+
+Use this rule when the request matches the description above.
+
+Canonical source: skills/discovery/SKILL.md
+
+Read the canonical skill file before acting, then load only the referenced _refs/ files needed for the task. If generated adapter text conflicts with the canonical source, the canonical source wins.

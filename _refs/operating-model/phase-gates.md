@@ -2,13 +2,29 @@
 
 Use `_refs/schemas/initiative-state.md` when a phase gate changes the durable state of an initiative.
 
-## Brainstorming Gate
+## Discovery Gate
 
 Proceed only when problem, users, outcome, scope, assumptions, and open questions are explicit.
 
-## Discovery Gate
+## Brief Gate
 
-Proceed only when evidence, confidence, opportunity score, and go/no-go rationale are explicit. Material evidence should be captured with `_refs/templates/docs/evidence-ledger.md`.
+Proceed only when problem, goals, target users, scope boundaries, success metrics, AI-specific requirements when relevant, edge cases, risks, and open questions are explicit.
+
+## Prototype Gate
+
+Proceed only when the prototype has a clear learning objective, minimum user flow, screen list, prompt or wireframe package, exclusions, and validation method.
+
+## Experiment Gate
+
+Proceed only when hypothesis, method, participants or sample, tracking plan, success metrics, guardrails, and decision criteria are explicit. Material evidence should be captured with `_refs/templates/docs/evidence-ledger.md`.
+
+## Validate Gate
+
+Proceed only when results have been compared against the agreed criteria, blockers are separated from improvements, and accepted risks have a named owner.
+
+## Learn Gate
+
+Proceed only when observations, interpretations, decision, roadmap implication, memory updates, and next-loop or delivery action are explicit.
 
 ## Spec Gate
 
@@ -21,10 +37,6 @@ Proceed only when epics, dependencies, milestones, and blockers are known.
 ## Execution Gate
 
 Escalate to `change` when an answer modifies committed scope or acceptance criteria.
-
-## Review Gate
-
-Ship only when blocking readiness issues are resolved or explicitly accepted by a named decision owner.
 
 ## Ship Gate
 

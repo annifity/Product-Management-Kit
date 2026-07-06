@@ -1,0 +1,12 @@
+---
+description: 'Annifity skill plan: Use when a confirmed product spec needs a delivery plan, roadmap slice, prioritization decision, business case, market/finance-informed investment decision, epic map, release slices, dependency map, milestone plan, grooming questions, or team handoff sequence before execution, story writing, sprint planning, or roadmap communication.'
+alwaysApply: false
+---
+
+# plan
+
+Use this rule when the request matches the description above.
+
+Canonical source: skills/plan/SKILL.md
+
+Read the canonical skill file before acting, then load only the referenced _refs/ files needed for the task. If generated adapter text conflicts with the canonical source, the canonical source wins.

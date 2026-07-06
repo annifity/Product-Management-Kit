@@ -40,7 +40,7 @@ Use numbered recommendations only at decision points:
 - Decisions made.
 - Assumptions to validate.
 - Open questions and owners.
-- Recommended next step: `po-brainstorming`, `po-spec`, `po-plan`, `user-story`, `uat`, or `docs`.
+- Recommended next step: `discovery`, `brief`, `prototype`, `experiment`, `spec`, `plan`, `user-story`, `uat`, or `docs`.
 
 ## Pitfalls
 
