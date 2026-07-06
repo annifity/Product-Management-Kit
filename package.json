@@ -6,9 +6,10 @@
   "scripts": {
     "prepare": "lefthook install",
     "sync": "powershell -NoProfile -ExecutionPolicy Bypass -File tools/sync-ai-skill-structures.ps1",
+    "docs:build": "powershell -NoProfile -ExecutionPolicy Bypass -File tools/build-docs-site.ps1",
     "guard": "powershell -NoProfile -ExecutionPolicy Bypass -File tools/check-self-contained.ps1",
     "test": "powershell -NoProfile -ExecutionPolicy Bypass -File tools/test-annifity.ps1",
-    "check": "npm run guard && npm run sync && npm test",
+    "check": "npm run guard && npm run sync && npm run docs:build && npm test",
     "precommit": "powershell -NoProfile -ExecutionPolicy Bypass -File tools/pre-commit-annifity.ps1"
   },
   "devDependencies": {

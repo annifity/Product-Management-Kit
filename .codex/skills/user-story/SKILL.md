@@ -1,6 +1,6 @@
 ---
 name: user-story
-description: 'Create, split, refine, review, or export user stories and acceptance criteria from a PRD, BRD, feature spec, or confirmed product plan. Use for INVEST stories, story maps, Jira-ready stories, Given/When/Then acceptance criteria, and story quality review.'
+description: 'Create, split, refine, review, map, or export user stories, epics, acceptance criteria, story maps, Jira tickets, and Confluence-ready story pages from a PRD, BRD, feature spec, roadmap item, or confirmed product plan. Use for INVEST stories, story splitting, epic breakdown, story maps, Jira-ready stories, Given/When/Then acceptance criteria, and story quality review.'
 ---
 
 # user-story

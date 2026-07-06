@@ -1,6 +1,6 @@
 ---
 name: po-brainstorming
-description: 'Explore early product ideas, stakeholder asks, vague feature requests, or unclear problems before writing specs or artifacts. Use when the user needs PO-style brainstorming, problem framing, discovery questions, option exploration, scope clarification, or a Superpowers-like gate before moving to specification.'
+description: 'Explore early product ideas, stakeholder asks, vague feature requests, product discovery, opportunity framing, strategy questions, solution options, scope clarification, market sizing, finance or business model thinking, workshop facilitation, external research, AI context design, or problem framing before writing specs or artifacts. Use when the user needs PO-style brainstorming, discovery questions, option exploration, opportunity scoring, market/finance analysis, or a phase gate before moving to specification.'
 ---
 
 # po-brainstorming

@@ -1,6 +1,6 @@
 ---
 name: po-review
-description: 'Review product artifacts before handoff, sprint commitment, QA, or release. Use for reviewing PRDs, specs, user stories, acceptance criteria, UAT cases, risks, edge cases, readiness, and document quality.'
+description: 'Review product artifacts before handoff, sprint commitment, QA, release, stakeholder approval, or implementation. Use for reviewing PRDs, BRDs, specs, user stories, acceptance criteria, UAT cases, risk registers, traceability, edge cases, sprint readiness, operational readiness, delivery readiness, and document quality.'
 ---
 
 # po-review

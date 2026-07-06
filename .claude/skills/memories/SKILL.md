@@ -1,6 +1,6 @@
 ---
 name: memories
-description: 'Maintain durable Annifity product memory. Use before and after PO workflows to read and update product context, team preferences, terminology, stakeholder constraints, decisions, assumptions, and open questions in `.annifity/memories/`.'
+description: 'Maintain durable Annifity product memory. Use before and after PO workflows to read and update product context, team preferences, terminology, stakeholder constraints, decisions, decision outcomes, assumptions, template preferences, lessons learned, and open questions in `.annifity/memories/`.'
 ---
 
 # memories

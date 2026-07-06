@@ -1,6 +1,6 @@
 ---
 name: knowledge
-description: 'Retrieve and synthesize organizational product knowledge from local docs, pasted context, Jira, Confluence, or available workspace connectors. Use for feature existence checks, ownership questions, decision history, runbooks, and product context lookup.'
+description: 'Retrieve and synthesize organizational product knowledge from local docs, memories, decision ledger records, pasted context, Jira, Confluence, or available workspace connectors. Use for feature existence checks, ownership questions, decision history, archaeology of past decisions, runbooks, artifact lookup, template lookup, and product context retrieval.'
 ---
 
 # knowledge

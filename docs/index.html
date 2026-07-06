@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Annifity Skill Capabilities</title>
+  <meta name="description" content="Annifity product owner skill capabilities, workflows, references, and deployment docs.">
+  <link rel="icon" href="assets/annifity-mark.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#overview" aria-label="Annifity overview">
+      <img src="assets/annifity-mark.svg" alt="" width="40" height="40">
+      <span>
+        <strong>Annifity</strong>
+        <small>AI Product Owner skill suite</small>
+      </span>
+    </a>
+    <nav class="nav" aria-label="Site navigation">
+      <a href="#capabilities">Capabilities</a>
+      <a href="#skills">Skills</a>
+      <a href="#references">References</a>
+      <a href="#deploy">Deploy</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="overview" id="overview">
+      <div class="overview-copy">
+        <p class="eyebrow">Portable PO operating system</p>
+        <h1>Small skill surface, deep product logic.</h1>
+        <p class="lead">Annifity keeps the consumer-facing skill list compact while routing detailed PO workflows, checklists, templates, and integration rules through reusable references.</p>
+      </div>
+      <div class="overview-panel" aria-label="Annifity summary">
+        <div class="metric">
+          <span id="skillCount">13</span>
+          <small>skills</small>
+        </div>
+        <div class="metric">
+          <span id="referenceCount">86</span>
+          <small>refs</small>
+        </div>
+        <div class="metric">
+          <span id="workflowCount">10</span>
+          <small>workflows</small>
+        </div>
+        <div class="metric">
+          <span id="templateCount">0</span>
+          <small>templates</small>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="capabilities">
+      <div class="section-heading">
+        <p class="eyebrow">Capability map</p>
+        <h2>What the skill suite can do</h2>
+      </div>
+      <div class="capability-grid" id="capabilityGrid"></div>
+    </section>
+
+    <section class="section split">
+      <div>
+        <div class="section-heading compact">
+          <p class="eyebrow">Operating flow</p>
+          <h2>Six front doors cover the PO lifecycle</h2>
+        </div>
+        <div class="flow" id="flowList"></div>
+      </div>
+      <aside class="surface-panel">
+        <h3>Consumer mental model</h3>
+        <p>Use a flow skill for product work. Use artifact skills only when the request names a concrete artifact.</p>
+        <div class="tag-row">
+          <span>Discovery</span>
+          <span>Spec</span>
+          <span>Plan</span>
+          <span>Execute</span>
+          <span>Review</span>
+          <span>Ship</span>
+        </div>
+      </aside>
+    </section>
+
+    <section class="section" id="skills">
+      <div class="section-heading with-actions">
+        <div>
+          <p class="eyebrow">Skill catalog</p>
+          <h2>Canonical skills</h2>
+        </div>
+        <label class="search">
+          <span>Search</span>
+          <input id="searchInput" type="search" placeholder="Filter skills or capabilities" autocomplete="off">
+        </label>
+      </div>
+      <div class="filters" id="filters" aria-label="Capability filters"></div>
+      <div class="skill-grid" id="skillGrid"></div>
+    </section>
+
+    <section class="section" id="references">
+      <div class="section-heading">
+        <p class="eyebrow">Reference system</p>
+        <h2>Deep logic lives in refs</h2>
+      </div>
+      <div class="reference-layout">
+        <div class="reference-groups" id="referenceGroups"></div>
+        <div class="surface-panel reference-note">
+          <h3>Progressive disclosure</h3>
+          <p>Each skill loads only the refs needed for the task: workflows for process, checklists for gates, templates for artifacts, schemas for persistence, and integrations for Jira or Confluence behavior.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section deploy" id="deploy">
+      <div class="section-heading compact">
+        <p class="eyebrow">GitHub Pages</p>
+        <h2>Deployment path</h2>
+      </div>
+      <div class="deploy-grid">
+        <div class="surface-panel">
+          <h3>Action workflow</h3>
+          <p>The workflow builds the docs catalog from `skills/` and `_refs/`, uploads `docs/`, and deploys to GitHub Pages.</p>
+          <code>.github/workflows/deploy-docs.yml</code>
+        </div>
+        <div class="surface-panel">
+          <h3>Local refresh</h3>
+          <p>Refresh the generated catalog after skill or reference changes.</p>
+          <code>npm run docs:build</code>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <span>Generated from Annifity skills and references.</span>
+    <span id="generatedAt"></span>
+  </footer>
+
+  <script src="data/catalog.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

@@ -3,7 +3,7 @@
 ```yaml
 ---
 date: YYYY-MM-DD
-category: product-context | team-preference | terminology | stakeholder | decision | open-question
+category: product-context | team-preference | terminology | stakeholder | decision | decision-outcome | template-preference | lesson | open-question
 source: [Source]
 confidence: high | medium | low
 ---

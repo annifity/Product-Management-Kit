@@ -1,6 +1,6 @@
 ---
 name: po-execution
-description: 'Support active delivery after planning begins. Use for developer questions, scope decisions, requirement interpretation, blocked tickets, acceptance clarification, trade-off decisions, and controlled updates while implementation is underway.'
+description: 'Support active delivery after planning begins. Use for developer questions, scope decisions, requirement interpretation, blocked tickets, acceptance clarification, trade-off decisions, Jira/Confluence context handoff, dependency decisions, and controlled updates while implementation is underway.'
 ---
 
 # po-execution

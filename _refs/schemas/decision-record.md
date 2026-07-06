@@ -6,6 +6,8 @@ id: DEC-001
 date: YYYY-MM-DD
 owner: [Owner]
 status: active | superseded | rejected
+outcome: pending | success | partial | failed
+topics: [topic]
 ---
 ```
 
@@ -20,3 +22,7 @@ status: active | superseded | rejected
 ## Consequences
 
 [Consequences.]
+
+## Outcome
+
+[Observed outcome and lesson when known.]

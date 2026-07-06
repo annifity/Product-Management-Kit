@@ -1,6 +1,6 @@
 ---
 name: prd
-description: 'Create, revise, review, translate, or export Product Requirement Documents. Use when the user asks for a PRD, PRD draft, PRD review, product requirements document, product spec document, PRD translation, PRD export, or Confluence-ready PRD.'
+description: 'Create, revise, review, translate, or export Product Requirement Documents and BRD-style requirement artifacts. Use when the user asks for a PRD, BRD, one-pager, product requirements document, product spec document, PRD/BRD review, translation, export, Confluence-ready document, or strict Confluence HTML.'
 ---
 
 # prd

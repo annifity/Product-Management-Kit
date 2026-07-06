@@ -1,6 +1,6 @@
 ---
 name: po-ship
-description: 'Prepare a product change for release or stakeholder handoff. Use for release readiness, signoff, final document bundle, release notes, decision summary, UAT signoff, and post-ship memory capture.'
+description: 'Prepare a product change for release, rollout, stakeholder handoff, support handoff, or retirement. Use for release readiness, launch plan, support notes, rollback plan, EOL communication, signoff, final document bundle, release notes, decision summary, UAT signoff, and post-ship memory capture.'
 ---
 
 # po-ship

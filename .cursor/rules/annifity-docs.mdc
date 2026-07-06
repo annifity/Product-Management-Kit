@@ -1,5 +1,5 @@
 ---
-description: 'Annifity skill docs: Maintain Annifity working documents automatically. Use alongside every PO workflow to create, update, index, export, and summarize PRDs, specs, user stories, UAT cases, decision logs, changelogs, session notes, and release documents in `.annifity/docs/`.'
+description: 'Annifity skill docs: Maintain Annifity working documents automatically. Use alongside every PO workflow to create, update, index, export, summarize, version, and link PRDs, BRDs, specs, user stories, UAT cases, decision logs, decision ledger records, changelogs, templates, session notes, release documents, and traceability artifacts in `.annifity/docs/`.'
 alwaysApply: false
 ---
 

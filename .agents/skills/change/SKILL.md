@@ -1,6 +1,6 @@
 ---
 name: change
-description: 'Manage requirement changes to existing PRDs, specs, user stories, UAT, or release scope. Use when requirements change mid-flight, a stakeholder updates scope, a document needs controlled edits, or impact analysis and changelog are required.'
+description: 'Manage requirement changes to existing PRDs, BRDs, specs, user stories, UAT, Jira tickets, Confluence pages, or release scope. Use when requirements change mid-flight, a stakeholder updates scope, a document needs controlled edits, spec versioning, surgical patching, impact analysis, changelog, notification, or AI context handoff.'
 ---
 
 # change

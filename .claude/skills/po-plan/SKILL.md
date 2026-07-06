@@ -1,6 +1,6 @@
 ---
 name: po-plan
-description: 'Convert a confirmed product spec into a delivery plan, epic map, release slices, dependency map, milestone plan, and team handoff sequence. Use after specification and before execution or story writing.'
+description: 'Convert a confirmed product spec into a delivery plan, roadmap slice, prioritization decision, business case, market/finance-informed investment decision, epic map, release slices, dependency map, milestone plan, grooming questions, and team handoff sequence. Use after specification and before execution, story writing, sprint planning, or roadmap communication.'
 ---
 
 # po-plan

@@ -1,7 +1,7 @@
 node_modules/
 .annifity/
 exports/
-docs/
+docs/data/catalog.js
 *.log
 .DS_Store
 Thumbs.db

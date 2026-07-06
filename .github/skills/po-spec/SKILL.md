@@ -1,6 +1,6 @@
 ---
 name: po-spec
-description: 'Turn a confirmed product idea, PRD input, BRD, meeting note, or brainstorming brief into a precise product specification. Use for scope, requirements, workflows, edge cases, data rules, non-functional requirements, assumptions, risks, and open questions before delivery planning.'
+description: 'Turn a confirmed product idea, PRD input, BRD, meeting note, discovery brief, roadmap item, or brainstorming brief into a precise product specification. Use for BRD analysis, feature design, scope, business rules, requirements, workflows, state behavior, edge cases, data/API rules, non-functional requirements, assumptions, risks, and open questions before delivery planning.'
 ---
 
 # po-spec

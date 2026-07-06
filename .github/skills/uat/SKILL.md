@@ -1,6 +1,6 @@
 ---
 name: uat
-description: 'Create or review User Acceptance Testing plans and test cases from PRDs, specs, user stories, acceptance criteria, or release scope. Use for UAT coverage, role-based scenarios, happy paths, unhappy paths, boundary cases, and signoff readiness.'
+description: 'Create or review User Acceptance Testing plans, scenario tests, test case registers, and coverage reports from PRDs, BRDs, specs, user stories, acceptance criteria, or release scope. Use for UAT coverage, role-based scenarios, happy paths, unhappy paths, boundary cases, permission validation, NFR scenarios, execution logs, and signoff readiness.'
 ---
 
 # uat
