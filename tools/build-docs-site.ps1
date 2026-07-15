@@ -142,7 +142,7 @@ $catalog = [ordered]@{
     references = $references
 }
 
-$json = $catalog | ConvertTo-Json -Depth 20
+$json = ($catalog | ConvertTo-Json -Depth 20).Replace("`r`n", "`n")
 $content = "window.ANNIFITY_CATALOG = " + $json + ";`n"
 [System.IO.File]::WriteAllText($CatalogPath, $content, $Utf8NoBom)
 

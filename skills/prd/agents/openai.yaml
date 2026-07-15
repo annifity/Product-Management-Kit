@@ -1,0 +1,4 @@
+interface:
+  display_name: "Annifity PRD"
+  short_description: "Create and revise product requirements"
+  default_prompt: "Use $prd to create or revise a traceable product requirements document."

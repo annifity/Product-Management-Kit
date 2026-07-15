@@ -1,6 +1,6 @@
 # PRO Quality Checklist
 
-Use this to review a PRO - Prototyping Requirements One-Pager before sending it to a selected frontend prototype builder. `sdcorejs-agent` is one external example target, not a required dependency.
+Use this to review a PRO - Prototyping Requirements One-Pager before sending it to a selected frontend prototype builder. Keep the review tool-agnostic unless the user explicitly selects a target.
 
 ## Required Shape
 

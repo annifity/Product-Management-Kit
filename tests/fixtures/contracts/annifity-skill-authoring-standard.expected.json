@@ -1,0 +1,20 @@
+{
+  "name": "annifity-skill-authoring-standard",
+  "skill": "validate",
+  "input": "annifity-skill-authoring-standard.input.md",
+  "sourceFiles": [
+    "_refs/operating-model/skill-authoring.md",
+    "_refs/checklists/skill-quality.md",
+    "_refs/templates/skills/skill-template.md"
+  ],
+  "requiredTerms": [
+    "Skill Or Reference Decision",
+    "Treat context supplied with the request as input already collected",
+    "Every new `_refs/` file must be referenced directly",
+    "positive, negative, ambiguous, handoff",
+    "Never patch generated adapters manually",
+    "Requires human/legal license review"
+  ],
+  "maxWords": 2600,
+  "wordCountSource": "_refs/operating-model/skill-authoring.md"
+}

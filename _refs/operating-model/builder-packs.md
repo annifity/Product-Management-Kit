@@ -20,7 +20,7 @@ Use after `discovery` when the opportunity is shaped but not yet committed.
 Use after `brief` or `prototype` when the goal is build-to-learn.
 
 - PRO - Prototyping Requirements One-Pager when a raw idea needs prompt-ready frontend prototype builder input.
-- Prototype First Workflow state: PRO -> selected builder (for example `sdcorejs-agent`) -> runnable FE prototype with mock data -> feedback -> validate/learn -> PRD when learning is sufficient.
+- Prototype First Workflow state: PRO -> selected frontend prototype builder -> runnable FE prototype with mock data -> feedback -> validate/learn -> PRD when learning is sufficient.
 - Learning objective and riskiest assumptions.
 - Minimum user flow.
 - Screen list or wireframe description.

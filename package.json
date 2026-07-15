@@ -8,11 +8,14 @@
     "sync": "powershell -NoProfile -ExecutionPolicy Bypass -File tools/sync-ai-skill-structures.ps1",
     "docs:build": "powershell -NoProfile -ExecutionPolicy Bypass -File tools/build-docs-site.ps1",
     "guard": "powershell -NoProfile -ExecutionPolicy Bypass -File tools/check-self-contained.ps1",
+    "skill:validate": "powershell -NoProfile -ExecutionPolicy Bypass -File tools/test-skill-format.ps1",
     "ref:check": "powershell -NoProfile -ExecutionPolicy Bypass -File tools/check-ref-integrity.ps1",
+    "routing:test": "powershell -NoProfile -ExecutionPolicy Bypass -File tools/test-skill-routing.ps1",
+    "sync:check": "powershell -NoProfile -ExecutionPolicy Bypass -File tools/sync-ai-skill-structures.ps1 -Check",
     "contract:test": "powershell -NoProfile -ExecutionPolicy Bypass -File tools/test-skill-contracts.ps1",
     "workspace:init": "powershell -NoProfile -ExecutionPolicy Bypass -File tools/init-annifity-workspace.ps1",
     "test": "powershell -NoProfile -ExecutionPolicy Bypass -File tools/test-annifity.ps1",
-    "check": "npm run guard && npm run ref:check && npm run sync && npm run docs:build && npm run contract:test && npm test",
+    "check": "npm run guard && npm run skill:validate && npm run ref:check && npm run routing:test && npm run sync:check && npm run docs:build && npm run contract:test && npm test",
     "precommit": "powershell -NoProfile -ExecutionPolicy Bypass -File tools/pre-commit-annifity.ps1"
   },
   "devDependencies": {

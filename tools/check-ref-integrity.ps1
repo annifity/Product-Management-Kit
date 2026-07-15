@@ -52,18 +52,26 @@ else {
 $missing = @()
 $refsUsedBySkills = @{}
 $allRefFiles = @{}
-$foundationalRefs = @(
-    "_refs/integrations/claude.md",
-    "_refs/integrations/codex.md",
-    "_refs/integrations/copilot.md",
-    "_refs/integrations/cursor.md",
-    "_refs/operating-model/annifity-principles.md",
-    "_refs/operating-model/language-policy.md"
-)
-
 Get-ChildItem -LiteralPath (Join-Path $Root "_refs") -Recurse -File |
     ForEach-Object {
         $allRefFiles[(ConvertTo-RepoPath $_.FullName)] = $true
+    }
+
+# Orphan detection is repository-wide even when -Files limits missing-link checks.
+# Build direct inbound routes from every canonical skill so incremental runs do not
+# report valid references as orphaned merely because their owning skill was omitted.
+Get-ChildItem -LiteralPath (Join-Path $Root "skills") -Directory |
+    ForEach-Object {
+        $skillPath = Join-Path $_.FullName "SKILL.md"
+        if (-not (Test-Path -LiteralPath $skillPath)) { return }
+
+        $skillContent = [System.IO.File]::ReadAllText($skillPath)
+        foreach ($match in [regex]::Matches($skillContent, "_refs/[A-Za-z0-9_./-]+")) {
+            $ref = $match.Value.TrimEnd(".", ",", ":", ";", ")", "]", "'", '"')
+            if (-not [string]::IsNullOrWhiteSpace($ref)) {
+                $refsUsedBySkills[$ref] = $true
+            }
+        }
     }
 
 foreach ($file in $targets) {
@@ -77,10 +85,6 @@ foreach ($file in $targets) {
         if (-not (Test-Path -LiteralPath $fullRef)) {
             $missing += "$repoPath -> $ref"
             continue
-        }
-
-        if ($repoPath -match "^skills/") {
-            $refsUsedBySkills[$ref] = $true
         }
     }
 }
@@ -96,13 +100,16 @@ if ($missing.Count -gt 0) {
 $unused = @(
     $allRefFiles.Keys |
         Where-Object { $_ -notmatch "^_refs/index\.md$" } |
-        Where-Object { $foundationalRefs -notcontains $_ } |
         Where-Object { -not $refsUsedBySkills.ContainsKey($_) } |
         Sort-Object
 )
 
 if ($unused.Count -gt 0) {
-    Write-Host "WARN ref integrity: $($unused.Count) _refs file(s) are not directly referenced by a skill."
+    Write-Host "X ref integrity failed - $($unused.Count) _refs file(s) have no direct canonical skill route:" -ForegroundColor Red
+    foreach ($item in $unused) {
+        Write-Host "  - $item" -ForegroundColor Red
+    }
+    exit 1
 }
 
 Write-Host "OK ref integrity ($($targets.Count) file(s) scanned, no missing _refs links)."

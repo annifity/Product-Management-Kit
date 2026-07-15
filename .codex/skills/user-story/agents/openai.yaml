@@ -1,0 +1,4 @@
+interface:
+  display_name: "Annifity User Story"
+  short_description: "Create Jira-ready stories and criteria"
+  default_prompt: "Use $user-story to split this scope into Jira-ready stories and acceptance criteria."

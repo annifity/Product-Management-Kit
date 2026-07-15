@@ -1,12 +1,14 @@
 # Annifity - AI Product Builder Kit Skills
 
-Annifity is a portable Product Builder Kit for Claude, Codex, Cursor, Copilot, and shared agent environments.
+Annifity is a portable Product Builder Kit for Claude, Codex, Cursor, and Copilot project environments.
 
 ## Source Of Truth
 
-- Canonical skills live only at `skills/*/SKILL.md`.
+- Canonical skill instructions live at `skills/*/SKILL.md`.
+- Canonical Codex UI metadata lives at `skills/*/agents/openai.yaml`.
 - Shared templates, workflows, checklists, schemas, and integration notes live under `_refs/`.
-- Generated adapters live under `.claude/skills/`, `.codex/skills/`, `.github/skills/`, `.agents/skills/`, and `.cursor/rules/`.
+- Generated adapters live under `.claude/skills/`, `.codex/skills/`, `.github/skills/`, and `.cursor/rules/`.
+- Generated adapters are project-local and require the full repository root; do not install an adapter folder by itself.
 - Do not edit generated adapters manually. Edit `skills/` or `_refs/`, then run `tools/sync-ai-skill-structures.ps1`.
 
 ## Skill Map
@@ -19,7 +21,7 @@ Annifity is a portable Product Builder Kit for Claude, Codex, Cursor, Copilot, a
 | `brief` | Convert confirmed direction into a one-page product outline |
 | `prototype` | Prepare build-to-learn user flows, screens, wireframes, and builder prompts |
 | `experiment` | Define hypotheses, metrics, tracking plans, samples, and decision criteria |
-| `validate` | Review prototypes, experiments, specs, PRDs, stories, UAT, readiness, and risks |
+| `validate` | Audit existing prototypes, evidence, artifacts, skills, readiness, and risks |
 | `learn` | Synthesize insight, retrospective, decision memo, and roadmap recommendation |
 | `spec` | Convert confirmed learning or direction into requirements, workflows, risks, and open questions |
 | `plan` | Build delivery plan, epic map, milestones, dependencies, and release slices |
@@ -37,9 +39,9 @@ Annifity is a portable Product Builder Kit for Claude, Codex, Cursor, Copilot, a
 
 | Skill | Use |
 |---|---|
-| `prd` | Create, revise, review, translate, or export PRDs |
-| `user-story` | Create, split, review, or export stories and acceptance criteria |
-| `uat` | Create or review UAT plans and test cases |
+| `prd` | Create, revise, translate, or export PRDs and BRDs |
+| `user-story` | Create, split, revise, map, or export stories and acceptance criteria |
+| `uat` | Create, refine, execute, or record UAT plans and test cases |
 | `change` | Manage requirement changes with impact analysis and changelog |
 | `knowledge` | Search and synthesize local, Jira, Confluence, or connector-backed knowledge |
 
@@ -75,11 +77,13 @@ npm install
 The Lefthook pre-commit runs `tools/pre-commit-annifity.ps1`, which:
 
 1. Runs `tools/check-self-contained.ps1`
-2. Runs `tools/check-ref-integrity.ps1`
-3. Runs `tools/sync-ai-skill-structures.ps1`
-4. Runs `tools/build-docs-site.ps1`
-5. Runs `tools/test-skill-contracts.ps1`
-6. Runs `tools/test-annifity.ps1`
-7. Stages generated adapter files and `docs/data/catalog.js`
+2. Runs `tools/test-skill-format.ps1`
+3. Runs `tools/check-ref-integrity.ps1`
+4. Runs `tools/test-skill-routing.ps1`
+5. Runs `tools/sync-ai-skill-structures.ps1`
+6. Runs `tools/build-docs-site.ps1`
+7. Runs `tools/test-skill-contracts.ps1`
+8. Runs `tools/test-annifity.ps1`
+9. Stages generated adapter files, deprecated adapter removals, and `docs/data/catalog.js`
 
 If Lefthook is unavailable, `.githooks/pre-commit` calls the same script as a fallback.

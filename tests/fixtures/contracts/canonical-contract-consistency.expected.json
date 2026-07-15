@@ -1,0 +1,23 @@
+{
+  "name": "canonical-contract-consistency",
+  "skill": "discovery",
+  "input": "canonical-contract-consistency.input.md",
+  "sourceFiles": [
+    "_refs/templates/discovery/discovery-brief.md",
+    "_refs/templates/experiment/decision-criteria.md",
+    "_refs/templates/docs/docs-index.md",
+    "_refs/templates/docs/session-note.md"
+  ],
+  "requiredTerms": [
+    "Commercial Attractiveness",
+    "Learnability",
+    "Send results to `validate`, then `learn`",
+    "| Source |",
+    "type: session",
+    "updated: YYYY-MM-DD"
+  ],
+  "prohibitedTerms": [
+    "[3-15]",
+    "Proceed to `spec` or `plan`."
+  ]
+}

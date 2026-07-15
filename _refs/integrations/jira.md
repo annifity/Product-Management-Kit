@@ -6,6 +6,14 @@
 - Preserve issue keys exactly.
 - If no connector is available, produce CSV-ready output.
 
+## Mutation Approval Gate
+
+1. Draft the proposed Jira create, update, or bulk operation without changing Jira.
+2. Preview the target project, issue type or keys, summaries, fields, links, and operation count.
+3. Ask for explicit user approval of that preview before executing any mutation. A request for Jira-ready content, export, or CSV is not approval to mutate Jira.
+4. Execute only the approved operations. If the preview changes materially, show the revised preview and ask again.
+5. Report created or updated issue keys, URLs when available, skipped operations, and failures after execution.
+
 ## Recommended Mapping
 
 | Artifact | Jira Target |

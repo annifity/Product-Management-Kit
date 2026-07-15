@@ -1,10 +1,14 @@
-# Session Note: [Topic]
+---
+title: [Session Note: Topic]
+type: session
+status: draft
+updated: YYYY-MM-DD
+source: [Request, artifact, meeting, or session]
+version: [Optional version]
+owner: [Optional owner]
+---
 
----
-date: [YYYY-MM-DD]
-artifact: [Artifact]
-status: [Draft/Reviewed/Baselined/Shipped]
----
+# Session Note: [Topic]
 
 ## Summary
 

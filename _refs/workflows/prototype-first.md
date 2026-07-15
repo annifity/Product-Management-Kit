@@ -14,7 +14,7 @@ When a new request does not clearly choose a workflow, ask:
 A. Prototype First: tạo PRO dưới 500 từ -> generate prototype -> lấy feedback -> viết PRD sau.
 B. Traditional: làm rõ spec -> viết PRD chi tiết ngay."
 
-Auto-select Prototype First when the user says prototype, validate quickly, demo UI, mockup, runnable FE, test idea, client feedback before build, PRO, frontend prototype builder, or a specific builder such as `sdcorejs-agent`.
+Auto-select Prototype First when the user says prototype, validate quickly, demo UI, mockup, runnable FE, test idea, client feedback before build, PRO, frontend prototype builder, or names a specific frontend prototype builder.
 
 Auto-select Traditional when the user says detailed PRD, full spec, engineering handoff, backlog, delivery planning, or confirmed requirement, unless they also mention prototype-first validation.
 
@@ -23,7 +23,7 @@ Auto-select Traditional when the user says detailed PRD, full spec, engineering 
 Initial Request / Idea
 -> Light Discovery if needed
 -> PRO - Prototyping Requirements One-Pager
--> Prototype Builder Input (tool-agnostic; for example `sdcorejs-agent`)
+-> Prototype Builder Input (tool-agnostic unless the user selects a target)
 -> Runnable FE Prototype with mock data
 -> Client/User Feedback
 -> Validate / Learn

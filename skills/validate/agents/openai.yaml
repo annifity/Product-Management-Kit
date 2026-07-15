@@ -1,0 +1,4 @@
+interface:
+  display_name: "Annifity Validate"
+  short_description: "Review product artifacts and readiness"
+  default_prompt: "Use $validate to review this product artifact and report evidence-backed findings."

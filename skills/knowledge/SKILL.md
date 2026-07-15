@@ -1,11 +1,11 @@
 ---
 name: knowledge
-description: Retrieve and synthesize organizational product knowledge from local docs, memories, decision ledger records, pasted context, Jira, Confluence, or available workspace connectors. Use for feature existence checks, ownership questions, decision history, archaeology of past decisions, runbooks, artifact lookup, template lookup, and product context retrieval.
+description: Retrieve and synthesize existing product knowledge from local docs, memories, decision records, Jira, Confluence, pasted context, or workspace connectors, with source citations and confidence. Use when the user asks what exists, where it is documented, who owns it, or why a decision was made. This is read-oriented; use `docs` to write or index artifacts and `memories` to persist durable context.
 ---
 
 # Knowledge
 
-Use this when the user asks what already exists, who owns something, why a decision was made, or where a process is documented.
+Ground answers in retrievable sources, distinguish conflicts, and state confidence.
 
 ## Process
 
@@ -17,16 +17,19 @@ Use this when the user asks what already exists, who owns something, why a decis
 6. If sources conflict, surface the conflict.
 7. If sources are missing or stale, say so clearly.
 
-## Required References
+## Reference Routing
 
-- `_refs/integrations/jira.md`
-- `_refs/integrations/confluence.md`
-- `_refs/templates/docs/decision-log.md`
-- `_refs/templates/docs/decision-ledger.md`
-- `_refs/templates/docs/evidence-ledger.md`
-- `_refs/templates/memories/decisions.md`
-- `_refs/schemas/initiative-state.md`
+Load only references needed for the source being searched:
+
+- For Jira or Confluence lookup, use `_refs/integrations/jira.md` and/or `_refs/integrations/confluence.md`.
+- For current or historical decisions, use `_refs/templates/docs/decision-log.md`, `_refs/templates/docs/decision-ledger.md`, and `_refs/templates/memories/decisions.md` selectively.
+- For evidence-backed factual claims, use `_refs/templates/docs/evidence-ledger.md`.
+- For current initiative ownership or phase state, use `_refs/schemas/initiative-state.md`.
 
 ## Output
 
 Return a concise answer, evidence table, confidence level, and suggested next lookup.
+
+## Handoff
+
+Return the cited evidence, conflicts, confidence, and unresolved gaps to the invoking workflow. Route to `docs` only when the user requests an artifact update and to `memories` only when confirmed durable context should be persisted.

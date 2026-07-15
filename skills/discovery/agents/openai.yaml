@@ -1,0 +1,4 @@
+interface:
+  display_name: "Annifity Discovery"
+  short_description: "Frame product opportunities clearly"
+  default_prompt: "Use $discovery to frame this product opportunity before defining a solution."

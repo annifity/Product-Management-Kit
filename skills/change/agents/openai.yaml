@@ -1,0 +1,4 @@
+interface:
+  display_name: "Annifity Change"
+  short_description: "Control requirement changes safely"
+  default_prompt: "Use $change to assess and apply this requirement change with traceability."

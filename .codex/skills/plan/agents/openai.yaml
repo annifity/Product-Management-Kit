@@ -1,0 +1,4 @@
+interface:
+  display_name: "Annifity Plan"
+  short_description: "Plan delivery from confirmed specifications"
+  default_prompt: "Use $plan to turn this confirmed specification into a delivery plan."

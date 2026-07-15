@@ -1,5 +1,7 @@
 node_modules/
 .annifity/
+/docs/audits/
+/docs/roadmaps/
 exports/
 *.log
 .DS_Store

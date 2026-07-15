@@ -1,11 +1,15 @@
 ---
 name: experiment
-description: Use when a product hypothesis, prototype, or brief needs a validation experiment with success metrics, tracking plan, decision criteria, sample size, learning plan, or evidence design. Applies before building production scope and differs from UAT, which verifies acceptance of committed delivery.
+description: Design an evidence-producing product experiment from a hypothesis, brief, or prototype. Use when the user needs an experiment method, participants or sample size, success metrics, tracking, guardrails, or precommitted go/iterate/stop criteria before production delivery. Use `validate` after evidence exists to judge results; use `uat` to verify acceptance of already committed behavior.
 ---
 
 # Experiment
 
-Use this to design how the team will test a product hypothesis with real evidence.
+Design an evidence plan that can resolve a named product uncertainty.
+
+## Input Contract
+
+Reuse the supplied hypothesis, brief, prototype, evidence, and constraints. Require a named uncertainty and the decision it should inform; ask only for material gaps that prevent a testable design. Continue with labeled assumptions for non-blocking gaps in audience, metrics, or method.
 
 ## Process
 
@@ -27,20 +31,19 @@ Use this to design how the team will test a product hypothesis with real evidenc
 - Risks and ethics notes
 - Next action
 
-## Required References
+## Reference Routing
 
-- `_refs/operating-model/builder-packs.md`
-- `_refs/workflows/experiment-design.md`
-- `_refs/templates/experiment/hypothesis.md`
-- `_refs/templates/experiment/experiment-plan.md`
-- `_refs/templates/experiment/tracking-plan.md`
-- `_refs/templates/experiment/decision-criteria.md`
-- `_refs/templates/experiment/sample-size.md`
-- `_refs/schemas/metrics-event.md`
-- `_refs/templates/docs/evidence-ledger.md`
-- `_refs/checklists/security-privacy-accessibility.md`
-- `_refs/operating-model/learning-loop.md`
+Load only references needed for the experiment design:
+
+- For workflow or packaged handoff, use `_refs/workflows/experiment-design.md` and `_refs/operating-model/builder-packs.md`.
+- For hypothesis and plan structure, use `_refs/templates/experiment/hypothesis.md` and `_refs/templates/experiment/experiment-plan.md`.
+- For instrumentation, use `_refs/templates/experiment/tracking-plan.md` and `_refs/schemas/metrics-event.md`.
+- For decision thresholds or sampling, use `_refs/templates/experiment/decision-criteria.md` and/or `_refs/templates/experiment/sample-size.md`.
+- For evidence persistence, use `_refs/templates/docs/evidence-ledger.md`.
+- For sensitive participants, data, accessibility, or ethics, use `_refs/checklists/security-privacy-accessibility.md`.
+- When checking experiment readiness or the evidence handoff gate, use `_refs/operating-model/phase-gates.md`.
+- For the next learning phase, use `_refs/operating-model/learning-loop.md`.
 
 ## Handoff
 
-Use `validate` to review results against the pre-set criteria, then `learn` to synthesize insight and decide whether to iterate, specify, plan, or stop.
+After results exist, hand the experiment plan, hypothesis, evidence, tracking limits, guardrails, and pre-set decision criteria to `validate`. Route the resulting verdict and evidence to `learn` for interpretation and the next product decision.

@@ -1,11 +1,11 @@
 ---
 name: brief
-description: Use when a confirmed discovery direction needs a concise one-pager or Product Requirements Outline before prototype, experiment, spec, roadmap, or stakeholder alignment work. Applies to problem framing, goals, target users, scope, success metrics, AI-specific requirements, edge cases, and risks.
+description: Create a concise product-direction brief or Product Requirements Outline from confirmed discovery. Use for a one-page alignment artifact covering problem, users, goals, scope, metrics, assumptions, and risks before prototype, experiment, or detailed requirements. Use `brief` for pre-delivery direction; use `prd` for a formal PRD/BRD and `spec` for implementation-ready rules and behavior.
 ---
 
 # Brief
 
-Use this after `discovery` when the direction is clear enough to summarize, but not yet ready to become a full working spec.
+Produce the smallest alignment artifact that preserves a confirmed direction without expanding it into delivery detail.
 
 ## Process
 
@@ -27,19 +27,18 @@ Use this after `discovery` when the direction is clear enough to summarize, but 
 - Assumptions and open questions
 - Recommended next skill
 
-## Required References
+## Reference Routing
 
-- `_refs/operating-model/routing.md`
-- `_refs/operating-model/builder-packs.md`
-- `_refs/templates/prd/one-pager.md`
-- `_refs/templates/metrics/metric-tree.md`
-- `_refs/templates/ai/context-manifest.md`
-- `_refs/checklists/business-analysis.md`
-- `_refs/checklists/edge-cases.md`
-- `_refs/checklists/stakeholder-governance.md`
-- `_refs/workflows/ai-native-pm-loop.md`
-- `_refs/operating-model/learning-loop.md`
+Load only references needed for the request:
+
+- For skill choice or packaged handoff, use `_refs/operating-model/routing.md` and `_refs/operating-model/builder-packs.md`.
+- For the brief structure, use `_refs/templates/prd/one-pager.md`.
+- For measurable outcomes, use `_refs/templates/metrics/metric-tree.md`.
+- For AI context or agent behavior, use `_refs/templates/ai/context-manifest.md`.
+- When checking whether the confirmed direction can leave the brief phase, use `_refs/operating-model/phase-gates.md`.
+- For analysis, edge cases, or governance gaps, use `_refs/checklists/business-analysis.md`, `_refs/checklists/edge-cases.md`, and `_refs/checklists/stakeholder-governance.md` selectively.
+- For multi-phase AI-native work or learning-loop handoff, use `_refs/workflows/ai-native-pm-loop.md` and `_refs/operating-model/learning-loop.md`.
 
 ## Handoff
 
-Use `prototype` when the next step is build-to-learn, `experiment` when the hypothesis and metrics are ready to test, or `spec` when the team is ready to define delivery requirements.
+Hand off the confirmed one-page brief with problem, users, goals, scope, metrics, assumptions, risks, and open questions. Route it to `prototype` for build-to-learn, `experiment` when hypothesis and metrics are testable, or `spec` only when the delivery-entry gate is satisfied.

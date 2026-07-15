@@ -46,7 +46,7 @@ Use this prompt-ready one-pager to create a runnable frontend prototype with moc
 
 ## 10. Prompt-Ready Input For AI Prototyping
 
-- For the selected frontend prototype builder (for example `sdcorejs-agent`): [first UI layout, simulated user flow, mock data shape, output format, and optional concept variations.]
+- For the selected frontend prototype builder: [first UI layout, simulated user flow, mock data shape, output format, and optional concept variations. Include tool-specific instructions only when a target has been explicitly selected.]
 
 ## 11. Next Steps
 

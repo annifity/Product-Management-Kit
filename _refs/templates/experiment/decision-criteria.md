@@ -2,7 +2,7 @@
 
 | Outcome | Criteria | Decision |
 |---|---|---|
-| Go | [Threshold] | Proceed to `spec` or `plan`. |
+| Go | [Threshold] | Send results to `validate`, then `learn` before delivery scope. |
 | Iterate | [Threshold] | Adjust brief, prototype, or experiment and loop again. |
 | Park | [Threshold] | Save learning and revisit later. |
 | Reject | [Threshold] | Stop work and record rationale. |

@@ -55,10 +55,10 @@ Use `_refs/operating-model/builder-packs.md` for the detailed pack contract and 
 Prototype First avoids writing a long PRD too early:
 
 ```text
-Idea -> PRO -> Frontend Prototype Builder (for example sdcorejs-agent) -> Runnable FE Prototype -> Feedback -> Learn/Validate -> PRD
+Idea -> PRO -> Frontend Prototype Builder -> Runnable FE Prototype -> Feedback -> Learn/Validate -> PRD
 ```
 
-Use it when the user wants quick validation, a UI demo, mockup, runnable FE prototype, test idea, client feedback before build, or is not sure the solution is right. `sdcorejs-agent` can be used as an external example builder for runnable FE with mock data, but the workflow is tool-agnostic.
+Use it when the user wants quick validation, a UI demo, mockup, runnable FE prototype, test idea, client feedback before build, or is not sure the solution is right. Builder selection remains tool-agnostic; add tool-specific instructions only when the user explicitly selects a target.
 
 Traditional remains available for clear requirements:
 
@@ -98,7 +98,8 @@ Annifity covers these Product Builder Kit capabilities through a clearer learnin
 
 ```text
 skills/
-  */SKILL.md               Canonical skill entry points
+  */SKILL.md               Canonical skill instructions
+  */agents/openai.yaml     Canonical Codex UI metadata
 
 _refs/
   operating-model/         Annifity principles, gates, lifecycle, language policy
@@ -110,7 +111,6 @@ _refs/
 
 .claude/skills/
 .codex/skills/
-.agents/skills/
 .github/skills/
 .cursor/rules/             Generated adapters
 
@@ -122,20 +122,20 @@ tools/
 
 ## Source Of Truth
 
-Canonical behavior lives in:
+Canonical sources live in:
 
 - `skills/*/SKILL.md`
+- `skills/*/agents/openai.yaml`
 - `_refs/**`
 
 Generated adapters live in:
 
 - `.claude/skills/`
 - `.codex/skills/`
-- `.agents/skills/`
 - `.github/skills/`
 - `.cursor/rules/`
 
-Do not edit generated adapters manually. Edit canonical files, then run sync.
+Generated adapters are project-local pointers into the canonical repository. They require the full Annifity repository root and are not standalone skill folders; do not copy or install one adapter folder by itself. Do not edit generated adapters manually. Edit canonical files, then run sync.
 
 ## Working Rules
 
@@ -154,7 +154,10 @@ Run checks:
 
 ```powershell
 npm run guard
+npm run skill:validate
 npm run ref:check
+npm run routing:test
+npm run sync:check
 npm run contract:test
 npm test
 ```
@@ -207,7 +210,9 @@ Recommended pattern:
 
 1. Add or update `_refs/...`.
 2. Add a one-line route from the relevant `skills/*/SKILL.md`.
-3. Run `npm run sync`.
-4. Run `npm run guard` and `npm test`.
+3. Add or update positive, negative, ambiguous, handoff, and multilingual routing cases when behavior changes.
+4. Review `_refs/operating-model/skill-authoring.md` and `_refs/checklists/skill-quality.md`.
+5. Run `npm run sync`.
+6. Run `npm run check`.
 
 This keeps Annifity compact for consumers while still giving the agent deep PO operating knowledge when needed.

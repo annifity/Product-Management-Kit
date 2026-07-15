@@ -1,11 +1,15 @@
 ---
 name: change
-description: Manage requirement changes to existing PRDs, BRDs, specs, user stories, UAT, Jira tickets, Confluence pages, or release scope. Use when requirements change mid-flight, a stakeholder updates scope, a document needs controlled edits, spec versioning, surgical patching, impact analysis, changelog, notification, or AI context handoff.
+description: Assess and apply controlled changes to an existing PRD, BRD, spec, user story, UAT package, Jira/Confluence record, or release baseline. Use when scope or requirements change mid-flight and impact analysis, versioned edits, traceable patching, changelog, or stakeholder notification is needed. Use `execution` for delivery clarification that does not change the baseline; route here when committed scope, acceptance, or user-visible behavior changes.
 ---
 
 # Change
 
-Use this for controlled product requirement changes.
+Keep baselined artifacts consistent while recording the reason, impact, owner, and version of each accepted change.
+
+## Input Contract
+
+Reuse the supplied baseline and change context. Require an identifiable current baseline and requested change; ask only for material gaps before assessing impact. Continue through non-blocking gaps with labeled assumptions, but do not apply edits until the change plan is confirmed.
 
 ## Process
 
@@ -18,18 +22,20 @@ Use this for controlled product requirement changes.
 7. Ask `docs` to update changelog, spec context, and decision logs.
 8. Ask `memories` to persist durable decisions.
 
-## Required References
+## Reference Routing
 
-- `_refs/operating-model/routing.md`
-- `_refs/workflows/change-governance.md`
-- `_refs/templates/change/change-plan.md`
-- `_refs/templates/change/impact-analysis.md`
-- `_refs/templates/change/changelog.md`
-- `_refs/templates/change/spec-change-context.md`
-- `_refs/checklists/stakeholder-governance.md`
-- `_refs/integrations/jira.md`
-- `_refs/integrations/confluence.md`
+Load only references needed for the affected baseline and channel:
+
+- For route or change-control rules, use `_refs/operating-model/routing.md` and `_refs/workflows/change-governance.md`.
+- For planning and impact analysis, use `_refs/templates/change/change-plan.md` and `_refs/templates/change/impact-analysis.md`.
+- For applying and recording an approved change, use `_refs/templates/change/changelog.md` and `_refs/templates/change/spec-change-context.md`.
+- For approval or notification risk, use `_refs/checklists/stakeholder-governance.md`.
+- For external artifact updates, use `_refs/integrations/jira.md` and/or `_refs/integrations/confluence.md` only when that system is in scope.
 
 ## Output
 
 Return impact analysis, proposed edits, and changelog entries.
+
+## Handoff
+
+Return the approved change to the owning skill (`prd`, `spec`, `user-story`, `uat`, or `ship`) with its impact, updated baseline/version, and unresolved risks; use `execution` for implementation clarification after delivery resumes.

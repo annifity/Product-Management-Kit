@@ -1,0 +1,4 @@
+interface:
+  display_name: "Annifity Memories"
+  short_description: "Maintain durable Annifity product memory"
+  default_prompt: "Use $memories to persist this durable product decision and its context."
