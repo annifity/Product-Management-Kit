@@ -9,11 +9,14 @@ on:
       - "skills/**"
       - "_refs/**"
       - "package.json"
+      - "package-lock.json"
       - "tools/build-docs-site.ps1"
       - "tools/check-ref-integrity.ps1"
       - "tools/check-self-contained.ps1"
       - "tools/sync-ai-skill-structures.ps1"
       - "tools/test-annifity.ps1"
+      - "tools/test-skill-format.ps1"
+      - "tools/test-skill-routing.ps1"
       - "tools/test-skill-contracts.ps1"
       - ".github/workflows/deploy-docs.yml"
 
@@ -34,10 +37,12 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 22
-      - run: npm install --ignore-scripts --no-package-lock
+      - run: npm ci --ignore-scripts
       - run: npm run guard
+      - run: npm run skill:validate
       - run: npm run ref:check
-      - run: npm run sync
+      - run: npm run routing:test
+      - run: npm run sync:check
       - run: npm run docs:build
       - run: npm run contract:test
       - run: npm test

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Annifity Brief"
+  short_description: "Create concise product briefs"
+  default_prompt: "Use $brief to turn this confirmed direction into a concise product brief."

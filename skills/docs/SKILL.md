@@ -1,11 +1,11 @@
 ---
 name: docs
-description: Maintain Annifity working documents automatically. Use alongside every PO workflow to create, update, index, export, summarize, version, and link PRDs, BRDs, specs, user stories, UAT cases, decision logs, decision ledger records, changelogs, templates, session notes, release documents, and traceability artifacts in `.annifity/docs/`.
+description: Create, update, version, index, link, summarize, or export Annifity working artifacts under `.annifity/docs/`. Use as a supporting skill alongside PO workflows, or as the primary skill when the request is specifically document storage, indexing, versioning, or export. Use `knowledge` for read-only retrieval and `memories` for durable cross-session context rather than artifact management.
 ---
 
 # Docs
 
-Use this as the documentation habit for Annifity workflows.
+Maintain the artifact store and index without changing the owning workflow's product decisions.
 
 ## Storage Policy
 
@@ -26,24 +26,25 @@ Write generated user artifacts under `.annifity/docs/` unless the user requests 
 
 ## Process
 
-1. Save or update the artifact.
-2. Add frontmatter following `_refs/schemas/doc-frontmatter.md`.
-3. Update `.annifity/docs/index.md` using `_refs/templates/docs/docs-index.md`.
-4. Append decision, evidence, change, or traceability records when relevant.
-5. Preserve draft vs published/versioned state.
-6. Report exact paths changed.
+1. Resolve the intended target and inspect the existing artifact and index entry before writing.
+2. Create a new artifact only when the target is absent; update or merge only when the existing target is unambiguous.
+3. Never overwrite an unrelated, published, or versioned artifact. Surface content or path conflicts, preserve both versions, and ask before destructive replacement.
+4. Preserve existing content, frontmatter, version history, and draft vs published state during a merge.
+5. Add or update frontmatter following `_refs/schemas/doc-frontmatter.md`.
+6. Update `.annifity/docs/index.md` using `_refs/templates/docs/docs-index.md` only after the artifact write succeeds.
+7. Append decision, evidence, change, or traceability records when relevant.
+8. Report exact paths changed.
 
-## Required References
+## Reference Routing
 
-- `_refs/operating-model/artifact-lifecycle.md`
-- `_refs/templates/docs/session-note.md`
-- `_refs/templates/docs/decision-log.md`
-- `_refs/templates/docs/decision-ledger.md`
-- `_refs/templates/docs/evidence-ledger.md`
-- `_refs/templates/docs/template-registry.md`
-- `_refs/templates/docs/docs-index.md`
-- `_refs/templates/docs/release-note.md`
-- `_refs/schemas/doc-frontmatter.md`
-- `_refs/schemas/artifact-index.md`
-- `_refs/schemas/decision-record.md`
-- `_refs/schemas/initiative-state.md`
+Load only references needed for the artifact operation:
+
+- For lifecycle or publication state, use `_refs/operating-model/artifact-lifecycle.md`.
+- For session, decision, evidence, template, or release artifacts, use the matching template: `_refs/templates/docs/session-note.md`, `_refs/templates/docs/decision-log.md`, `_refs/templates/docs/decision-ledger.md`, `_refs/templates/docs/evidence-ledger.md`, `_refs/templates/docs/template-registry.md`, or `_refs/templates/docs/release-note.md`.
+- For index changes, use `_refs/templates/docs/docs-index.md` and `_refs/schemas/artifact-index.md`.
+- For document metadata, use `_refs/schemas/doc-frontmatter.md`.
+- For decision or initiative records, use `_refs/schemas/decision-record.md` and/or `_refs/schemas/initiative-state.md`.
+
+## Handoff
+
+Return the exact artifact paths, versions, index links, and unresolved conflicts to the invoking workflow. Do not select a new product phase or change the owning workflow's decisions.

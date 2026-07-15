@@ -1,5 +1,5 @@
 ---
-description: 'Annifity skill experiment: Use when a product hypothesis, prototype, or brief needs a validation experiment with success metrics, tracking plan, decision criteria, sample size, learning plan, or evidence design. Applies before building production scope and differs from UAT, which verifies acceptance of committed delivery.'
+description: 'Annifity skill experiment: Design an evidence-producing product experiment from a hypothesis, brief, or prototype. Use when the user needs an experiment method, participants or sample size, success metrics, tracking, guardrails, or precommitted go/iterate/stop criteria before production delivery. Use `validate` after evidence exists to judge results; use `uat` to verify acceptance of already committed behavior.'
 alwaysApply: false
 ---
 

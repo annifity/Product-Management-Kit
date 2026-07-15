@@ -26,9 +26,11 @@
 
 ## Opportunity Score
 
-| Impact | Confidence | Strategic Fit | Total |
-|---:|---:|---:|---:|
-| [1-5] | [1-5] | [1-5] | [3-15] |
+| Impact | Confidence | Strategic Fit | Commercial Attractiveness | Learnability | Total |
+|---:|---:|---:|---:|---:|---:|
+| [1-5] | [1-5] | [1-5] | [1-5] | [1-5] | [5-25] |
+
+Use `_refs/checklists/opportunity-scoring.md` for evidence anchors and decision thresholds.
 
 ## Go / No-Go
 

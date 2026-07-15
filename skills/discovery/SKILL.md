@@ -1,11 +1,11 @@
 ---
 name: discovery
-description: Use when early product ideas, stakeholder asks, vague feature requests, product discovery, opportunity framing, strategy questions, solution options, scope clarification, market sizing, finance or business model thinking, workshop facilitation, external research, AI context design, or problem framing need shaping before a brief, prototype, experiment, spec, or artifact.
+description: Frame an unclear product problem or opportunity into a confirmed direction. Use for vague or solution-led stakeholder asks, early ideas, missing users/outcomes/evidence, product strategy, opportunity framing, solution exploration, workshops, market sizing, business-model questions, research, or AI context design. Use `discovery` while the problem or direction is unresolved; use `prototype` once a direction is clear enough to build to learn.
 ---
 
 # Discovery
 
-Use this as the first phase of Annifity when the request is still fuzzy, solution-led, strategic, or missing product context.
+Turn uncertainty into decision-ready problem framing before committing to an artifact or solution.
 
 ## Process
 
@@ -36,7 +36,9 @@ Return a compact discovery brief:
 - Success metrics
 - Open questions
 
-## Required References
+## Reference Routing
+
+Load only the references whose stated condition matches the request:
 
 - Use `_refs/operating-model/routing.md` when the request could match multiple skills.
 - Use `_refs/operating-model/learning-loop.md` for the overall phase model.
@@ -63,4 +65,4 @@ Return a compact discovery brief:
 
 ## Handoff
 
-When the user confirms the discovery direction, suggest `brief` for a one-page product direction, `prototype` or `experiment` when learning is the next goal, or `spec` when the solution is ready for detailed requirements. Ask `docs` to save a session note and `memories` to persist durable context.
+When the user confirms a discovery package containing the problem, users, outcome, scope, evidence limits, assumptions, and open questions, route it to `brief` for alignment, `prototype` or `experiment` for learning, or `spec` only when the delivery-entry gate is satisfied. Ask `docs` to save a session note and `memories` to persist durable context.

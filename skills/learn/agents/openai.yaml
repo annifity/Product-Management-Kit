@@ -1,0 +1,4 @@
+interface:
+  display_name: "Annifity Learn"
+  short_description: "Turn evidence into product learning"
+  default_prompt: "Use $learn to turn this evidence into insights and a next-step recommendation."

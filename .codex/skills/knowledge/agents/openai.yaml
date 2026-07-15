@@ -1,0 +1,4 @@
+interface:
+  display_name: "Annifity Knowledge"
+  short_description: "Retrieve and synthesize product knowledge"
+  default_prompt: "Use $knowledge to retrieve and synthesize the relevant product context."

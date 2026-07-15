@@ -1,0 +1,4 @@
+interface:
+  display_name: "Annifity UAT"
+  short_description: "Create and review UAT coverage"
+  default_prompt: "Use $uat to create acceptance scenarios and assess UAT coverage."

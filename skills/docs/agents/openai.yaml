@@ -1,0 +1,4 @@
+interface:
+  display_name: "Annifity Docs"
+  short_description: "Maintain Annifity working documents"
+  default_prompt: "Use $docs to save and index this product artifact in the Annifity workspace."

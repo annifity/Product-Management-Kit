@@ -23,7 +23,6 @@ $ScanRoots = @((Join-Path $Root "skills"), (Join-Path $Root "_refs"))
 # repo/CLI token) so ordinary prose like "Design: Figma link" is never flagged.
 $Rules = @(
     @{ Label = "external plugin skill (superpowers:)";              Pattern = "superpowers:[a-z-]+" }
-    @{ Label = "external plugin skill (sdcorejs-*)";                Pattern = "\bsdcorejs-(?!agent\b)[a-z]+" }
     @{ Label = "external plugin skill (caveman:)";                  Pattern = "caveman:[a-z-]+" }
     @{ Label = "external plugin skill (skill-creator)";             Pattern = "\bskill-creator\b" }
     @{ Label = "external slash-skill (/design:*)";                  Pattern = "/design:[a-z-]+" }

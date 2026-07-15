@@ -2,15 +2,15 @@ window.ANNIFITY_CATALOG = {
     "generatedAt":  "2026-07-06T14:01:11Z",
     "summary":  {
                     "skillCount":  17,
-                    "referenceCount":  125,
+                    "referenceCount":  128,
                     "workflowCount":  18,
-                    "checklistCount":  20,
-                    "templateCount":  67
+                    "checklistCount":  21,
+                    "templateCount":  68
                 },
     "skills":  [
                    {
                        "name":  "brief",
-                       "description":  "Use when a confirmed discovery direction needs a concise one-pager or Product Requirements Outline before prototype, experiment, spec, roadmap, or stakeholder alignment work. Applies to problem framing, goals, target users, scope, success metrics, AI-specific requirements, edge cases, and risks.",
+                       "description":  "Create a concise product-direction brief or Product Requirements Outline from confirmed discovery. Use for a one-page alignment artifact covering problem, users, goals, scope, metrics, assumptions, and risks before prototype, experiment, or detailed requirements. Use `brief` for pre-delivery direction; use `prd` for a formal PRD/BRD and `spec` for implementation-ready rules and behavior.",
                        "source":  "skills/brief/SKILL.md",
                        "references":  [
                                           "_refs/checklists/business-analysis.md",
@@ -18,6 +18,7 @@ window.ANNIFITY_CATALOG = {
                                           "_refs/checklists/stakeholder-governance.md",
                                           "_refs/operating-model/builder-packs.md",
                                           "_refs/operating-model/learning-loop.md",
+                                          "_refs/operating-model/phase-gates.md",
                                           "_refs/operating-model/routing.md",
                                           "_refs/templates/ai/context-manifest.md",
                                           "_refs/templates/metrics/metric-tree.md",
@@ -27,7 +28,7 @@ window.ANNIFITY_CATALOG = {
                    },
                    {
                        "name":  "change",
-                       "description":  "Manage requirement changes to existing PRDs, BRDs, specs, user stories, UAT, Jira tickets, Confluence pages, or release scope. Use when requirements change mid-flight, a stakeholder updates scope, a document needs controlled edits, spec versioning, surgical patching, impact analysis, changelog, notification, or AI context handoff.",
+                       "description":  "Assess and apply controlled changes to an existing PRD, BRD, spec, user story, UAT package, Jira/Confluence record, or release baseline. Use when scope or requirements change mid-flight and impact analysis, versioned edits, traceable patching, changelog, or stakeholder notification is needed. Use `execution` for delivery clarification that does not change the baseline; route here when committed scope, acceptance, or user-visible behavior changes.",
                        "source":  "skills/change/SKILL.md",
                        "references":  [
                                           "_refs/checklists/stakeholder-governance.md",
@@ -43,7 +44,7 @@ window.ANNIFITY_CATALOG = {
                    },
                    {
                        "name":  "discovery",
-                       "description":  "Use when early product ideas, stakeholder asks, vague feature requests, product discovery, opportunity framing, strategy questions, solution options, scope clarification, market sizing, finance or business model thinking, workshop facilitation, external research, AI context design, or problem framing need shaping before a brief, prototype, experiment, spec, or artifact.",
+                       "description":  "Frame an unclear product problem or opportunity into a confirmed direction. Use for vague or solution-led stakeholder asks, early ideas, missing users/outcomes/evidence, product strategy, opportunity framing, solution exploration, workshops, market sizing, business-model questions, research, or AI context design. Use `discovery` while the problem or direction is unresolved; use `prototype` once a direction is clear enough to build to learn.",
                        "source":  "skills/discovery/SKILL.md",
                        "references":  [
                                           "_refs/checklists/brainstorming-readiness.md",
@@ -77,7 +78,7 @@ window.ANNIFITY_CATALOG = {
                    },
                    {
                        "name":  "docs",
-                       "description":  "Maintain Annifity working documents automatically. Use alongside every PO workflow to create, update, index, export, summarize, version, and link PRDs, BRDs, specs, user stories, UAT cases, decision logs, decision ledger records, changelogs, templates, session notes, release documents, and traceability artifacts in `.annifity/docs/`.",
+                       "description":  "Create, update, version, index, link, summarize, or export Annifity working artifacts under `.annifity/docs/`. Use as a supporting skill alongside PO workflows, or as the primary skill when the request is specifically document storage, indexing, versioning, or export. Use `knowledge` for read-only retrieval and `memories` for durable cross-session context rather than artifact management.",
                        "source":  "skills/docs/SKILL.md",
                        "references":  [
                                           "_refs/operating-model/artifact-lifecycle.md",
@@ -96,11 +97,12 @@ window.ANNIFITY_CATALOG = {
                    },
                    {
                        "name":  "execution",
-                       "description":  "Use when active delivery after planning begins needs product-owner support, including developer questions, scope decisions, requirement interpretation, blocked tickets, acceptance clarification, trade-off decisions, Jira/Confluence context handoff, dependency decisions, or controlled updates while implementation is underway.",
+                       "description":  "Provide product-owner decisions and requirement clarification during active implementation after planning. Use for developer questions, blocked tickets, acceptance interpretation, dependency or trade-off decisions, defect triage, and Jira/Confluence context handoff. Use `change` when the answer modifies committed scope, acceptance criteria, or user-visible behavior; use `validate` for a readiness or quality audit rather than day-to-day delivery support.",
                        "source":  "skills/execution/SKILL.md",
                        "references":  [
                                           "_refs/checklists/stakeholder-governance.md",
                                           "_refs/integrations/jira.md",
+                                          "_refs/operating-model/phase-gates.md",
                                           "_refs/operating-model/routing.md",
                                           "_refs/templates/change/spec-change-context.md",
                                           "_refs/templates/docs/decision-ledger.md",
@@ -111,12 +113,13 @@ window.ANNIFITY_CATALOG = {
                    },
                    {
                        "name":  "experiment",
-                       "description":  "Use when a product hypothesis, prototype, or brief needs a validation experiment with success metrics, tracking plan, decision criteria, sample size, learning plan, or evidence design. Applies before building production scope and differs from UAT, which verifies acceptance of committed delivery.",
+                       "description":  "Design an evidence-producing product experiment from a hypothesis, brief, or prototype. Use when the user needs an experiment method, participants or sample size, success metrics, tracking, guardrails, or precommitted go/iterate/stop criteria before production delivery. Use `validate` after evidence exists to judge results; use `uat` to verify acceptance of already committed behavior.",
                        "source":  "skills/experiment/SKILL.md",
                        "references":  [
                                           "_refs/checklists/security-privacy-accessibility.md",
                                           "_refs/operating-model/builder-packs.md",
                                           "_refs/operating-model/learning-loop.md",
+                                          "_refs/operating-model/phase-gates.md",
                                           "_refs/schemas/metrics-event.md",
                                           "_refs/templates/docs/evidence-ledger.md",
                                           "_refs/templates/experiment/decision-criteria.md",
@@ -129,7 +132,7 @@ window.ANNIFITY_CATALOG = {
                    },
                    {
                        "name":  "knowledge",
-                       "description":  "Retrieve and synthesize organizational product knowledge from local docs, memories, decision ledger records, pasted context, Jira, Confluence, or available workspace connectors. Use for feature existence checks, ownership questions, decision history, archaeology of past decisions, runbooks, artifact lookup, template lookup, and product context retrieval.",
+                       "description":  "Retrieve and synthesize existing product knowledge from local docs, memories, decision records, Jira, Confluence, pasted context, or workspace connectors, with source citations and confidence. Use when the user asks what exists, where it is documented, who owns it, or why a decision was made. This is read-oriented; use `docs` to write or index artifacts and `memories` to persist durable context.",
                        "source":  "skills/knowledge/SKILL.md",
                        "references":  [
                                           "_refs/integrations/confluence.md",
@@ -143,11 +146,12 @@ window.ANNIFITY_CATALOG = {
                    },
                    {
                        "name":  "learn",
-                       "description":  "Use when discovery, prototype, experiment, validation, release, or post-ship evidence needs to become an insight summary, product retrospective, decision memo, roadmap recommendation, memory update, or next-loop recommendation.",
+                       "description":  "Synthesize completed discovery, prototype, experiment, validation, release, or post-ship evidence into reusable insight and a product decision. Use for insight summaries, retrospectives, decision memos, roadmap recommendations, and next-loop recommendations after evidence has been assessed. Use `validate` for the readiness/result verdict itself; use `learn` to interpret what the evidence means and what to do next.",
                        "source":  "skills/learn/SKILL.md",
                        "references":  [
                                           "_refs/operating-model/builder-packs.md",
                                           "_refs/operating-model/learning-loop.md",
+                                          "_refs/operating-model/phase-gates.md",
                                           "_refs/templates/docs/decision-ledger.md",
                                           "_refs/templates/learning/decision-memo.md",
                                           "_refs/templates/learning/insight-summary.md",
@@ -161,7 +165,7 @@ window.ANNIFITY_CATALOG = {
                    },
                    {
                        "name":  "memories",
-                       "description":  "Maintain durable Annifity product memory. Use before and after PO workflows to read and update product context, team preferences, terminology, stakeholder constraints, decisions, decision outcomes, assumptions, template preferences, lessons learned, and open questions in `.annifity/memories/`.",
+                       "description":  "Read and persist durable Annifity context under `.annifity/memories/`, including stable product context, terminology, team preferences, stakeholder constraints, confirmed decisions and outcomes, initiative state, lessons, and open questions. Use as workflow support, or primarily when the user asks to remember or update cross-session context. Use `knowledge` for broad retrieval and `docs` for versioned product artifacts.",
                        "source":  "skills/memories/SKILL.md",
                        "references":  [
                                           "_refs/schemas/decision-record.md",
@@ -179,7 +183,7 @@ window.ANNIFITY_CATALOG = {
                    },
                    {
                        "name":  "plan",
-                       "description":  "Use when a confirmed product spec needs a delivery plan, roadmap slice, prioritization decision, business case, market/finance-informed investment decision, epic map, release slices, dependency map, milestone plan, grooming questions, or team handoff sequence before execution, story writing, sprint planning, or roadmap communication.",
+                       "description":  "Convert a confirmed product spec into an actionable delivery plan. Use for prioritization or investment decisions, roadmap and release slices, delivery-level epic maps, milestones, dependencies, grooming questions, and team handoff sequencing. This skill owns cross-epic slicing and sequence; use `user-story` for ticket-ready Jira epics, stories, and acceptance criteria, `spec` when requirements are unstable, and `execution` after delivery begins.",
                        "source":  "skills/plan/SKILL.md",
                        "references":  [
                                           "_refs/checklists/definition-of-ready.md",
@@ -191,6 +195,7 @@ window.ANNIFITY_CATALOG = {
                                           "_refs/checklists/ship-readiness.md",
                                           "_refs/checklists/stakeholder-governance.md",
                                           "_refs/operating-model/builder-packs.md",
+                                          "_refs/operating-model/phase-gates.md",
                                           "_refs/operating-model/routing.md",
                                           "_refs/templates/plan/grooming-questions.md",
                                           "_refs/templates/plan/product-roadmap.md",
@@ -201,7 +206,7 @@ window.ANNIFITY_CATALOG = {
                    },
                    {
                        "name":  "prd",
-                       "description":  "Create, revise, review, translate, or export Product Requirement Documents and BRD-style requirement artifacts. Use when the user asks for a PRD, BRD, one-pager, product requirements document, product spec document, PRD/BRD review, translation, export, Confluence-ready document, strict Confluence HTML, or PRD from PRO + Client Feedback after prototype review, validation result, learning summary, or stakeholder decision.",
+                       "description":  "Create, revise, translate, or export a formal PRD, BRD, requirements one-pager, Confluence-ready requirements page, or PRD from PRO plus client feedback. Use for direct revisions only while the artifact is draft/unbaselined or accepted scope remains unchanged; route committed baseline, scope, acceptance, or user-visible behavior changes to `change`. Use `brief` for a pre-delivery alignment one-pager, `spec` for the detailed delivery source of truth, and `validate` for an independent readiness verdict.",
                        "source":  "skills/prd/SKILL.md",
                        "references":  [
                                           "_refs/checklists/business-analysis.md",
@@ -228,12 +233,13 @@ window.ANNIFITY_CATALOG = {
                    },
                    {
                        "name":  "prototype",
-                       "description":  "Use when a product brief, raw idea, pain point, or validated direction needs a build-to-learn prototype plan, PRO - Prototyping Requirements One-Pager, user flow, screen list, wireframe description, clickable mockup prompt, Claude Code prompt, Lovable prompt, frontend prototype builder input, or prototype handoff before experimentation or specification.",
+                       "description":  "Create a build-to-learn prototype package from a sufficiently clear product direction. Use for a PRO (Prototyping Requirements One-Pager), minimum user flow, screen list, wireframe descriptions, clickable mockup or frontend-builder prompt, and prototype handoff before experiment, PRD, or spec. If a raw idea still lacks a clear problem, user, or outcome, use `discovery` first; this skill prototypes a direction rather than resolving product strategy.",
                        "source":  "skills/prototype/SKILL.md",
                        "references":  [
                                           "_refs/checklists/pro-quality.md",
                                           "_refs/operating-model/builder-packs.md",
                                           "_refs/operating-model/learning-loop.md",
+                                          "_refs/operating-model/phase-gates.md",
                                           "_refs/templates/ai/context-manifest.md",
                                           "_refs/templates/prototype/claude-code-prompt.md",
                                           "_refs/templates/prototype/lovable-bolt-prompt.md",
@@ -248,7 +254,7 @@ window.ANNIFITY_CATALOG = {
                    },
                    {
                        "name":  "ship",
-                       "description":  "Use when a product change needs release, rollout, stakeholder handoff, support handoff, retirement, release readiness, launch planning, support notes, rollback planning, EOL communication, signoff, final document bundle, release notes, decision summary, UAT signoff, or post-ship memory capture.",
+                       "description":  "Prepare and coordinate a product release, rollout, retirement, or final stakeholder/support handoff. Use when the requested outcome is a ship package such as a launch or EOL plan, release notes, rollback/support notes, final document bundle, UAT signoff summary, or post-ship capture. Use `validate` for a read-only readiness audit without package creation and `uat` to create or execute acceptance tests.",
                        "source":  "skills/ship/SKILL.md",
                        "references":  [
                                           "_refs/checklists/operational-readiness.md",
@@ -256,6 +262,7 @@ window.ANNIFITY_CATALOG = {
                                           "_refs/checklists/ship-readiness.md",
                                           "_refs/checklists/stakeholder-governance.md",
                                           "_refs/operating-model/builder-packs.md",
+                                          "_refs/operating-model/phase-gates.md",
                                           "_refs/operating-model/routing.md",
                                           "_refs/templates/docs/release-note.md",
                                           "_refs/templates/release/rollout-plan.md",
@@ -266,7 +273,7 @@ window.ANNIFITY_CATALOG = {
                    },
                    {
                        "name":  "spec",
-                       "description":  "Use when a confirmed product idea, PRD input, BRD, meeting note, discovery brief, roadmap item, learning outcome, or brainstorming brief needs to become a precise product specification with scope, business rules, workflows, state behavior, edge cases, data/API rules, non-functional requirements, assumptions, risks, and open questions before delivery planning.",
+                       "description":  "Turn confirmed product context into the detailed delivery source of truth. Use for a product or workflow specification with scoped requirements, business rules, states, permissions, edge cases, data/API behavior, non-functional requirements, assumptions, risks, and traceability before planning. Use `brief` while only direction-level alignment is needed, `prd` for a formal stakeholder requirements document, and `plan` only after the spec is stable.",
                        "source":  "skills/spec/SKILL.md",
                        "references":  [
                                           "_refs/checklists/artifact-quality-scorecard.md",
@@ -279,6 +286,7 @@ window.ANNIFITY_CATALOG = {
                                           "_refs/checklists/spec-quality.md",
                                           "_refs/checklists/stakeholder-governance.md",
                                           "_refs/operating-model/builder-packs.md",
+                                          "_refs/operating-model/phase-gates.md",
                                           "_refs/operating-model/routing.md",
                                           "_refs/templates/brd/default-brd.md",
                                           "_refs/templates/metrics/metric-tree.md",
@@ -295,7 +303,7 @@ window.ANNIFITY_CATALOG = {
                    },
                    {
                        "name":  "uat",
-                       "description":  "Create or review User Acceptance Testing plans, scenario tests, test case registers, and coverage reports from PRDs, BRDs, specs, user stories, acceptance criteria, or release scope. Use for UAT coverage, role-based scenarios, happy paths, unhappy paths, boundary cases, permission validation, NFR scenarios, execution logs, and signoff readiness.",
+                       "description":  "Create, refine, execute, or record User Acceptance Testing plans, scenario tests, and test-case registers from confirmed requirements or stories. Use for role-based happy, unhappy, boundary, permission, and NFR scenarios, traceability, execution logs, and acceptance results. Use `validate` for an independent audit of UAT coverage/readiness and `ship` for the final release package or signoff summary.",
                        "source":  "skills/uat/SKILL.md",
                        "references":  [
                                           "_refs/checklists/security-privacy-accessibility.md",
@@ -309,7 +317,7 @@ window.ANNIFITY_CATALOG = {
                    },
                    {
                        "name":  "user-story",
-                       "description":  "Create, split, refine, review, map, or export user stories, epics, acceptance criteria, story maps, Jira tickets, and Confluence-ready story pages from a PRD, BRD, feature spec, roadmap item, or confirmed product plan. Use for INVEST stories, story splitting, epic breakdown, story maps, Jira-ready stories, Given/When/Then acceptance criteria, and story quality review.",
+                       "description":  "Create, split, refine, revise, or export ticket-ready Jira epic definitions, implementation-ready user stories, story maps, and acceptance criteria from a confirmed PRD, spec, roadmap item, or delivery plan. Use for INVEST splitting, Jira-ready tickets, and Given/When/Then criteria. Use `plan` for epic maps, sequencing, milestones, and dependencies; use `validate` for an independent story-quality/readiness verdict rather than authoring or correction.",
                        "source":  "skills/user-story/SKILL.md",
                        "references":  [
                                           "_refs/checklists/story-quality-invest.md",
@@ -329,7 +337,7 @@ window.ANNIFITY_CATALOG = {
                    },
                    {
                        "name":  "validate",
-                       "description":  "Use when product artifacts, prototypes, experiments, sprint scope, QA packages, release readiness, stakeholder handoff, or implementation inputs need validation. Applies to PRDs, BRDs, specs, user stories, acceptance criteria, UAT cases, risk registers, traceability, edge cases, sprint readiness, operational readiness, delivery readiness, experiment outcomes, and document quality.",
+                       "description":  "Audit an existing product artifact, evidence set, delivery package, or Annifity canonical skill and return a readiness or quality verdict with findings. Use when the user asks to review, validate, assess readiness, check completeness, consistency, testability, coverage, traceability, risk, or go/no-go status. Use `prd`, `spec`, `user-story`, `uat`, or `ship` to create or substantially rewrite those artifacts; use `validate` as the primary route for an independent review, with domain skills applied only for requested fixes.",
                        "source":  "skills/validate/SKILL.md",
                        "references":  [
                                           "_refs/checklists/artifact-quality-scorecard.md",
@@ -341,14 +349,24 @@ window.ANNIFITY_CATALOG = {
                                           "_refs/checklists/risk-review.md",
                                           "_refs/checklists/security-privacy-accessibility.md",
                                           "_refs/checklists/ship-readiness.md",
+                                          "_refs/checklists/skill-quality.md",
                                           "_refs/checklists/spec-quality.md",
                                           "_refs/checklists/stakeholder-governance.md",
                                           "_refs/checklists/story-quality-invest.md",
                                           "_refs/checklists/uat-coverage.md",
+                                          "_refs/integrations/claude.md",
+                                          "_refs/integrations/codex.md",
+                                          "_refs/integrations/copilot.md",
+                                          "_refs/integrations/cursor.md",
+                                          "_refs/operating-model/annifity-principles.md",
+                                          "_refs/operating-model/language-policy.md",
+                                          "_refs/operating-model/phase-gates.md",
                                           "_refs/operating-model/routing.md",
+                                          "_refs/operating-model/skill-authoring.md",
                                           "_refs/templates/experiment/decision-criteria.md",
                                           "_refs/templates/prototype/prototype-feedback-summary.md",
                                           "_refs/templates/risk/risk-register.md",
+                                          "_refs/templates/skills/skill-template.md",
                                           "_refs/templates/traceability/rtm.md",
                                           "_refs/workflows/prototype-first.md",
                                           "_refs/workflows/sprint-readiness.md"
@@ -441,6 +459,12 @@ window.ANNIFITY_CATALOG = {
                            "lines":  15
                        },
                        {
+                           "path":  "_refs/checklists/skill-quality.md",
+                           "group":  "checklists",
+                           "name":  "skill-quality",
+                           "lines":  85
+                       },
+                       {
                            "path":  "_refs/checklists/solution-quality.md",
                            "group":  "checklists",
                            "name":  "solution-quality",
@@ -480,7 +504,7 @@ window.ANNIFITY_CATALOG = {
                            "path":  "_refs/index.md",
                            "group":  "overview",
                            "name":  "index",
-                           "lines":  59
+                           "lines":  61
                        },
                        {
                            "path":  "_refs/integrations/claude.md",
@@ -516,13 +540,13 @@ window.ANNIFITY_CATALOG = {
                            "path":  "_refs/integrations/jira.md",
                            "group":  "integrations",
                            "name":  "jira",
-                           "lines":  22
+                           "lines":  30
                        },
                        {
                            "path":  "_refs/operating-model/annifity-principles.md",
                            "group":  "operating-model",
                            "name":  "annifity-principles",
-                           "lines":  8
+                           "lines":  10
                        },
                        {
                            "path":  "_refs/operating-model/artifact-lifecycle.md",
@@ -558,7 +582,13 @@ window.ANNIFITY_CATALOG = {
                            "path":  "_refs/operating-model/routing.md",
                            "group":  "operating-model",
                            "name":  "routing",
-                           "lines":  57
+                           "lines":  62
+                       },
+                       {
+                           "path":  "_refs/operating-model/skill-authoring.md",
+                           "group":  "operating-model",
+                           "name":  "skill-authoring",
+                           "lines":  204
                        },
                        {
                            "path":  "_refs/schemas/artifact-index.md",
@@ -636,7 +666,7 @@ window.ANNIFITY_CATALOG = {
                            "path":  "_refs/templates/discovery/discovery-brief.md",
                            "group":  "templates",
                            "name":  "discovery-brief",
-                           "lines":  39
+                           "lines":  41
                        },
                        {
                            "path":  "_refs/templates/discovery/interview-plan.md",
@@ -678,7 +708,7 @@ window.ANNIFITY_CATALOG = {
                            "path":  "_refs/templates/docs/session-note.md",
                            "group":  "templates",
                            "name":  "session-note",
-                           "lines":  19
+                           "lines":  23
                        },
                        {
                            "path":  "_refs/templates/docs/template-registry.md",
@@ -889,6 +919,12 @@ window.ANNIFITY_CATALOG = {
                            "group":  "templates",
                            "name":  "risk-register",
                            "lines":  44
+                       },
+                       {
+                           "path":  "_refs/templates/skills/skill-template.md",
+                           "group":  "templates",
+                           "name":  "skill-template",
+                           "lines":  52
                        },
                        {
                            "path":  "_refs/templates/spec/api-contract.md",

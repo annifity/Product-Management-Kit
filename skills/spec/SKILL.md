@@ -1,21 +1,22 @@
 ---
 name: spec
-description: Use when a confirmed product idea, PRD input, BRD, meeting note, discovery brief, roadmap item, learning outcome, or brainstorming brief needs to become a precise product specification with scope, business rules, workflows, state behavior, edge cases, data/API rules, non-functional requirements, assumptions, risks, and open questions before delivery planning.
+description: Turn confirmed product context into the detailed delivery source of truth. Use for a product or workflow specification with scoped requirements, business rules, states, permissions, edge cases, data/API behavior, non-functional requirements, assumptions, risks, and traceability before planning. Use `brief` while only direction-level alignment is needed, `prd` for a formal stakeholder requirements document, and `plan` only after the spec is stable.
 ---
 
 # Spec
 
-Use this after `discovery`, `brief`, `prototype`, `experiment`, or `learn` when there is enough context to define what should be built. Also use it to analyze BRDs or raw requirements before creating PRDs, stories, or UAT.
+Define canonical delivery behavior precisely enough for planning, story authoring, and acceptance testing.
 
 ## Process
 
 1. Load the latest relevant docs and memories if available.
 2. Classify the source input: raw ask, discovery brief, BRD, PRD, meeting note, or existing spec.
-3. Confirm the artifact target: product spec, BRD/PRD section, workflow spec, data/API note, or requirements register.
-4. Draft a spec with requirement IDs, business rules, explicit assumptions, and source traceability.
-5. Map primary workflows, states, permissions, data touchpoints, dependencies, and failure modes.
-6. Run quality checks for ambiguity, edge cases, risk, operational readiness, and testability.
-7. Ask the user to confirm before moving to `plan` or artifact skills such as `prd`.
+3. If the source lacks a confirmed problem, target users, or intended outcome, or selecting scope requires product strategy, stop and route to `discovery`. If direction is confirmed but only alignment-level detail exists, route to `brief`; do not invent delivery behavior.
+4. Confirm the artifact target: product spec, BRD/PRD section, workflow spec, data/API note, or requirements register.
+5. Draft a spec with requirement IDs, business rules, explicit assumptions, and source traceability.
+6. Map primary workflows, states, permissions, data touchpoints, dependencies, and failure modes.
+7. Run quality checks for ambiguity, edge cases, risk, operational readiness, and testability.
+8. Ask the user to confirm before moving to `plan` or artifact skills such as `prd`.
 
 ## Spec Sections
 
@@ -35,31 +36,20 @@ Use this after `discovery`, `brief`, `prototype`, `experiment`, or `learn` when 
 - Open questions
 - Acceptance signals
 
-## Required References
+## Reference Routing
 
-- `_refs/operating-model/routing.md`
-- `_refs/operating-model/builder-packs.md`
-- `_refs/templates/spec/product-spec.md`
-- `_refs/templates/spec/workflow-spec.md`
-- `_refs/templates/spec/data-requirements.md`
-- `_refs/templates/spec/api-contract.md`
-- `_refs/templates/brd/default-brd.md`
-- `_refs/templates/metrics/metric-tree.md`
-- `_refs/checklists/spec-quality.md`
-- `_refs/checklists/artifact-quality-scorecard.md`
-- `_refs/checklists/business-analysis.md`
-- `_refs/checklists/definition-of-ready.md`
-- `_refs/checklists/solution-quality.md`
-- `_refs/checklists/edge-cases.md`
-- `_refs/checklists/risk-review.md`
-- `_refs/checklists/stakeholder-governance.md`
-- `_refs/checklists/security-privacy-accessibility.md`
-- `_refs/workflows/feature-design.md`
-- `_refs/workflows/requirement-analysis.md`
-- `_refs/workflows/research-evidence.md`
-- `_refs/workflows/ai-native-pm-loop.md`
-- `_refs/workflows/discovery-to-spec.md`
+Load only references needed for the source and specification surface:
+
+- For ambiguous route, packaged handoff, or discovery transition, use `_refs/operating-model/routing.md`, `_refs/operating-model/builder-packs.md`, and `_refs/workflows/discovery-to-spec.md` selectively.
+- Before declaring the spec ready for planning, use the Spec Gate in `_refs/operating-model/phase-gates.md`.
+- For the target spec, use only the matching template: `_refs/templates/spec/product-spec.md`, `_refs/templates/spec/workflow-spec.md`, `_refs/templates/spec/data-requirements.md`, or `_refs/templates/spec/api-contract.md`; use `_refs/templates/brd/default-brd.md` only when analyzing or structuring BRD input.
+- For metric structure, use `_refs/templates/metrics/metric-tree.md`.
+- For core requirement analysis or feature design, use `_refs/workflows/requirement-analysis.md` and/or `_refs/workflows/feature-design.md`.
+- For quality and delivery readiness, use `_refs/checklists/spec-quality.md`, `_refs/checklists/artifact-quality-scorecard.md`, `_refs/checklists/business-analysis.md`, `_refs/checklists/definition-of-ready.md`, and `_refs/checklists/solution-quality.md` selectively.
+- For edge cases, risk, governance, security, privacy, or accessibility, use `_refs/checklists/edge-cases.md`, `_refs/checklists/risk-review.md`, `_refs/checklists/stakeholder-governance.md`, and `_refs/checklists/security-privacy-accessibility.md` only as applicable.
+- For external evidence, use `_refs/workflows/research-evidence.md`.
+- For AI-native multi-phase context, use `_refs/workflows/ai-native-pm-loop.md`.
 
 ## Handoff
 
-If the spec is confirmed, move to `plan`. If the user wants a formal PRD or BRD-style document, use `prd`.
+Route to `plan` only when the Spec Gate passes and the confirmed spec contains testable scope, rules, risks, dependencies, and acceptance signals. Route to `prd` when stakeholders need a formal document derived from that confirmed source of truth.

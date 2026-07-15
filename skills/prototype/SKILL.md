@@ -1,15 +1,15 @@
 ---
 name: prototype
-description: Use when a product brief, raw idea, pain point, or validated direction needs a build-to-learn prototype plan, PRO - Prototyping Requirements One-Pager, user flow, screen list, wireframe description, clickable mockup prompt, Claude Code prompt, Lovable prompt, frontend prototype builder input, or prototype handoff before experimentation or specification.
+description: Create a build-to-learn prototype package from a sufficiently clear product direction. Use for a PRO (Prototyping Requirements One-Pager), minimum user flow, screen list, wireframe descriptions, clickable mockup or frontend-builder prompt, and prototype handoff before experiment, PRD, or spec. If a raw idea still lacks a clear problem, user, or outcome, use `discovery` first; this skill prototypes a direction rather than resolving product strategy.
 ---
 
 # Prototype
 
-Use this to turn a raw idea, pain point, brief, or validated direction into a lightweight prototype package. The goal is learning, not production delivery.
+Build the smallest package needed to test a product direction; the goal is learning, not production delivery.
 
 ## PRO Mode
 
-Use `PRO - Prototyping Requirements One-Pager` when the user has a raw idea, vague opportunity, quick frontend prototype request, or needs prompt-ready input for a selected frontend prototype builder. `sdcorejs-agent` is one external example target, not a required workflow dependency.
+Use `PRO - Prototyping Requirements One-Pager` when a raw idea or opportunity already identifies enough of the problem, target user, and intended outcome to choose a learning direction, or when the user needs prompt-ready input for a selected frontend prototype builder. Keep builder selection tool-agnostic unless the user explicitly names a target.
 
 Use Prototype First Workflow when the user wants to create PRO, generate a runnable frontend prototype, collect feedback, then produce PRD after learning.
 
@@ -31,7 +31,7 @@ PRO is not:
 
 1. Read the raw idea, pain point, brief, target users, success metrics, constraints, and relevant memories.
 2. Identify the riskiest assumptions the prototype should expose.
-3. If the idea is too vague, propose 2-3 concept directions, score learning value / clarity / prototype feasibility, choose one direction, then continue with PRO or prototype planning.
+3. If the problem, target user, or intended outcome is missing and selecting a direction would require product strategy, stop and route to `discovery`. If those are clear but the prototype concept is not, compare 2-3 concept directions by learning value, clarity, and prototype feasibility before continuing.
 4. If the user needs quick prototype generation, draft PRO using `_refs/templates/prototype/prototyping-requirements-one-pager.md` after the direction is clear.
 5. Define the minimum user flow and screen list needed to learn.
 6. Draft wireframe descriptions and prototype prompts for the selected builder.
@@ -50,22 +50,19 @@ PRO is not:
 - Out-of-scope production concerns
 - Next validation step
 
-## Required References
+## Reference Routing
 
-- `_refs/operating-model/builder-packs.md`
-- `_refs/workflows/prototype-first.md`
-- `_refs/workflows/idea-to-prototype.md`
-- `_refs/templates/prototype/prototyping-requirements-one-pager.md`
-- `_refs/templates/prototype/prototype-feedback-summary.md`
-- `_refs/templates/prototype/user-flow.md`
-- `_refs/templates/prototype/screen-list.md`
-- `_refs/templates/prototype/wireframe-description.md`
-- `_refs/templates/prototype/claude-code-prompt.md`
-- `_refs/templates/prototype/lovable-bolt-prompt.md`
-- `_refs/checklists/pro-quality.md`
-- `_refs/templates/ai/context-manifest.md`
-- `_refs/operating-model/learning-loop.md`
+Load only references needed for the prototype mode and target builder:
+
+- For packaged prototype-first work, use `_refs/operating-model/builder-packs.md`, `_refs/workflows/prototype-first.md`, and `_refs/operating-model/learning-loop.md` selectively.
+- For direction-to-prototype workflow, use `_refs/workflows/idea-to-prototype.md`.
+- For PRO creation and validation, use `_refs/templates/prototype/prototyping-requirements-one-pager.md` and `_refs/checklists/pro-quality.md`.
+- For prototype feedback capture, use `_refs/templates/prototype/prototype-feedback-summary.md`.
+- When checking readiness to move from prototype into experiment, validation, or delivery definition, use `_refs/operating-model/phase-gates.md`.
+- For flow, screens, or wireframes, use only the matching template: `_refs/templates/prototype/user-flow.md`, `_refs/templates/prototype/screen-list.md`, or `_refs/templates/prototype/wireframe-description.md`.
+- For builder output, use `_refs/templates/prototype/claude-code-prompt.md` or `_refs/templates/prototype/lovable-bolt-prompt.md` only when that target is selected.
+- For AI context design, use `_refs/templates/ai/context-manifest.md`.
 
 ## Handoff
 
-Move to `experiment` when the prototype is ready for user or stakeholder testing. Move to `spec` only when the team has learned enough to define delivery requirements.
+Hand the prototype objective, runnable artifact or prompt package, minimum flow, screens, exclusions, and validation method to `experiment` when testing is next. Route to `spec` only after prototype evidence establishes enough confirmed behavior and scope to enter delivery definition.

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Annifity Execution"
+  short_description: "Resolve active delivery decisions"
+  default_prompt: "Use $execution to resolve this delivery question and record the scope decision."

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Annifity Spec"
+  short_description: "Write precise delivery specifications"
+  default_prompt: "Use $spec to turn this confirmed direction into a precise delivery specification."

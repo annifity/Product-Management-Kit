@@ -25,12 +25,14 @@ Skills should load only the relevant reference files for the current task.
 - Shipping and change: release readiness, rollout plan, change governance, spec change context.
 - Documentation and memory: docs index, evidence ledger, decision ledger, template registry, initiative state, metrics events, memory schemas, context manifest for AI-native workflows.
 - Governance and risk: stakeholder governance, security/privacy/accessibility, risk acceptance, AI risk review.
+- Skill authoring: canonical authoring standard with an integrated workflow, skill template, routing contracts, and quality gate.
 
 ## High-ROI Capability Routes
 
 | Need | Reference |
 |---|---|
 | Choose the right Annifity skill | `_refs/operating-model/routing.md` |
+| Create or review an Annifity canonical skill change | `_refs/operating-model/skill-authoring.md` + `_refs/checklists/skill-quality.md` + `_refs/templates/skills/skill-template.md` |
 | Package output as a Product Builder Kit handoff | `_refs/operating-model/builder-packs.md` |
 | Create prompt-ready input for a runnable frontend prototype | `_refs/templates/prototype/prototyping-requirements-one-pager.md` + `_refs/checklists/pro-quality.md` |
 | Run prototype-first before PRD | `_refs/workflows/prototype-first.md` |

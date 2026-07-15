@@ -1,0 +1,4 @@
+interface:
+  display_name: "Annifity Prototype"
+  short_description: "Plan build-to-learn product prototypes"
+  default_prompt: "Use $prototype to define a build-to-learn prototype and its handoff."

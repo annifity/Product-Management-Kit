@@ -1,0 +1,4 @@
+interface:
+  display_name: "Annifity Ship"
+  short_description: "Prepare releases and stakeholder handoffs"
+  default_prompt: "Use $ship to prepare this product change for a safe release and handoff."

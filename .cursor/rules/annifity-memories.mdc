@@ -1,5 +1,5 @@
 ---
-description: 'Annifity skill memories: Maintain durable Annifity product memory. Use before and after PO workflows to read and update product context, team preferences, terminology, stakeholder constraints, decisions, decision outcomes, assumptions, template preferences, lessons learned, and open questions in `.annifity/memories/`.'
+description: 'Annifity skill memories: Read and persist durable Annifity context under `.annifity/memories/`, including stable product context, terminology, team preferences, stakeholder constraints, confirmed decisions and outcomes, initiative state, lessons, and open questions. Use as workflow support, or primarily when the user asks to remember or update cross-session context. Use `knowledge` for broad retrieval and `docs` for versioned product artifacts.'
 alwaysApply: false
 ---
 
