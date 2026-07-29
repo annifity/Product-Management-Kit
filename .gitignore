@@ -1,5 +1,8 @@
 node_modules/
 .annifity/
+!tests/fixtures/artifact-registry-migration/workspace/.annifity/
+!tests/fixtures/artifact-registry-migration/workspace/.annifity/docs/
+!tests/fixtures/artifact-registry-migration/workspace/.annifity/docs/*.md
 /docs/audits/
 /docs/roadmaps/
 exports/
