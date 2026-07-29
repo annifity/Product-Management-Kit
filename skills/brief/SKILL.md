@@ -7,12 +7,16 @@ description: Create a concise product-direction brief or Product Requirements Ou
 
 Produce the smallest alignment artifact that preserves a confirmed direction without expanding it into delivery detail.
 
+## Input Contract
+
+Reuse the confirmed discovery context, evidence, decisions, and project profile already supplied. If the problem, target user, outcome, or direction is not confirmed, stop and route to `discovery`; accept other partial input and expose only material gaps rather than inventing delivery detail.
+
 ## Process
 
 1. Read the confirmed discovery context, relevant docs, memories, and evidence.
-2. Clarify only material gaps in problem, users, goals, scope, metrics, AI behavior, or risks.
+2. Run the material-decision preflight for the brief consumer, source authority, scope, mode, and destination; clarify only gaps that change direction or the handoff.
 3. Produce a one-page brief with explicit assumptions and open questions.
-4. Keep implementation detail out unless it affects feasibility, compliance, or learning.
+4. Apply source-backed minimality and keep implementation detail out unless it affects feasibility, compliance, or learning.
 5. Ask for confirmation before moving to `prototype`, `experiment`, or `spec`.
 
 ## Output
@@ -32,6 +36,8 @@ Produce the smallest alignment artifact that preserves a confirmed direction wit
 Load only references needed for the request:
 
 - For skill choice or packaged handoff, use `_refs/operating-model/routing.md` and `_refs/operating-model/builder-packs.md`.
+- Before authoring, resolve `_refs/schemas/artifact-generation-contract.md` through `_refs/operating-model/artifact-profile-resolution.md`, then use `_refs/checklists/material-decision-preflight.md`; before handoff, use `_refs/checklists/source-backed-minimality.md`.
+- When direction depends on a governed source, resolve it through `_refs/operating-model/authoritative-baseline-resolution.md`; do not prefer a newer unaccepted draft.
 - For the brief structure, use `_refs/templates/prd/one-pager.md`.
 - For measurable outcomes, use `_refs/templates/metrics/metric-tree.md`.
 - For AI context or agent behavior, use `_refs/templates/ai/context-manifest.md`.

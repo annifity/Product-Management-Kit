@@ -74,7 +74,9 @@ Treat context supplied with the request as input already collected.
 - Ask only for a missing fact that materially changes the result.
 - When safe progress is possible, continue with labeled assumptions and open questions.
 - Avoid runtime-specific placeholders or argument syntax that harms portability.
-- For guided work, ask one material question per turn and offer short numbered choices only when they reduce effort.
+- For guided work, ask one material question per turn by default. Batch up to
+  three only when the user explicitly requests batching and the questions are
+  independent; offer short numbered choices only when they reduce effort.
 
 ## 5. Front-Door Body Contract
 
@@ -161,6 +163,11 @@ Maintain cases under `tests/fixtures/routing/skill-routing-cases.json`.
 
 Static routing tests validate a meaningful lexical bridge from each prompt to expected/focus metadata plus declared boundary contracts; they do not prove live model behavior or semantic accuracy. Use forward tests with fresh context for high-risk trigger changes, without revealing the expected answer to the evaluator.
 
+For first-pass semantic behavior, use
+`_refs/schemas/semantic-forward-test.md`. Keep the candidate task, blind
+evaluator task, and hidden oracle in separate surfaces, and record exact source
+hashes plus distinct context IDs.
+
 ## 12. Authoring Workflow
 
 Use this standard as the create/update workflow. Use `_refs/templates/skills/skill-template.md` only for a justified new front door, and review with `_refs/checklists/skill-quality.md` before synchronization.
@@ -193,6 +200,8 @@ A skill change is done only when:
 
 - the trigger is distinct and says what and when;
 - inline input is reused and missing input behavior is explicit;
+- `Input Contract`, `Output`, and `Handoff` conform to
+  `_refs/schemas/skill-output-contract.md`, including primary-template fields;
 - output, decisions, assumptions, evidence, gate, and handoff are clear;
 - required references resolve and none are orphaned;
 - good examples and failure modes exist where they improve the capability;
@@ -200,5 +209,6 @@ A skill change is done only when:
 - no unsupported frontmatter or runtime-specific syntax was introduced;
 - canonical UI metadata passes repository validation when present;
 - canonical and generated structures are synchronized;
-- targeted tests, `npm run check`, and `git diff --check` pass;
+- targeted structural and semantic tests, `npm run check`, and
+  `git diff --check` pass;
 - the final diff contains only intentional changes.

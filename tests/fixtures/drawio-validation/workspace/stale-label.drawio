@@ -1,0 +1,13 @@
+<mxfile host="app.diagrams.net" version="24.7.17">
+  <diagram id="main" name="Stale Label">
+    <mxGraphModel>
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="portal" value="Supervisor Portal" vertex="1" parent="1">
+          <mxGeometry x="10" y="10" width="160" height="60" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

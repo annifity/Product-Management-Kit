@@ -63,9 +63,9 @@ Stakeholder ask:
 
 | REQ ID | Story ID | AC ID | UAT ID | Release Check |
 |---|---|---|---|---|
-| REQ-001 | US-001 | AC-001 | UAT-001 | REL-001 |
-| REQ-002 | US-001 | AC-002 | UAT-002 | REL-001 |
-| REQ-003 | US-002 | AC-003 | UAT-003 | REL-002 |
+| REQ-001 | US-001 | AC-01 | TC-001 | REL-001 |
+| REQ-002 | US-001 | AC-02 | TC-002 | REL-001 |
+| REQ-003 | US-002 | AC-03 | TC-003 | REL-002 |
 
 Example AC:
 

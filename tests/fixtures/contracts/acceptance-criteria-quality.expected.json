@@ -1,0 +1,74 @@
+{
+  "name": "acceptance-criteria-quality",
+  "skill": "user-story",
+  "input": "acceptance-criteria-quality.input.md",
+  "sourceFiles": [
+    "_refs/checklists/acceptance-criteria-quality.md",
+    "_refs/templates/user-story/acceptance-criteria-gwt.md",
+    "_refs/checklists/story-quality-invest.md"
+  ],
+  "requiredTerms": [
+    "Source alignment",
+    "Observable outcome",
+    "Objective testability",
+    "Atomicity",
+    "Implementation independence",
+    "Minimal sufficiency",
+    "Traceability",
+    "Coverage is relevance-based",
+    "AC-01",
+    "Ready",
+    "Needs revision",
+    "Blocked"
+  ],
+  "requiredHeadings": [
+    "Purpose And Boundary",
+    "Quality Gate",
+    "Given When Then Construction",
+    "Coverage Selection",
+    "Traceability And Change Control",
+    "Good Example",
+    "Anti-pattern",
+    "Failure Modes",
+    "Verdict"
+  ],
+  "headingSource": "_refs/checklists/acceptance-criteria-quality.md",
+  "maxWords": 1500,
+  "wordCountSource": "_refs/checklists/acceptance-criteria-quality.md",
+  "fileAssertions": [
+    {
+      "path": "skills/user-story/SKILL.md",
+      "requiredTerms": [
+        "_refs/checklists/acceptance-criteria-quality.md",
+        "do not invent behavior"
+      ]
+    },
+    {
+      "path": "skills/validate/SKILL.md",
+      "requiredTerms": [
+        "_refs/checklists/acceptance-criteria-quality.md"
+      ]
+    },
+    {
+      "path": "skills/uat/SKILL.md",
+      "requiredTerms": [
+        "_refs/checklists/acceptance-criteria-quality.md",
+        "Do not invent or silently rewrite acceptance behavior"
+      ]
+    },
+    {
+      "path": "_refs/templates/user-story/default-user-story.md",
+      "requiredTerms": [
+        "Scenario:",
+        "AC-01"
+      ]
+    },
+    {
+      "path": "_refs/templates/user-story/jira-user-story.md",
+      "requiredTerms": [
+        "AC-01",
+        "Behavior-focused scenario name"
+      ]
+    }
+  ]
+}

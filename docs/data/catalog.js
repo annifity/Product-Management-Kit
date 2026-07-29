@@ -2,10 +2,10 @@ window.ANNIFITY_CATALOG = {
     "generatedAt":  "2026-07-06T14:01:11Z",
     "summary":  {
                     "skillCount":  17,
-                    "referenceCount":  128,
-                    "workflowCount":  18,
-                    "checklistCount":  21,
-                    "templateCount":  68
+                    "referenceCount":  146,
+                    "workflowCount":  19,
+                    "checklistCount":  25,
+                    "templateCount":  70
                 },
     "skills":  [
                    {
@@ -15,11 +15,16 @@ window.ANNIFITY_CATALOG = {
                        "references":  [
                                           "_refs/checklists/business-analysis.md",
                                           "_refs/checklists/edge-cases.md",
+                                          "_refs/checklists/material-decision-preflight.md",
+                                          "_refs/checklists/source-backed-minimality.md",
                                           "_refs/checklists/stakeholder-governance.md",
+                                          "_refs/operating-model/artifact-profile-resolution.md",
+                                          "_refs/operating-model/authoritative-baseline-resolution.md",
                                           "_refs/operating-model/builder-packs.md",
                                           "_refs/operating-model/learning-loop.md",
                                           "_refs/operating-model/phase-gates.md",
                                           "_refs/operating-model/routing.md",
+                                          "_refs/schemas/artifact-generation-contract.md",
                                           "_refs/templates/ai/context-manifest.md",
                                           "_refs/templates/metrics/metric-tree.md",
                                           "_refs/templates/prd/one-pager.md",
@@ -31,15 +36,24 @@ window.ANNIFITY_CATALOG = {
                        "description":  "Assess and apply controlled changes to an existing PRD, BRD, spec, user story, UAT package, Jira/Confluence record, or release baseline. Use when scope or requirements change mid-flight and impact analysis, versioned edits, traceable patching, changelog, or stakeholder notification is needed. Use `execution` for delivery clarification that does not change the baseline; route here when committed scope, acceptance, or user-visible behavior changes.",
                        "source":  "skills/change/SKILL.md",
                        "references":  [
+                                          "_refs/checklists/material-decision-preflight.md",
+                                          "_refs/checklists/negative-completeness.md",
+                                          "_refs/checklists/source-backed-minimality.md",
                                           "_refs/checklists/stakeholder-governance.md",
                                           "_refs/integrations/confluence.md",
                                           "_refs/integrations/jira.md",
+                                          "_refs/operating-model/artifact-profile-resolution.md",
+                                          "_refs/operating-model/authoritative-baseline-resolution.md",
                                           "_refs/operating-model/routing.md",
+                                          "_refs/schemas/artifact-generation-contract.md",
+                                          "_refs/schemas/artifact-state-registry.md",
+                                          "_refs/schemas/mutation-preview.md",
                                           "_refs/templates/change/changelog.md",
                                           "_refs/templates/change/change-plan.md",
                                           "_refs/templates/change/impact-analysis.md",
                                           "_refs/templates/change/spec-change-context.md",
-                                          "_refs/workflows/change-governance.md"
+                                          "_refs/workflows/change-governance.md",
+                                          "_refs/workflows/local-mutation-safety.md"
                                       ]
                    },
                    {
@@ -50,11 +64,15 @@ window.ANNIFITY_CATALOG = {
                                           "_refs/checklists/brainstorming-readiness.md",
                                           "_refs/checklists/business-analysis.md",
                                           "_refs/checklists/finance-metrics.md",
+                                          "_refs/checklists/material-decision-preflight.md",
                                           "_refs/checklists/opportunity-scoring.md",
+                                          "_refs/checklists/source-backed-minimality.md",
+                                          "_refs/operating-model/artifact-profile-resolution.md",
                                           "_refs/operating-model/builder-packs.md",
                                           "_refs/operating-model/learning-loop.md",
                                           "_refs/operating-model/phase-gates.md",
                                           "_refs/operating-model/routing.md",
+                                          "_refs/schemas/artifact-generation-contract.md",
                                           "_refs/templates/ai/context-manifest.md",
                                           "_refs/templates/discovery/discovery-brief.md",
                                           "_refs/templates/discovery/interview-plan.md",
@@ -81,18 +99,29 @@ window.ANNIFITY_CATALOG = {
                        "description":  "Create, update, version, index, link, summarize, or export Annifity working artifacts under `.annifity/docs/`. Use as a supporting skill alongside PO workflows, or as the primary skill when the request is specifically document storage, indexing, versioning, or export. Use `knowledge` for read-only retrieval and `memories` for durable cross-session context rather than artifact management.",
                        "source":  "skills/docs/SKILL.md",
                        "references":  [
+                                          "_refs/checklists/material-decision-preflight.md",
+                                          "_refs/checklists/negative-completeness.md",
+                                          "_refs/checklists/source-backed-minimality.md",
                                           "_refs/operating-model/artifact-lifecycle.md",
+                                          "_refs/operating-model/artifact-profile-resolution.md",
+                                          "_refs/operating-model/authoritative-baseline-resolution.md",
+                                          "_refs/schemas/artifact-generation-contract.md",
                                           "_refs/schemas/artifact-index.md",
+                                          "_refs/schemas/artifact-state-registry.md",
                                           "_refs/schemas/decision-record.md",
                                           "_refs/schemas/doc-frontmatter.md",
+                                          "_refs/schemas/drawio-validation-manifest.md",
                                           "_refs/schemas/initiative-state.md",
+                                          "_refs/schemas/mutation-preview.md",
                                           "_refs/templates/docs/decision-ledger.md",
                                           "_refs/templates/docs/decision-log.md",
                                           "_refs/templates/docs/docs-index.md",
                                           "_refs/templates/docs/evidence-ledger.md",
+                                          "_refs/templates/docs/generation-receipt.md",
                                           "_refs/templates/docs/release-note.md",
                                           "_refs/templates/docs/session-note.md",
-                                          "_refs/templates/docs/template-registry.md"
+                                          "_refs/templates/docs/template-registry.md",
+                                          "_refs/workflows/local-mutation-safety.md"
                                       ]
                    },
                    {
@@ -102,6 +131,7 @@ window.ANNIFITY_CATALOG = {
                        "references":  [
                                           "_refs/checklists/stakeholder-governance.md",
                                           "_refs/integrations/jira.md",
+                                          "_refs/operating-model/authoritative-baseline-resolution.md",
                                           "_refs/operating-model/phase-gates.md",
                                           "_refs/operating-model/routing.md",
                                           "_refs/templates/change/spec-change-context.md",
@@ -116,10 +146,15 @@ window.ANNIFITY_CATALOG = {
                        "description":  "Design an evidence-producing product experiment from a hypothesis, brief, or prototype. Use when the user needs an experiment method, participants or sample size, success metrics, tracking, guardrails, or precommitted go/iterate/stop criteria before production delivery. Use `validate` after evidence exists to judge results; use `uat` to verify acceptance of already committed behavior.",
                        "source":  "skills/experiment/SKILL.md",
                        "references":  [
+                                          "_refs/checklists/material-decision-preflight.md",
                                           "_refs/checklists/security-privacy-accessibility.md",
+                                          "_refs/checklists/source-backed-minimality.md",
+                                          "_refs/operating-model/artifact-profile-resolution.md",
+                                          "_refs/operating-model/authoritative-baseline-resolution.md",
                                           "_refs/operating-model/builder-packs.md",
                                           "_refs/operating-model/learning-loop.md",
                                           "_refs/operating-model/phase-gates.md",
+                                          "_refs/schemas/artifact-generation-contract.md",
                                           "_refs/schemas/metrics-event.md",
                                           "_refs/templates/docs/evidence-ledger.md",
                                           "_refs/templates/experiment/decision-criteria.md",
@@ -137,6 +172,7 @@ window.ANNIFITY_CATALOG = {
                        "references":  [
                                           "_refs/integrations/confluence.md",
                                           "_refs/integrations/jira.md",
+                                          "_refs/operating-model/authoritative-baseline-resolution.md",
                                           "_refs/schemas/initiative-state.md",
                                           "_refs/templates/docs/decision-ledger.md",
                                           "_refs/templates/docs/decision-log.md",
@@ -149,9 +185,14 @@ window.ANNIFITY_CATALOG = {
                        "description":  "Synthesize completed discovery, prototype, experiment, validation, release, or post-ship evidence into reusable insight and a product decision. Use for insight summaries, retrospectives, decision memos, roadmap recommendations, and next-loop recommendations after evidence has been assessed. Use `validate` for the readiness/result verdict itself; use `learn` to interpret what the evidence means and what to do next.",
                        "source":  "skills/learn/SKILL.md",
                        "references":  [
+                                          "_refs/checklists/material-decision-preflight.md",
+                                          "_refs/checklists/source-backed-minimality.md",
+                                          "_refs/operating-model/artifact-profile-resolution.md",
+                                          "_refs/operating-model/authoritative-baseline-resolution.md",
                                           "_refs/operating-model/builder-packs.md",
                                           "_refs/operating-model/learning-loop.md",
                                           "_refs/operating-model/phase-gates.md",
+                                          "_refs/schemas/artifact-generation-contract.md",
                                           "_refs/templates/docs/decision-ledger.md",
                                           "_refs/templates/learning/decision-memo.md",
                                           "_refs/templates/learning/insight-summary.md",
@@ -168,17 +209,22 @@ window.ANNIFITY_CATALOG = {
                        "description":  "Read and persist durable Annifity context under `.annifity/memories/`, including stable product context, terminology, team preferences, stakeholder constraints, confirmed decisions and outcomes, initiative state, lessons, and open questions. Use as workflow support, or primarily when the user asks to remember or update cross-session context. Use `knowledge` for broad retrieval and `docs` for versioned product artifacts.",
                        "source":  "skills/memories/SKILL.md",
                        "references":  [
+                                          "_refs/checklists/negative-completeness.md",
+                                          "_refs/schemas/artifact-generation-contract.md",
                                           "_refs/schemas/decision-record.md",
                                           "_refs/schemas/initiative-state.md",
                                           "_refs/schemas/memory-record.md",
+                                          "_refs/schemas/mutation-preview.md",
                                           "_refs/templates/docs/decision-ledger.md",
+                                          "_refs/templates/memories/artifact-generation-contract.md",
                                           "_refs/templates/memories/decision-outcomes.md",
                                           "_refs/templates/memories/decisions.md",
                                           "_refs/templates/memories/open-questions.md",
                                           "_refs/templates/memories/product-context.md",
                                           "_refs/templates/memories/stakeholder-context.md",
                                           "_refs/templates/memories/team-preferences.md",
-                                          "_refs/templates/memories/terminology.md"
+                                          "_refs/templates/memories/terminology.md",
+                                          "_refs/workflows/local-mutation-safety.md"
                                       ]
                    },
                    {
@@ -188,15 +234,20 @@ window.ANNIFITY_CATALOG = {
                        "references":  [
                                           "_refs/checklists/definition-of-ready.md",
                                           "_refs/checklists/finance-metrics.md",
+                                          "_refs/checklists/material-decision-preflight.md",
                                           "_refs/checklists/opportunity-scoring.md",
                                           "_refs/checklists/prioritization.md",
                                           "_refs/checklists/risk-review.md",
                                           "_refs/checklists/security-privacy-accessibility.md",
                                           "_refs/checklists/ship-readiness.md",
+                                          "_refs/checklists/source-backed-minimality.md",
                                           "_refs/checklists/stakeholder-governance.md",
+                                          "_refs/operating-model/artifact-profile-resolution.md",
+                                          "_refs/operating-model/authoritative-baseline-resolution.md",
                                           "_refs/operating-model/builder-packs.md",
                                           "_refs/operating-model/phase-gates.md",
                                           "_refs/operating-model/routing.md",
+                                          "_refs/schemas/artifact-generation-contract.md",
                                           "_refs/templates/plan/grooming-questions.md",
                                           "_refs/templates/plan/product-roadmap.md",
                                           "_refs/templates/user-story/story-map.md",
@@ -211,10 +262,15 @@ window.ANNIFITY_CATALOG = {
                        "references":  [
                                           "_refs/checklists/business-analysis.md",
                                           "_refs/checklists/finance-metrics.md",
+                                          "_refs/checklists/material-decision-preflight.md",
+                                          "_refs/checklists/source-backed-minimality.md",
                                           "_refs/checklists/spec-quality.md",
                                           "_refs/checklists/stakeholder-governance.md",
                                           "_refs/integrations/confluence.md",
+                                          "_refs/operating-model/artifact-profile-resolution.md",
+                                          "_refs/operating-model/authoritative-baseline-resolution.md",
                                           "_refs/operating-model/routing.md",
+                                          "_refs/schemas/artifact-generation-contract.md",
                                           "_refs/templates/brd/default-brd.md",
                                           "_refs/templates/docs/template-registry.md",
                                           "_refs/templates/metrics/metric-tree.md",
@@ -236,10 +292,15 @@ window.ANNIFITY_CATALOG = {
                        "description":  "Create a build-to-learn prototype package from a sufficiently clear product direction. Use for a PRO (Prototyping Requirements One-Pager), minimum user flow, screen list, wireframe descriptions, clickable mockup or frontend-builder prompt, and prototype handoff before experiment, PRD, or spec. If a raw idea still lacks a clear problem, user, or outcome, use `discovery` first; this skill prototypes a direction rather than resolving product strategy.",
                        "source":  "skills/prototype/SKILL.md",
                        "references":  [
+                                          "_refs/checklists/material-decision-preflight.md",
                                           "_refs/checklists/pro-quality.md",
+                                          "_refs/checklists/source-backed-minimality.md",
+                                          "_refs/operating-model/artifact-profile-resolution.md",
+                                          "_refs/operating-model/authoritative-baseline-resolution.md",
                                           "_refs/operating-model/builder-packs.md",
                                           "_refs/operating-model/learning-loop.md",
                                           "_refs/operating-model/phase-gates.md",
+                                          "_refs/schemas/artifact-generation-contract.md",
                                           "_refs/templates/ai/context-manifest.md",
                                           "_refs/templates/prototype/claude-code-prompt.md",
                                           "_refs/templates/prototype/lovable-bolt-prompt.md",
@@ -257,13 +318,18 @@ window.ANNIFITY_CATALOG = {
                        "description":  "Prepare and coordinate a product release, rollout, retirement, or final stakeholder/support handoff. Use when the requested outcome is a ship package such as a launch or EOL plan, release notes, rollback/support notes, final document bundle, UAT signoff summary, or post-ship capture. Use `validate` for a read-only readiness audit without package creation and `uat` to create or execute acceptance tests.",
                        "source":  "skills/ship/SKILL.md",
                        "references":  [
+                                          "_refs/checklists/material-decision-preflight.md",
                                           "_refs/checklists/operational-readiness.md",
                                           "_refs/checklists/security-privacy-accessibility.md",
                                           "_refs/checklists/ship-readiness.md",
+                                          "_refs/checklists/source-backed-minimality.md",
                                           "_refs/checklists/stakeholder-governance.md",
+                                          "_refs/operating-model/artifact-profile-resolution.md",
+                                          "_refs/operating-model/authoritative-baseline-resolution.md",
                                           "_refs/operating-model/builder-packs.md",
                                           "_refs/operating-model/phase-gates.md",
                                           "_refs/operating-model/routing.md",
+                                          "_refs/schemas/artifact-generation-contract.md",
                                           "_refs/templates/docs/release-note.md",
                                           "_refs/templates/release/rollout-plan.md",
                                           "_refs/templates/risk/risk-register.md",
@@ -280,14 +346,19 @@ window.ANNIFITY_CATALOG = {
                                           "_refs/checklists/business-analysis.md",
                                           "_refs/checklists/definition-of-ready.md",
                                           "_refs/checklists/edge-cases.md",
+                                          "_refs/checklists/material-decision-preflight.md",
                                           "_refs/checklists/risk-review.md",
                                           "_refs/checklists/security-privacy-accessibility.md",
                                           "_refs/checklists/solution-quality.md",
+                                          "_refs/checklists/source-backed-minimality.md",
                                           "_refs/checklists/spec-quality.md",
                                           "_refs/checklists/stakeholder-governance.md",
+                                          "_refs/operating-model/artifact-profile-resolution.md",
+                                          "_refs/operating-model/authoritative-baseline-resolution.md",
                                           "_refs/operating-model/builder-packs.md",
                                           "_refs/operating-model/phase-gates.md",
                                           "_refs/operating-model/routing.md",
+                                          "_refs/schemas/artifact-generation-contract.md",
                                           "_refs/templates/brd/default-brd.md",
                                           "_refs/templates/metrics/metric-tree.md",
                                           "_refs/templates/spec/api-contract.md",
@@ -306,9 +377,15 @@ window.ANNIFITY_CATALOG = {
                        "description":  "Create, refine, execute, or record User Acceptance Testing plans, scenario tests, and test-case registers from confirmed requirements or stories. Use for role-based happy, unhappy, boundary, permission, and NFR scenarios, traceability, execution logs, and acceptance results. Use `validate` for an independent audit of UAT coverage/readiness and `ship` for the final release package or signoff summary.",
                        "source":  "skills/uat/SKILL.md",
                        "references":  [
+                                          "_refs/checklists/acceptance-criteria-quality.md",
+                                          "_refs/checklists/material-decision-preflight.md",
                                           "_refs/checklists/security-privacy-accessibility.md",
+                                          "_refs/checklists/source-backed-minimality.md",
                                           "_refs/checklists/uat-coverage.md",
+                                          "_refs/operating-model/artifact-profile-resolution.md",
+                                          "_refs/operating-model/authoritative-baseline-resolution.md",
                                           "_refs/operating-model/builder-packs.md",
+                                          "_refs/schemas/artifact-generation-contract.md",
                                           "_refs/templates/traceability/rtm.md",
                                           "_refs/templates/uat/scenario-test.md",
                                           "_refs/templates/uat/test-case-register.md",
@@ -320,11 +397,17 @@ window.ANNIFITY_CATALOG = {
                        "description":  "Create, split, refine, revise, or export ticket-ready Jira epic definitions, implementation-ready user stories, story maps, and acceptance criteria from a confirmed PRD, spec, roadmap item, or delivery plan. Use for INVEST splitting, Jira-ready tickets, and Given/When/Then criteria. Use `plan` for epic maps, sequencing, milestones, and dependencies; use `validate` for an independent story-quality/readiness verdict rather than authoring or correction.",
                        "source":  "skills/user-story/SKILL.md",
                        "references":  [
+                                          "_refs/checklists/acceptance-criteria-quality.md",
+                                          "_refs/checklists/material-decision-preflight.md",
+                                          "_refs/checklists/source-backed-minimality.md",
                                           "_refs/checklists/story-quality-invest.md",
                                           "_refs/checklists/story-splitting.md",
                                           "_refs/integrations/confluence.md",
                                           "_refs/integrations/jira.md",
+                                          "_refs/operating-model/artifact-profile-resolution.md",
+                                          "_refs/operating-model/authoritative-baseline-resolution.md",
                                           "_refs/operating-model/builder-packs.md",
+                                          "_refs/schemas/artifact-generation-contract.md",
                                           "_refs/templates/traceability/rtm.md",
                                           "_refs/templates/user-story/acceptance-criteria-gwt.md",
                                           "_refs/templates/user-story/confluence-html.md",
@@ -340,16 +423,20 @@ window.ANNIFITY_CATALOG = {
                        "description":  "Audit an existing product artifact, evidence set, delivery package, or Annifity canonical skill and return a readiness or quality verdict with findings. Use when the user asks to review, validate, assess readiness, check completeness, consistency, testability, coverage, traceability, risk, or go/no-go status. Use `prd`, `spec`, `user-story`, `uat`, or `ship` to create or substantially rewrite those artifacts; use `validate` as the primary route for an independent review, with domain skills applied only for requested fixes.",
                        "source":  "skills/validate/SKILL.md",
                        "references":  [
+                                          "_refs/checklists/acceptance-criteria-quality.md",
                                           "_refs/checklists/artifact-quality-scorecard.md",
                                           "_refs/checklists/business-analysis.md",
                                           "_refs/checklists/definition-of-done.md",
                                           "_refs/checklists/definition-of-ready.md",
                                           "_refs/checklists/edge-cases.md",
+                                          "_refs/checklists/material-decision-preflight.md",
+                                          "_refs/checklists/negative-completeness.md",
                                           "_refs/checklists/operational-readiness.md",
                                           "_refs/checklists/risk-review.md",
                                           "_refs/checklists/security-privacy-accessibility.md",
                                           "_refs/checklists/ship-readiness.md",
                                           "_refs/checklists/skill-quality.md",
+                                          "_refs/checklists/source-backed-minimality.md",
                                           "_refs/checklists/spec-quality.md",
                                           "_refs/checklists/stakeholder-governance.md",
                                           "_refs/checklists/story-quality-invest.md",
@@ -359,21 +446,39 @@ window.ANNIFITY_CATALOG = {
                                           "_refs/integrations/copilot.md",
                                           "_refs/integrations/cursor.md",
                                           "_refs/operating-model/annifity-principles.md",
+                                          "_refs/operating-model/artifact-profile-resolution.md",
+                                          "_refs/operating-model/authoritative-baseline-resolution.md",
                                           "_refs/operating-model/language-policy.md",
                                           "_refs/operating-model/phase-gates.md",
                                           "_refs/operating-model/routing.md",
                                           "_refs/operating-model/skill-authoring.md",
+                                          "_refs/schemas/artifact-generation-contract.md",
+                                          "_refs/schemas/context-consistency-manifest.md",
+                                          "_refs/schemas/drawio-validation-manifest.md",
+                                          "_refs/schemas/first-pass-quality-dashboard.md",
+                                          "_refs/schemas/initiative-state.md",
+                                          "_refs/schemas/mutation-preview.md",
+                                          "_refs/schemas/semantic-forward-test.md",
+                                          "_refs/schemas/session-rework-observation.md",
+                                          "_refs/schemas/skill-output-contract.md",
                                           "_refs/templates/experiment/decision-criteria.md",
                                           "_refs/templates/prototype/prototype-feedback-summary.md",
                                           "_refs/templates/risk/risk-register.md",
                                           "_refs/templates/skills/skill-template.md",
                                           "_refs/templates/traceability/rtm.md",
+                                          "_refs/workflows/local-mutation-safety.md",
                                           "_refs/workflows/prototype-first.md",
                                           "_refs/workflows/sprint-readiness.md"
                                       ]
                    }
                ],
     "references":  [
+                       {
+                           "path":  "_refs/checklists/acceptance-criteria-quality.md",
+                           "group":  "checklists",
+                           "name":  "acceptance-criteria-quality",
+                           "lines":  125
+                       },
                        {
                            "path":  "_refs/checklists/artifact-quality-scorecard.md",
                            "group":  "checklists",
@@ -402,7 +507,7 @@ window.ANNIFITY_CATALOG = {
                            "path":  "_refs/checklists/definition-of-ready.md",
                            "group":  "checklists",
                            "name":  "definition-of-ready",
-                           "lines":  14
+                           "lines":  16
                        },
                        {
                            "path":  "_refs/checklists/edge-cases.md",
@@ -415,6 +520,18 @@ window.ANNIFITY_CATALOG = {
                            "group":  "checklists",
                            "name":  "finance-metrics",
                            "lines":  61
+                       },
+                       {
+                           "path":  "_refs/checklists/material-decision-preflight.md",
+                           "group":  "checklists",
+                           "name":  "material-decision-preflight",
+                           "lines":  96
+                       },
+                       {
+                           "path":  "_refs/checklists/negative-completeness.md",
+                           "group":  "checklists",
+                           "name":  "negative-completeness",
+                           "lines":  57
                        },
                        {
                            "path":  "_refs/checklists/operational-readiness.md",
@@ -471,10 +588,16 @@ window.ANNIFITY_CATALOG = {
                            "lines":  14
                        },
                        {
+                           "path":  "_refs/checklists/source-backed-minimality.md",
+                           "group":  "checklists",
+                           "name":  "source-backed-minimality",
+                           "lines":  66
+                       },
+                       {
                            "path":  "_refs/checklists/spec-quality.md",
                            "group":  "checklists",
                            "name":  "spec-quality",
-                           "lines":  18
+                           "lines":  20
                        },
                        {
                            "path":  "_refs/checklists/stakeholder-governance.md",
@@ -486,25 +609,25 @@ window.ANNIFITY_CATALOG = {
                            "path":  "_refs/checklists/story-quality-invest.md",
                            "group":  "checklists",
                            "name":  "story-quality-invest",
-                           "lines":  10
+                           "lines":  11
                        },
                        {
                            "path":  "_refs/checklists/story-splitting.md",
                            "group":  "checklists",
                            "name":  "story-splitting",
-                           "lines":  14
+                           "lines":  18
                        },
                        {
                            "path":  "_refs/checklists/uat-coverage.md",
                            "group":  "checklists",
                            "name":  "uat-coverage",
-                           "lines":  44
+                           "lines":  48
                        },
                        {
                            "path":  "_refs/index.md",
                            "group":  "overview",
                            "name":  "index",
-                           "lines":  61
+                           "lines":  79
                        },
                        {
                            "path":  "_refs/integrations/claude.md",
@@ -552,13 +675,25 @@ window.ANNIFITY_CATALOG = {
                            "path":  "_refs/operating-model/artifact-lifecycle.md",
                            "group":  "operating-model",
                            "name":  "artifact-lifecycle",
-                           "lines":  35
+                           "lines":  73
+                       },
+                       {
+                           "path":  "_refs/operating-model/artifact-profile-resolution.md",
+                           "group":  "operating-model",
+                           "name":  "artifact-profile-resolution",
+                           "lines":  135
+                       },
+                       {
+                           "path":  "_refs/operating-model/authoritative-baseline-resolution.md",
+                           "group":  "operating-model",
+                           "name":  "authoritative-baseline-resolution",
+                           "lines":  91
                        },
                        {
                            "path":  "_refs/operating-model/builder-packs.md",
                            "group":  "operating-model",
                            "name":  "builder-packs",
-                           "lines":  87
+                           "lines":  89
                        },
                        {
                            "path":  "_refs/operating-model/language-policy.md",
@@ -576,7 +711,7 @@ window.ANNIFITY_CATALOG = {
                            "path":  "_refs/operating-model/phase-gates.md",
                            "group":  "operating-model",
                            "name":  "phase-gates",
-                           "lines":  43
+                           "lines":  122
                        },
                        {
                            "path":  "_refs/operating-model/routing.md",
@@ -588,13 +723,31 @@ window.ANNIFITY_CATALOG = {
                            "path":  "_refs/operating-model/skill-authoring.md",
                            "group":  "operating-model",
                            "name":  "skill-authoring",
-                           "lines":  204
+                           "lines":  214
+                       },
+                       {
+                           "path":  "_refs/schemas/artifact-generation-contract.md",
+                           "group":  "schemas",
+                           "name":  "artifact-generation-contract",
+                           "lines":  246
                        },
                        {
                            "path":  "_refs/schemas/artifact-index.md",
                            "group":  "schemas",
                            "name":  "artifact-index",
                            "lines":  10
+                       },
+                       {
+                           "path":  "_refs/schemas/artifact-state-registry.md",
+                           "group":  "schemas",
+                           "name":  "artifact-state-registry",
+                           "lines":  160
+                       },
+                       {
+                           "path":  "_refs/schemas/context-consistency-manifest.md",
+                           "group":  "schemas",
+                           "name":  "context-consistency-manifest",
+                           "lines":  161
                        },
                        {
                            "path":  "_refs/schemas/decision-record.md",
@@ -606,13 +759,25 @@ window.ANNIFITY_CATALOG = {
                            "path":  "_refs/schemas/doc-frontmatter.md",
                            "group":  "schemas",
                            "name":  "doc-frontmatter",
-                           "lines":  13
+                           "lines":  62
+                       },
+                       {
+                           "path":  "_refs/schemas/drawio-validation-manifest.md",
+                           "group":  "schemas",
+                           "name":  "drawio-validation-manifest",
+                           "lines":  103
+                       },
+                       {
+                           "path":  "_refs/schemas/first-pass-quality-dashboard.md",
+                           "group":  "schemas",
+                           "name":  "first-pass-quality-dashboard",
+                           "lines":  95
                        },
                        {
                            "path":  "_refs/schemas/initiative-state.md",
                            "group":  "schemas",
                            "name":  "initiative-state",
-                           "lines":  91
+                           "lines":  257
                        },
                        {
                            "path":  "_refs/schemas/memory-record.md",
@@ -625,6 +790,30 @@ window.ANNIFITY_CATALOG = {
                            "group":  "schemas",
                            "name":  "metrics-event",
                            "lines":  26
+                       },
+                       {
+                           "path":  "_refs/schemas/mutation-preview.md",
+                           "group":  "schemas",
+                           "name":  "mutation-preview",
+                           "lines":  142
+                       },
+                       {
+                           "path":  "_refs/schemas/semantic-forward-test.md",
+                           "group":  "schemas",
+                           "name":  "semantic-forward-test",
+                           "lines":  193
+                       },
+                       {
+                           "path":  "_refs/schemas/session-rework-observation.md",
+                           "group":  "schemas",
+                           "name":  "session-rework-observation",
+                           "lines":  316
+                       },
+                       {
+                           "path":  "_refs/schemas/skill-output-contract.md",
+                           "group":  "schemas",
+                           "name":  "skill-output-contract",
+                           "lines":  72
                        },
                        {
                            "path":  "_refs/templates/ai/context-manifest.md",
@@ -699,6 +888,12 @@ window.ANNIFITY_CATALOG = {
                            "lines":  34
                        },
                        {
+                           "path":  "_refs/templates/docs/generation-receipt.md",
+                           "group":  "templates",
+                           "name":  "generation-receipt",
+                           "lines":  19
+                       },
+                       {
                            "path":  "_refs/templates/docs/release-note.md",
                            "group":  "templates",
                            "name":  "release-note",
@@ -769,6 +964,12 @@ window.ANNIFITY_CATALOG = {
                            "group":  "templates",
                            "name":  "roadmap-recommendation",
                            "lines":  21
+                       },
+                       {
+                           "path":  "_refs/templates/memories/artifact-generation-contract.md",
+                           "group":  "templates",
+                           "name":  "artifact-generation-contract",
+                           "lines":  81
                        },
                        {
                            "path":  "_refs/templates/memories/decision-outcomes.md",
@@ -990,31 +1191,31 @@ window.ANNIFITY_CATALOG = {
                            "path":  "_refs/templates/uat/test-case-register.md",
                            "group":  "templates",
                            "name":  "test-case-register",
-                           "lines":  12
+                           "lines":  13
                        },
                        {
                            "path":  "_refs/templates/uat/uat-plan.md",
                            "group":  "templates",
                            "name":  "uat-plan",
-                           "lines":  21
+                           "lines":  37
                        },
                        {
                            "path":  "_refs/templates/user-story/acceptance-criteria-gwt.md",
                            "group":  "templates",
                            "name":  "acceptance-criteria-gwt",
-                           "lines":  10
+                           "lines":  11
                        },
                        {
                            "path":  "_refs/templates/user-story/confluence-html.md",
                            "group":  "templates",
                            "name":  "confluence-html",
-                           "lines":  24
+                           "lines":  18
                        },
                        {
                            "path":  "_refs/templates/user-story/default-user-story.md",
                            "group":  "templates",
                            "name":  "default-user-story",
-                           "lines":  25
+                           "lines":  30
                        },
                        {
                            "path":  "_refs/templates/user-story/jira-epic.md",
@@ -1026,7 +1227,7 @@ window.ANNIFITY_CATALOG = {
                            "path":  "_refs/templates/user-story/jira-user-story.md",
                            "group":  "templates",
                            "name":  "jira-user-story",
-                           "lines":  17
+                           "lines":  25
                        },
                        {
                            "path":  "_refs/templates/user-story/story-map.md",
@@ -1083,6 +1284,12 @@ window.ANNIFITY_CATALOG = {
                            "lines":  19
                        },
                        {
+                           "path":  "_refs/workflows/local-mutation-safety.md",
+                           "group":  "workflows",
+                           "name":  "local-mutation-safety",
+                           "lines":  103
+                       },
+                       {
                            "path":  "_refs/workflows/market-sizing.md",
                            "group":  "workflows",
                            "name":  "market-sizing",
@@ -1134,7 +1341,7 @@ window.ANNIFITY_CATALOG = {
                            "path":  "_refs/workflows/sprint-readiness.md",
                            "group":  "workflows",
                            "name":  "sprint-readiness",
-                           "lines":  27
+                           "lines":  44
                        },
                        {
                            "path":  "_refs/workflows/workshop-facilitation.md",

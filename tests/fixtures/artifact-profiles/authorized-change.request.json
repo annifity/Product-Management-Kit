@@ -1,0 +1,76 @@
+{
+  "schemaVersion": "1.0",
+  "project": "GBIA",
+  "artifactType": "user-story",
+  "action": "revise",
+  "requiredKeys": [
+    "story.boundary"
+  ],
+  "materialKeys": [
+    "story.boundary"
+  ],
+  "changeAuthorized": true,
+  "changeEvidence": "GBIA-HCM-DEC-003",
+  "sources": [
+    {
+      "id": "active-request",
+      "layer": "explicit-request",
+      "values": {
+        "story.boundary": "single-end-to-end-story",
+        "outcome": "revise-the-confirmed-story-boundary",
+        "consumer": {
+          "primary": "delivery-team"
+        },
+        "deliverableMode": "jira-ready",
+        "sourceAuthority": {
+          "primary": "accepted-story-baseline",
+          "supporting": [
+            "active-request"
+          ]
+        },
+        "baselineTarget": {
+          "mode": "revise-baseline",
+          "artifactId": "DEMO-US-BOUNDARY",
+          "version": "1.0",
+          "path": "artifacts/DEMO-US-BOUNDARY_v1.0.md",
+          "sha256": "04e5518698465ab4e0fb4deb6d5e62a47bb1f4b71b16c338a2278cc955b9c399"
+        },
+        "constraints": {
+          "noInventedBehavior": true
+        },
+        "materialDecisions": {
+          "storyBoundary": "single-end-to-end-story"
+        }
+      }
+    },
+    {
+      "id": "accepted-story-baseline",
+      "layer": "accepted-baseline",
+      "status": "baselined",
+      "authority": {
+        "workspaceRoot": "tests/fixtures/artifact-baselines/valid-user-story-split",
+        "registryPath": "registry.json",
+        "artifactId": "DEMO-US-BOUNDARY",
+        "artifactType": "user-story",
+        "baselineVersion": "1.0",
+        "baselinePath": "artifacts/DEMO-US-BOUNDARY_v1.0.md",
+        "baselineSha256": "04e5518698465ab4e0fb4deb6d5e62a47bb1f4b71b16c338a2278cc955b9c399"
+      },
+      "values": {
+        "story.boundary": "split-stories"
+      },
+      "valueEvidence": {
+        "story.boundary": {
+          "excerpt": "Story boundary: split-stories.",
+          "excerptSha256": "15952ad7453fedfac0333079e02be713cfcbf9a7c19bbd388f191af002b2685d"
+        }
+      },
+      "materialKeys": [
+        "story.boundary"
+      ],
+      "locks": [
+        "story.boundary"
+      ]
+    }
+  ]
+}

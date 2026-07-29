@@ -14,11 +14,12 @@ Reuse the supplied spec, priorities, constraints, and delivery context. Require 
 ## Process
 
 1. Read the confirmed spec and relevant memories.
-2. Identify priority, roadmap placement, release slices, delivery-level epics, milestones, dependencies, and sequencing.
-3. Separate discovery, design, engineering, QA, data, rollout, and go-live work.
-4. Prepare team-specific grooming questions when details need engineering input.
-5. Flag blockers and decisions needed before execution.
-6. Ask for PO confirmation before handing off ticket-ready Jira epics, stories, or acceptance criteria to `user-story`, or entering execution.
+2. Run the material-decision preflight to resolve the planning consumer, source baseline, release mode, slicing responsibility, and destination.
+3. Identify priority, roadmap placement, release slices, delivery-level epics, milestones, dependencies, and sequencing.
+4. Separate discovery, design, engineering, QA, data, rollout, and go-live work.
+5. Prepare team-specific grooming questions when details need engineering input.
+6. Apply source-backed minimality, then flag blockers and decisions needed before execution.
+7. Ask for PO confirmation before handing off ticket-ready Jira epics, stories, or acceptance criteria to `user-story`, or entering execution.
 
 ## Output
 
@@ -38,6 +39,8 @@ Reuse the supplied spec, priorities, constraints, and delivery context. Require 
 Load only references needed for the planning decision:
 
 - For route, packaged handoff, or the core planning workflow, use `_refs/operating-model/routing.md`, `_refs/operating-model/builder-packs.md`, and `_refs/workflows/spec-to-delivery-plan.md` selectively.
+- Before planning, resolve `_refs/schemas/artifact-generation-contract.md` through `_refs/operating-model/artifact-profile-resolution.md`, then use `_refs/checklists/material-decision-preflight.md`; before handoff, use `_refs/checklists/source-backed-minimality.md`.
+- Resolve the governed source spec through `_refs/operating-model/authoritative-baseline-resolution.md`; block rather than plan from an unaccepted latest draft.
 - For roadmap or grooming output, use `_refs/templates/plan/product-roadmap.md` and/or `_refs/templates/plan/grooming-questions.md`.
 - For epic sequencing, use `_refs/templates/user-story/story-map.md`.
 - For prioritization, opportunity, finance, or market-size decisions, use `_refs/checklists/prioritization.md`, `_refs/checklists/opportunity-scoring.md`, `_refs/checklists/finance-metrics.md`, and `_refs/workflows/market-sizing.md` only as applicable.

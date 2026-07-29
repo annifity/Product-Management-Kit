@@ -1,0 +1,35 @@
+{
+  "schemaVersion": "1.0",
+  "updated": "2026-07-28",
+  "source": "TEST-DUPLICATE-ACTIVE",
+  "records": [
+    {
+      "artifactId": "DEMO-DUP-001",
+      "version": "1.0",
+      "path": "artifacts/DEMO-DUP-001_v1.0.md",
+      "lifecycle": "baselined",
+      "sha256": "88714631ed7857655b59e9060ed3969c354791e26adf9782b260e18ca5539fdb",
+      "supersedes": []
+    },
+    {
+      "artifactId": "DEMO-DUP-001",
+      "version": "1.1",
+      "path": "artifacts/DEMO-DUP-001_v1.1.md",
+      "lifecycle": "baselined",
+      "sha256": "4379d3cb8b788c263bb3f03cdfb41830efe5eefa3bf2dc54ece319673a36b808",
+      "supersedes": []
+    }
+  ],
+  "pointers": [
+    {
+      "artifactId": "DEMO-DUP-001",
+      "baselineVersion": "1.1",
+      "baselinePath": "artifacts/DEMO-DUP-001_v1.1.md",
+      "baselineSha256": "4379d3cb8b788c263bb3f03cdfb41830efe5eefa3bf2dc54ece319673a36b808",
+      "latestVersion": "1.1",
+      "latestPath": "artifacts/DEMO-DUP-001_v1.1.md",
+      "latestSha256": "4379d3cb8b788c263bb3f03cdfb41830efe5eefa3bf2dc54ece319673a36b808",
+      "source": "TEST-DUPLICATE-ACTIVE"
+    }
+  ]
+}

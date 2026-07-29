@@ -1,0 +1,31 @@
+{
+  "schemaVersion": "1.0",
+  "updated": "2026-07-28",
+  "source": "DEMO-DEC-001",
+  "records": [
+    {
+      "artifactId": "DEMO-US-001",
+      "version": "1.0",
+      "path": "artifacts/DEMO-US-001_v1.0.md",
+      "lifecycle": "baselined",
+      "metadataMode": "registry",
+      "artifactType": "user-story",
+      "documentUpdated": "2026-07-28",
+      "documentSource": "DEMO-SPEC-001",
+      "sha256": "21f2425189b0449dcc61f268b21b3e524010ebee24654e68c8d770b9531366bb",
+      "supersedes": []
+    }
+  ],
+  "pointers": [
+    {
+      "artifactId": "DEMO-US-001",
+      "baselineVersion": "1.0",
+      "baselinePath": "artifacts/DEMO-US-001_v1.0.md",
+      "baselineSha256": "21f2425189b0449dcc61f268b21b3e524010ebee24654e68c8d770b9531366bb",
+      "latestVersion": "1.0",
+      "latestPath": "artifacts/DEMO-US-001_v1.0.md",
+      "latestSha256": "21f2425189b0449dcc61f268b21b3e524010ebee24654e68c8d770b9531366bb",
+      "source": "DEMO-DEC-001"
+    }
+  ]
+}

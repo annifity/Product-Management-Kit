@@ -1,0 +1,2 @@
+{"type":"session_meta","payload":{"schemaVersion":"1.0","sessionId":"S-SUB-001","sessionKind":"subagent"}}
+{"type":"message","payload":{"messageId":"SUB-M-001","role":"assistant","content":"Private fork material for hidden.person@example.com."}}

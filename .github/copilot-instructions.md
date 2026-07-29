@@ -4,7 +4,7 @@ Use Annifity for product-building work: discovery, briefs, prototypes, experimen
 
 Canonical source lives in top-level skills/*/SKILL.md, skills/*/agents/openai.yaml, and _refs/. Generated Copilot skill adapters live in .github/skills/; they are project-local, require the full repository root, and must not be installed alone. Do not edit adapters manually. Update skills/ or _refs/, then run tools/sync-ai-skill-structures.ps1.
 
-Match the user's language by default. Follow the Annifity builder path when doing end-to-end product work. Use docs to save artifacts and memories to preserve durable product context. Clarify ambiguous requirements before drafting final deliverables.
+Match the user's language by default. Follow the Annifity builder path when doing end-to-end product work. Use docs to save artifacts and memories to preserve durable product context. Resolve the artifact-generation contract and project profile before drafting, return its compact generation receipt with authored artifacts, use the authoritative baseline registry for governed artifacts, and apply source-backed minimality plus local mutation safety before controlled edits. Clarify ambiguous requirements before drafting final deliverables.
 
 Top-level skills:
 

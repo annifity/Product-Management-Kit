@@ -12,6 +12,7 @@ $TargetRoot = (Resolve-Path -LiteralPath $Path).Path
 $AnnifityRoot = Join-Path $TargetRoot ".annifity"
 $DocsRoot = Join-Path $AnnifityRoot "docs"
 $MemoriesRoot = Join-Path $AnnifityRoot "memories"
+$ArtifactProfilesRoot = Join-Path $MemoriesRoot "artifact-profiles"
 
 $Utf8NoBom = [System.Text.UTF8Encoding]::new($false)
 
@@ -50,7 +51,8 @@ foreach ($directory in @(
     (Join-Path $DocsRoot "templates"),
     (Join-Path $DocsRoot "changelog"),
     (Join-Path $DocsRoot "exports"),
-    $MemoriesRoot
+    $MemoriesRoot,
+    $ArtifactProfilesRoot
 )) {
     Ensure-Directory -Directory $directory
 }
@@ -63,6 +65,19 @@ Write-FromTemplate -Template "_refs/templates/memories/stakeholder-context.md" -
 Write-FromTemplate -Template "_refs/templates/memories/decisions.md" -Destination (Join-Path $MemoriesRoot "decisions.md")
 Write-FromTemplate -Template "_refs/templates/memories/decision-outcomes.md" -Destination (Join-Path $MemoriesRoot "decision-outcomes.md")
 Write-FromTemplate -Template "_refs/templates/memories/open-questions.md" -Destination (Join-Path $MemoriesRoot "open-questions.md")
+
+$artifactStateRegistry = Join-Path $DocsRoot "artifact-state-registry.json"
+if ((-not (Test-Path -LiteralPath $artifactStateRegistry)) -or $Force) {
+    $registry = [ordered]@{
+        schemaVersion = "1.0"
+        updated = (Get-Date).ToString("yyyy-MM-dd")
+        source = "workspace-init"
+        records = @()
+        pointers = @()
+    }
+    $registryJson = (($registry | ConvertTo-Json -Depth 10) -replace "`r`n", "`n") + "`n"
+    [System.IO.File]::WriteAllText($artifactStateRegistry, $registryJson, $Utf8NoBom)
+}
 
 $initiativeState = Join-Path $MemoriesRoot "initiative-state.md"
 if ((-not (Test-Path -LiteralPath $initiativeState)) -or $Force) {

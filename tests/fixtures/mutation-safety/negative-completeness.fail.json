@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "exactPaths": [
+    {
+      "path": "content/keep.md",
+      "expected": "absent"
+    }
+  ],
+  "residualReferences": [
+    {
+      "pattern": "canonical-marker",
+      "fixedString": true,
+      "expected": "absent",
+      "searchPaths": [
+        "content"
+      ],
+      "includeGlobs": [
+        "*.md"
+      ]
+    }
+  ],
+  "gitIgnore": [
+    {
+      "path": "content/keep.md",
+      "expected": "ignored"
+    }
+  ]
+}
+

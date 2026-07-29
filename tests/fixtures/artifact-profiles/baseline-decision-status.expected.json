@@ -1,0 +1,5 @@
+{
+  "name": "baseline lifecycle cannot use decision outcome",
+  "request": "baseline-decision-status.request.json",
+  "expectedErrorContains": "non-baseline status"
+}

@@ -1,0 +1,17 @@
+{
+  "name": "create action cannot revise a baseline",
+  "request": "action-baseline-mismatch.request.json",
+  "expectedState": "blocked",
+  "expectedValues": {
+    "outcome": "create-story"
+  },
+  "expectedProvenance": {
+    "outcome": "request"
+  },
+  "requiredConflictKinds": [
+    "action-baseline-mismatch"
+  ],
+  "requiredBlockerKinds": [
+    "action-baseline-mismatch"
+  ]
+}

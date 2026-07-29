@@ -1,0 +1,19 @@
+{
+  "name": "frontmatter setting must match baseline metadata mode",
+  "request": "metadata-mode-mismatch.request.json",
+  "expectedState": "blocked",
+  "expectedValues": {
+    "format.frontmatter": false,
+    "baseline.metadataMode": "frontmatter"
+  },
+  "expectedProvenance": {
+    "format.frontmatter": "request",
+    "baseline.metadataMode": "request"
+  },
+  "requiredConflictKinds": [
+    "metadata-mode-mismatch"
+  ],
+  "requiredBlockerKinds": [
+    "metadata-mode-mismatch"
+  ]
+}

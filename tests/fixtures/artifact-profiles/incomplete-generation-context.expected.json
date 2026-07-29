@@ -1,0 +1,17 @@
+{
+  "name": "standard generation context is mandatory",
+  "request": "incomplete-generation-context.request.json",
+  "expectedState": "blocked",
+  "expectedValues": {
+    "language": "en"
+  },
+  "expectedProvenance": {
+    "language": "request"
+  },
+  "requiredConflictKinds": [
+    "missing-required-value"
+  ],
+  "requiredBlockerKinds": [
+    "missing-required-value"
+  ]
+}

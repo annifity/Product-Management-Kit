@@ -1,0 +1,59 @@
+{
+  "schemaVersion": "1.0",
+  "updated": "2026-07-28",
+  "source": "DEMO-CHAIN-DEC-003",
+  "records": [
+    {
+      "artifactId": "DEMO-CHAIN-001",
+      "version": "1.0",
+      "path": "artifacts/DEMO-CHAIN-001_v1.0.md",
+      "lifecycle": "superseded",
+      "metadataMode": "registry",
+      "artifactType": "spec",
+      "documentUpdated": "2026-07-26",
+      "documentSource": "DEMO-CHAIN-DEC-001",
+      "sha256": "011f7d653b942d64df5e0c68a2b55d952081cf44ea8fea168afe00b7a184103a",
+      "supersedes": []
+    },
+    {
+      "artifactId": "DEMO-CHAIN-001",
+      "version": "1.1",
+      "path": "artifacts/DEMO-CHAIN-001_v1.1.md",
+      "lifecycle": "superseded",
+      "metadataMode": "registry",
+      "artifactType": "spec",
+      "documentUpdated": "2026-07-27",
+      "documentSource": "DEMO-CHAIN-DEC-002",
+      "sha256": "130832c4604c6f4b56ce170c9a0ad29d0f8dd209a1d89118a5d3d0330c181d04",
+      "supersedes": [
+        "DEMO-CHAIN-001@1.0"
+      ]
+    },
+    {
+      "artifactId": "DEMO-CHAIN-001",
+      "version": "1.2",
+      "path": "artifacts/DEMO-CHAIN-001_v1.2.md",
+      "lifecycle": "baselined",
+      "metadataMode": "registry",
+      "artifactType": "spec",
+      "documentUpdated": "2026-07-28",
+      "documentSource": "DEMO-CHAIN-DEC-003",
+      "sha256": "ee7aaf4285d72e87e64acfdd5b9255ba92b8dded57b3bb6917275c27d1178389",
+      "supersedes": [
+        "DEMO-CHAIN-001@1.1"
+      ]
+    }
+  ],
+  "pointers": [
+    {
+      "artifactId": "DEMO-CHAIN-001",
+      "baselineVersion": "1.2",
+      "baselinePath": "artifacts/DEMO-CHAIN-001_v1.2.md",
+      "baselineSha256": "ee7aaf4285d72e87e64acfdd5b9255ba92b8dded57b3bb6917275c27d1178389",
+      "latestVersion": "1.2",
+      "latestPath": "artifacts/DEMO-CHAIN-001_v1.2.md",
+      "latestSha256": "ee7aaf4285d72e87e64acfdd5b9255ba92b8dded57b3bb6917275c27d1178389",
+      "source": "DEMO-CHAIN-DEC-003"
+    }
+  ]
+}

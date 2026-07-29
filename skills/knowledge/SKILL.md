@@ -7,6 +7,10 @@ description: Retrieve and synthesize existing product knowledge from local docs,
 
 Ground answers in retrievable sources, distinguish conflicts, and state confidence.
 
+## Input Contract
+
+Reuse the user's question, supplied text, source paths, identifiers, and time boundary. Accept missing source locations and search only the available in-scope stores; do not turn absence of evidence into a fact. Ask only when identity or scope ambiguity would make the answer materially unreliable.
+
 ## Process
 
 1. Search local `.annifity/docs/`, `.annifity/memories/`, decision records, and repository references first.
@@ -22,6 +26,7 @@ Ground answers in retrievable sources, distinguish conflicts, and state confiden
 Load only references needed for the source being searched:
 
 - For Jira or Confluence lookup, use `_refs/integrations/jira.md` and/or `_refs/integrations/confluence.md`.
+- When a question depends on the current accepted version of a governed artifact, use `_refs/operating-model/authoritative-baseline-resolution.md`; treat indexes, backlogs, links, and filenames as supporting evidence only.
 - For current or historical decisions, use `_refs/templates/docs/decision-log.md`, `_refs/templates/docs/decision-ledger.md`, and `_refs/templates/memories/decisions.md` selectively.
 - For evidence-backed factual claims, use `_refs/templates/docs/evidence-ledger.md`.
 - For current initiative ownership or phase state, use `_refs/schemas/initiative-state.md`.

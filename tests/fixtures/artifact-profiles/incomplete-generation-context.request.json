@@ -1,0 +1,15 @@
+{
+  "schemaVersion": "1.0",
+  "project": "GBIA",
+  "artifactType": "user-story",
+  "action": "create",
+  "sources": [
+    {
+      "id": "request",
+      "layer": "explicit-request",
+      "values": {
+        "language": "en"
+      }
+    }
+  ]
+}

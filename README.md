@@ -118,7 +118,16 @@ tools/
   sync-ai-skill-structures.ps1
   check-self-contained.ps1
   test-annifity.ps1
+
+docs/                      Tracked source for the public static documentation site
+tests/                     Tracked regression fixtures and contract tests
+.annifity/                 Ignored, project-local generated artifacts and memories
 ```
+
+`docs/` and `tests/` are canonical repository assets and must remain tracked.
+`.annifity/` is runtime output and remains ignored. Run `npm run doctor` for a
+read-only explanation of every allowed root and to flag unexpected or misplaced
+roots such as `.sdcorejs/` or a deprecated duplicate agent-skill adapter.
 
 ## Source Of Truth
 
@@ -147,6 +156,9 @@ Generated adapters are project-local pointers into the canonical repository. The
 - Save artifacts through `docs` and durable context through `memories`.
 - Treat baselined artifacts as change-controlled. Use `change` after baseline.
 - Draft edits do not increase version; accepted published/spec changes do.
+- Resolve project artifact profiles and material decisions before drafting; do not silently replace project context with canonical defaults.
+- Resolve controlled artifacts by stable ID, registry pointer, and SHA-256 rather than filename recency.
+- Use fingerprinted preview and confirmation for protected local mutations, then prove removals and ignore changes with negative completeness.
 
 ## Validation
 
@@ -159,6 +171,10 @@ npm run ref:check
 npm run routing:test
 npm run sync:check
 npm run contract:test
+npm run p0:test
+npm run p1:test
+npm run p2:test
+npm run doctor
 npm test
 ```
 
@@ -174,7 +190,7 @@ Full local check:
 npm run check
 ```
 
-Initialize a local `.annifity/` workspace for generated docs and memories:
+Initialize a local `.annifity/` workspace for generated docs, artifact-state registry, memories, and project artifact profiles:
 
 ```powershell
 npm run workspace:init

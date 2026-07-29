@@ -4,6 +4,8 @@ param()
 Set-StrictMode -Version Latest
 $ErrorActionPreference = "Stop"
 
+. (Join-Path $PSScriptRoot "file-hash-compat.ps1")
+
 $Root = (Resolve-Path (Join-Path $PSScriptRoot "..")).Path
 $ExpectedSkills = @(
     "brief",
@@ -60,15 +62,17 @@ $canonicalSkillRelPaths = @($canonicalSkillFiles | ForEach-Object { ConvertTo-Re
 $expectedSkillRelPaths = @($ExpectedSkills | ForEach-Object { "skills/$_/SKILL.md" })
 Assert-EqualList -Label "Canonical SKILL.md files" -Expected $expectedSkillRelPaths -Actual $canonicalSkillRelPaths
 
-$inputContractSkills = @("change", "experiment", "learn", "plan", "ship", "uat", "user-story", "validate")
 $phaseGateSkills = @("brief", "discovery", "execution", "experiment", "learn", "plan", "prototype", "ship", "spec", "validate")
 foreach ($skill in $ExpectedSkills) {
     $skillText = [System.IO.File]::ReadAllText((Join-Path $skillsRoot "$skill/SKILL.md"))
+    if ($skillText -notmatch "(?m)^## Input Contract\s*$") {
+        throw "Canonical skill '$skill' must declare an explicit Input Contract."
+    }
+    if ($skillText -notmatch "(?m)^## Output\s*$") {
+        throw "Canonical skill '$skill' must declare an explicit Output contract."
+    }
     if ($skillText -notmatch "(?m)^## Handoff\s*$") {
         throw "Canonical skill '$skill' must declare an explicit Handoff."
-    }
-    if ($inputContractSkills -contains $skill -and $skillText -notmatch "(?m)^## Input Contract\s*$") {
-        throw "Canonical skill '$skill' must declare its missing/partial input behavior."
     }
     if ($phaseGateSkills -contains $skill -and $skillText -notmatch [regex]::Escape("_refs/operating-model/phase-gates.md")) {
         throw "Lifecycle skill '$skill' must route directly to _refs/operating-model/phase-gates.md."
@@ -166,6 +170,56 @@ $requiredProductBuilderFiles = @(
     "tools/test-skill-format.ps1",
     "tools/test-skill-routing.ps1",
     "tools/test-skill-contracts.ps1",
+    "tools/resolve-artifact-profile.ps1",
+    "tools/test-artifact-profile-resolution.ps1",
+    "tools/resolve-authoritative-baseline.ps1",
+    "tools/test-authoritative-baseline.ps1",
+    "tools/new-artifact-registry-migration.ps1",
+    "tools/test-artifact-registry-migration.ps1",
+    "tools/test-negative-completeness.ps1",
+    "tools/new-mutation-preview.ps1",
+    "tools/confirm-mutation-preview.ps1",
+    "tools/verify-mutation-result.ps1",
+    "tools/test-mutation-safety.ps1",
+    "_refs/schemas/artifact-generation-contract.md",
+    "_refs/operating-model/artifact-profile-resolution.md",
+    "_refs/schemas/artifact-state-registry.md",
+    "_refs/operating-model/authoritative-baseline-resolution.md",
+    "_refs/checklists/material-decision-preflight.md",
+    "_refs/checklists/source-backed-minimality.md",
+    "_refs/checklists/negative-completeness.md",
+    "_refs/workflows/local-mutation-safety.md",
+    "_refs/schemas/mutation-preview.md",
+    "_refs/templates/docs/generation-receipt.md",
+    "_refs/schemas/session-rework-observation.md",
+    "_refs/schemas/semantic-forward-test.md",
+    "_refs/schemas/skill-output-contract.md",
+    "_refs/schemas/first-pass-quality-dashboard.md",
+    "_refs/schemas/drawio-validation-manifest.md",
+    "_refs/schemas/context-consistency-manifest.md",
+    "_refs/operating-model/phase-gates.md",
+    "_refs/schemas/initiative-state.md",
+    "tools/audit-session-rework.ps1",
+    "tools/test-session-rework-audit.ps1",
+    "tools/new-semantic-forward-run.ps1",
+    "tools/new-semantic-forward-evaluator-task.ps1",
+    "tools/evaluate-semantic-forward-run.ps1",
+    "tools/test-semantic-forward-harness.ps1",
+    "tools/test-output-contract-conformance.ps1",
+    "tools/build-first-pass-quality-dashboard.ps1",
+    "tools/test-first-pass-quality-dashboard.ps1",
+    "tools/validate-drawio.ps1",
+    "tools/test-drawio-validation.ps1",
+    "tools/lint-context-consistency.ps1",
+    "tools/test-context-consistency-linter.ps1",
+    "tools/phase-gate-approval-attestation.psm1",
+    "tools/resolve-phase-gate-approval.ps1",
+    "tools/sign-phase-gate-approval.ps1",
+    "tools/test-phase-gate-approval.ps1",
+    "tools/repo-root-manifest.schema.json",
+    "tools/repo-root-manifest.json",
+    "tools/invoke-repo-doctor.ps1",
+    "tools/test-repo-doctor.ps1",
     "tests/fixtures/routing/skill-routing-cases.json",
     "tools/init-annifity-workspace.ps1",
     "docs/data/catalog.js"
@@ -198,7 +252,30 @@ if ($packageJson.description -notmatch "Product Builder Kit") {
     throw "package.json description must position Annifity as a Product Builder Kit."
 }
 
-$requiredScripts = @("skill:validate", "ref:check", "routing:test", "sync:check", "contract:test", "workspace:init")
+$requiredScripts = @(
+    "skill:validate",
+    "ref:check",
+    "routing:test",
+    "sync:check",
+    "contract:test",
+    "profile:test",
+    "baseline:test",
+    "registry-migration:test",
+    "mutation:test",
+    "p0:test",
+    "session-audit:test",
+    "semantic:test",
+    "output-contract:test",
+    "drawio:test",
+    "context:test",
+    "p1:test",
+    "phase-gate:test",
+    "repo-doctor:test",
+    "dashboard:test",
+    "p2:test",
+    "doctor",
+    "workspace:init"
+)
 foreach ($scriptName in $requiredScripts) {
     if (-not ($packageJson.scripts.PSObject.Properties.Name -contains $scriptName)) {
         throw "package.json missing script: $scriptName"
@@ -307,5 +384,17 @@ finally {
     }
 }
 & (Join-Path $Root "tools/test-skill-contracts.ps1")
+& (Join-Path $Root "tools/test-output-contract-conformance.ps1")
+& (Join-Path $Root "tools/test-artifact-profile-resolution.ps1")
+& (Join-Path $Root "tools/test-authoritative-baseline.ps1")
+& (Join-Path $Root "tools/test-artifact-registry-migration.ps1")
+& (Join-Path $Root "tools/test-mutation-safety.ps1")
+& (Join-Path $Root "tools/test-session-rework-audit.ps1")
+& (Join-Path $Root "tools/test-semantic-forward-harness.ps1")
+& (Join-Path $Root "tools/test-first-pass-quality-dashboard.ps1")
+& (Join-Path $Root "tools/test-drawio-validation.ps1")
+& (Join-Path $Root "tools/test-context-consistency-linter.ps1")
+& (Join-Path $Root "tools/test-phase-gate-approval.ps1")
+& (Join-Path $Root "tools/test-repo-doctor.ps1")
 
 Write-Host "OK Annifity structure self-test passed ($($ExpectedSkills.Count) skills)."

@@ -1,0 +1,16 @@
+{
+  "schemaVersion": "1.0",
+  "project": "GBIA",
+  "artifactType": "user-story",
+  "action": "revise",
+  "sources": [
+    {
+      "id": "baseline-with-decision-status",
+      "layer": "accepted-baseline",
+      "status": "accepted",
+      "values": {
+        "language": "en"
+      }
+    }
+  ]
+}

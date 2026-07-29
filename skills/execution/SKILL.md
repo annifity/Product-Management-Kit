@@ -7,9 +7,13 @@ description: Provide product-owner decisions and requirement clarification durin
 
 Answer delivery questions against accepted sources and escalate any baseline movement through change control.
 
+## Input Contract
+
+Reuse the supplied ticket, question, accepted source, decision history, and delivery state. An authoritative active baseline is required for a binding clarification; if it cannot be resolved, return the blocker instead of answering from a newer draft or memory. Ask only for a missing fact that changes the route or decision.
+
 ## Process
 
-1. Load the active spec, stories, decisions, open questions, and memories.
+1. Resolve the authoritative active spec and story baselines, then load their decisions, open questions, and relevant memories.
 2. Classify the request as clarification, scope decision, blocker, defect triage, or change. When outcome, urgency, authority, evidence, or scope impact is unclear, separate the likely outcome from the literal ask, label assumptions, and ask only one route-changing question.
 3. Answer from source documents when possible.
 4. Escalate to `change` if the answer changes committed scope, acceptance criteria, launch scope, or user-visible behavior.
@@ -32,6 +36,7 @@ Load only references needed for the delivery question:
 - For ambiguous routing or standard delivery support, use `_refs/operating-model/routing.md` and `_refs/workflows/execution-support.md`.
 - For the active-delivery boundary and escalation decision, use the Execution Gate in `_refs/operating-model/phase-gates.md`.
 - When clarification may change the baseline, use `_refs/workflows/change-governance.md` and `_refs/templates/change/spec-change-context.md`.
+- For controlled source selection, use `_refs/operating-model/authoritative-baseline-resolution.md`; never answer from a newer unaccepted draft merely because its filename or date is latest.
 - For authority, escalation, or communication decisions, use `_refs/checklists/stakeholder-governance.md`.
 - For durable decision capture, use `_refs/templates/docs/decision-log.md` and `_refs/templates/docs/decision-ledger.md`.
 - For ticket-specific work, use `_refs/integrations/jira.md`.

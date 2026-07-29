@@ -1,0 +1,57 @@
+{
+  "schemaVersion": "1.0",
+  "project": "GBIA",
+  "artifactType": "user-story",
+  "action": "create",
+  "requiredKeys": [
+    "actor.approver"
+  ],
+  "materialKeys": [
+    "actor.approver"
+  ],
+  "sources": [
+    {
+      "id": "current-user-answer",
+      "layer": "explicit-request",
+      "values": {
+        "actor.approver": "Product Owner",
+        "outcome": "resolve-approval-ownership-for-the-story",
+        "consumer": {
+          "primary": "delivery-team"
+        },
+        "deliverableMode": "jira-ready",
+        "sourceAuthority": {
+          "primary": "current-user-answer"
+        },
+        "baselineTarget": {
+          "mode": "new-artifact"
+        },
+        "constraints": {
+          "noInventedBehavior": true
+        },
+        "materialDecisions": {
+          "approver": "Product Owner"
+        }
+      },
+      "resolvesQuestions": [
+        "GBIA-OQ-003"
+      ]
+    },
+    {
+      "id": "open-question-register",
+      "layer": "open-questions",
+      "values": {},
+      "questions": [
+        {
+          "id": "GBIA-OQ-003",
+          "text": "Who owns final approval?",
+          "status": "open",
+          "material": true,
+          "affectsKeys": [
+            "actor.approver"
+          ]
+        }
+      ]
+    }
+  ]
+}

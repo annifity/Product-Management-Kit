@@ -1,0 +1,138 @@
+{
+  "$schema": "./repo-root-manifest.schema.json",
+  "schemaVersion": "1.0",
+  "allowedRoots": [
+    {
+      "path": ".agents",
+      "kind": "runtime",
+      "gitPolicy": "runtime-local",
+      "required": false,
+      "explanation": "Environment-owned local agent state may be absent, ignored, or untracked, but it must never contain the deprecated .agents/skills adapter."
+    },
+    {
+      "path": ".annifity",
+      "kind": "runtime",
+      "gitPolicy": "ignored",
+      "required": false,
+      "explanation": "Workspace-specific Annifity artifacts are runtime state and must remain ignored."
+    },
+    {
+      "path": ".claude",
+      "kind": "generated",
+      "gitPolicy": "tracked",
+      "required": true,
+      "explanation": "Project-local Claude adapters are generated outputs that remain tracked for distribution."
+    },
+    {
+      "path": ".claude-plugin",
+      "kind": "integration",
+      "gitPolicy": "tracked",
+      "required": true,
+      "explanation": "The Claude plugin manifest is repository integration metadata and remains tracked."
+    },
+    {
+      "path": ".codex",
+      "kind": "generated",
+      "gitPolicy": "tracked",
+      "required": true,
+      "explanation": "Project-local Codex adapters are generated outputs that remain tracked for distribution."
+    },
+    {
+      "path": ".cursor",
+      "kind": "generated",
+      "gitPolicy": "tracked",
+      "required": true,
+      "explanation": "Project-local Cursor rules are generated outputs that remain tracked for distribution."
+    },
+    {
+      "path": ".git",
+      "kind": "internal",
+      "gitPolicy": "internal",
+      "required": true,
+      "explanation": "Git owns this internal directory; the doctor checks repository identity but not its contents."
+    },
+    {
+      "path": ".githooks",
+      "kind": "integration",
+      "gitPolicy": "tracked",
+      "required": true,
+      "explanation": "Repository hook sources are canonical integration files and remain tracked."
+    },
+    {
+      "path": ".github",
+      "kind": "integration",
+      "gitPolicy": "tracked",
+      "required": true,
+      "explanation": "GitHub workflows, instructions, and generated project-local adapters remain tracked."
+    },
+    {
+      "path": "_refs",
+      "kind": "canonical",
+      "gitPolicy": "tracked",
+      "required": true,
+      "explanation": "Shared Annifity references are canonical source and must be tracked, not treated as runtime output."
+    },
+    {
+      "path": "docs",
+      "kind": "canonical",
+      "gitPolicy": "tracked",
+      "required": true,
+      "explanation": "The documentation site and catalog are canonical tracked source; ignored docs/audits and docs/roadmaps descendants do not make the docs root disposable."
+    },
+    {
+      "path": "examples",
+      "kind": "canonical",
+      "gitPolicy": "tracked",
+      "required": true,
+      "explanation": "End-to-end examples are canonical tracked product-builder guidance."
+    },
+    {
+      "path": "node_modules",
+      "kind": "runtime",
+      "gitPolicy": "ignored",
+      "required": false,
+      "explanation": "Installed dependencies are reproducible runtime material and must remain ignored."
+    },
+    {
+      "path": "skills",
+      "kind": "canonical",
+      "gitPolicy": "tracked",
+      "required": true,
+      "explanation": "Top-level skill packages are canonical source and must remain tracked."
+    },
+    {
+      "path": "tests",
+      "kind": "canonical",
+      "gitPolicy": "tracked",
+      "required": true,
+      "explanation": "Fixtures and verification assets are canonical tracked source and must never be hidden by runtime ignore rules."
+    },
+    {
+      "path": "tools",
+      "kind": "canonical",
+      "gitPolicy": "tracked",
+      "required": true,
+      "explanation": "Repository build, sync, validation, and doctor tools are canonical tracked source."
+    }
+  ],
+  "forbiddenPaths": [
+    {
+      "path": ".agents/skills",
+      "code": "DEPRECATED_AGENTS_SKILLS",
+      "explanation": "The deprecated duplicate adapter root must not return; .codex/skills is the explicit Codex surface."
+    },
+    {
+      "path": ".sdcorejs",
+      "code": "FORBIDDEN_SDCOREJS_ROOT",
+      "explanation": "Legacy SDCoreJS runtime state is outside the Annifity repository contract and must not be stored at the root."
+    }
+  ],
+  "runtimeNamePatterns": [
+    "^\\.angular$",
+    "^\\.cache$",
+    "^\\.next$",
+    "^\\.runtime$",
+    "^\\.turbo$",
+    "^(coverage|dist|out|temp|tmp)$"
+  ]
+}

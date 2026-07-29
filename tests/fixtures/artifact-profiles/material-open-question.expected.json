@@ -1,0 +1,21 @@
+{
+  "name": "unresolved material question blocks writing",
+  "request": "material-open-question.request.json",
+  "expectedState": "blocked",
+  "expectedValues": {
+    "language": "en"
+  },
+  "expectedProvenance": {
+    "language": "gbia-profile"
+  },
+  "requiredConflictKinds": [
+    "unresolved-material-question"
+  ],
+  "requiredConflictSeverities": [
+    "material"
+  ],
+  "requiredBlockerKinds": [
+    "unresolved-material-question"
+  ],
+  "expectedBlockingQuestion": "GBIA-OQ-001"
+}

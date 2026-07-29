@@ -1,0 +1,17 @@
+{
+  "schemaVersion": "1.0",
+  "project": "GBIA",
+  "artifactType": "user-story",
+  "action": "revise",
+  "changeAuthorized": "false",
+  "changeEvidence": "DEC-001",
+  "sources": [
+    {
+      "id": "request",
+      "layer": "explicit-request",
+      "values": {
+        "language": "en"
+      }
+    }
+  ]
+}

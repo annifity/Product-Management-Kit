@@ -1,0 +1,24 @@
+{
+  "schemaVersion": "1.0",
+  "gateId": "phase.spec.ready",
+  "sourceFingerprint": "sha256:1111111111111111111111111111111111111111111111111111111111111111",
+  "profileFingerprint": "sha256:2222222222222222222222222222222222222222222222222222222222222222",
+  "evidence": [
+    {
+      "id": "EV-B",
+      "kind": "decision",
+      "source": "DEC-002",
+      "fingerprint": "sha256:4444444444444444444444444444444444444444444444444444444444444444"
+    },
+    {
+      "id": "EV-A",
+      "kind": "artifact",
+      "source": "SPEC-001-v1.2",
+      "fingerprint": "sha256:3333333333333333333333333333333333333333333333333333333333333333"
+    }
+  ],
+  "materialQuestions": [],
+  "asOf": "2026-07-28T00:00:00Z",
+  "invalidationEvents": [],
+  "priorApproval": null
+}

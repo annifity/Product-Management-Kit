@@ -1,0 +1,5 @@
+{
+  "name": "change authorization must be a JSON boolean",
+  "request": "string-change-authorization.request.json",
+  "expectedErrorContains": "must be a JSON boolean"
+}

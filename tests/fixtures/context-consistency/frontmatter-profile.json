@@ -1,0 +1,18 @@
+{
+  "schemaVersion": 1,
+  "maxTextBytes": 1048576,
+  "scanPaths": [
+    "workspace/document-frontmatter.md",
+    "workspace/profile-forbid.md"
+  ],
+  "questionSources": [],
+  "frontmatterPolicies": [
+    {
+      "path": "workspace/document-frontmatter.md",
+      "profilePath": "workspace/profile-forbid.md"
+    }
+  ],
+  "terminologyRules": [],
+  "decisions": [],
+  "changelogStreams": []
+}

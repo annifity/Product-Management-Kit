@@ -15,13 +15,13 @@
 
 | BR ID | FR ID / REQ ID | Story ID | AC ID | UAT Case | Release Check | Status | Gap | Owner |
 |---|---|---|---|---|---|---|---|---|
-| BR-001 | REQ-001 | US-001 | AC-001 | UAT-001 | REL-001 | Covered | - | [Owner] |
+| BR-001 | REQ-001 | US-001 | AC-01 | TC-001 | REL-001 | Covered | - | [Owner] |
 
 ## Required Chain
 
 Use this chain for committed delivery scope:
 
-`REQ-ID -> STORY-ID -> AC-ID -> UAT-ID -> RELEASE CHECK`
+`REQ-ID -> STORY-ID -> AC-ID -> TC-ID -> RELEASE CHECK`
 
 Every committed requirement should either have a complete chain or an explicit accepted gap.
 

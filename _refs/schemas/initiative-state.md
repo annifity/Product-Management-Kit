@@ -27,6 +27,172 @@ sources:
 | updated | Yes | Last material update date. |
 | sources | Yes | Source artifacts, decisions, tickets, or evidence. |
 
+## Phase Gate Approval Record
+
+Use UTF-8 JSON with `tools/resolve-phase-gate-approval.ps1` to evaluate whether
+a prior gate approval is reusable. The resolver is read-only and accepts the
+same document through `-RequestPath` or `-RequestJson`.
+
+```json
+{
+  "schemaVersion": "1.0",
+  "gateId": "phase.spec.ready",
+  "sourceFingerprint": "sha256:<64 lowercase hex>",
+  "profileFingerprint": "sha256:<64 lowercase hex>",
+  "evidence": [
+    {
+      "id": "SPEC-001-v1.2",
+      "kind": "artifact",
+      "source": ".annifity/docs/specs/SPEC-001_v1.2.md",
+      "fingerprint": "sha256:<64 lowercase hex>"
+    }
+  ],
+  "materialQuestions": [
+    {
+      "id": "OQ-001",
+      "rank": 1,
+      "text": "Who owns the exception decision?",
+      "dependsOnQuestionIds": []
+    }
+  ],
+  "questionPolicy": {
+    "explicitBatchRequested": false,
+    "maxQuestions": 1,
+    "resolvedQuestionIds": []
+  },
+  "asOf": "2026-07-28T00:00:00Z",
+  "invalidationEvents": [],
+  "priorApproval": null
+}
+```
+
+`gateId` must be one of the stable IDs in
+`_refs/operating-model/phase-gates.md`. Source, profile, and evidence
+fingerprints use `sha256:<64 lowercase hex>`. Evidence IDs are unique and the
+resolver sorts evidence by ID before hashing.
+
+Material questions are sorted by numeric `rank`, then ID. By default the
+resolver selects one eligible question. `maxQuestions` may be two or three only
+when `explicitBatchRequested` is `true`; a selected question is eligible only
+when every ID in `dependsOnQuestionIds` appears in `resolvedQuestionIds`.
+
+### Prior approval
+
+Persist the exact approval context rather than only a conversational yes/no:
+
+```json
+{
+  "approvalId": "APP-SPEC-001",
+  "gateId": "phase.spec.ready",
+  "gateFingerprint": "sha256:<resolver gate fingerprint>",
+  "sourceFingerprint": "sha256:<64 lowercase hex>",
+  "profileFingerprint": "sha256:<64 lowercase hex>",
+  "evidence": [
+    {
+      "id": "SPEC-001-v1.2",
+      "kind": "artifact",
+      "source": ".annifity/docs/specs/SPEC-001_v1.2.md",
+      "fingerprint": "sha256:<64 lowercase hex>"
+    }
+  ],
+  "materialQuestions": [],
+  "decision": "approved",
+  "status": "active",
+  "decidedBy": "user:product-owner",
+  "decidedAt": "2026-07-28T00:00:00Z",
+  "expiresAt": "2026-08-11T00:00:00Z",
+  "invalidatedAt": null,
+  "invalidationReasons": [],
+  "attestation": {
+    "schemaVersion": "1.0",
+    "algorithm": "HMAC-SHA256",
+    "keyId": "phase-gate-approval-2026-01",
+    "signature": "hmac-sha256:<64 lowercase hex>"
+  }
+}
+```
+
+Allowed decisions are `approved`, `rejected`, and `deferred`. Allowed recorded
+statuses are `active`, `revoked`, `superseded`, and `invalidated`. `expiresAt`
+may be `null`; an unbounded approval still becomes stale when its gate
+fingerprint changes. An approved record cannot contain unresolved material
+questions. Each current invalidation event requires stable `id`, human-readable
+`reason`, and ISO-8601 `recordedAt`; the resolver sorts events by ID and rejects
+reuse when any event is present.
+
+An unsigned record is never reusable. Create the record without `attestation`,
+then run `tools/sign-phase-gate-approval.ps1` with `-ApprovalPath` or
+`-ApprovalJson`. The signer adds the attestation and writes the signed record to
+standard output; it does not write the source file.
+
+The signer and resolver read the one active verification key only from the
+process environment:
+
+- `ANNIFITY_PHASE_GATE_APPROVAL_HMAC_KEY_ID` is the non-secret key ID,
+  containing 1-64 ASCII letters, digits, dots, underscores, or hyphens, starting
+  with a letter or digit; surrounding whitespace is invalid and key-ID matching
+  is case-sensitive;
+- `ANNIFITY_PHASE_GATE_APPROVAL_HMAC_KEY` is the Base64 encoding of at least 32
+  secret bytes.
+
+Never put the secret in approval or request JSON, a command argument, tool
+output, logs, fixtures, generated artifacts, or the repository. Rotate both
+environment values together and re-sign any approval that must remain reusable;
+an approval naming any other key ID fails closed.
+
+The attestation proves that a process holding the configured key signed the
+complete record. It does not independently authenticate the human named by
+`decidedBy`. Restrict the signer and environment key to the trusted approval
+capture boundary; untrusted request producers may submit signed records to the
+resolver but must not receive key access.
+
+### Attestation canonical payload
+
+The HMAC input is UTF-8 without a BOM and is the whitespace-free canonical JSON
+of this envelope:
+
+```json
+{
+  "domain": "annifity.phase-gate-approval",
+  "schemaVersion": "1.0",
+  "algorithm": "HMAC-SHA256",
+  "keyId": "<attestation keyId>",
+  "approval": "<the complete top-level approval object except attestation>"
+}
+```
+
+Object property names are sorted by ordinal code-point order at every depth.
+Array order is preserved. Strings and JSON types are preserved exactly; numbers
+use invariant-culture JSON spelling, and booleans and null use lowercase JSON
+literals. The `attestation` property is excluded in full. Therefore approval
+fields must not be edited, reordered within arrays, or retyped after signing.
+Top-level property order does not affect the signature.
+
+The gate fingerprint covers the stable gate ID, source fingerprint, profile
+fingerprint, canonical evidence, and canonical material questions. It excludes
+the question-display policy, decision, timestamps, and approval identity.
+Approval reuse requires exact equality between the stored and freshly resolved
+gate fingerprint, a valid approval attestation, and an active, unexpired,
+non-invalidated approved decision.
+
+The resolver returns:
+
+- canonical gate, evidence, and question fingerprints;
+- prior decision and computed reuse status;
+- attestation status and non-secret key ID, without the signature or secret;
+- deterministic reasons for non-reuse;
+- the eligible questions to ask now and the deferred questions.
+
+Attestation failures use stable reasons:
+`approval-attestation-missing`, `approval-attestation-invalid`,
+`approval-attestation-key-missing`, `approval-attestation-key-invalid`, and
+`approval-attestation-key-unknown`. Each produces `invalid-attestation` reuse
+status and requires a fresh, correctly signed approval before reuse.
+
+Do not persist the computed reuse status as a substitute for fresh resolution.
+Store the approval record and resolve it again against current source and
+profile fingerprints.
+
 ## Phase Data
 
 ```yaml

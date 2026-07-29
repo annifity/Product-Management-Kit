@@ -71,6 +71,25 @@ foreach ($fixture in $fixtures) {
         }
     }
 
+    if ($contract.PSObject.Properties.Name -contains "fileAssertions") {
+        foreach ($assertion in @($contract.fileAssertions)) {
+            $assertionText = Read-RepoText $assertion.path
+            foreach ($term in @($assertion.requiredTerms)) {
+                if ($assertionText.IndexOf([string]$term, [System.StringComparison]::OrdinalIgnoreCase) -lt 0) {
+                    throw "Skill contract fixture '$($contract.name)' failed: '$($assertion.path)' is missing required term '$term'."
+                }
+            }
+
+            if ($assertion.PSObject.Properties.Name -contains "prohibitedTerms") {
+                foreach ($term in @($assertion.prohibitedTerms)) {
+                    if ($assertionText.IndexOf([string]$term, [System.StringComparison]::OrdinalIgnoreCase) -ge 0) {
+                        throw "Skill contract fixture '$($contract.name)' failed: '$($assertion.path)' contains prohibited term '$term'."
+                    }
+                }
+            }
+        }
+    }
+
     if ($contract.PSObject.Properties.Name -contains "requiredHeadings") {
         $headingSource = if ($contract.PSObject.Properties.Name -contains "headingSource") {
             $contract.headingSource

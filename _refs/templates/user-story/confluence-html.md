@@ -2,23 +2,17 @@
 
 Use when the user asks for a Confluence-ready story page.
 
-## Required Sections
+## Section Selection
 
-1. User Story.
-2. Business Context.
-3. Pre-condition.
-4. Main Flow.
-5. Alternative Flow when meaningful.
-6. Business Rules when complex or reused.
-7. Acceptance Criteria grouped by requirement.
-8. Dependencies.
-9. Out of Scope.
-10. Design.
-11. Change Log.
+Always include User Story, the minimum context or flow needed to understand it, Acceptance Criteria, and Change Log.
+
+Include Pre-condition, Alternative Flow, Business Rules, Dependencies, Out of Scope, and Design only when confirmed scope and `_refs/checklists/source-backed-minimality.md` make them relevant. Do not create empty or filler sections to match a generic page shape.
 
 ## Writing Rules
 
 - Use Given/When/Then tables for acceptance criteria.
-- Put validation errors, permission denied, and system errors in acceptance criteria, not only edge cases.
+- Apply `_refs/checklists/acceptance-criteria-quality.md` and use stable AC IDs.
+- Apply `_refs/checklists/source-backed-minimality.md` to the complete story page.
+- Put confirmed validation failures, permission denial, and other user-visible failure behavior in acceptance criteria, not only edge cases.
 - Keep Change Log append-only.
 - For strict HTML table and link rules, use `_refs/integrations/confluence.md`.

@@ -15,10 +15,10 @@ Assemble the evidence, communication, operational controls, and ownership needed
 
 ## Process
 
-1. Read final PRD/spec/stories/UAT and latest decisions.
+1. Read final PRD/spec/stories/UAT and latest decisions, then run the material-decision preflight for release mode, source baseline, target, owner, and action.
 2. Verify the Ship Gate using release, operational, security, privacy, accessibility, stakeholder, rollback, support, and post-launch checks that apply.
 3. Do not return a release-ready verdict while a required item is missing unless the residual risk is explicitly accepted by a named owner.
-4. Produce the ship, rollout, retirement, or handoff package the user needs.
+4. Produce the smallest source-backed ship, rollout, retirement, or handoff package that serves the selected mode.
 5. Before any external release, deployment, publication, or retirement action, preview the target, action, owner, timing, and rollback path and obtain explicit user approval.
 6. Ask `docs` to export/index final artifacts.
 7. Ask `memories` to save lessons learned, outcomes, accepted risks, and final decisions.
@@ -41,6 +41,8 @@ Assemble the evidence, communication, operational controls, and ownership needed
 Load only references needed for the release or handoff:
 
 - For route, package scope, or release workflow, use `_refs/operating-model/routing.md`, `_refs/operating-model/builder-packs.md`, and `_refs/workflows/release-readiness.md` selectively.
+- Before producing the package, resolve `_refs/schemas/artifact-generation-contract.md` through `_refs/operating-model/artifact-profile-resolution.md`, then use `_refs/checklists/material-decision-preflight.md` and `_refs/checklists/source-backed-minimality.md`.
+- Resolve every controlled release source through `_refs/operating-model/authoritative-baseline-resolution.md`; do not ship from an unaccepted latest draft.
 - For the release decision, use the Ship Gate in `_refs/operating-model/phase-gates.md`.
 - For ship or operational gates, use `_refs/checklists/ship-readiness.md` and/or `_refs/checklists/operational-readiness.md`.
 - For stakeholder, security, privacy, or accessibility signoff, use `_refs/checklists/stakeholder-governance.md` and `_refs/checklists/security-privacy-accessibility.md` as applicable.

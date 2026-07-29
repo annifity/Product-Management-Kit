@@ -1,0 +1,31 @@
+{
+  "schemaVersion": "1.0",
+  "updated": "2026-07-28",
+  "source": "DEMO-DEC-002",
+  "records": [
+    {
+      "artifactId": "DEMO-US-MISSING",
+      "version": "1.0",
+      "path": "artifacts/DEMO-US-MISSING_v1.0.md",
+      "lifecycle": "baselined",
+      "metadataMode": "registry",
+      "artifactType": "user-story",
+      "documentUpdated": "2026-07-28",
+      "documentSource": "DEMO-SPEC-002",
+      "sha256": "1111111111111111111111111111111111111111111111111111111111111111",
+      "supersedes": []
+    }
+  ],
+  "pointers": [
+    {
+      "artifactId": "DEMO-US-MISSING",
+      "baselineVersion": "1.0",
+      "baselinePath": "artifacts/DEMO-US-MISSING_v1.0.md",
+      "baselineSha256": "1111111111111111111111111111111111111111111111111111111111111111",
+      "latestVersion": "1.0",
+      "latestPath": "artifacts/DEMO-US-MISSING_v1.0.md",
+      "latestSha256": "1111111111111111111111111111111111111111111111111111111111111111",
+      "source": "DEMO-DEC-002"
+    }
+  ]
+}

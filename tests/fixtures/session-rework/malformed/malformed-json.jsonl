@@ -1,0 +1,2 @@
+{"type":"session_meta","payload":{"schemaVersion":"1.0","sessionId":"S-BAD-JSON","sessionKind":"root","skill":{"name":"prd","version":"git:0123456789abcdef"},"privacy":{"classification":"synthetic","redaction":"required"}}}
+{"type":"message","payload":

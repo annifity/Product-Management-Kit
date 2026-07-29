@@ -1,0 +1,49 @@
+{
+  "schemaVersion": "1.0",
+  "cases": [
+    {
+      "name": "declared roots satisfy tracked and ignored policies",
+      "additions": [],
+      "appendIgnoreRules": [],
+      "expectedStatus": "pass",
+      "expectedFindingCodes": []
+    },
+    {
+      "name": "legacy runtime roots are rejected explicitly",
+      "additions": [
+        ".agents/skills/legacy.md",
+        ".sdcorejs/cache.json"
+      ],
+      "appendIgnoreRules": [],
+      "expectedStatus": "fail",
+      "expectedFindingCodes": [
+        "DEPRECATED_AGENTS_SKILLS",
+        "FORBIDDEN_SDCOREJS_ROOT"
+      ]
+    },
+    {
+      "name": "unknown ordinary and runtime roots are distinguished",
+      "additions": [
+        ".cache/session.json",
+        "mystery/notes.md"
+      ],
+      "appendIgnoreRules": [],
+      "expectedStatus": "fail",
+      "expectedFindingCodes": [
+        "UNKNOWN_ROOT_DIRECTORY",
+        "UNKNOWN_RUNTIME_ROOT"
+      ]
+    },
+    {
+      "name": "canonical docs cannot be hidden by an ignore rule",
+      "additions": [],
+      "appendIgnoreRules": [
+        "docs/"
+      ],
+      "expectedStatus": "fail",
+      "expectedFindingCodes": [
+        "TRACKED_ROOT_IGNORED"
+      ]
+    }
+  ]
+}

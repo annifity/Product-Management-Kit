@@ -1,0 +1,47 @@
+{
+  "schemaVersion": "1.0",
+  "sessions": [
+    {
+      "path": "root-session.jsonl",
+      "sourceId": "session-root-001",
+      "include": true,
+      "sessionId": "S-ROOT-001",
+      "sessionKind": "root",
+      "skill": {
+        "name": "prd",
+        "version": "git:0123456789abcdef"
+      },
+      "privacy": {
+        "classification": "anonymized",
+        "redaction": "required"
+      },
+      "observations": [
+        {
+          "line": 9,
+          "chainId": "CHAIN-SCOPE",
+          "stage": "correction",
+          "classification": "user_scope_change",
+          "causes": [],
+          "missedContext": [],
+          "confidence": 0.9,
+          "sourceLinks": ["REQ-IMPORT#L8"]
+        }
+      ]
+    },
+    {
+      "path": "subagent-session.jsonl",
+      "sourceId": "session-subagent-001",
+      "include": true,
+      "sessionKind": "subagent"
+    }
+  ],
+  "redaction": {
+    "rules": [
+      {
+        "id": "customer-name",
+        "pattern": "(?i)northstar",
+        "replacement": "[REDACTED:CUSTOMER]"
+      }
+    ]
+  }
+}

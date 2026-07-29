@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "maxTextBytes": 1048576,
+  "scanPaths": [
+    "workspace/document-frontmatter.md"
+  ],
+  "questionSources": [],
+  "frontmatterPolicies": [
+    {
+      "path": "workspace/document-frontmatter.md",
+      "allowed": false
+    }
+  ],
+  "terminologyRules": [],
+  "decisions": [],
+  "changelogStreams": []
+}

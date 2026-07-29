@@ -1,0 +1,75 @@
+{
+  "schemaVersion": "1.0",
+  "status": "complete",
+  "sources": [],
+  "chains": [
+    {
+      "sessionId": "session-1",
+      "chainId": "chain-1",
+      "skill": {"name": "user-story", "version": "2.0"},
+      "corrections": [],
+      "firstPassDefect": false,
+      "userScopeChange": false,
+      "outcome": "accepted_first_pass"
+    },
+    {
+      "sessionId": "session-2",
+      "chainId": "chain-2",
+      "skill": {"name": "user-story", "version": "2.0"},
+      "corrections": [
+        {
+          "classification": "user_scope_change",
+          "causes": []
+        }
+      ],
+      "firstPassDefect": false,
+      "userScopeChange": true,
+      "outcome": "accepted_after_scope_change"
+    },
+    {
+      "sessionId": "session-3",
+      "chainId": "chain-3",
+      "skill": {"name": "user-story", "version": "2.0"},
+      "corrections": [
+        {
+          "classification": "first_pass_defect",
+          "causes": ["unsupported_content", "incorrect_assumption"]
+        },
+        {
+          "classification": "first_pass_defect",
+          "causes": ["repeat_after_fix", "unsupported_content"]
+        },
+        {
+          "classification": "first_pass_defect",
+          "causes": ["missed_context", "invalid_diagram"]
+        }
+      ],
+      "firstPassDefect": true,
+      "userScopeChange": false,
+      "outcome": "accepted_after_rework"
+    },
+    {
+      "sessionId": "session-4",
+      "chainId": "chain-4",
+      "skill": {"name": "uat", "version": "2.0"},
+      "corrections": [
+        {
+          "classification": "first_pass_defect",
+          "causes": ["incorrect_behavior"]
+        }
+      ],
+      "firstPassDefect": true,
+      "userScopeChange": false,
+      "outcome": "accepted_after_rework"
+    }
+  ],
+  "metrics": {},
+  "privacy": {
+    "contentEmission": "redacted",
+    "rawContentIncluded": false,
+    "sourcePathEmission": "relative",
+    "classifications": [],
+    "rules": []
+  },
+  "diagnostics": []
+}

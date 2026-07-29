@@ -27,16 +27,21 @@ PRO is not:
 - A production-ready build request.
 - A replacement for discovery, validation, experiment design, or learning synthesis.
 
+## Input Contract
+
+Reuse the supplied problem, target user, intended outcome, brief, evidence, constraints, design authority, and builder choice. A prototype direction requires the problem, user, and learning outcome to be clear; otherwise stop at `discovery`. Accept partial screen or flow detail and label only the assumptions needed to build to learn.
+
 ## Process
 
 1. Read the raw idea, pain point, brief, target users, success metrics, constraints, and relevant memories.
-2. Identify the riskiest assumptions the prototype should expose.
-3. If the problem, target user, or intended outcome is missing and selecting a direction would require product strategy, stop and route to `discovery`. If those are clear but the prototype concept is not, compare 2-3 concept directions by learning value, clarity, and prototype feasibility before continuing.
-4. If the user needs quick prototype generation, draft PRO using `_refs/templates/prototype/prototyping-requirements-one-pager.md` after the direction is clear.
-5. Define the minimum user flow and screen list needed to learn.
-6. Draft wireframe descriptions and prototype prompts for the selected builder.
-7. State what the prototype deliberately excludes.
-8. Recommend `experiment`, `validate`, or `spec` as the next step.
+2. Run the material-decision preflight to resolve the prototype consumer, learning mode, source authority, design authority, format, and destination.
+3. Identify the riskiest assumptions the prototype should expose.
+4. If the problem, target user, or intended outcome is missing and selecting a direction would require product strategy, stop and route to `discovery`. If those are clear but the prototype concept is not, compare 2-3 concept directions by learning value, clarity, and prototype feasibility before continuing.
+5. If the user needs quick prototype generation, draft PRO using `_refs/templates/prototype/prototyping-requirements-one-pager.md` after the direction is clear.
+6. Define the minimum user flow and screen list needed to learn.
+7. Draft wireframe descriptions and prototype prompts for the selected builder.
+8. Apply source-backed minimality and state what the prototype deliberately excludes.
+9. Recommend `experiment`, `validate`, or `spec` as the next step.
 
 ## Output
 
@@ -55,6 +60,8 @@ PRO is not:
 Load only references needed for the prototype mode and target builder:
 
 - For packaged prototype-first work, use `_refs/operating-model/builder-packs.md`, `_refs/workflows/prototype-first.md`, and `_refs/operating-model/learning-loop.md` selectively.
+- Before authoring, resolve `_refs/schemas/artifact-generation-contract.md` through `_refs/operating-model/artifact-profile-resolution.md`, then use `_refs/checklists/material-decision-preflight.md`; before handoff, use `_refs/checklists/source-backed-minimality.md`.
+- When prototype direction depends on a governed brief, PRD, or spec, resolve it through `_refs/operating-model/authoritative-baseline-resolution.md`.
 - For direction-to-prototype workflow, use `_refs/workflows/idea-to-prototype.md`.
 - For PRO creation and validation, use `_refs/templates/prototype/prototyping-requirements-one-pager.md` and `_refs/checklists/pro-quality.md`.
 - For prototype feedback capture, use `_refs/templates/prototype/prototype-feedback-summary.md`.

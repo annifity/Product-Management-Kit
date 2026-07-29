@@ -1,0 +1,5 @@
+{
+  "name": "bare top-level question resolution is rejected",
+  "request": "bare-question-resolution.request.json",
+  "expectedErrorContains": "not authoritative"
+}
