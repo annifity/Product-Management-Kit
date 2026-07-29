@@ -13,6 +13,8 @@ param(
 Set-StrictMode -Version Latest
 $ErrorActionPreference = "Stop"
 
+. (Join-Path $PSScriptRoot "file-hash-compat.ps1")
+
 function Get-Sha256Text {
     param([AllowEmptyString()][Parameter(Mandatory = $true)][string]$Text)
 

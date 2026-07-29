@@ -4,6 +4,8 @@ param()
 Set-StrictMode -Version Latest
 $ErrorActionPreference = "Stop"
 
+. (Join-Path $PSScriptRoot "file-hash-compat.ps1")
+
 $Root = (Resolve-Path (Join-Path $PSScriptRoot "..")).Path
 $Doctor = Join-Path $Root "tools/invoke-repo-doctor.ps1"
 $ManifestPath = Join-Path $Root "tools/repo-root-manifest.json"

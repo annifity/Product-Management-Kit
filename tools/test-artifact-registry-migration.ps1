@@ -3,6 +3,7 @@ param()
 
 Set-StrictMode -Version Latest
 $ErrorActionPreference = "Stop"
+. (Join-Path $PSScriptRoot "file-hash-compat.ps1")
 $Root = (Resolve-Path (Join-Path $PSScriptRoot "..")).Path
 $Tool = Join-Path $Root "tools/new-artifact-registry-migration.ps1"
 $Resolver = Join-Path $Root "tools/resolve-authoritative-baseline.ps1"

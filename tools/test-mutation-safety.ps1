@@ -4,6 +4,8 @@ param()
 Set-StrictMode -Version Latest
 $ErrorActionPreference = "Stop"
 
+. (Join-Path $PSScriptRoot "file-hash-compat.ps1")
+
 $Root = (Resolve-Path (Join-Path $PSScriptRoot "..")).Path
 $FixtureRoot = Join-Path $Root "tests/fixtures/mutation-safety"
 $FixtureWorkspace = Join-Path $FixtureRoot "workspace"

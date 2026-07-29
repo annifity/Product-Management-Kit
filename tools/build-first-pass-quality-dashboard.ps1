@@ -14,6 +14,8 @@ param(
 Set-StrictMode -Version Latest
 $ErrorActionPreference = "Stop"
 
+. (Join-Path $PSScriptRoot "file-hash-compat.ps1")
+
 $Root = (Resolve-Path (Join-Path $PSScriptRoot "..")).Path
 $Utf8NoBom = New-Object System.Text.UTF8Encoding($false)
 $AllowedOutcomes = @(
