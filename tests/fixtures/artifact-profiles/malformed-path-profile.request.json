@@ -1,0 +1,13 @@
+{
+  "schemaVersion": "1.0",
+  "project": "GBIA",
+  "artifactType": "user-story",
+  "action": "create",
+  "sources": [
+    {
+      "id": "malformed-profile",
+      "layer": "artifact-profile",
+      "path": "tests/fixtures/artifact-profiles/malformed-profile.json"
+    }
+  ]
+}

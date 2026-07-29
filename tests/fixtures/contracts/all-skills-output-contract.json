@@ -1,0 +1,159 @@
+{
+  "schemaVersion": "1.0",
+  "skills": [
+    {
+      "skill": "brief",
+      "input": {"requiredTerms": ["Reuse", "partial", "discovery"]},
+      "output": {"requiredTerms": ["Problem", "Goals", "Target users", "Success metrics", "Recommended next skill"]},
+      "handoff": {"requiredTerms": ["prototype", "experiment", "spec", "open questions"]},
+      "templates": [
+        {"path": "_refs/templates/prd/one-pager.md", "requiredTerms": ["Problem", "Goals", "Target Users", "Success Metrics", "Assumptions And Open Questions", "Decision Needed"]}
+      ]
+    },
+    {
+      "skill": "change",
+      "input": {"requiredTerms": ["Reuse", "baseline", "confirmed"]},
+      "output": {"requiredTerms": ["Impact assessment", "change plan", "preview", "changelog"]},
+      "handoff": {"requiredTerms": ["prd", "spec", "user-story", "uat", "ship", "execution"]},
+      "templates": [
+        {"path": "_refs/templates/change/impact-analysis.md", "requiredTerms": ["Area", "Impact", "Severity", "Owner", "Action", "Scope", "Stories", "UAT", "Release"]}
+      ]
+    },
+    {
+      "skill": "discovery",
+      "input": {"requiredTerms": ["Accept", "reuse", "one material question"]},
+      "output": {"requiredTerms": ["Problem statement", "Target users", "Evidence", "Assumptions", "Open questions"]},
+      "handoff": {"requiredTerms": ["brief", "prototype", "experiment", "spec", "docs", "memories"]},
+      "templates": [
+        {"path": "_refs/templates/discovery/discovery-brief.md", "requiredTerms": ["Problem Statement", "Target Users And Jobs", "Evidence Summary", "Go / No-Go", "Handoff"]}
+      ]
+    },
+    {
+      "skill": "docs",
+      "input": {"requiredTerms": ["Reuse", "exact path", "baseline"]},
+      "output": {"requiredTerms": ["path", "version", "lifecycle", "hash", "verification"]},
+      "handoff": {"requiredTerms": ["paths", "versions", "generation receipt", "conflicts"]},
+      "templates": [
+        {"path": "_refs/templates/docs/generation-receipt.md", "requiredTerms": ["Contract fingerprint", "Write disposition", "Source authority", "Baseline target", "Open blockers"]}
+      ]
+    },
+    {
+      "skill": "execution",
+      "input": {"requiredTerms": ["Reuse", "authoritative active baseline", "blocker"]},
+      "output": {"requiredTerms": ["Short answer", "Source", "Impact", "Decision owner", "Follow-up action"]},
+      "handoff": {"requiredTerms": ["change", "uat", "delivery team"]},
+      "templates": [
+        {"path": "_refs/templates/docs/decision-log.md", "requiredTerms": ["ID", "Date", "Decision", "Context", "Owner", "Status"]}
+      ]
+    },
+    {
+      "skill": "experiment",
+      "input": {"requiredTerms": ["Reuse", "uncertainty", "decision"]},
+      "output": {"requiredTerms": ["Hypothesis", "Method", "Success metrics", "Guardrails", "decision criteria"]},
+      "handoff": {"requiredTerms": ["validate", "learn", "evidence"]},
+      "templates": [
+        {"path": "_refs/templates/experiment/experiment-plan.md", "requiredTerms": ["Hypothesis", "Method", "Participants Or Sample", "Success Metrics", "Guardrails", "Timeline"]}
+      ]
+    },
+    {
+      "skill": "knowledge",
+      "input": {"requiredTerms": ["Reuse", "source", "absence of evidence"]},
+      "output": {"requiredTerms": ["answer", "evidence table", "confidence", "next lookup"]},
+      "handoff": {"requiredTerms": ["evidence", "conflicts", "confidence", "docs", "memories"]},
+      "templates": [
+        {"path": "_refs/templates/docs/evidence-ledger.md", "requiredTerms": ["ID", "Claim", "Source", "Evidence Quality", "Confidence", "Decision Impact"]}
+      ]
+    },
+    {
+      "skill": "learn",
+      "input": {"requiredTerms": ["Reuse", "assessed evidence", "confidence"]},
+      "output": {"requiredTerms": ["Evidence", "insight", "decision", "confidence", "next"]},
+      "handoff": {"requiredTerms": ["evidence", "decision", "confidence", "spec", "prototype", "experiment", "plan", "ship"]},
+      "templates": [
+        {"path": "_refs/templates/learning/insight-summary.md", "requiredTerms": ["Evidence Reviewed", "What We Learned", "Confidence", "Next Action"]}
+      ]
+    },
+    {
+      "skill": "memories",
+      "input": {"requiredTerms": ["Reuse", "confirmed", "unambiguous target"]},
+      "output": {"requiredTerms": ["path", "record ID", "status", "source", "conflicts"]},
+      "handoff": {"requiredTerms": ["paths", "record identifiers", "persisted state", "conflicts"]},
+      "templates": [
+        {"path": "_refs/templates/memories/decisions.md", "requiredTerms": ["ID", "Decision", "Rationale", "Source", "Status"]}
+      ]
+    },
+    {
+      "skill": "plan",
+      "input": {"requiredTerms": ["Reuse", "stable spec", "material gaps"]},
+      "output": {"requiredTerms": ["prioritization", "release", "Dependency matrix", "Milestones", "grooming"]},
+      "handoff": {"requiredTerms": ["user-story", "uat", "execution", "release slice", "dependencies"]},
+      "templates": [
+        {"path": "_refs/templates/plan/product-roadmap.md", "requiredTerms": ["Outcome", "Now", "Next", "Later", "Not Doing Now"]}
+      ]
+    },
+    {
+      "skill": "prd",
+      "input": {"requiredTerms": ["Reuse", "confirmed problem", "partial input"]},
+      "output": {"requiredTerms": ["PRD", "BRD", "Markdown"]},
+      "handoff": {"requiredTerms": ["spec", "evidence", "scope", "assumptions", "change"]},
+      "templates": [
+        {"path": "_refs/templates/prd/default-prd.md", "requiredTerms": ["Summary", "Problem", "Goals", "Non-Goals", "Users", "Requirements", "Metrics", "Risks And Open Questions"]}
+      ]
+    },
+    {
+      "skill": "prototype",
+      "input": {"requiredTerms": ["Reuse", "learning outcome", "discovery"]},
+      "output": {"requiredTerms": ["Prototype objective", "Learning questions", "User flow", "Screen list", "validation"]},
+      "handoff": {"requiredTerms": ["experiment", "spec", "minimum flow", "exclusions"]},
+      "templates": [
+        {"path": "_refs/templates/prototype/prototyping-requirements-one-pager.md", "requiredTerms": ["Problem Statement And Goal", "Target Users And Use Case", "Golden Paths", "Assumptions And Constraints", "Prompt-Ready Input For AI Prototyping", "Next Steps"]}
+      ]
+    },
+    {
+      "skill": "ship",
+      "input": {"requiredTerms": ["Reuse", "partial evidence", "blockers"]},
+      "output": {"requiredTerms": ["readiness", "rollout", "rollback", "support", "release"]},
+      "handoff": {"requiredTerms": ["release owner", "uat", "execution", "change", "learn", "memories", "evidence"]},
+      "templates": [
+        {"path": "_refs/templates/docs/release-note.md", "requiredTerms": ["Summary", "User Impact", "Scope", "Known Limitations", "Support Notes"]}
+      ]
+    },
+    {
+      "skill": "spec",
+      "input": {"requiredTerms": ["Reuse", "source authority", "partial input"]},
+      "output": {"requiredTerms": ["requirements", "rules", "states", "permissions", "traceability", "generation receipt"]},
+      "handoff": {"requiredTerms": ["plan", "Spec Gate", "testable scope", "prd"]},
+      "templates": [
+        {"path": "_refs/templates/spec/product-spec.md", "requiredTerms": ["Context", "Objective", "Scope", "Requirements", "Risks", "Open Questions"]}
+      ]
+    },
+    {
+      "skill": "uat",
+      "input": {"requiredTerms": ["Reuse", "partial input", "confirmed source", "resolution diagnostics"]},
+      "output": {"requiredTerms": ["UAT plan", "test case register", "generation receipt", "diagnostics"]},
+      "handoff": {"requiredTerms": ["ship", "execution", "change", "traceability"]},
+      "templates": [
+        {"path": "_refs/templates/uat/uat-plan.md", "requiredTerms": ["Source And Generation Receipt", "Contract fingerprint", "Source baseline", "Source path / SHA-256", "UAT Mode", "Entry Criteria", "Exit Criteria"]},
+        {"path": "_refs/templates/uat/test-case-register.md", "requiredTerms": ["ID", "Req/Story/AC", "Expected Result", "Pass Criteria", "Fail Indicators", "Status"]}
+      ]
+    },
+    {
+      "skill": "user-story",
+      "input": {"requiredTerms": ["Reuse", "partial input", "confirmed source scope"]},
+      "output": {"requiredTerms": ["ticket", "generation receipt", "TBD", "dependencies"]},
+      "handoff": {"requiredTerms": ["execution", "uat", "acceptance", "traceability"]},
+      "templates": [
+        {"path": "_refs/templates/user-story/default-user-story.md", "requiredTerms": ["As a [user]", "Acceptance Criteria", "AC-01", "generation receipt", "Dependencies", "Open Questions"]}
+      ]
+    },
+    {
+      "skill": "validate",
+      "input": {"requiredTerms": ["Reuse", "target", "partial evidence", "verdict"]},
+      "output": {"requiredTerms": ["verdict", "evidence", "findings", "recommendation"]},
+      "handoff": {"requiredTerms": ["verdict", "blockers", "evidence limits", "repair scope", "learn", "plan", "execution", "ship"]},
+      "templates": [
+        {"path": "_refs/checklists/artifact-quality-scorecard.md", "requiredTerms": ["Traceability", "Testability", "Risk", "Ready", "Needs Revision", "Blocked"]}
+      ]
+    }
+  ]
+}

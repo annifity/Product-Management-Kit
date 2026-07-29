@@ -1,0 +1,84 @@
+{
+  "name": "precedence provenance and source-order determinism",
+  "request": "precedence.request.json",
+  "expectedState": "allowed",
+  "expectedValues": {
+    "outcome": "produce-jira-ready-user-story",
+    "consumer": {
+      "primary": "delivery-team",
+      "downstream": [
+        "qa"
+      ]
+    },
+    "deliverableMode": "jira-ready",
+    "sourceAuthority": {
+      "primary": "active-request",
+      "supporting": [
+        "accepted-diagram-decision"
+      ]
+    },
+    "baselineTarget": {
+      "mode": "new-artifact"
+    },
+    "constraints": {
+      "noInventedBehavior": true
+    },
+    "materialDecisions": {
+      "actor": "HR Admin",
+      "ownership": "HCM",
+      "stateModel": "confirmed"
+    },
+    "language": "vi",
+    "template": "_refs/templates/user-story/jira-user-story.md",
+    "destination.pattern": ".annifity/docs/user-stories/GBIA/",
+    "format.frontmatter": false,
+    "baseline.metadataMode": "registry",
+    "format.diagram": "drawio",
+    "format.markup": "markdown",
+    "terminology.staff": "Staff Member",
+    "question.owner": "Product"
+  },
+  "expectedGenerationContext": {
+    "outcome": "produce-jira-ready-user-story",
+    "consumer": {
+      "primary": "delivery-team",
+      "downstream": [
+        "qa"
+      ]
+    },
+    "deliverableMode": "jira-ready",
+    "sourceAuthority": {
+      "primary": "active-request",
+      "supporting": [
+        "accepted-diagram-decision"
+      ]
+    },
+    "baselineTarget": {
+      "mode": "new-artifact"
+    },
+    "constraints": {
+      "noInventedBehavior": true
+    },
+    "materialDecisions": {
+      "actor": "HR Admin",
+      "ownership": "HCM",
+      "stateModel": "confirmed"
+    }
+  },
+  "expectedProvenance": {
+    "language": "active-request",
+    "template": "gbia-user-story-profile",
+    "baseline.metadataMode": "gbia-user-story-profile",
+    "format.diagram": "accepted-diagram-decision",
+    "terminology.staff": "gbia-terminology",
+    "question.owner": "gbia-open-questions",
+    "format.markup": "annifity-fallback"
+  },
+  "requiredConflictKinds": [
+    "precedence-override"
+  ],
+  "prohibitedConflictSeverities": [
+    "material"
+  ],
+  "equivalentFingerprintRequest": "precedence-reordered.request.json"
+}

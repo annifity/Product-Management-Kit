@@ -7,6 +7,10 @@ description: Frame an unclear product problem or opportunity into a confirmed di
 
 Turn uncertainty into decision-ready problem framing before committing to an artifact or solution.
 
+## Input Contract
+
+Accept a raw idea, stakeholder ask, partial evidence, or existing context and reuse everything already supplied. Missing product decisions are discovery inputs, not facts to invent; ask one material question per turn by default and batch up to three only when the user explicitly requests a batch and the questions are independent.
+
 ## Process
 
 1. Read relevant memories first when available:
@@ -14,12 +18,13 @@ Turn uncertainty into decision-ready problem framing before committing to an art
    - `_refs/templates/memories/team-preferences.md`
    - `_refs/templates/memories/terminology.md`
    - `_refs/templates/memories/stakeholder-context.md`
-2. Clarify one question at a time. Prefer multiple-choice questions when the user is blocked.
-3. Separate the real user problem from proposed solutions.
-4. Identify users, pain, outcome, constraints, assumptions, evidence, success metrics, and non-goals.
-5. For discovery work, define what must be learned before solutioning.
-6. For solution exploration, diverge before converging and make trade-offs explicit.
-7. Ask for explicit confirmation before moving to `brief`, `prototype`, `experiment`, or `spec`.
+2. Use the material-decision preflight to resolve the discovery consumer, evidence authority, artifact mode, and destination; retain unresolved product decisions as discovery questions rather than blocking discovery itself.
+3. Clarify one material question at a time by default. Batch up to three only when explicitly requested and non-dependent. Prefer multiple-choice questions when the user is blocked.
+4. Separate the real user problem from proposed solutions.
+5. Identify users, pain, outcome, constraints, assumptions, evidence, success metrics, and non-goals.
+6. For discovery work, define what must be learned before solutioning.
+7. For solution exploration, diverge before converging and make trade-offs explicit.
+8. Apply source-backed minimality and ask for explicit confirmation before moving to `brief`, `prototype`, `experiment`, or `spec`.
 
 ## Output
 
@@ -41,6 +46,7 @@ Return a compact discovery brief:
 Load only the references whose stated condition matches the request:
 
 - Use `_refs/operating-model/routing.md` when the request could match multiple skills.
+- Resolve `_refs/schemas/artifact-generation-contract.md` through `_refs/operating-model/artifact-profile-resolution.md`; use `_refs/checklists/material-decision-preflight.md` without inventing unresolved product decisions, and `_refs/checklists/source-backed-minimality.md` before handoff.
 - Use `_refs/operating-model/learning-loop.md` for the overall phase model.
 - Use `_refs/operating-model/builder-packs.md` when discovery should produce a packaged Discovery Pack.
 - Use `_refs/operating-model/phase-gates.md` to decide whether discovery is ready to progress.

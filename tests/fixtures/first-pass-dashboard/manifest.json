@@ -1,0 +1,6 @@
+{
+  "schemaVersion": "1.0",
+  "inputPaths": [
+    "tests/fixtures/first-pass-dashboard/session-audit.json"
+  ]
+}

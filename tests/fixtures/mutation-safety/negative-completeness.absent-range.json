@@ -1,0 +1,14 @@
+{
+  "schemaVersion": 1,
+  "residualReferences": [
+    {
+      "pattern": "not-present",
+      "fixedString": true,
+      "expected": "absent",
+      "searchPaths": [
+        "content"
+      ],
+      "maximumMatches": 1
+    }
+  ]
+}

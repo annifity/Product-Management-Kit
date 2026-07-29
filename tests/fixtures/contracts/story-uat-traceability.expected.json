@@ -4,6 +4,7 @@
   "input": "story-uat-traceability.input.md",
   "sourceFiles": [
     "skills/uat/SKILL.md",
+    "_refs/checklists/acceptance-criteria-quality.md",
     "_refs/templates/traceability/rtm.md",
     "_refs/templates/user-story/acceptance-criteria-gwt.md"
   ],
@@ -11,6 +12,8 @@
     "Given",
     "When",
     "Then",
+    "AC-01",
+    "Source alignment",
     "Trace",
     "Requirement Traceability Matrix"
   ]

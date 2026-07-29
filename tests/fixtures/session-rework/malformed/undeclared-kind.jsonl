@@ -1,0 +1,3 @@
+{"type":"session_meta","payload":{"schemaVersion":"1.0","sessionId":"S-NO-KIND","skill":{"name":"prd","version":"git:0123456789abcdef"},"privacy":{"classification":"synthetic","redaction":"required"}}}
+{"type":"message","payload":{"messageId":"K-001","role":"user","content":"Create the report.","observation":{"chainId":"CHAIN-K","stage":"request"}}}
+{"type":"message","payload":{"messageId":"K-002","role":"assistant","content":"Report draft.","observation":{"chainId":"CHAIN-K","stage":"first_output"}}}

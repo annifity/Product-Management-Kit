@@ -13,20 +13,24 @@ Reuse the supplied baseline and change context. Require an identifiable current 
 
 ## Process
 
-1. Identify the current baseline artifact.
-2. Clarify the requested change.
-3. Classify change impact: minor, material/medium, or breaking.
-4. Assess impact on scope, stories, UAT, Jira tickets, Confluence pages, timeline, dependencies, risk, and release.
-5. Draft a change plan and ask for confirmation before applying edits.
-6. Apply surgical edits consistently across affected artifacts.
-7. Ask `docs` to update changelog, spec context, and decision logs.
-8. Ask `memories` to persist durable decisions.
+1. Resolve the current baseline by stable artifact ID and verify its registry path, version, and hash.
+2. Run the material-decision preflight for source authority, requested outcome, affected ownership, baseline target, deliverable mode, and destination.
+3. Clarify the requested change.
+4. Classify change impact: minor, material/medium, or breaking.
+5. Assess impact on scope, stories, UAT, Jira tickets, Confluence pages, timeline, dependencies, risk, and release.
+6. Draft an impact-aware change plan and fingerprinted local mutation preview; ask for confirmation before applying edits.
+7. Revalidate the preview fingerprint, then apply only the confirmed surgical, source-backed edits and prune duplicated or superseded content.
+8. Verify the declared end state and affected pointers before asking `docs` to update changelog, spec context, registry, and decision logs.
+9. Ask `memories` to persist durable decisions.
 
 ## Reference Routing
 
 Load only references needed for the affected baseline and channel:
 
 - For route or change-control rules, use `_refs/operating-model/routing.md` and `_refs/workflows/change-governance.md`.
+- Resolve `_refs/schemas/artifact-generation-contract.md` through `_refs/operating-model/artifact-profile-resolution.md`; use `_refs/checklists/material-decision-preflight.md` for source, ownership, mode, and baseline decisions, and `_refs/checklists/source-backed-minimality.md` for the final patch.
+- For exact baseline selection, use `_refs/operating-model/authoritative-baseline-resolution.md` with `_refs/schemas/artifact-state-registry.md`.
+- For preview, confirmation, application boundaries, and post-change proof, use `_refs/workflows/local-mutation-safety.md`, `_refs/schemas/mutation-preview.md`, and `_refs/checklists/negative-completeness.md`.
 - For planning and impact analysis, use `_refs/templates/change/change-plan.md` and `_refs/templates/change/impact-analysis.md`.
 - For applying and recording an approved change, use `_refs/templates/change/changelog.md` and `_refs/templates/change/spec-change-context.md`.
 - For approval or notification risk, use `_refs/checklists/stakeholder-governance.md`.
@@ -34,7 +38,8 @@ Load only references needed for the affected baseline and channel:
 
 ## Output
 
-Return impact analysis, proposed edits, and changelog entries.
+Return the impact assessment, proposed edits, change plan, exact preview,
+baseline disposition, traceability impact, and changelog entries.
 
 ## Handoff
 

@@ -1,0 +1,98 @@
+{
+  "name": "first-pass-quality-gates",
+  "skill": "user-story",
+  "input": "first-pass-quality-gates.input.md",
+  "sourceFiles": [
+    "skills/uat/SKILL.md",
+    "skills/prd/SKILL.md",
+    "skills/spec/SKILL.md",
+    "_refs/checklists/material-decision-preflight.md",
+    "_refs/checklists/source-backed-minimality.md",
+    "_refs/checklists/uat-coverage.md",
+    "_refs/templates/traceability/rtm.md",
+    "_refs/templates/docs/generation-receipt.md",
+    "_refs/workflows/sprint-readiness.md"
+  ],
+  "requiredTerms": [
+    "Material Decision Preflight",
+    "Deliverable Mode Gate",
+    "Responsibility Preview",
+    "Source-Backed Minimality",
+    "business-demo",
+    "risk-based",
+    "Do not create cases to satisfy a numeric quota",
+    "AC-01",
+    "generation receipt",
+    "hard blocker"
+  ],
+  "fileAssertions": [
+    {
+      "path": "skills/user-story/SKILL.md",
+      "requiredTerms": [
+        "_refs/checklists/material-decision-preflight.md",
+        "responsibility preview",
+        "_refs/checklists/source-backed-minimality.md"
+      ]
+    },
+    {
+      "path": "skills/uat/SKILL.md",
+      "requiredTerms": [
+        "business-demo",
+        "business-acceptance",
+        "full-regression",
+        "risk-based",
+        "Stop before test design",
+        "generation receipt"
+      ]
+    },
+    {
+      "path": "_refs/templates/traceability/rtm.md",
+      "requiredTerms": [
+        "AC-01",
+        "TC-001",
+        "TC-ID"
+      ],
+      "prohibitedTerms": [
+        "AC-001",
+        "UAT-001"
+      ]
+    },
+    {
+      "path": "_refs/templates/uat/test-case-register.md",
+      "requiredTerms": [
+        "AC-01",
+        "project identifier profile"
+      ],
+      "prohibitedTerms": [
+        "AC-001"
+      ]
+    },
+    {
+      "path": "_refs/templates/user-story/confluence-html.md",
+      "requiredTerms": [
+        "Section Selection",
+        "Do not create empty or filler sections"
+      ],
+      "prohibitedTerms": [
+        "Required Sections"
+      ]
+    },
+    {
+      "path": "_refs/workflows/sprint-readiness.md",
+      "requiredTerms": [
+        "score never overrides a hard blocker",
+        "source authority or accepted baseline is unresolved",
+        "acceptance criteria fail a non-waivable AC Quality Standard gate"
+      ]
+    },
+    {
+      "path": "_refs/templates/docs/generation-receipt.md",
+      "requiredTerms": [
+        "Contract fingerprint",
+        "Write disposition",
+        "Source authority",
+        "Open blockers"
+      ]
+    }
+  ]
+}

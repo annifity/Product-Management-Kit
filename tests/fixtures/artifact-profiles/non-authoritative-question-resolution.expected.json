@@ -1,0 +1,5 @@
+{
+  "name": "project profile cannot resolve a material question",
+  "request": "non-authoritative-question-resolution.request.json",
+  "expectedErrorContains": "cannot resolve questions"
+}

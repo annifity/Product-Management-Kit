@@ -16,6 +16,10 @@ Annifity is a portable Product Builder Kit for discovery, briefs, prototypes, ex
 - Match the user's language by default; Vietnamese and English are both first-class.
 - Follow the Annifity builder path: discovery -> brief -> prototype -> experiment -> validate -> learn -> spec -> plan -> execution -> ship.
 - Use docs to save and index artifacts, and memories to persist durable context across workflow gates.
+- Resolve the artifact-generation contract and applicable project profile before drafting a deliverable; surface material decisions instead of silently inventing them.
+- Return the compact generation receipt with authored artifacts: fingerprint, disposition, source IDs, and exact baseline target.
+- Resolve governed artifacts through the authoritative baseline registry rather than guessing from filenames or dates.
+- Apply source-backed minimality, negative-completeness checks, and the local mutation-safety workflow before changing controlled files.
 - For ambiguous requirements, clarify before drafting final deliverables.
 - Load only the relevant skill and reference files for the task; avoid pulling the whole repository into context.
 - If an adapter conflicts with a canonical skill file, the canonical skill file wins.

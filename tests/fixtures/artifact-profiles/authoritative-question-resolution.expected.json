@@ -1,0 +1,11 @@
+{
+  "name": "explicit request resolves a material question with its value",
+  "request": "authoritative-question-resolution.request.json",
+  "expectedState": "allowed",
+  "expectedValues": {
+    "actor.approver": "Product Owner"
+  },
+  "expectedProvenance": {
+    "actor.approver": "current-user-answer"
+  }
+}

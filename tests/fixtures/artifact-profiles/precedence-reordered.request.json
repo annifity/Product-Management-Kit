@@ -1,0 +1,97 @@
+{
+  "schemaVersion": "1.0",
+  "project": "GBIA",
+  "artifactType": "user-story",
+  "action": "create",
+  "requiredKeys": [
+    "language",
+    "template",
+    "destination.pattern",
+    "format.frontmatter",
+    "baseline.metadataMode"
+  ],
+  "materialKeys": [
+    "template",
+    "destination.pattern",
+    "format.frontmatter",
+    "baseline.metadataMode"
+  ],
+  "changeAuthorized": false,
+  "sources": [
+    {
+      "id": "annifity-fallback",
+      "layer": "canonical-fallback",
+      "values": {
+        "language": "match-request",
+        "template": "_refs/templates/user-story/default-user-story.md",
+        "destination.pattern": ".annifity/docs/user-stories/",
+        "format.frontmatter": true,
+        "format.diagram": "none",
+        "format.markup": "markdown"
+      }
+    },
+    {
+      "id": "gbia-open-questions",
+      "layer": "open-questions",
+      "status": "active",
+      "values": {
+        "question.owner": "Product"
+      },
+      "questions": []
+    },
+    {
+      "id": "gbia-terminology",
+      "layer": "terminology",
+      "status": "active",
+      "values": {
+        "terminology.staff": "Staff Member"
+      }
+    },
+    {
+      "id": "gbia-team-preferences",
+      "layer": "team-preferences",
+      "status": "active",
+      "values": {
+        "language": "en",
+        "template": "_refs/templates/user-story/default-user-story.md",
+        "format.frontmatter": true
+      }
+    },
+    {
+      "id": "gbia-user-story-profile",
+      "layer": "artifact-profile",
+      "status": "active",
+      "path": "tests/fixtures/artifact-profiles/gbia-user-story-profile.md"
+    },
+    {
+      "id": "accepted-diagram-decision",
+      "layer": "accepted-decision",
+      "status": "accepted",
+      "authority": {
+        "workspaceRoot": "tests/fixtures/artifact-baselines/valid-decision",
+        "registryPath": "registry.json",
+        "artifactId": "DEMO-DEC-001",
+        "artifactType": "decision",
+        "baselineVersion": "1.0",
+        "baselinePath": "artifacts/DEMO-DEC-001_v1.0.md",
+        "baselineSha256": "4d421773ed794d510ce6bc536dfaffc3deaf90e11a6ded02eff5c0f07b0213d3"
+      },
+      "values": {
+        "format.diagram": "drawio"
+      },
+      "valueEvidence": {
+        "format.diagram": {
+          "excerpt": "Use Draw.io for material process flows",
+          "excerptSha256": "83780a32777fab80ea7bb9d5937210a0ae7718ed4453ec460a088419c0445a09"
+        }
+      }
+    },
+    {
+      "id": "active-request",
+      "layer": "explicit-request",
+      "values": {
+        "language": "vi"
+      }
+    }
+  ]
+}

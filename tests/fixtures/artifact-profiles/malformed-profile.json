@@ -1,0 +1,9 @@
+{
+  "schemaVersion": "1.0",
+  "project": "GBIA",
+  "artifactType": "user-story",
+  "status": "active",
+  "values": {
+    "language": "en"
+  }
+}

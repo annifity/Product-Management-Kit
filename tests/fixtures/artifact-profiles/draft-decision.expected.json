@@ -1,0 +1,6 @@
+{
+  "name": "draft decision cannot enter accepted authority layer",
+  "request": "draft-decision.request.json",
+  "expectedErrorContains": "non-accepted status"
+}
+

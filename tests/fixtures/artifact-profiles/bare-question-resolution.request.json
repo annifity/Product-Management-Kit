@@ -1,0 +1,18 @@
+{
+  "schemaVersion": "1.0",
+  "project": "GBIA",
+  "artifactType": "user-story",
+  "action": "create",
+  "resolvedQuestionIds": [
+    "GBIA-OQ-004"
+  ],
+  "sources": [
+    {
+      "id": "current-request",
+      "layer": "explicit-request",
+      "values": {
+        "language": "en"
+      }
+    }
+  ]
+}

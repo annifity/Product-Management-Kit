@@ -1,0 +1,45 @@
+{
+  "schemaVersion": "1.0",
+  "updated": "2026-07-28",
+  "source": "DEC-DEMO-002",
+  "records": [
+    {
+      "artifactId": "DEMO-SPEC-001",
+      "version": "1.0",
+      "path": "artifacts/DEMO-SPEC-001_v1.0.md",
+      "lifecycle": "superseded",
+      "sha256": "e1863fc6dcbcd0429e3d5ed6db9f6a140bf3f5306f5e1f39badd7d5e0c2685e5",
+      "supersedes": []
+    },
+    {
+      "artifactId": "DEMO-SPEC-001",
+      "version": "1.1",
+      "path": "artifacts/DEMO-SPEC-001_v1.1.md",
+      "lifecycle": "baselined",
+      "sha256": "e30a85499cc49a975a3422a1c2e9089dad825a9871be54e47bda11b3be95d12b",
+      "supersedes": [
+        "DEMO-SPEC-001@1.0"
+      ]
+    },
+    {
+      "artifactId": "DEMO-SPEC-001",
+      "version": "1.2-draft.1",
+      "path": "artifacts/DEMO-SPEC-001_v1.2-draft.1.md",
+      "lifecycle": "draft",
+      "sha256": "7d15c8284bf2cf120dfdae9e042a8037978135ca1a5f373cdd7bfc79a977f8d2",
+      "supersedes": []
+    }
+  ],
+  "pointers": [
+    {
+      "artifactId": "DEMO-SPEC-001",
+      "baselineVersion": "1.1",
+      "baselinePath": "artifacts/DEMO-SPEC-001_v1.1.md",
+      "baselineSha256": "e30a85499cc49a975a3422a1c2e9089dad825a9871be54e47bda11b3be95d12b",
+      "latestVersion": "1.2-draft.1",
+      "latestPath": "artifacts/DEMO-SPEC-001_v1.2-draft.1.md",
+      "latestSha256": "7d15c8284bf2cf120dfdae9e042a8037978135ca1a5f373cdd7bfc79a977f8d2",
+      "source": "DEC-DEMO-002"
+    }
+  ]
+}

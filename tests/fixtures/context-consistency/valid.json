@@ -1,0 +1,70 @@
+{
+  "schemaVersion": 1,
+  "maxTextBytes": 1048576,
+  "scanPaths": [
+    "workspace/change-1.0.md",
+    "workspace/change-1.1.md",
+    "workspace/decisions-valid.md",
+    "workspace/document-plain.md",
+    "workspace/profile-forbid.md",
+    "workspace/questions-valid.md"
+  ],
+  "questionSources": [
+    "workspace/questions-valid.md"
+  ],
+  "frontmatterPolicies": [
+    {
+      "path": "workspace/document-plain.md",
+      "profilePath": "workspace/profile-forbid.md"
+    }
+  ],
+  "terminologyRules": [
+    {
+      "stale": "Supervisor Portal",
+      "replacement": "GBIA Portal",
+      "match": "substring",
+      "caseSensitive": false,
+      "paths": [
+        "workspace/document-plain.md"
+      ]
+    }
+  ],
+  "decisions": [
+    {
+      "id": "DEC-OLD",
+      "key": "portal.surface-name",
+      "value": "Supervisor Portal",
+      "status": "superseded",
+      "source": "workspace/decisions-valid.md",
+      "supersedes": []
+    },
+    {
+      "id": "DEC-NEW",
+      "key": "portal.surface-name",
+      "value": "GBIA Portal",
+      "status": "active",
+      "source": "workspace/decisions-valid.md",
+      "supersedes": [
+        "DEC-OLD"
+      ]
+    }
+  ],
+  "changelogStreams": [
+    {
+      "id": "FIXTURE-FLOW",
+      "expectedHead": "1.1",
+      "entries": [
+        {
+          "version": "1.0",
+          "source": "workspace/change-1.0.md",
+          "previous": null
+        },
+        {
+          "version": "1.1",
+          "source": "workspace/change-1.1.md",
+          "previous": "1.0"
+        }
+      ]
+    }
+  ]
+}

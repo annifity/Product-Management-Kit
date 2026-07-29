@@ -4,7 +4,7 @@
 - Blocking defects are resolved or accepted.
 - UAT signoff exists.
 - Requirement traceability is updated.
-- REQ-ID -> STORY-ID -> AC-ID -> UAT-ID -> RELEASE CHECK gaps are accepted or closed.
+- REQ-ID -> STORY-ID -> AC-ID -> TC-ID -> RELEASE CHECK gaps are accepted or closed.
 - Release note is ready.
 - Stakeholders know the change.
 - Rollback or support plan exists when needed.

@@ -1,0 +1,25 @@
+{
+  "schemaVersion": "1.0",
+  "project": "GBIA",
+  "artifactType": "user-story",
+  "action": "create",
+  "sources": [
+    {
+      "id": "accepted-diagram-decision",
+      "layer": "accepted-decision",
+      "status": "accepted",
+      "authority": {
+        "workspaceRoot": "tests/fixtures/artifact-baselines/valid-decision",
+        "registryPath": "registry.json",
+        "artifactId": "DEMO-DEC-001",
+        "artifactType": "decision",
+        "baselineVersion": "1.0",
+        "baselinePath": "artifacts/DEMO-DEC-001_v1.0.md",
+        "baselineSha256": "4d421773ed794d510ce6bc536dfaffc3deaf90e11a6ded02eff5c0f07b0213d3"
+      },
+      "values": {
+        "format.diagram": "drawio"
+      }
+    }
+  ]
+}

@@ -51,6 +51,10 @@ Annifity is a portable Product Builder Kit for Claude, Codex, Cursor, and Copilo
 - Follow the Annifity builder path for end-to-end work: `discovery -> brief -> prototype -> experiment -> validate -> learn -> spec -> plan -> execution -> ship`.
 - Use `docs` after artifact creation or phase gates.
 - Use `memories` before workflows and after durable decisions.
+- Resolve the artifact-generation contract and applicable project profile before drafting; do not silently invent material decisions.
+- Return the compact generation receipt with authored artifacts: fingerprint, disposition, source IDs, and exact baseline target.
+- Resolve governed artifacts through the authoritative baseline registry rather than guessing from filenames or dates.
+- Apply source-backed minimality, negative-completeness checks, and the local mutation-safety workflow before changing controlled files.
 - Load only relevant `_refs/` files for the current task.
 - If an adapter conflicts with a canonical skill, the canonical skill wins.
 

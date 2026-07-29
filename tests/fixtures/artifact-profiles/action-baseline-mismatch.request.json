@@ -1,0 +1,31 @@
+{
+  "schemaVersion": "1.0",
+  "project": "GBIA",
+  "artifactType": "user-story",
+  "action": "create",
+  "sources": [
+    {
+      "id": "request",
+      "layer": "explicit-request",
+      "values": {
+        "outcome": "create-story",
+        "consumer": {
+          "primary": "delivery-team"
+        },
+        "deliverableMode": "jira-ready",
+        "sourceAuthority": {
+          "primary": "request"
+        },
+        "baselineTarget": {
+          "mode": "revise-baseline"
+        },
+        "constraints": {
+          "noInventedBehavior": true
+        },
+        "materialDecisions": {
+          "scope": "confirmed"
+        }
+      }
+    }
+  ]
+}

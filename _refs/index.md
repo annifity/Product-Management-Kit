@@ -39,6 +39,24 @@ Skills should load only the relevant reference files for the current task.
 | Turn prototype feedback into PRD input | `_refs/templates/prototype/prototype-feedback-summary.md` + `_refs/templates/prd/prd-from-pro-feedback.md` |
 | Analyze raw BRD or vague requirements | `_refs/workflows/requirement-analysis.md` + `_refs/checklists/business-analysis.md` |
 | Map a workflow deeply | `_refs/templates/spec/workflow-spec.md` |
+| Author or review acceptance criteria | `_refs/checklists/acceptance-criteria-quality.md` + `_refs/templates/user-story/acceptance-criteria-gwt.md` |
+| Audit selected session rework evidence safely | `_refs/schemas/session-rework-observation.md` |
+| Run blind semantic first-pass regressions | `_refs/schemas/semantic-forward-test.md` |
+| Validate all canonical skill output/template contracts | `_refs/schemas/skill-output-contract.md` |
+| Build first-pass quality telemetry by skill version | `_refs/schemas/first-pass-quality-dashboard.md` |
+| Validate Draw.io structure, sources, and stale labels | `_refs/schemas/drawio-validation-manifest.md` |
+| Lint docs, memories, decisions, and index consistency | `_refs/schemas/context-consistency-manifest.md` |
+| Resolve or reuse a phase-gate approval safely | `_refs/operating-model/phase-gates.md` + `_refs/schemas/initiative-state.md` |
+| Audit repository-root ownership and Git policy | `tools/repo-root-manifest.json` + `tools/invoke-repo-doctor.ps1` |
+| Resolve project-specific artifact rules | `_refs/schemas/artifact-generation-contract.md` + `_refs/operating-model/artifact-profile-resolution.md` |
+| Return evidence of the exact generation context | `_refs/templates/docs/generation-receipt.md` |
+| Confirm source, mode, ownership, and baseline before authoring | `_refs/checklists/material-decision-preflight.md` |
+| Select the accepted baseline | `_refs/schemas/artifact-state-registry.md` + `_refs/operating-model/authoritative-baseline-resolution.md` |
+| Migrate legacy artifacts into the baseline registry | `tools/new-artifact-registry-migration.ps1` + `_refs/schemas/artifact-state-registry.md` + `_refs/workflows/local-mutation-safety.md` |
+| Sign and verify reusable phase-gate approval | `tools/sign-phase-gate-approval.ps1` + `tools/resolve-phase-gate-approval.ps1` + `_refs/operating-model/phase-gates.md` |
+| Remove filler and scope leakage | `_refs/checklists/source-backed-minimality.md` |
+| Preview and confirm a protected local mutation | `_refs/workflows/local-mutation-safety.md` + `_refs/schemas/mutation-preview.md` |
+| Verify removal, ignore, move, or narrowing end state | `_refs/checklists/negative-completeness.md` |
 | Stress-test edge cases | `_refs/checklists/edge-cases.md` |
 | Review product/project risk | `_refs/checklists/risk-review.md` + `_refs/templates/risk/risk-register.md` |
 | Generate UAT with priority and pass criteria | `_refs/checklists/uat-coverage.md` + `_refs/templates/uat/test-case-register.md` |

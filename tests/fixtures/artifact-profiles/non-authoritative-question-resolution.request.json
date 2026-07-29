@@ -1,0 +1,34 @@
+{
+  "schemaVersion": "1.0",
+  "project": "GBIA",
+  "artifactType": "user-story",
+  "action": "create",
+  "sources": [
+    {
+      "id": "profile-answer",
+      "layer": "project-profile",
+      "values": {
+        "actor.approver": "Product Owner"
+      },
+      "resolvesQuestions": [
+        "GBIA-OQ-002"
+      ]
+    },
+    {
+      "id": "open-question-register",
+      "layer": "open-questions",
+      "values": {},
+      "questions": [
+        {
+          "id": "GBIA-OQ-002",
+          "text": "Who owns final approval?",
+          "status": "open",
+          "material": true,
+          "affectsKeys": [
+            "actor.approver"
+          ]
+        }
+      ]
+    }
+  ]
+}

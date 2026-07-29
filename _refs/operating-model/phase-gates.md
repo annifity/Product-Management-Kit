@@ -1,43 +1,122 @@
 # Phase Gates
 
-Use `_refs/schemas/initiative-state.md` when a phase gate changes the durable state of an initiative.
+Use `_refs/schemas/initiative-state.md` when a phase gate changes the durable
+state of an initiative. Resolve approval reuse with
+`tools/resolve-phase-gate-approval.ps1`; a remembered answer or prior chat turn
+is not an approval record.
+
+## Stable Gate IDs
+
+Gate IDs identify the readiness decision, not a particular downstream route.
+Keep them unchanged when wording or the next recommended skill changes.
+
+| Gate | Stable ID |
+|---|---|
+| Discovery | `phase.discovery.ready` |
+| Brief | `phase.brief.ready` |
+| Prototype | `phase.prototype.ready` |
+| Experiment | `phase.experiment.ready` |
+| Validate | `phase.validate.ready` |
+| Learn | `phase.learn.ready` |
+| Spec | `phase.spec.ready` |
+| Plan | `phase.plan.ready` |
+| Execution | `phase.execution.ready` |
+| Ship | `phase.ship.ready` |
+
+## Approval Reuse
+
+An approval is reusable only when all of these remain true:
+
+- the stable gate ID matches;
+- the source, artifact-profile, evidence, and material-question fingerprints
+  produce the same gate fingerprint;
+- the complete approval record has a valid HMAC-SHA256 attestation from the
+  currently configured environment key;
+- the recorded decision is `approved` and its status is `active`;
+- the approval has not expired, been revoked, been superseded, or received an
+  invalidation event;
+- no unresolved material question remains.
+
+Supply `asOf` explicitly when resolving expiry. Never use wall-clock time inside
+the resolver. If any fingerprint changes, require a fresh decision even when
+the prose appears equivalent.
+
+Create the unsigned record described in `_refs/schemas/initiative-state.md`,
+then attest it with `tools/sign-phase-gate-approval.ps1`. The signer and resolver
+read `ANNIFITY_PHASE_GATE_APPROVAL_HMAC_KEY_ID` and the Base64 secret
+`ANNIFITY_PHASE_GATE_APPROVAL_HMAC_KEY` from the process environment. Never
+accept key material from request JSON or CLI arguments, and never persist or
+print it. Only the signed approval record may cross the process boundary.
+
+The resolver fails closed when the attestation is absent, malformed, signed by
+the wrong secret, or names a key ID other than the active one. Missing, invalid,
+and unknown key states remain distinct stable reason codes. After rotation,
+re-sign any approval that still needs reuse; do not keep an old key in approval
+data or repository files.
+
+## Material Question Protocol
+
+Ask one material question per turn by default. Ask two or three only when the
+user explicitly requests a batch and the selected questions have no unresolved
+dependencies on one another. Never ask more than three in one turn. Keep
+dependent questions deferred until their prerequisites are resolved.
 
 ## Discovery Gate
+
+Gate ID: `phase.discovery.ready`.
 
 Proceed only when problem, users, outcome, scope, assumptions, and open questions are explicit.
 
 ## Brief Gate
 
+Gate ID: `phase.brief.ready`.
+
 Proceed only when problem, goals, target users, scope boundaries, success metrics, AI-specific requirements when relevant, edge cases, risks, and open questions are explicit.
 
 ## Prototype Gate
+
+Gate ID: `phase.prototype.ready`.
 
 Proceed only when the prototype has a clear learning objective, minimum user flow, screen list, prompt or wireframe package, exclusions, and validation method.
 
 ## Experiment Gate
 
+Gate ID: `phase.experiment.ready`.
+
 Proceed only when hypothesis, method, participants or sample, tracking plan, success metrics, guardrails, and decision criteria are explicit. Material evidence should be captured with `_refs/templates/docs/evidence-ledger.md`.
 
 ## Validate Gate
+
+Gate ID: `phase.validate.ready`.
 
 Proceed only when results have been compared against the agreed criteria, blockers are separated from improvements, and accepted risks have a named owner.
 
 ## Learn Gate
 
+Gate ID: `phase.learn.ready`.
+
 Proceed only when observations, interpretations, decision, roadmap implication, memory updates, and next-loop or delivery action are explicit.
 
 ## Spec Gate
+
+Gate ID: `phase.spec.ready`.
 
 Proceed only when requirements are testable, scope boundaries are clear, risks are visible, security/privacy/accessibility implications are reviewed when relevant, and artifact quality score is reviewed when the work is high stakes.
 
 ## Plan Gate
 
+Gate ID: `phase.plan.ready`.
+
 Proceed only when epics, dependencies, milestones, and blockers are known.
 
 ## Execution Gate
 
+Gate ID: `phase.execution.ready`.
+
 Escalate to `change` when an answer modifies committed scope or acceptance criteria.
 
 ## Ship Gate
+
+Gate ID: `phase.ship.ready`.
 
 Release only when UAT, operational readiness, stakeholder communication, rollback/support, security/privacy/accessibility risk, and post-launch memory capture are ready or accepted as risks with named owners.

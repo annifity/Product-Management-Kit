@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "maxTextBytes": 1048576,
+  "scanPaths": [
+    "workspace/terminology-stale.md"
+  ],
+  "questionSources": [],
+  "frontmatterPolicies": [],
+  "terminologyRules": [
+    {
+      "stale": "Supervisor Portal",
+      "replacement": "GBIA Portal",
+      "match": "substring",
+      "caseSensitive": false,
+      "paths": [
+        "workspace/terminology-stale.md"
+      ]
+    }
+  ],
+  "decisions": [],
+  "changelogStreams": []
+}

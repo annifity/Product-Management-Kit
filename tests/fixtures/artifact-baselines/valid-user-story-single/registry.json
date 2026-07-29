@@ -1,0 +1,31 @@
+{
+  "schemaVersion": "1.0",
+  "updated": "2026-07-28",
+  "source": "DEMO-US-BOUNDARY-DEC",
+  "records": [
+    {
+      "artifactId": "DEMO-US-BOUNDARY",
+      "version": "1.0",
+      "path": "artifacts/DEMO-US-BOUNDARY_v1.0.md",
+      "lifecycle": "baselined",
+      "metadataMode": "registry",
+      "artifactType": "user-story",
+      "documentUpdated": "2026-07-28",
+      "documentSource": "DEMO-US-BOUNDARY-DEC",
+      "sha256": "335879187c498bad509d15e09a5e83cf9bc23effaf188ad3adf0a0f8a73b4870",
+      "supersedes": []
+    }
+  ],
+  "pointers": [
+    {
+      "artifactId": "DEMO-US-BOUNDARY",
+      "baselineVersion": "1.0",
+      "baselinePath": "artifacts/DEMO-US-BOUNDARY_v1.0.md",
+      "baselineSha256": "335879187c498bad509d15e09a5e83cf9bc23effaf188ad3adf0a0f8a73b4870",
+      "latestVersion": "1.0",
+      "latestPath": "artifacts/DEMO-US-BOUNDARY_v1.0.md",
+      "latestSha256": "335879187c498bad509d15e09a5e83cf9bc23effaf188ad3adf0a0f8a73b4870",
+      "source": "DEMO-US-BOUNDARY-DEC"
+    }
+  ]
+}

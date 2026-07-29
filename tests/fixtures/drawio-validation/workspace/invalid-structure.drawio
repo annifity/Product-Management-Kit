@@ -1,0 +1,19 @@
+<mxfile host="app.diagrams.net" version="24.7.17">
+  <diagram id="main" name="Invalid Structure">
+    <mxGraphModel>
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="cycle-a" value="Cycle A" vertex="1" parent="cycle-b">
+          <mxGeometry x="10" y="10" width="100" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="cycle-b" value="Cycle B" vertex="1" parent="cycle-a">
+          <mxGeometry x="150" y="10" width="100" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="floating-edge" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

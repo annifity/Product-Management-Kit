@@ -1,0 +1,4 @@
+{"type":"session_meta","payload":{"schemaVersion":"1.0","sessionId":"S-DIRECT-001","sessionKind":"root","skill":{"name":"brief","version":"1.2.0"},"privacy":{"classification":"synthetic","redaction":"required"}}}
+{"type":"message","payload":{"messageId":"D-001","role":"user","content":"Summarize the synthetic launch decision.","observation":{"chainId":"CHAIN-DIRECT","stage":"request"}}}
+{"type":"message","payload":{"messageId":"D-002","role":"assistant","content":"The synthetic launch was approved.","observation":{"chainId":"CHAIN-DIRECT","stage":"first_output"}}}
+{"type":"message","payload":{"messageId":"D-003","role":"user","content":"Accepted.","observation":{"chainId":"CHAIN-DIRECT","stage":"acceptance"}}}

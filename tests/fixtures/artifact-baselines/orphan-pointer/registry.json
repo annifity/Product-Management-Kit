@@ -1,0 +1,41 @@
+{
+  "schemaVersion": "1.0",
+  "updated": "2026-07-28",
+  "source": "DEMO-ORPHAN-DEC-001",
+  "records": [
+    {
+      "artifactId": "DEMO-ORPHAN-001",
+      "version": "1.0",
+      "path": "artifacts/DEMO-ORPHAN-001_v1.0.md",
+      "lifecycle": "baselined",
+      "metadataMode": "registry",
+      "artifactType": "spec",
+      "documentUpdated": "2026-07-28",
+      "documentSource": "DEMO-ORPHAN-DEC-001",
+      "sha256": "d6d4d3098f46abf35e1aff9df666b0274fce4b01872f416ffe5ebd1e1562857c",
+      "supersedes": []
+    }
+  ],
+  "pointers": [
+    {
+      "artifactId": "DEMO-ORPHAN-001",
+      "baselineVersion": "1.0",
+      "baselinePath": "artifacts/DEMO-ORPHAN-001_v1.0.md",
+      "baselineSha256": "d6d4d3098f46abf35e1aff9df666b0274fce4b01872f416ffe5ebd1e1562857c",
+      "latestVersion": "1.0",
+      "latestPath": "artifacts/DEMO-ORPHAN-001_v1.0.md",
+      "latestSha256": "d6d4d3098f46abf35e1aff9df666b0274fce4b01872f416ffe5ebd1e1562857c",
+      "source": "DEMO-ORPHAN-DEC-001"
+    },
+    {
+      "artifactId": "DEMO-ORPHAN-MISSING",
+      "baselineVersion": "1.0",
+      "baselinePath": "artifacts/missing.md",
+      "baselineSha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "latestVersion": "1.0",
+      "latestPath": "artifacts/missing.md",
+      "latestSha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "source": "DEMO-ORPHAN-DEC-001"
+    }
+  ]
+}

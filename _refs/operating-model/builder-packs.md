@@ -2,6 +2,8 @@
 
 Annifity is a Product Builder Kit: users should know what package they get at each point in the build journey. Use these packs to bundle artifacts, evidence, and handoff context.
 
+Every generated pack carries the compact generation receipt: resolved contract fingerprint, source provenance, deliverable mode, exact baseline disposition/path/hash, project profile, material decisions, and unresolved blockers. Run `_refs/checklists/material-decision-preflight.md` before authoring and `_refs/checklists/source-backed-minimality.md` before handoff.
+
 ## Discovery Pack
 
 Use after `discovery` when the opportunity is shaped but not yet committed.
@@ -57,10 +59,10 @@ Use when scope must be split, assigned, tested, and accepted.
 
 - Epic map.
 - Jira-ready stories.
-- Given/When/Then acceptance criteria.
+- Source-aligned Given/When/Then acceptance criteria with stable AC IDs.
 - UAT plan and test case register.
 - Permission, boundary, unhappy path, and NFR scenarios.
-- Coverage report: REQ-ID -> STORY-ID -> AC-ID -> UAT-ID.
+- Coverage report: REQ-ID -> STORY-ID -> AC-ID -> TC-ID.
 
 ## Release Pack
 

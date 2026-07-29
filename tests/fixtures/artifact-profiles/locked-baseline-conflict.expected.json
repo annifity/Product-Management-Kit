@@ -1,0 +1,20 @@
+{
+  "name": "unauthorized material accepted-value change blocks writing",
+  "request": "locked-baseline-conflict.request.json",
+  "expectedState": "blocked",
+  "expectedValues": {
+    "story.boundary": "split-stories"
+  },
+  "expectedProvenance": {
+    "story.boundary": "active-request"
+  },
+  "requiredConflictKinds": [
+    "locked-accepted-value-change"
+  ],
+  "requiredConflictSeverities": [
+    "material"
+  ],
+  "requiredBlockerKinds": [
+    "locked-accepted-value-change"
+  ]
+}

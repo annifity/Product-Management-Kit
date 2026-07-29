@@ -1,0 +1,75 @@
+{
+  "schemaVersion": "1.0",
+  "project": "GBIA",
+  "artifactType": "user-story",
+  "action": "revise",
+  "requiredKeys": [
+    "story.boundary"
+  ],
+  "materialKeys": [
+    "story.boundary"
+  ],
+  "changeAuthorized": false,
+  "sources": [
+    {
+      "id": "active-request",
+      "layer": "explicit-request",
+      "values": {
+        "story.boundary": "split-stories",
+        "outcome": "revise-the-confirmed-story-boundary",
+        "consumer": {
+          "primary": "delivery-team"
+        },
+        "deliverableMode": "jira-ready",
+        "sourceAuthority": {
+          "primary": "accepted-story-baseline",
+          "supporting": [
+            "active-request"
+          ]
+        },
+        "baselineTarget": {
+          "mode": "revise-baseline",
+          "artifactId": "DEMO-US-BOUNDARY",
+          "version": "1.0",
+          "path": "artifacts/DEMO-US-BOUNDARY_v1.0.md",
+          "sha256": "335879187c498bad509d15e09a5e83cf9bc23effaf188ad3adf0a0f8a73b4870"
+        },
+        "constraints": {
+          "noInventedBehavior": true
+        },
+        "materialDecisions": {
+          "storyBoundary": "split-stories"
+        }
+      }
+    },
+    {
+      "id": "accepted-story-baseline",
+      "layer": "accepted-baseline",
+      "status": "baselined",
+      "authority": {
+        "workspaceRoot": "tests/fixtures/artifact-baselines/valid-user-story-single",
+        "registryPath": "registry.json",
+        "artifactId": "DEMO-US-BOUNDARY",
+        "artifactType": "user-story",
+        "baselineVersion": "1.0",
+        "baselinePath": "artifacts/DEMO-US-BOUNDARY_v1.0.md",
+        "baselineSha256": "335879187c498bad509d15e09a5e83cf9bc23effaf188ad3adf0a0f8a73b4870"
+      },
+      "values": {
+        "story.boundary": "single-end-to-end-story"
+      },
+      "valueEvidence": {
+        "story.boundary": {
+          "excerpt": "Story boundary: single-end-to-end-story.",
+          "excerptSha256": "c574392147067be54285496c9a107db61a76626e466670fc3eb8baa9e15805ab"
+        }
+      },
+      "materialKeys": [
+        "story.boundary"
+      ],
+      "locks": [
+        "story.boundary"
+      ]
+    }
+  ]
+}

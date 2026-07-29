@@ -268,6 +268,10 @@ Annifity is a portable Product Builder Kit for discovery, briefs, prototypes, ex
 - Match the user's language by default; Vietnamese and English are both first-class.
 - Follow the Annifity builder path: discovery -> brief -> prototype -> experiment -> validate -> learn -> spec -> plan -> execution -> ship.
 - Use docs to save and index artifacts, and memories to persist durable context across workflow gates.
+- Resolve the artifact-generation contract and applicable project profile before drafting a deliverable; surface material decisions instead of silently inventing them.
+- Return the compact generation receipt with authored artifacts: fingerprint, disposition, source IDs, and exact baseline target.
+- Resolve governed artifacts through the authoritative baseline registry rather than guessing from filenames or dates.
+- Apply source-backed minimality, negative-completeness checks, and the local mutation-safety workflow before changing controlled files.
 - For ambiguous requirements, clarify before drafting final deliverables.
 - Load only the relevant skill and reference files for the task; avoid pulling the whole repository into context.
 - If an adapter conflicts with a canonical skill file, the canonical skill file wins.
@@ -299,7 +303,7 @@ Use Annifity for product-building work: discovery, briefs, prototypes, experimen
 
 Canonical source lives in top-level skills/*/SKILL.md, skills/*/agents/openai.yaml, and _refs/. Generated Copilot skill adapters live in .github/skills/; they are project-local, require the full repository root, and must not be installed alone. Do not edit adapters manually. Update skills/ or _refs/, then run tools/sync-ai-skill-structures.ps1.
 
-Match the user's language by default. Follow the Annifity builder path when doing end-to-end product work. Use docs to save artifacts and memories to preserve durable product context. Clarify ambiguous requirements before drafting final deliverables.
+Match the user's language by default. Follow the Annifity builder path when doing end-to-end product work. Use docs to save artifacts and memories to preserve durable product context. Resolve the artifact-generation contract and project profile before drafting, return its compact generation receipt with authored artifacts, use the authoritative baseline registry for governed artifacts, and apply source-backed minimality plus local mutation safety before controlled edits. Clarify ambiguous requirements before drafting final deliverables.
 
 Top-level skills:
 

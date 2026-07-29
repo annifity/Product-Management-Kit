@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "maxTextBytes": 1048576,
+  "scanPaths": [
+    "workspace/decision-a.md",
+    "workspace/decision-b.md"
+  ],
+  "questionSources": [],
+  "frontmatterPolicies": [],
+  "terminologyRules": [],
+  "decisions": [
+    {
+      "id": "DEC-A",
+      "key": "auth.protocol",
+      "value": "OIDC",
+      "status": "active",
+      "source": "workspace/decision-a.md",
+      "supersedes": []
+    },
+    {
+      "id": "DEC-B",
+      "key": "auth.protocol",
+      "value": "SAML",
+      "status": "active",
+      "source": "workspace/decision-b.md",
+      "supersedes": []
+    }
+  ],
+  "changelogStreams": []
+}

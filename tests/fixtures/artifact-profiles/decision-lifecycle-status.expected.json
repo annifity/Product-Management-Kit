@@ -1,0 +1,5 @@
+{
+  "name": "decision outcome cannot use lifecycle status",
+  "request": "decision-lifecycle-status.request.json",
+  "expectedErrorContains": "non-accepted status"
+}

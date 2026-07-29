@@ -1,0 +1,35 @@
+{
+  "schemaVersion": "1.0",
+  "gateId": "phase.discovery.ready",
+  "sourceFingerprint": "sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+  "profileFingerprint": "sha256:bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+  "evidence": [
+    {
+      "id": "EV-DISCOVERY",
+      "kind": "artifact",
+      "source": "DISC-001",
+      "fingerprint": "sha256:cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc"
+    }
+  ],
+  "materialQuestions": [
+    {
+      "id": "Q-DEPENDENT",
+      "rank": 3,
+      "text": "Which segment-specific metric follows from the chosen user?",
+      "dependsOnQuestionIds": ["Q-ACTOR"]
+    },
+    {
+      "id": "Q-ACTOR",
+      "rank": 2,
+      "text": "Which user segment is primary?",
+      "dependsOnQuestionIds": []
+    },
+    {
+      "id": "Q-PROBLEM",
+      "rank": 1,
+      "text": "Which problem outcome is material?",
+      "dependsOnQuestionIds": []
+    }
+  ],
+  "asOf": "2026-07-28T00:00:00Z"
+}

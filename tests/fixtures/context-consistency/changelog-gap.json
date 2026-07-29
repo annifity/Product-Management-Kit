@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "maxTextBytes": 1048576,
+  "scanPaths": [
+    "workspace/change-1.0.md",
+    "workspace/change-1.2.md"
+  ],
+  "questionSources": [],
+  "frontmatterPolicies": [],
+  "terminologyRules": [],
+  "decisions": [],
+  "changelogStreams": [
+    {
+      "id": "FIXTURE-FLOW",
+      "expectedHead": "1.2",
+      "entries": [
+        {
+          "version": "1.0",
+          "source": "workspace/change-1.0.md",
+          "previous": null
+        },
+        {
+          "version": "1.2",
+          "source": "workspace/change-1.2.md",
+          "previous": "1.1"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "schemaVersion": 1,
+  "maxDrawioBytes": 1048576,
+  "maxDecodedPageBytes": 2097152,
+  "artifacts": [
+    {
+      "path": "workspace/invalid-structure.drawio",
+      "linkedSources": ["workspace/source.md"],
+      "minimumRenderablePages": 1,
+      "forbiddenLabels": [],
+      "staleLabels": []
+    }
+  ]
+}

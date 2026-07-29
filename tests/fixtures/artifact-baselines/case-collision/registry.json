@@ -1,0 +1,53 @@
+{
+  "schemaVersion": "1.0",
+  "updated": "2026-07-28",
+  "source": "DEMO-CASE-DEC-001",
+  "records": [
+    {
+      "artifactId": "DEMO-CASE-001",
+      "version": "1.0",
+      "path": "artifacts/upper.md",
+      "lifecycle": "baselined",
+      "metadataMode": "registry",
+      "artifactType": "spec",
+      "documentUpdated": "2026-07-28",
+      "documentSource": "DEMO-CASE-DEC-001",
+      "sha256": "5ab98f7627ec06da564a614b891ca36dddf3e33157a3b22382d2498effb94722",
+      "supersedes": []
+    },
+    {
+      "artifactId": "demo-case-001",
+      "version": "1.0",
+      "path": "artifacts/lower.md",
+      "lifecycle": "baselined",
+      "metadataMode": "registry",
+      "artifactType": "spec",
+      "documentUpdated": "2026-07-28",
+      "documentSource": "DEMO-CASE-DEC-001",
+      "sha256": "265c6ceedd194fb49eba80362ee108fb24719f6f6df61b710e3c887bb7ad4aed",
+      "supersedes": []
+    }
+  ],
+  "pointers": [
+    {
+      "artifactId": "DEMO-CASE-001",
+      "baselineVersion": "1.0",
+      "baselinePath": "artifacts/upper.md",
+      "baselineSha256": "5ab98f7627ec06da564a614b891ca36dddf3e33157a3b22382d2498effb94722",
+      "latestVersion": "1.0",
+      "latestPath": "artifacts/upper.md",
+      "latestSha256": "5ab98f7627ec06da564a614b891ca36dddf3e33157a3b22382d2498effb94722",
+      "source": "DEMO-CASE-DEC-001"
+    },
+    {
+      "artifactId": "demo-case-001",
+      "baselineVersion": "1.0",
+      "baselinePath": "artifacts/lower.md",
+      "baselineSha256": "265c6ceedd194fb49eba80362ee108fb24719f6f6df61b710e3c887bb7ad4aed",
+      "latestVersion": "1.0",
+      "latestPath": "artifacts/lower.md",
+      "latestSha256": "265c6ceedd194fb49eba80362ee108fb24719f6f6df61b710e3c887bb7ad4aed",
+      "source": "DEMO-CASE-DEC-001"
+    }
+  ]
+}

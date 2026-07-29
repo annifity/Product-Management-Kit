@@ -1,0 +1,21 @@
+{
+  "schemaVersion": "1.0",
+  "gateId": "phase.discovery.ready",
+  "sourceFingerprint": "sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+  "profileFingerprint": "sha256:bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+  "evidence": [
+    {
+      "id": "EV-DISCOVERY",
+      "kind": "artifact",
+      "source": "DISC-001",
+      "fingerprint": "sha256:cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc"
+    }
+  ],
+  "materialQuestions": [],
+  "questionPolicy": {
+    "explicitBatchRequested": false,
+    "maxQuestions": 2,
+    "resolvedQuestionIds": []
+  },
+  "asOf": "2026-07-28T00:00:00Z"
+}

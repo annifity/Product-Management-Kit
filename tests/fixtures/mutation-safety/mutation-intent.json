@@ -1,0 +1,69 @@
+{
+  "schemaVersion": 1,
+  "intent": "Update the target from a reviewed source without applying during preview or confirmation.",
+  "sources": [
+    "content",
+    "source.txt"
+  ],
+  "targets": [
+    "future.txt",
+    "target.txt"
+  ],
+  "changes": [
+    {
+      "operation": "create",
+      "path": "future.txt",
+      "contentSource": "source.txt",
+      "reason": "Exercise an absent target snapshot without applying it."
+    },
+    {
+      "operation": "update",
+      "path": "target.txt",
+      "contentSource": "source.txt",
+      "reason": "Exercise deterministic local mutation approval."
+    }
+  ],
+  "expectedAfter": [
+    {
+      "path": "future.txt",
+      "state": "file",
+      "sha256": "c49e246a820cb6225bf1408c7b3bb4fc447b78ad8404fc7c60378dbb90fde621"
+    },
+    {
+      "path": "target.txt",
+      "state": "file",
+      "sha256": "c49e246a820cb6225bf1408c7b3bb4fc447b78ad8404fc7c60378dbb90fde621"
+    }
+  ],
+  "negativeCompleteness": {
+    "schemaVersion": 1,
+    "exactPaths": [
+      {
+        "path": "future.txt",
+        "expected": "present",
+        "kind": "file"
+      },
+      {
+        "path": "target.txt",
+        "expected": "present",
+        "kind": "file"
+      }
+    ],
+    "residualReferences": [
+      {
+        "pattern": "source-state-v1",
+        "fixedString": true,
+        "expected": "present",
+        "searchPaths": [
+          "future.txt",
+          "target.txt"
+        ],
+        "includeGlobs": [
+          "*.txt"
+        ],
+        "minimumMatches": 2,
+        "maximumMatches": 2
+      }
+    ]
+  }
+}

@@ -1,0 +1,5 @@
+{
+  "name": "path-backed profile requires complete identity",
+  "request": "malformed-path-profile.request.json",
+  "expectedErrorContains": "missing 'profileId'"
+}

@@ -1,0 +1,152 @@
+{
+  "schemaVersion": "1.0",
+  "corpusId": "annifity-first-pass-regressions",
+  "cases": [
+    {
+      "caseId": "refine-without-redesign",
+      "skill": "user-story",
+      "prompt": "Refine the supplied offboarding story into one implementation-ready story without changing accepted scope.",
+      "sourceFiles": [
+        "tests/fixtures/semantic-forward/sources/refine-without-redesign.md"
+      ],
+      "dimensions": [
+        "unsupported-behavior",
+        "context-adherence",
+        "minimality",
+        "baseline-selection",
+        "usability"
+      ],
+      "oracle": {
+        "requiredTerms": [
+          "People Operations",
+          "one story",
+          "Offboarding"
+        ],
+        "prohibitedTerms": [
+          "IT Admin",
+          "retry",
+          "acknowledgement SLA",
+          "OFF-004A"
+        ],
+        "expectedBaseline": "OFF-004@1.0",
+        "maxWords": 260
+      }
+    },
+    {
+      "caseId": "accepted-baseline-selection",
+      "skill": "change",
+      "prompt": "Prepare the implementation clarification for the accepted roster-publication behavior.",
+      "sourceFiles": [
+        "tests/fixtures/semantic-forward/sources/accepted-baseline-selection.md"
+      ],
+      "dimensions": [
+        "unsupported-behavior",
+        "context-adherence",
+        "minimality",
+        "baseline-selection",
+        "usability"
+      ],
+      "oracle": {
+        "requiredTerms": [
+          "Roster Coordinator",
+          "Publish"
+        ],
+        "prohibitedTerms": [
+          "PUB-002@1.1",
+          "PUB-002@1.2",
+          "unconfirmed blocker"
+        ],
+        "expectedBaseline": "PUB-002@1.0",
+        "maxWords": 220
+      }
+    },
+    {
+      "caseId": "alert-minimality",
+      "skill": "user-story",
+      "prompt": "Create a concise story for the confirmed break-alert behavior.",
+      "sourceFiles": [
+        "tests/fixtures/semantic-forward/sources/alert-minimality.md"
+      ],
+      "dimensions": [
+        "unsupported-behavior",
+        "context-adherence",
+        "minimality",
+        "baseline-selection",
+        "usability"
+      ],
+      "oracle": {
+        "requiredTerms": [
+          "eligible staff",
+          "break alert",
+          "dismiss"
+        ],
+        "prohibitedTerms": [
+          "retry policy",
+          "notification queue",
+          "escalation SLA",
+          "manager acknowledgement"
+        ],
+        "maxWords": 240
+      }
+    },
+    {
+      "caseId": "acknowledgement-boundary",
+      "skill": "user-story",
+      "prompt": "Write the acknowledgement-only roster story from the supplied source.",
+      "sourceFiles": [
+        "tests/fixtures/semantic-forward/sources/acknowledgement-boundary.md"
+      ],
+      "dimensions": [
+        "unsupported-behavior",
+        "context-adherence",
+        "minimality",
+        "baseline-selection",
+        "usability"
+      ],
+      "oracle": {
+        "requiredTerms": [
+          "acknowledge",
+          "published roster"
+        ],
+        "prohibitedTerms": [
+          "assignment lifecycle",
+          "Accepted assignment",
+          "Rejected assignment",
+          "retry"
+        ],
+        "maxWords": 220
+      }
+    },
+    {
+      "caseId": "project-profile-conformance",
+      "skill": "user-story",
+      "prompt": "Create the requested story using the supplied project profile.",
+      "sourceFiles": [
+        "tests/fixtures/semantic-forward/sources/project-profile-conformance.md"
+      ],
+      "dimensions": [
+        "unsupported-behavior",
+        "context-adherence",
+        "minimality",
+        "baseline-selection",
+        "usability"
+      ],
+      "oracle": {
+        "requiredTerms": [
+          "As a",
+          "Acceptance Criteria",
+          "AC-01"
+        ],
+        "prohibitedTerms": [
+          "artifact_id:",
+          "status:",
+          "String Keys",
+          "<html",
+          "Confluence",
+          "Technical Design"
+        ],
+        "maxWords": 260
+      }
+    }
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "schemaVersion": "1.0",
+  "project": "GBIA",
+  "artifactType": "user-story",
+  "action": "create",
+  "requiredKeys": [
+    "language"
+  ],
+  "materialKeys": [],
+  "sources": [
+    {
+      "id": "gbia-profile",
+      "layer": "project-profile",
+      "values": {
+        "language": "en"
+      }
+    },
+    {
+      "id": "gbia-open-questions",
+      "layer": "open-questions",
+      "values": {},
+      "questions": [
+        {
+          "id": "GBIA-OQ-001",
+          "text": "Which actor owns final approval?",
+          "status": "open",
+          "material": true,
+          "affectsKeys": [
+            "actor.approver"
+          ]
+        }
+      ]
+    }
+  ]
+}
+

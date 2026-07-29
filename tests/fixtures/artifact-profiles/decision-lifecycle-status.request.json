@@ -1,0 +1,16 @@
+{
+  "schemaVersion": "1.0",
+  "project": "GBIA",
+  "artifactType": "user-story",
+  "action": "create",
+  "sources": [
+    {
+      "id": "decision-with-lifecycle-status",
+      "layer": "accepted-decision",
+      "status": "baselined",
+      "values": {
+        "language": "en"
+      }
+    }
+  ]
+}

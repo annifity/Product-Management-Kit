@@ -1,0 +1,55 @@
+{
+  "schemaVersion": 1,
+  "exactPaths": [
+    {
+      "path": "content/keep.md",
+      "expected": "present",
+      "kind": "file"
+    },
+    {
+      "path": "content",
+      "expected": "present",
+      "kind": "directory"
+    },
+    {
+      "path": "obsolete/legacy.md",
+      "expected": "absent"
+    }
+  ],
+  "residualReferences": [
+    {
+      "pattern": "canonical-marker",
+      "fixedString": true,
+      "expected": "present",
+      "searchPaths": [
+        "content"
+      ],
+      "includeGlobs": [
+        "*.md"
+      ],
+      "minimumMatches": 1,
+      "maximumMatches": 1
+    },
+    {
+      "pattern": "legacy-workflow\\.md",
+      "expected": "absent",
+      "searchPaths": [
+        "content"
+      ],
+      "includeGlobs": [
+        "*.md"
+      ]
+    }
+  ],
+  "gitIgnore": [
+    {
+      "path": "generated/cache.tmp",
+      "expected": "ignored"
+    },
+    {
+      "path": "content/keep.md",
+      "expected": "not-ignored"
+    }
+  ]
+}
+

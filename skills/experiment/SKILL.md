@@ -14,11 +14,12 @@ Reuse the supplied hypothesis, brief, prototype, evidence, and constraints. Requ
 ## Process
 
 1. Read the brief, prototype notes, known evidence, metrics, and assumptions.
-2. Write the hypothesis and the decision it should inform.
-3. Define success metrics, guardrails, tracking events, and sample size logic.
-4. Choose the experiment method: prototype test, concierge test, survey, A/B test, beta, analytics review, or interview round.
-5. Define go / iterate / park / reject criteria before results arrive.
-6. Recommend `validate` after data is collected.
+2. Run the material-decision preflight for the experiment consumer, evidence authority, method mode, decision, and destination.
+3. Write the hypothesis and the decision it should inform.
+4. Define success metrics, guardrails, tracking events, and sample size logic.
+5. Choose the experiment method: prototype test, concierge test, survey, A/B test, beta, analytics review, or interview round.
+6. Define go / iterate / park / reject criteria before results arrive and apply source-backed minimality.
+7. Recommend `validate` after data is collected.
 
 ## Output
 
@@ -36,6 +37,8 @@ Reuse the supplied hypothesis, brief, prototype, evidence, and constraints. Requ
 Load only references needed for the experiment design:
 
 - For workflow or packaged handoff, use `_refs/workflows/experiment-design.md` and `_refs/operating-model/builder-packs.md`.
+- Before design, resolve `_refs/schemas/artifact-generation-contract.md` through `_refs/operating-model/artifact-profile-resolution.md`, then use `_refs/checklists/material-decision-preflight.md`; before handoff, use `_refs/checklists/source-backed-minimality.md`.
+- When the hypothesis or prototype source is governed, resolve it through `_refs/operating-model/authoritative-baseline-resolution.md` before designing the experiment.
 - For hypothesis and plan structure, use `_refs/templates/experiment/hypothesis.md` and `_refs/templates/experiment/experiment-plan.md`.
 - For instrumentation, use `_refs/templates/experiment/tracking-plan.md` and `_refs/schemas/metrics-event.md`.
 - For decision thresholds or sampling, use `_refs/templates/experiment/decision-criteria.md` and/or `_refs/templates/experiment/sample-size.md`.

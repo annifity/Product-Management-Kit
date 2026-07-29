@@ -1,0 +1,37 @@
+{
+  "schemaVersion": "1.0",
+  "updated": "2026-07-28",
+  "source": "TEST-INVALID-SUPERSESSION",
+  "records": [
+    {
+      "artifactId": "DEMO-SUP-001",
+      "version": "1.0",
+      "path": "artifacts/DEMO-SUP-001_v1.0.md",
+      "lifecycle": "superseded",
+      "sha256": "d10a90354db993d8cd810122828dc0ff4041a8f5bfc21873b1af588cf884a816",
+      "supersedes": []
+    },
+    {
+      "artifactId": "DEMO-SUP-001",
+      "version": "1.1",
+      "path": "artifacts/DEMO-SUP-001_v1.1.md",
+      "lifecycle": "baselined",
+      "sha256": "fff9e7bbce6f0b9cfde0f34b398810adcdcebbd35666b366919715b89049f9a1",
+      "supersedes": [
+        "DEMO-SUP-001@0.9"
+      ]
+    }
+  ],
+  "pointers": [
+    {
+      "artifactId": "DEMO-SUP-001",
+      "baselineVersion": "1.1",
+      "baselinePath": "artifacts/DEMO-SUP-001_v1.1.md",
+      "baselineSha256": "fff9e7bbce6f0b9cfde0f34b398810adcdcebbd35666b366919715b89049f9a1",
+      "latestVersion": "1.1",
+      "latestPath": "artifacts/DEMO-SUP-001_v1.1.md",
+      "latestSha256": "fff9e7bbce6f0b9cfde0f34b398810adcdcebbd35666b366919715b89049f9a1",
+      "source": "TEST-INVALID-SUPERSESSION"
+    }
+  ]
+}

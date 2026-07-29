@@ -1,0 +1,4 @@
+{"type":"session_meta","payload":{"schemaVersion":"1.0","sessionId":"S-BAD-REPEAT","sessionKind":"root","skill":{"name":"prd","version":"git:0123456789abcdef"},"privacy":{"classification":"synthetic","redaction":"required"}}}
+{"type":"message","payload":{"messageId":"R-001","role":"user","content":"Create the diagram.","observation":{"chainId":"CHAIN-R","stage":"request"}}}
+{"type":"message","payload":{"messageId":"R-002","role":"assistant","content":"Diagram draft.","observation":{"chainId":"CHAIN-R","stage":"first_output"}}}
+{"type":"message","payload":{"messageId":"R-003","role":"user","content":"The diagram defect repeated, but there was no prior fix.","observation":{"chainId":"CHAIN-R","stage":"correction","classification":"first_pass_defect","causes":["invalid_diagram","repeat_after_fix"],"missedContext":[],"confidence":0.9}}}

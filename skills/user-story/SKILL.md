@@ -19,13 +19,13 @@ Own ticket-ready Jira epic definitions, stories, and acceptance criteria. `plan`
 
 ## Process
 
-1. Confirm source artifact and target format.
+1. Run the material-decision preflight to resolve source authority, project constraints, story mode, baseline target, and behavior ownership.
 2. Reuse the confirmed epic map or delivery plan when supplied; create only the ticket-level epic and story structure here.
-3. Split large epics or stories before writing detailed implementation stories.
+3. Confirm the responsibility preview before splitting or merging stories, then split only independently valuable delivery slices.
 4. Write stories that are independent, valuable, small, and testable.
-5. Write acceptance criteria in Given/When/Then unless the user asks otherwise.
-6. Keep unhappy paths in acceptance criteria and reserve edge-case sections for technical edge cases.
-7. Flag dependencies, open questions, and out-of-scope work.
+5. Write source-aligned acceptance criteria that pass `_refs/checklists/acceptance-criteria-quality.md`; use Given/When/Then unless the user asks otherwise.
+6. Cover only relevant success, business-rule, validation, permission, boundary, state, and user-visible failure behavior. Keep implementation-only technical edge cases outside AC and do not invent behavior for checklist completeness.
+7. Apply source-backed minimality; include dependencies, open questions, and out-of-scope work only when relevant and sourced.
 8. Ask `docs` to save or export the stories.
 9. For Jira mutations, follow the draft, preview, explicit-approval, execution, and result-reporting gate in `_refs/integrations/jira.md`; Jira-ready or export wording alone is not mutation approval.
 
@@ -34,16 +34,19 @@ Own ticket-ready Jira epic definitions, stories, and acceptance criteria. `plan`
 Load only references needed for the requested story format and destination:
 
 - For packaged handoff, use `_refs/operating-model/builder-packs.md`.
-- For standard, Jira, epic, GWT, map, or Confluence output, use only the matching template: `_refs/templates/user-story/default-user-story.md`, `_refs/templates/user-story/jira-user-story.md`, `_refs/templates/user-story/jira-epic.md`, `_refs/templates/user-story/acceptance-criteria-gwt.md`, `_refs/templates/user-story/story-map.md`, or `_refs/templates/user-story/confluence-html.md`.
-- For authoring quality or splitting decisions, use `_refs/checklists/story-quality-invest.md` and/or `_refs/checklists/story-splitting.md`.
+- Before authoring or slicing, resolve `_refs/schemas/artifact-generation-contract.md` through `_refs/operating-model/artifact-profile-resolution.md`, then use `_refs/checklists/material-decision-preflight.md`; before handoff, use `_refs/checklists/source-backed-minimality.md`.
+- When deriving or revising stories from a governed PRD, spec, plan, or story, resolve `_refs/operating-model/authoritative-baseline-resolution.md`; never choose by filename or date.
+- For standard, Jira, epic, map, or Confluence output, use only the matching template: `_refs/templates/user-story/default-user-story.md`, `_refs/templates/user-story/jira-user-story.md`, `_refs/templates/user-story/jira-epic.md`, `_refs/templates/user-story/story-map.md`, or `_refs/templates/user-story/confluence-html.md`.
+- For criterion-level AC authoring or repair, use `_refs/checklists/acceptance-criteria-quality.md` with `_refs/templates/user-story/acceptance-criteria-gwt.md`.
+- For story-level INVEST quality or splitting decisions, use `_refs/checklists/story-quality-invest.md` and/or `_refs/checklists/story-splitting.md`.
 - For requirement-to-story coverage, use `_refs/templates/traceability/rtm.md`.
 - For collaborative story mapping, use `_refs/workflows/workshop-facilitation.md`.
 - For external publishing, use `_refs/integrations/jira.md` and/or `_refs/integrations/confluence.md` only when that system is in scope.
 
 ## Output
 
-Return stories grouped by epic with IDs, acceptance criteria, dependencies, and notes.
+Return the smallest project-profile-compliant ticket structure plus the compact generation receipt from the resolved contract. Group by epic only when an epic is confirmed. Use a confirmed ID or an explicit `TBD` placeholder; never synthesize a project code, Jira key, release, or label. Include dependencies, exclusions, design links, and open-question notes only when they are sourced and material to the ticket.
 
 ## Handoff
 
-Hand off implementation-ready stories to `execution` and acceptance coverage to `uat`. The minimum ready package includes the source reference, ticket-ready epic and story definitions, acceptance criteria, dependencies, assumptions or open questions, and traceability IDs.
+Hand off implementation-ready stories to `execution` and acceptance coverage to `uat`. The minimum ready package includes the source reference, ticket-ready story definition, stable source-aligned acceptance-criteria IDs, applicable confirmed dependencies, material assumptions or open questions, and required traceability IDs. Do not add empty sections to satisfy this list.

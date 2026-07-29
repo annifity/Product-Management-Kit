@@ -1,0 +1,46 @@
+{
+  "schemaVersion": "1.0",
+  "gateId": "phase.discovery.ready",
+  "sourceFingerprint": "sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+  "profileFingerprint": "sha256:bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+  "evidence": [
+    {
+      "id": "EV-DISCOVERY",
+      "kind": "artifact",
+      "source": "DISC-001",
+      "fingerprint": "sha256:cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc"
+    }
+  ],
+  "materialQuestions": [
+    {
+      "id": "Q-01",
+      "rank": 1,
+      "text": "Which user segment is primary?",
+      "dependsOnQuestionIds": []
+    },
+    {
+      "id": "Q-02",
+      "rank": 2,
+      "text": "Which outcome is the decision target?",
+      "dependsOnQuestionIds": []
+    },
+    {
+      "id": "Q-03",
+      "rank": 3,
+      "text": "Which evidence source is authoritative?",
+      "dependsOnQuestionIds": []
+    },
+    {
+      "id": "Q-04",
+      "rank": 4,
+      "text": "Which segment threshold applies?",
+      "dependsOnQuestionIds": ["Q-01"]
+    }
+  ],
+  "questionPolicy": {
+    "explicitBatchRequested": true,
+    "maxQuestions": 3,
+    "resolvedQuestionIds": []
+  },
+  "asOf": "2026-07-28T00:00:00Z"
+}

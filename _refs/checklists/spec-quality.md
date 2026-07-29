@@ -16,3 +16,5 @@
 - Open questions are not hidden as facts.
 - Requirement IDs are traceable to source, story, and UAT when available.
 - Decision maker, approver, and accepted-risk owner are named for material scope decisions.
+- Source authority, behavior ownership, deliverable mode, and baseline target pass `_refs/checklists/material-decision-preflight.md`.
+- The completed spec passes `_refs/checklists/source-backed-minimality.md`.

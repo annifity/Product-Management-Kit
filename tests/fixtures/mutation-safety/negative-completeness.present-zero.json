@@ -1,0 +1,14 @@
+{
+  "schemaVersion": 1,
+  "residualReferences": [
+    {
+      "pattern": "canonical-marker",
+      "fixedString": true,
+      "expected": "present",
+      "searchPaths": [
+        "content"
+      ],
+      "minimumMatches": 0
+    }
+  ]
+}

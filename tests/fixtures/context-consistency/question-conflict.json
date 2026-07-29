@@ -1,0 +1,16 @@
+{
+  "schemaVersion": 1,
+  "maxTextBytes": 1048576,
+  "scanPaths": [
+    "workspace/questions-closed.md",
+    "workspace/questions-open.md"
+  ],
+  "questionSources": [
+    "workspace/questions-closed.md",
+    "workspace/questions-open.md"
+  ],
+  "frontmatterPolicies": [],
+  "terminologyRules": [],
+  "decisions": [],
+  "changelogStreams": []
+}

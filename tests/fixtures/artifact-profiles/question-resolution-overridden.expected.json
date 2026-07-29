@@ -1,0 +1,17 @@
+{
+  "name": "resolved question must bind to selected value",
+  "request": "question-resolution-overridden.request.json",
+  "expectedState": "blocked",
+  "expectedValues": {
+    "actor.approver": "WFM Admin"
+  },
+  "expectedProvenance": {
+    "actor.approver": "a-current-request"
+  },
+  "requiredConflictKinds": [
+    "question-resolution-overridden"
+  ],
+  "requiredBlockerKinds": [
+    "question-resolution-overridden"
+  ]
+}

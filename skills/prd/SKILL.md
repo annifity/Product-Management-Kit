@@ -9,21 +9,28 @@ Produce stakeholder-facing requirements artifacts that remain consistent with th
 
 Use `PRD from PRO + Client Feedback` when the user is in Prototype First Workflow and provides PRO, prototype behavior, client/user feedback, validation result, learning summary, or stakeholder decision. In this mode, the PRD must separate what was validated, what changed after feedback, what remains assumption, and what is ready for delivery specification.
 
+## Input Contract
+
+Reuse the supplied brief, PRO, feedback, evidence, existing PRD/BRD, project profile, and requested format. A formal draft requires a confirmed problem, users, outcome, and source authority; route unresolved direction to `discovery` or `brief`. Accept other partial input with visible assumptions and material open questions.
+
 ## Process
 
 1. Confirm whether the user needs a draft, direct revision, translation, or export; route an independent readiness verdict to `validate` and any revision that changes a committed baseline, scope, acceptance, or user-visible behavior to `change`.
 2. Read relevant docs and memories.
-3. Select the correct artifact type: BRD, PRD, PRD from PRO + Client Feedback, one-pager, Confluence HTML, or export package.
-4. Use the selected template or default to `_refs/templates/prd/default-prd.md`.
-5. Preserve explicit assumptions and open questions instead of inventing facts.
-6. Ask for confirmation before publishing/exporting.
-7. Ask `docs` to save the artifact and update the docs index.
+3. Run the material-decision preflight to resolve the consumer, source authority, artifact mode, baseline target, project constraints, and destination.
+4. Select the correct artifact type: BRD, PRD, PRD from PRO + Client Feedback, one-pager, Confluence HTML, or export package.
+5. Use the selected template or default to `_refs/templates/prd/default-prd.md`.
+6. Preserve explicit assumptions and open questions instead of inventing facts, then prune non-sourced or irrelevant sections.
+7. Ask for confirmation before publishing/exporting.
+8. Ask `docs` to save the artifact and update the docs index.
 
 ## Reference Routing
 
 Load only references needed for the requested artifact and format:
 
 - For ambiguous routing, use `_refs/operating-model/routing.md`.
+- Before drafting or revising, resolve `_refs/schemas/artifact-generation-contract.md` through `_refs/operating-model/artifact-profile-resolution.md`, then use `_refs/checklists/material-decision-preflight.md`; before handoff, use `_refs/checklists/source-backed-minimality.md`.
+- When revising or deriving from a governed artifact, resolve `_refs/operating-model/authoritative-baseline-resolution.md` before selecting source content.
 - For a standard PRD, BRD, or requirements one-pager, use exactly the matching base template: `_refs/templates/prd/default-prd.md`, `_refs/templates/brd/default-brd.md`, or `_refs/templates/prd/one-pager.md`.
 - For PRD from prototype feedback, use `_refs/workflows/prototype-first.md`, `_refs/templates/prd/prd-from-pro-feedback.md`, and `_refs/templates/prototype/prototype-feedback-summary.md`.
 - For Confluence or HTML export, use the requested format only: `_refs/templates/prd/confluence-html.md`, `_refs/templates/prd/confluence-html-strict.md`, or `_refs/templates/prd/prd-export-html.html`; use `_refs/integrations/confluence.md` only for Confluence interaction.

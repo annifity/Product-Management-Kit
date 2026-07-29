@@ -1,0 +1,17 @@
+{
+  "schemaVersion": "1.0",
+  "project": "GBIA",
+  "artifactType": "user-story",
+  "action": "create",
+  "sources": [
+    {
+      "id": "draft-decision",
+      "layer": "accepted-decision",
+      "status": "draft",
+      "values": {
+        "language": "en"
+      }
+    }
+  ]
+}
+

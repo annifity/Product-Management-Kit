@@ -1,0 +1,5 @@
+{
+  "name": "accepted values require excerpt evidence",
+  "request": "accepted-source-without-evidence.request.json",
+  "expectedErrorContains": "requires valueEvidence"
+}
