@@ -4,7 +4,7 @@ param()
 Set-StrictMode -Version Latest
 $ErrorActionPreference = "Stop"
 
-Import-Module Microsoft.PowerShell.Utility -Force -ErrorAction Stop
+. (Join-Path $PSScriptRoot "file-hash-compat.ps1")
 
 $Root = (Resolve-Path (Join-Path $PSScriptRoot "..")).Path
 $Resolver = Join-Path $PSScriptRoot "resolve-authoritative-baseline.ps1"
@@ -97,11 +97,7 @@ function Set-DocumentTextAndRefreshHash {
     )[0]
     $documentPath = Join-Path $FixtureRoot ([string]$record.path)
     [System.IO.File]::WriteAllText($documentPath, $Content, $Utf8NoBom)
-    $sha256 = (
-        Microsoft.PowerShell.Utility\Get-FileHash `
-            -LiteralPath $documentPath `
-            -Algorithm SHA256
-    ).Hash.ToLowerInvariant()
+    $sha256 = (Get-FileHash -LiteralPath $documentPath -Algorithm SHA256).Hash.ToLowerInvariant()
     $record.sha256 = $sha256
 
     foreach ($pointer in @($Registry.pointers | Where-Object { $_.artifactId -ceq $ArtifactId })) {
