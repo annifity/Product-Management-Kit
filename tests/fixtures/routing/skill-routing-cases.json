@@ -32,6 +32,28 @@
       "reason": "Yêu cầu còn solution-led và thiếu problem framing."
     },
     {
+      "id": "ambiguous-raw-customer-research-discovery-not-learn-en",
+      "kind": "ambiguous",
+      "language": "en",
+      "prompt": "Synthesize these raw customer interview notes into source-linked observations, patterns, counterevidence, jobs, and confidence without inventing quotes.",
+      "expectedSkill": "discovery",
+      "mustNotRouteTo": ["learn"],
+      "boundaryAny": ["after evidence has been assessed"],
+      "descriptionAny": ["customer interview", "research synthesis"],
+      "reason": "The evidence is still raw and must be analyzed before it can support a learning decision."
+    },
+    {
+      "id": "ambiguous-raw-customer-research-discovery-not-learn-vi",
+      "kind": "ambiguous",
+      "language": "vi",
+      "prompt": "Hãy tổng hợp các raw customer interview notes này thành observation, pattern, phản chứng, job và mức tin cậy có liên kết nguồn; không được tạo quote.",
+      "expectedSkill": "discovery",
+      "mustNotRouteTo": ["learn"],
+      "boundaryAny": ["after evidence has been assessed"],
+      "descriptionAny": ["customer interview", "research synthesis"],
+      "reason": "Evidence vẫn là dữ liệu nghiên cứu thô nên cần discovery synthesis trước khi ra quyết định."
+    },
+    {
       "id": "positive-docs-en",
       "kind": "positive",
       "language": "en",
@@ -526,6 +548,28 @@
       "reason": "The verdict already exists; the remaining job is interpretation, decision, and roadmap learning."
     },
     {
+      "id": "ambiguous-raw-interviews-discovery-not-learn-en",
+      "kind": "ambiguous",
+      "language": "en",
+      "prompt": "These are raw interview transcripts with consent constraints. Extract traceable findings and customer jobs first; do not make the roadmap decision yet.",
+      "expectedSkill": "discovery",
+      "mustNotRouteTo": ["learn"],
+      "boundaryAny": ["use `learn` after evidence has been assessed"],
+      "descriptionAny": ["customer interview", "evidence is raw"],
+      "reason": "Raw research requires evidence-preserving analysis before learning can interpret a verdict."
+    },
+    {
+      "id": "ambiguous-assessed-customer-findings-learn-not-discovery-en",
+      "kind": "ambiguous",
+      "language": "en",
+      "prompt": "The customer findings, counterevidence, source links, and confidence have already been reviewed. Interpret what they mean and make the product and roadmap decision.",
+      "expectedSkill": "learn",
+      "mustNotRouteTo": ["discovery"],
+      "boundaryAny": ["Use `discovery` to analyze raw customer"],
+      "descriptionAny": ["after evidence has been assessed", "product decision"],
+      "reason": "Evidence assessment is complete; only interpretation and the next product decision remain."
+    },
+    {
       "id": "handoff-discovery-to-brief-en",
       "kind": "handoff",
       "language": "en",
@@ -535,6 +579,17 @@
       "mustNotRouteTo": [],
       "descriptionAny": ["confirmed discovery", "product-direction brief"],
       "reason": "The discovery gate has passed and the next outcome is a concise direction."
+    },
+    {
+      "id": "handoff-discovery-synthesis-to-learn-en",
+      "kind": "handoff",
+      "language": "en",
+      "prompt": "The customer research findings now have source links, counterevidence, confidence, and review approval; turn them into a product decision and next-loop recommendation.",
+      "fromSkill": "discovery",
+      "expectedSkill": "learn",
+      "mustNotRouteTo": [],
+      "descriptionAny": ["after evidence has been assessed", "product decision"],
+      "reason": "Discovery synthesis is assessed and ready for decision-oriented learning."
     },
     {
       "id": "handoff-prototype-to-experiment-en",
@@ -612,6 +667,60 @@
       "mustNotRouteTo": [],
       "descriptionAny": ["rollout", "release notes"],
       "reason": "Acceptance is complete and the next outcome is release execution."
+    },
+    {
+      "id": "positive-experiment-ai-evaluation-en",
+      "kind": "positive",
+      "language": "en",
+      "prompt": "Design an AI evaluation plan before implementation: define a golden set, representative and adversarial slices, graders, regression thresholds, latency and cost budgets, and precommitted release criteria.",
+      "expectedSkill": "experiment",
+      "mustNotRouteTo": [],
+      "descriptionAny": ["AI evaluation plan", "AI golden set"],
+      "reason": "The evaluation evidence and decision contract must be designed before results exist."
+    },
+    {
+      "id": "positive-validate-ai-evaluation-vi",
+      "kind": "positive",
+      "language": "vi",
+      "prompt": "AI evaluation results đã có; hãy compare AI baseline và candidate runs, kiểm tra regression theo từng slice, hard blocker và đưa ra readiness verdict.",
+      "expectedSkill": "validate",
+      "mustNotRouteTo": [],
+      "descriptionAny": ["AI evaluation results", "compare AI baseline"],
+      "reason": "Kết quả đã tồn tại và cần một verdict dựa trên baseline, candidate, slice và blocker."
+    },
+    {
+      "id": "negative-ai-evaluation-before-problem-framing-vi",
+      "kind": "negative",
+      "language": "vi",
+      "prompt": "Đây mới là một vague stakeholder ask muốn thêm AI assistant nhưng chưa có user problem, expected behavior hay outcome; đừng thiết kế evaluation plan hoặc golden set lúc này.",
+      "focusSkill": "experiment",
+      "expectedSkill": "discovery",
+      "mustNotRouteTo": ["experiment"],
+      "boundaryAny": ["vague"],
+      "descriptionAny": ["vague"],
+      "reason": "A solution-led request without a defined problem or behavior must be framed before evaluation design."
+    },
+    {
+      "id": "ambiguous-ai-results-validate-not-experiment-en",
+      "kind": "ambiguous",
+      "language": "en",
+      "prompt": "The AI evaluation results for the baseline and candidate already exist; compare the runs, assess regression and hard blockers, and issue a verdict instead of redesigning the golden set or graders.",
+      "expectedSkill": "validate",
+      "mustNotRouteTo": ["experiment"],
+      "boundaryAny": ["before results exist"],
+      "descriptionAny": ["AI evaluation results", "compare AI baseline"],
+      "reason": "Existing run evidence belongs to validate; experiment owns evaluation design before results."
+    },
+    {
+      "id": "handoff-validate-ai-evaluation-to-ship-en",
+      "kind": "handoff",
+      "language": "en",
+      "prompt": "The AI evaluation verdict is ready and all release regression hard blockers passed; prepare the limited rollout, rollback, support handoff, and release package.",
+      "fromSkill": "validate",
+      "expectedSkill": "ship",
+      "mustNotRouteTo": [],
+      "descriptionAny": ["AI release regression gate", "rollout"],
+      "reason": "Assessed AI evidence has passed and now becomes a controlled release package."
     }
   ]
 }

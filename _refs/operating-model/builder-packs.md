@@ -11,6 +11,9 @@ Use after `discovery` when the opportunity is shaped but not yet committed.
 - Problem statement without solution language.
 - Target users and jobs.
 - Evidence summary and confidence.
+- Source-linked customer findings, counterevidence, and method or privacy limits
+  when interviews or qualitative research are used.
+- Provisional customer jobs and circumstances when supported by evidence.
 - Opportunity or solution options with trade-offs.
 - Scope in / scope out.
 - Assumptions and open questions.
@@ -38,6 +41,9 @@ Use when evidence is needed before committed delivery.
 - Participant/sample plan.
 - Metrics, guardrails, and tracking events.
 - Decision thresholds.
+- For AI behavior: versioned evaluation set, representative and adversarial
+  slices, calibrated graders, baseline comparison, non-regression rule, and
+  latency/cost budgets.
 - Evidence ledger entry.
 - Learning synthesis plan.
 

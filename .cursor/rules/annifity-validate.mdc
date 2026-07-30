@@ -1,5 +1,5 @@
 ---
-description: 'Annifity skill validate: Audit an existing product artifact, evidence set, delivery package, or Annifity canonical skill and return a readiness or quality verdict with findings. Use when the user asks to review, validate, assess readiness, check completeness, consistency, testability, coverage, traceability, risk, or go/no-go status. Use `prd`, `spec`, `user-story`, `uat`, or `ship` to create or substantially rewrite those artifacts; use `validate` as the primary route for an independent review, with domain skills applied only for requested fixes.'
+description: 'Annifity skill validate: Audit an existing product artifact, evidence set, AI evaluation results, delivery package, or Annifity canonical skill and return a readiness or quality verdict with findings. Use when the user asks to review, validate, compare AI baseline and candidate runs, assess regression or release readiness, check completeness, consistency, testability, coverage, traceability, risk, or go/no-go status. Use `experiment` to design an evaluation before results exist; use `prd`, `spec`, `user-story`, `uat`, or `ship` to create or substantially rewrite their artifacts.'
 alwaysApply: false
 ---
 

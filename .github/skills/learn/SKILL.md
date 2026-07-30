@@ -1,6 +1,6 @@
 ---
 name: learn
-description: 'Synthesize completed discovery, prototype, experiment, validation, release, or post-ship evidence into reusable insight and a product decision. Use for insight summaries, retrospectives, decision memos, roadmap recommendations, and next-loop recommendations after evidence has been assessed. Use `validate` for the readiness/result verdict itself; use `learn` to interpret what the evidence means and what to do next.'
+description: 'Synthesize completed discovery, prototype, experiment, validation, release, or post-ship evidence into reusable insight and a product decision. Use for insight summaries, retrospectives, decision memos, roadmap recommendations, and next-loop recommendations after evidence has been assessed. Use `discovery` to analyze raw customer interviews or research notes, `validate` for the readiness/result verdict itself, and `learn` only when the remaining job is to interpret assessed evidence and decide what to do next.'
 ---
 
 # learn

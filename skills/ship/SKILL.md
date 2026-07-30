@@ -1,6 +1,6 @@
 ---
 name: ship
-description: Prepare and coordinate a product release, rollout, retirement, or final stakeholder/support handoff. Use when the requested outcome is a ship package such as a launch or EOL plan, release notes, rollback/support notes, final document bundle, UAT signoff summary, or post-ship capture. Use `validate` for a read-only readiness audit without package creation and `uat` to create or execute acceptance tests.
+description: Prepare and coordinate a product release, rollout, retirement, or final stakeholder/support handoff. Use when the requested outcome is a ship package such as a launch or EOL plan, release notes, rollback/support notes, final document bundle, UAT signoff summary, AI release regression gate, or post-ship capture. Use `validate` for a read-only readiness audit or AI evaluation verdict without package creation and `uat` to create or execute acceptance tests.
 ---
 
 # Ship
@@ -16,7 +16,7 @@ Assemble the evidence, communication, operational controls, and ownership needed
 ## Process
 
 1. Read final PRD/spec/stories/UAT and latest decisions, then run the material-decision preflight for release mode, source baseline, target, owner, and action.
-2. Verify the Ship Gate using release, operational, security, privacy, accessibility, stakeholder, rollback, support, and post-launch checks that apply.
+2. Verify the Ship Gate using release, operational, security, privacy, accessibility, stakeholder, rollback, support, post-launch, and AI evaluation regression checks that apply.
 3. Do not return a release-ready verdict while a required item is missing unless the residual risk is explicitly accepted by a named owner.
 4. Produce the smallest source-backed ship, rollout, retirement, or handoff package that serves the selected mode.
 5. Before any external release, deployment, publication, or retirement action, preview the target, action, owner, timing, and rollback path and obtain explicit user approval.
@@ -45,6 +45,7 @@ Load only references needed for the release or handoff:
 - Resolve every controlled release source through `_refs/operating-model/authoritative-baseline-resolution.md`; do not ship from an unaccepted latest draft.
 - For the release decision, use the Ship Gate in `_refs/operating-model/phase-gates.md`.
 - For ship or operational gates, use `_refs/checklists/ship-readiness.md` and/or `_refs/checklists/operational-readiness.md`.
+- For an AI-enabled release or material model, prompt, retrieval, tool, policy, or data change, require an assessed suite using `_refs/schemas/ai-evaluation-suite.md` and `_refs/checklists/ai-evaluation-release-gate.md`; use `_refs/workflows/ai-evaluation.md` when the evidence chain needs inspection.
 - For stakeholder, security, privacy, or accessibility signoff, use `_refs/checklists/stakeholder-governance.md` and `_refs/checklists/security-privacy-accessibility.md` as applicable.
 - For unresolved release risks or cross-artifact coverage, use `_refs/templates/risk/risk-register.md` and/or `_refs/templates/traceability/rtm.md`.
 - For rollout and release communication, use `_refs/templates/release/rollout-plan.md` and `_refs/templates/docs/release-note.md`.

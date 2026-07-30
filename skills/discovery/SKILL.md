@@ -1,6 +1,6 @@
 ---
 name: discovery
-description: Frame an unclear product problem or opportunity into a confirmed direction. Use for vague or solution-led stakeholder asks, early ideas, missing users/outcomes/evidence, product strategy, opportunity framing, solution exploration, workshops, market sizing, business-model questions, research, or AI context design. Use `discovery` while the problem or direction is unresolved; use `prototype` once a direction is clear enough to build to learn.
+description: Frame an unclear product problem or opportunity into a confirmed direction. Use for vague or solution-led stakeholder asks, early ideas, missing users/outcomes/evidence, customer interview or research synthesis, product strategy, opportunity framing, solution exploration, workshops, market sizing, business-model questions, research, or AI context design. Use `discovery` while evidence is raw or the problem or direction is unresolved; use `learn` after evidence has been assessed and only interpretation or a product decision remains; use `prototype` once a direction is clear enough to build to learn.
 ---
 
 # Discovery
@@ -21,10 +21,13 @@ Accept a raw idea, stakeholder ask, partial evidence, or existing context and re
 2. Use the material-decision preflight to resolve the discovery consumer, evidence authority, artifact mode, and destination; retain unresolved product decisions as discovery questions rather than blocking discovery itself.
 3. Clarify one material question at a time by default. Batch up to three only when explicitly requested and non-dependent. Prefer multiple-choice questions when the user is blocked.
 4. Separate the real user problem from proposed solutions.
-5. Identify users, pain, outcome, constraints, assumptions, evidence, success metrics, and non-goals.
-6. For discovery work, define what must be learned before solutioning.
-7. For solution exploration, diverge before converging and make trade-offs explicit.
-8. Apply source-backed minimality and ask for explicit confirmation before moving to `brief`, `prototype`, `experiment`, or `spec`.
+5. For raw customer research, preserve source identity, consent boundaries,
+   observations, counterevidence, and method limits before deriving findings or
+   jobs; never invent a quote, participant, or pattern.
+6. Identify users, pain, outcome, constraints, assumptions, evidence, success metrics, and non-goals.
+7. For discovery work, define what must be learned before solutioning.
+8. For solution exploration, diverge before converging and make trade-offs explicit.
+9. Apply source-backed minimality and ask for explicit confirmation before moving to `brief`, `prototype`, `experiment`, `learn`, or `spec`.
 
 ## Output
 
@@ -35,6 +38,8 @@ Return a compact discovery brief:
 - Desired outcome
 - Candidate approaches
 - Evidence and confidence
+- Research findings, counterevidence, and source trace when synthesis is requested
+- Customer jobs and circumstances when supported by evidence
 - Scope in / scope out
 - Known constraints
 - Assumptions
@@ -51,6 +56,15 @@ Load only the references whose stated condition matches the request:
 - Use `_refs/operating-model/builder-packs.md` when discovery should produce a packaged Discovery Pack.
 - Use `_refs/operating-model/phase-gates.md` to decide whether discovery is ready to progress.
 - Use `_refs/workflows/product-discovery.md` for strategic or feature-level discovery.
+- Use `_refs/workflows/customer-discovery-synthesis.md` when raw interviews,
+  observations, support conversations, or research notes must become traceable
+  findings and insights.
+- Use `_refs/workflows/jobs-to-be-done-analysis.md` when evidence must clarify
+  the progress customers seek, their circumstances, current alternatives, or
+  barriers without embedding a solution.
+- Use `_refs/templates/learning/insight-summary.md` for a source-linked customer
+  insight that separates observation, interpretation, implication, and
+  recommendation.
 - Use `_refs/workflows/workshop-facilitation.md` for interactive discovery, strategy, prioritization, or workshop-style sessions.
 - Use `_refs/workflows/research-evidence.md` when external facts, market claims, competitor claims, or company research influence the decision.
 - Use `_refs/templates/discovery/interview-plan.md` when preparing customer discovery interviews.
@@ -71,4 +85,9 @@ Load only the references whose stated condition matches the request:
 
 ## Handoff
 
-When the user confirms a discovery package containing the problem, users, outcome, scope, evidence limits, assumptions, and open questions, route it to `brief` for alignment, `prototype` or `experiment` for learning, or `spec` only when the delivery-entry gate is satisfied. Ask `docs` to save a session note and `memories` to persist durable context.
+When the user confirms a discovery package containing the problem, users,
+outcome, scope, evidence limits, assumptions, and open questions, route it to
+`brief` for alignment, `prototype` or `experiment` for learning, `learn` when
+assessed discovery evidence needs a product decision, or `spec` only when the
+delivery-entry gate is satisfied. Ask `docs` to save a session note and
+`memories` to persist durable context.

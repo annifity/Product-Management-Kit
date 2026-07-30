@@ -54,6 +54,15 @@
 
 - Specific stories, not generic complaints.
 - Past behavior, not wishes.
-- Patterns across at least three independent interviews.
-- Verbatim customer language captured.
+- Source-linked observations across relevant independent participants or
+  evidence sources; do not use an arbitrary interview count as proof.
+- Exact customer language captured only when consent and quotation policy allow;
+  otherwise retain a clearly labeled paraphrase.
+- Contradictory cases, missing segments, and method limitations recorded.
 - Surprising insight or invalidated assumption recorded.
+
+## Synthesis Handoff
+
+Assign stable source IDs and send the authorized notes, transcripts, consent
+limits, research question, and method limitations to
+`_refs/workflows/customer-discovery-synthesis.md`.

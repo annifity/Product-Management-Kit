@@ -1,6 +1,6 @@
 ---
 name: learn
-description: Synthesize completed discovery, prototype, experiment, validation, release, or post-ship evidence into reusable insight and a product decision. Use for insight summaries, retrospectives, decision memos, roadmap recommendations, and next-loop recommendations after evidence has been assessed. Use `validate` for the readiness/result verdict itself; use `learn` to interpret what the evidence means and what to do next.
+description: Synthesize completed discovery, prototype, experiment, validation, release, or post-ship evidence into reusable insight and a product decision. Use for insight summaries, retrospectives, decision memos, roadmap recommendations, and next-loop recommendations after evidence has been assessed. Use `discovery` to analyze raw customer interviews or research notes, `validate` for the readiness/result verdict itself, and `learn` only when the remaining job is to interpret assessed evidence and decide what to do next.
 ---
 
 # Learn
@@ -14,6 +14,8 @@ Reuse the supplied evidence, validation result, hypothesis, decisions, and memor
 ## Process
 
 1. Read the experiment plan, validation notes, evidence, decisions, docs, and relevant memories.
+   For customer-discovery evidence, require source-linked findings,
+   counterevidence, privacy limits, and confidence; route raw notes or transcripts to `discovery`.
 2. Run the material-decision preflight for evidence authority, learning consumer, decision mode, and destination.
 3. Separate observations from interpretations and recommendations.
 4. Compare results to the original hypothesis, success metrics, and decision criteria.
@@ -38,6 +40,11 @@ Reuse the supplied evidence, validation result, hypothesis, decisions, and memor
 Load only references needed for the evidence and output:
 
 - For workflow or packaged handoff, use `_refs/workflows/learning-synthesis.md`, `_refs/operating-model/learning-loop.md`, and `_refs/operating-model/builder-packs.md` selectively.
+- For assessed customer-discovery findings, retain the traceability and
+  confidence model from `_refs/workflows/customer-discovery-synthesis.md`, use
+  `_refs/workflows/jobs-to-be-done-analysis.md` only when a supported job must
+  inform the decision, and write the insight with
+  `_refs/templates/learning/insight-summary.md`.
 - Before synthesis, resolve `_refs/schemas/artifact-generation-contract.md` through `_refs/operating-model/artifact-profile-resolution.md`, then use `_refs/checklists/material-decision-preflight.md`; before handoff, use `_refs/checklists/source-backed-minimality.md`.
 - Resolve governed evidence packages and source artifacts through `_refs/operating-model/authoritative-baseline-resolution.md` before interpreting them.
 - For prototype-first evidence, use `_refs/workflows/prototype-first.md` and `_refs/templates/prototype/prototype-feedback-summary.md`.

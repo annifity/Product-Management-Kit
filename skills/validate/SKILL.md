@@ -1,6 +1,6 @@
 ---
 name: validate
-description: Audit an existing product artifact, evidence set, delivery package, or Annifity canonical skill and return a readiness or quality verdict with findings. Use when the user asks to review, validate, assess readiness, check completeness, consistency, testability, coverage, traceability, risk, or go/no-go status. Use `prd`, `spec`, `user-story`, `uat`, or `ship` to create or substantially rewrite those artifacts; use `validate` as the primary route for an independent review, with domain skills applied only for requested fixes.
+description: Audit an existing product artifact, evidence set, AI evaluation results, delivery package, or Annifity canonical skill and return a readiness or quality verdict with findings. Use when the user asks to review, validate, compare AI baseline and candidate runs, assess regression or release readiness, check completeness, consistency, testability, coverage, traceability, risk, or go/no-go status. Use `experiment` to design an evaluation before results exist; use `prd`, `spec`, `user-story`, `uat`, or `ship` to create or substantially rewrite their artifacts.
 ---
 
 # Validate
@@ -15,7 +15,7 @@ Apply the checklist that matches the existing target, then issue an evidence-bac
 
 ## Process
 
-1. Identify the target: PRD, spec, story, UAT, prototype, experiment, change plan, release package, or canonical skill change.
+1. Identify the target: PRD, spec, story, UAT, prototype, experiment, AI evaluation suite/run, change plan, release package, or canonical skill change.
 2. Review against the relevant checklist or readiness workflow.
 3. Check cross-artifact consistency and traceability when multiple artifacts exist.
 4. Separate blockers from improvements and accepted risks; require a named owner for every accepted material risk.
@@ -32,6 +32,7 @@ Apply the checklist that matches the existing target, then issue an evidence-bac
 - Traceability or readiness gaps
 - Inline fixes or suggested edits
 - Residual risks
+- Baseline-to-candidate and material-slice deltas when applicable
 - Recommendation
 - Next action
 
@@ -63,6 +64,7 @@ Load only references matching the review target:
 - For risk, governance, security, privacy, or accessibility, use `_refs/checklists/risk-review.md`, `_refs/checklists/stakeholder-governance.md`, `_refs/checklists/security-privacy-accessibility.md`, and `_refs/templates/risk/risk-register.md` only as applicable.
 - For cross-artifact traceability, use `_refs/templates/traceability/rtm.md`.
 - For experiment-result evaluation, use `_refs/templates/experiment/decision-criteria.md`.
+- For AI evaluation results, use `_refs/workflows/ai-evaluation.md`, `_refs/schemas/ai-evaluation-suite.md`, and `_refs/checklists/ai-evaluation-release-gate.md`; do not let an aggregate score hide a critical-slice or hard-blocker failure.
 
 ## Handoff
 

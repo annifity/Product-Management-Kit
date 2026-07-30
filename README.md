@@ -42,7 +42,7 @@ Annifity packages work into handoff-friendly bundles instead of leaving users wi
 | Discovery Pack | The opportunity is shaped but not committed | Problem, users, evidence, options, assumptions, open questions, metric draft |
 | Prototype Pack | The team needs proof-of-life before commitment | Learning objective, riskiest assumptions, flow, screen list, wireframe or builder prompt |
 | PRO | A raw idea needs prompt-ready frontend prototype input | 11-section Prototyping Requirements One-Pager for a selected builder, capped at 500 words |
-| Experiment Pack | Evidence is needed before delivery scope | Hypothesis, sample, tracking, metrics, guardrails, decision thresholds |
+| Experiment Pack | Evidence is needed before delivery scope | Hypothesis, sample or AI golden set, tracking, graders, metrics, guardrails, regression and decision thresholds |
 | Build Handoff Pack | A validated direction is ready for implementation planning | Spec IDs, workflows, data/API, NFRs, risk register, traceability, plan |
 | Jira/UAT Pack | Scope must be split, assigned, tested, and accepted | Epics, stories, Given/When/Then AC, UAT register, REQ -> STORY -> AC -> UAT coverage |
 | Release Pack | The team is preparing to ship or hand off | Readiness verdict, UAT signoff, rollout, rollback, support, stakeholder comms, accepted risks |
@@ -81,6 +81,8 @@ Annifity covers these Product Builder Kit capabilities through a clearer learnin
 - Briefing: one-pager/Product Requirements Outline, goals, scope, metrics, AI-specific requirements, edge cases.
 - Prototyping: user flows, screen lists, wireframe descriptions, Claude Code/Lovable/Bolt prompts.
 - Experimentation: hypotheses, success metrics, tracking plans, sample logic, decision criteria.
+- Customer research synthesis: source-linked observations, findings,
+  counterevidence, customer jobs, confidence, and decision-ready insights.
 - Learning: insight summaries, retrospectives, decision memos, roadmap recommendations.
 - Specification: BRD, PRD, product spec, workflow map, data requirements, API contract, NFRs.
 - Planning: prioritization, opportunity scoring, roadmap, release slices, epic map, dependency matrix, grooming questions.
@@ -89,7 +91,7 @@ Annifity covers these Product Builder Kit capabilities through a clearer learnin
 - UAT: happy path, unhappy path, edge, boundary, permission, NFR scenario, priority, pass criteria, traceability, signoff.
 - Change governance: minor/material/breaking changes, surgical edits, changelog, spec change context.
 - Shipping: rollout plan, rollback, support notes, release notes, post-launch review.
-- AI-native learning loop: initiative state, evidence ledger, metrics event schema, artifact quality scorecard, context manifest, approval gates.
+- AI-native learning loop: initiative state, evidence ledger, metrics event schema, context manifest, versioned evaluation suites, calibrated graders, regression/release gates, and approval gates.
 - Knowledge and memory: decision ledger, evidence ledger, decision outcomes, template registry, docs index, AI context manifest.
 - Product builder packaging: discovery, prototype, experiment, build handoff, Jira/UAT, release, and learning packs.
 - Governance and risk: stakeholder decision rights, accepted risk ownership, security, privacy, accessibility, and AI-specific risk checks.

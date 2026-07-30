@@ -52,7 +52,8 @@
       "output": {"requiredTerms": ["Hypothesis", "Method", "Success metrics", "Guardrails", "decision criteria"]},
       "handoff": {"requiredTerms": ["validate", "learn", "evidence"]},
       "templates": [
-        {"path": "_refs/templates/experiment/experiment-plan.md", "requiredTerms": ["Hypothesis", "Method", "Participants Or Sample", "Success Metrics", "Guardrails", "Timeline"]}
+        {"path": "_refs/templates/experiment/experiment-plan.md", "requiredTerms": ["Hypothesis", "Method", "Participants Or Sample", "Success Metrics", "Guardrails", "Timeline"]},
+        {"path": "_refs/templates/ai/evaluation-plan.md", "requiredTerms": ["Evaluation Decision", "Dataset And Golden Set", "Graders And Calibration", "Precommitted Thresholds", "Evidence Limits", "Verdict"]}
       ]
     },
     {

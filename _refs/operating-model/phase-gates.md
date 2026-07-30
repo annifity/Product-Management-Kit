@@ -83,7 +83,12 @@ Proceed only when the prototype has a clear learning objective, minimum user flo
 
 Gate ID: `phase.experiment.ready`.
 
-Proceed only when hypothesis, method, participants or sample, tracking plan, success metrics, guardrails, and decision criteria are explicit. Material evidence should be captured with `_refs/templates/docs/evidence-ledger.md`.
+Proceed only when hypothesis, method, participants or sample, tracking plan,
+success metrics, guardrails, and decision criteria are explicit. For AI
+behavior, the versioned evaluation suite, deployment slices, graders,
+precommitted hard blockers, baseline comparison, and applicable latency/cost
+budgets must also be explicit. Material evidence should be captured with
+`_refs/templates/docs/evidence-ledger.md`.
 
 ## Validate Gate
 
@@ -119,4 +124,9 @@ Escalate to `change` when an answer modifies committed scope or acceptance crite
 
 Gate ID: `phase.ship.ready`.
 
-Release only when UAT, operational readiness, stakeholder communication, rollback/support, security/privacy/accessibility risk, and post-launch memory capture are ready or accepted as risks with named owners.
+Release only when UAT, operational readiness, stakeholder communication,
+rollback/support, security/privacy/accessibility risk, and post-launch memory
+capture are ready or accepted as risks with named owners. An AI-enabled release
+or material model, prompt, retrieval, tool, policy, or data change also requires
+a comparable AI evaluation verdict; critical-slice and hard-blocker failures
+cannot be accepted as an aggregate pass.

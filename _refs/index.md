@@ -16,15 +16,18 @@ Skills should load only the relevant reference files for the current task.
 
 ## Reference Families
 
-- Discovery and strategy: product discovery, research evidence, discovery interview plan, opportunity scoring, opportunity solution tree, solution exploration, market sizing, company research, business model canvas, metric tree.
-- Learning loop: brief, prototype, experiment design, validation, learning synthesis, decision criteria, roadmap recommendation.
+- Discovery and strategy: product discovery, customer research synthesis,
+  jobs-to-be-done analysis, discovery interview plan, research evidence,
+  opportunity scoring, opportunity solution tree, solution exploration, market
+  sizing, company research, business model canvas, metric tree.
+- Learning loop: brief, prototype, experiment design, AI evaluation, validation, learning synthesis, decision criteria, roadmap recommendation.
 - Business and finance: finance metrics, feature investment economics, pricing/ROI inputs, SaaS health signals, market sizing.
 - Specification: BRD analysis, product spec, workflow map, data requirements, API contract, feature design, requirement analysis.
 - Planning: prioritization, roadmap, story map, grooming questions, definition of ready, market/finance-informed sequencing.
 - Delivery and review: sprint readiness, edge case review, risk register, traceability matrix, UAT, operational readiness.
 - Shipping and change: release readiness, rollout plan, change governance, spec change context.
 - Documentation and memory: docs index, evidence ledger, decision ledger, template registry, initiative state, metrics events, memory schemas, context manifest for AI-native workflows.
-- Governance and risk: stakeholder governance, security/privacy/accessibility, risk acceptance, AI risk review.
+- Governance and risk: stakeholder governance, security/privacy/accessibility, risk acceptance, AI risk review, AI evaluation release gate.
 - Skill authoring: canonical authoring standard with an integrated workflow, skill template, routing contracts, and quality gate.
 
 ## High-ROI Capability Routes
@@ -63,12 +66,15 @@ Skills should load only the relevant reference files for the current task.
 | Score artifact quality before handoff | `_refs/checklists/artifact-quality-scorecard.md` |
 | Run an interactive PM workshop | `_refs/workflows/workshop-facilitation.md` |
 | Do external research with evidence quality | `_refs/workflows/research-evidence.md` |
+| Turn raw customer research into traceable findings | `_refs/workflows/customer-discovery-synthesis.md` + `_refs/templates/learning/insight-summary.md` |
+| Frame evidence-backed customer progress and alternatives | `_refs/workflows/jobs-to-be-done-analysis.md` |
 | Persist evidence behind claims | `_refs/templates/docs/evidence-ledger.md` |
 | Track initiative state across phases | `_refs/schemas/initiative-state.md` |
 | Run AI-native PM loop | `_refs/workflows/ai-native-pm-loop.md` |
 | Understand the Annifity loop | `_refs/operating-model/learning-loop.md` |
 | Move from idea to prototype | `_refs/workflows/idea-to-prototype.md` |
 | Design a validation experiment | `_refs/workflows/experiment-design.md` |
+| Design and assess an AI product evaluation | `_refs/workflows/ai-evaluation.md` + `_refs/schemas/ai-evaluation-suite.md` + `_refs/templates/ai/evaluation-plan.md` + `_refs/checklists/ai-evaluation-release-gate.md` |
 | Synthesize learning into a decision | `_refs/workflows/learning-synthesis.md` |
 | Define metrics events | `_refs/schemas/metrics-event.md` |
 | Size a market | `_refs/workflows/market-sizing.md` + `_refs/templates/strategy/market-sizing.md` |

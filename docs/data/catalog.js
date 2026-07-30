@@ -2,10 +2,10 @@ window.ANNIFITY_CATALOG = {
     "generatedAt":  "2026-07-06T14:01:11Z",
     "summary":  {
                     "skillCount":  17,
-                    "referenceCount":  146,
-                    "workflowCount":  19,
-                    "checklistCount":  25,
-                    "templateCount":  70
+                    "referenceCount":  152,
+                    "workflowCount":  22,
+                    "checklistCount":  26,
+                    "templateCount":  71
                 },
     "skills":  [
                    {
@@ -58,7 +58,7 @@ window.ANNIFITY_CATALOG = {
                    },
                    {
                        "name":  "discovery",
-                       "description":  "Frame an unclear product problem or opportunity into a confirmed direction. Use for vague or solution-led stakeholder asks, early ideas, missing users/outcomes/evidence, product strategy, opportunity framing, solution exploration, workshops, market sizing, business-model questions, research, or AI context design. Use `discovery` while the problem or direction is unresolved; use `prototype` once a direction is clear enough to build to learn.",
+                       "description":  "Frame an unclear product problem or opportunity into a confirmed direction. Use for vague or solution-led stakeholder asks, early ideas, missing users/outcomes/evidence, customer interview or research synthesis, product strategy, opportunity framing, solution exploration, workshops, market sizing, business-model questions, research, or AI context design. Use `discovery` while evidence is raw or the problem or direction is unresolved; use `learn` after evidence has been assessed and only interpretation or a product decision remains; use `prototype` once a direction is clear enough to build to learn.",
                        "source":  "skills/discovery/SKILL.md",
                        "references":  [
                                           "_refs/checklists/brainstorming-readiness.md",
@@ -76,6 +76,7 @@ window.ANNIFITY_CATALOG = {
                                           "_refs/templates/ai/context-manifest.md",
                                           "_refs/templates/discovery/discovery-brief.md",
                                           "_refs/templates/discovery/interview-plan.md",
+                                          "_refs/templates/learning/insight-summary.md",
                                           "_refs/templates/memories/product-context.md",
                                           "_refs/templates/memories/stakeholder-context.md",
                                           "_refs/templates/memories/team-preferences.md",
@@ -86,7 +87,9 @@ window.ANNIFITY_CATALOG = {
                                           "_refs/templates/strategy/market-sizing.md",
                                           "_refs/templates/strategy/opportunity-solution-tree.md",
                                           "_refs/workflows/ai-native-pm-loop.md",
+                                          "_refs/workflows/customer-discovery-synthesis.md",
                                           "_refs/workflows/discovery-to-spec.md",
+                                          "_refs/workflows/jobs-to-be-done-analysis.md",
                                           "_refs/workflows/market-sizing.md",
                                           "_refs/workflows/product-discovery.md",
                                           "_refs/workflows/research-evidence.md",
@@ -143,9 +146,10 @@ window.ANNIFITY_CATALOG = {
                    },
                    {
                        "name":  "experiment",
-                       "description":  "Design an evidence-producing product experiment from a hypothesis, brief, or prototype. Use when the user needs an experiment method, participants or sample size, success metrics, tracking, guardrails, or precommitted go/iterate/stop criteria before production delivery. Use `validate` after evidence exists to judge results; use `uat` to verify acceptance of already committed behavior.",
+                       "description":  "Design an evidence-producing product experiment or AI evaluation plan from a hypothesis, brief, prototype, or confirmed AI behavior. Use when the user needs an experiment method, sample logic, success metrics, tracking, guardrails, or an AI golden set, graders, regression thresholds, latency/cost budgets, and precommitted go/iterate/stop criteria before production delivery. Use `validate` after evidence exists to judge results; use `uat` to verify acceptance of already committed deterministic behavior.",
                        "source":  "skills/experiment/SKILL.md",
                        "references":  [
+                                          "_refs/checklists/ai-evaluation-release-gate.md",
                                           "_refs/checklists/material-decision-preflight.md",
                                           "_refs/checklists/security-privacy-accessibility.md",
                                           "_refs/checklists/source-backed-minimality.md",
@@ -154,14 +158,17 @@ window.ANNIFITY_CATALOG = {
                                           "_refs/operating-model/builder-packs.md",
                                           "_refs/operating-model/learning-loop.md",
                                           "_refs/operating-model/phase-gates.md",
+                                          "_refs/schemas/ai-evaluation-suite.md",
                                           "_refs/schemas/artifact-generation-contract.md",
                                           "_refs/schemas/metrics-event.md",
+                                          "_refs/templates/ai/evaluation-plan.md",
                                           "_refs/templates/docs/evidence-ledger.md",
                                           "_refs/templates/experiment/decision-criteria.md",
                                           "_refs/templates/experiment/experiment-plan.md",
                                           "_refs/templates/experiment/hypothesis.md",
                                           "_refs/templates/experiment/sample-size.md",
                                           "_refs/templates/experiment/tracking-plan.md",
+                                          "_refs/workflows/ai-evaluation.md",
                                           "_refs/workflows/experiment-design.md"
                                       ]
                    },
@@ -182,7 +189,7 @@ window.ANNIFITY_CATALOG = {
                    },
                    {
                        "name":  "learn",
-                       "description":  "Synthesize completed discovery, prototype, experiment, validation, release, or post-ship evidence into reusable insight and a product decision. Use for insight summaries, retrospectives, decision memos, roadmap recommendations, and next-loop recommendations after evidence has been assessed. Use `validate` for the readiness/result verdict itself; use `learn` to interpret what the evidence means and what to do next.",
+                       "description":  "Synthesize completed discovery, prototype, experiment, validation, release, or post-ship evidence into reusable insight and a product decision. Use for insight summaries, retrospectives, decision memos, roadmap recommendations, and next-loop recommendations after evidence has been assessed. Use `discovery` to analyze raw customer interviews or research notes, `validate` for the readiness/result verdict itself, and `learn` only when the remaining job is to interpret assessed evidence and decide what to do next.",
                        "source":  "skills/learn/SKILL.md",
                        "references":  [
                                           "_refs/checklists/material-decision-preflight.md",
@@ -200,6 +207,8 @@ window.ANNIFITY_CATALOG = {
                                           "_refs/templates/learning/roadmap-recommendation.md",
                                           "_refs/templates/memories/decision-outcomes.md",
                                           "_refs/templates/prototype/prototype-feedback-summary.md",
+                                          "_refs/workflows/customer-discovery-synthesis.md",
+                                          "_refs/workflows/jobs-to-be-done-analysis.md",
                                           "_refs/workflows/learning-synthesis.md",
                                           "_refs/workflows/prototype-first.md"
                                       ]
@@ -315,9 +324,10 @@ window.ANNIFITY_CATALOG = {
                    },
                    {
                        "name":  "ship",
-                       "description":  "Prepare and coordinate a product release, rollout, retirement, or final stakeholder/support handoff. Use when the requested outcome is a ship package such as a launch or EOL plan, release notes, rollback/support notes, final document bundle, UAT signoff summary, or post-ship capture. Use `validate` for a read-only readiness audit without package creation and `uat` to create or execute acceptance tests.",
+                       "description":  "Prepare and coordinate a product release, rollout, retirement, or final stakeholder/support handoff. Use when the requested outcome is a ship package such as a launch or EOL plan, release notes, rollback/support notes, final document bundle, UAT signoff summary, AI release regression gate, or post-ship capture. Use `validate` for a read-only readiness audit or AI evaluation verdict without package creation and `uat` to create or execute acceptance tests.",
                        "source":  "skills/ship/SKILL.md",
                        "references":  [
+                                          "_refs/checklists/ai-evaluation-release-gate.md",
                                           "_refs/checklists/material-decision-preflight.md",
                                           "_refs/checklists/operational-readiness.md",
                                           "_refs/checklists/security-privacy-accessibility.md",
@@ -329,11 +339,13 @@ window.ANNIFITY_CATALOG = {
                                           "_refs/operating-model/builder-packs.md",
                                           "_refs/operating-model/phase-gates.md",
                                           "_refs/operating-model/routing.md",
+                                          "_refs/schemas/ai-evaluation-suite.md",
                                           "_refs/schemas/artifact-generation-contract.md",
                                           "_refs/templates/docs/release-note.md",
                                           "_refs/templates/release/rollout-plan.md",
                                           "_refs/templates/risk/risk-register.md",
                                           "_refs/templates/traceability/rtm.md",
+                                          "_refs/workflows/ai-evaluation.md",
                                           "_refs/workflows/release-readiness.md"
                                       ]
                    },
@@ -420,10 +432,11 @@ window.ANNIFITY_CATALOG = {
                    },
                    {
                        "name":  "validate",
-                       "description":  "Audit an existing product artifact, evidence set, delivery package, or Annifity canonical skill and return a readiness or quality verdict with findings. Use when the user asks to review, validate, assess readiness, check completeness, consistency, testability, coverage, traceability, risk, or go/no-go status. Use `prd`, `spec`, `user-story`, `uat`, or `ship` to create or substantially rewrite those artifacts; use `validate` as the primary route for an independent review, with domain skills applied only for requested fixes.",
+                       "description":  "Audit an existing product artifact, evidence set, AI evaluation results, delivery package, or Annifity canonical skill and return a readiness or quality verdict with findings. Use when the user asks to review, validate, compare AI baseline and candidate runs, assess regression or release readiness, check completeness, consistency, testability, coverage, traceability, risk, or go/no-go status. Use `experiment` to design an evaluation before results exist; use `prd`, `spec`, `user-story`, `uat`, or `ship` to create or substantially rewrite their artifacts.",
                        "source":  "skills/validate/SKILL.md",
                        "references":  [
                                           "_refs/checklists/acceptance-criteria-quality.md",
+                                          "_refs/checklists/ai-evaluation-release-gate.md",
                                           "_refs/checklists/artifact-quality-scorecard.md",
                                           "_refs/checklists/business-analysis.md",
                                           "_refs/checklists/definition-of-done.md",
@@ -452,6 +465,7 @@ window.ANNIFITY_CATALOG = {
                                           "_refs/operating-model/phase-gates.md",
                                           "_refs/operating-model/routing.md",
                                           "_refs/operating-model/skill-authoring.md",
+                                          "_refs/schemas/ai-evaluation-suite.md",
                                           "_refs/schemas/artifact-generation-contract.md",
                                           "_refs/schemas/context-consistency-manifest.md",
                                           "_refs/schemas/drawio-validation-manifest.md",
@@ -466,6 +480,7 @@ window.ANNIFITY_CATALOG = {
                                           "_refs/templates/risk/risk-register.md",
                                           "_refs/templates/skills/skill-template.md",
                                           "_refs/templates/traceability/rtm.md",
+                                          "_refs/workflows/ai-evaluation.md",
                                           "_refs/workflows/local-mutation-safety.md",
                                           "_refs/workflows/prototype-first.md",
                                           "_refs/workflows/sprint-readiness.md"
@@ -478,6 +493,12 @@ window.ANNIFITY_CATALOG = {
                            "group":  "checklists",
                            "name":  "acceptance-criteria-quality",
                            "lines":  125
+                       },
+                       {
+                           "path":  "_refs/checklists/ai-evaluation-release-gate.md",
+                           "group":  "checklists",
+                           "name":  "ai-evaluation-release-gate",
+                           "lines":  118
                        },
                        {
                            "path":  "_refs/checklists/artifact-quality-scorecard.md",
@@ -573,7 +594,7 @@ window.ANNIFITY_CATALOG = {
                            "path":  "_refs/checklists/ship-readiness.md",
                            "group":  "checklists",
                            "name":  "ship-readiness",
-                           "lines":  15
+                           "lines":  20
                        },
                        {
                            "path":  "_refs/checklists/skill-quality.md",
@@ -627,7 +648,7 @@ window.ANNIFITY_CATALOG = {
                            "path":  "_refs/index.md",
                            "group":  "overview",
                            "name":  "index",
-                           "lines":  79
+                           "lines":  85
                        },
                        {
                            "path":  "_refs/integrations/claude.md",
@@ -693,7 +714,7 @@ window.ANNIFITY_CATALOG = {
                            "path":  "_refs/operating-model/builder-packs.md",
                            "group":  "operating-model",
                            "name":  "builder-packs",
-                           "lines":  89
+                           "lines":  95
                        },
                        {
                            "path":  "_refs/operating-model/language-policy.md",
@@ -711,7 +732,7 @@ window.ANNIFITY_CATALOG = {
                            "path":  "_refs/operating-model/phase-gates.md",
                            "group":  "operating-model",
                            "name":  "phase-gates",
-                           "lines":  122
+                           "lines":  132
                        },
                        {
                            "path":  "_refs/operating-model/routing.md",
@@ -724,6 +745,12 @@ window.ANNIFITY_CATALOG = {
                            "group":  "operating-model",
                            "name":  "skill-authoring",
                            "lines":  214
+                       },
+                       {
+                           "path":  "_refs/schemas/ai-evaluation-suite.md",
+                           "group":  "schemas",
+                           "name":  "ai-evaluation-suite",
+                           "lines":  221
                        },
                        {
                            "path":  "_refs/schemas/artifact-generation-contract.md",
@@ -822,6 +849,12 @@ window.ANNIFITY_CATALOG = {
                            "lines":  33
                        },
                        {
+                           "path":  "_refs/templates/ai/evaluation-plan.md",
+                           "group":  "templates",
+                           "name":  "evaluation-plan",
+                           "lines":  145
+                       },
+                       {
                            "path":  "_refs/templates/brd/default-brd.md",
                            "group":  "templates",
                            "name":  "default-brd",
@@ -861,7 +894,7 @@ window.ANNIFITY_CATALOG = {
                            "path":  "_refs/templates/discovery/interview-plan.md",
                            "group":  "templates",
                            "name":  "interview-plan",
-                           "lines":  59
+                           "lines":  68
                        },
                        {
                            "path":  "_refs/templates/docs/decision-ledger.md",
@@ -951,7 +984,7 @@ window.ANNIFITY_CATALOG = {
                            "path":  "_refs/templates/learning/insight-summary.md",
                            "group":  "templates",
                            "name":  "insight-summary",
-                           "lines":  21
+                           "lines":  48
                        },
                        {
                            "path":  "_refs/templates/learning/product-retrospective.md",
@@ -1236,6 +1269,12 @@ window.ANNIFITY_CATALOG = {
                            "lines":  5
                        },
                        {
+                           "path":  "_refs/workflows/ai-evaluation.md",
+                           "group":  "workflows",
+                           "name":  "ai-evaluation",
+                           "lines":  178
+                       },
+                       {
                            "path":  "_refs/workflows/ai-native-pm-loop.md",
                            "group":  "workflows",
                            "name":  "ai-native-pm-loop",
@@ -1246,6 +1285,12 @@ window.ANNIFITY_CATALOG = {
                            "group":  "workflows",
                            "name":  "change-governance",
                            "lines":  16
+                       },
+                       {
+                           "path":  "_refs/workflows/customer-discovery-synthesis.md",
+                           "group":  "workflows",
+                           "name":  "customer-discovery-synthesis",
+                           "lines":  158
                        },
                        {
                            "path":  "_refs/workflows/discovery-to-spec.md",
@@ -1278,10 +1323,16 @@ window.ANNIFITY_CATALOG = {
                            "lines":  12
                        },
                        {
+                           "path":  "_refs/workflows/jobs-to-be-done-analysis.md",
+                           "group":  "workflows",
+                           "name":  "jobs-to-be-done-analysis",
+                           "lines":  133
+                       },
+                       {
                            "path":  "_refs/workflows/learning-synthesis.md",
                            "group":  "workflows",
                            "name":  "learning-synthesis",
-                           "lines":  19
+                           "lines":  23
                        },
                        {
                            "path":  "_refs/workflows/local-mutation-safety.md",
@@ -1299,7 +1350,7 @@ window.ANNIFITY_CATALOG = {
                            "path":  "_refs/workflows/product-discovery.md",
                            "group":  "workflows",
                            "name":  "product-discovery",
-                           "lines":  36
+                           "lines":  42
                        },
                        {
                            "path":  "_refs/workflows/prototype-first.md",
