@@ -42,6 +42,7 @@ foreach ($directory in @(
     $DocsRoot,
     (Join-Path $DocsRoot "prd"),
     (Join-Path $DocsRoot "specs"),
+    (Join-Path $DocsRoot "designs"),
     (Join-Path $DocsRoot "brd"),
     (Join-Path $DocsRoot "user-stories"),
     (Join-Path $DocsRoot "uat"),

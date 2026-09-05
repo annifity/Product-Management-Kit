@@ -15,7 +15,7 @@ $AllowedLifecycles = @("draft", "reviewed", "baselined", "shipped", "superseded"
 $ActiveLifecycles = @("baselined", "shipped")
 $AllowedMetadataModes = @("frontmatter", "registry", "legacy-registry")
 $AllowedTypes = @(
-    "brd", "prd", "spec", "user-story", "uat", "decision", "changelog",
+    "brd", "prd", "spec", "design", "user-story", "uat", "decision", "changelog",
     "release-note", "session", "traceability", "roadmap", "risk"
 )
 

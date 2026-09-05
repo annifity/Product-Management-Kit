@@ -23,9 +23,13 @@ Use before specification when the team must answer "should we build this?" befor
 1. Write the problem hypothesis and research questions.
 2. Define what "validated" means before collecting evidence.
 3. Plan interviews with `_refs/templates/discovery/interview-plan.md`, desk research, data review, or operational observation.
-4. Synthesize pain points, frequency, intensity, and evidence.
-5. Recommend solution direction without designing the full solution.
-6. Produce `_refs/templates/discovery/discovery-brief.md` and hand off to `brief`, `prototype`, `experiment`, or `spec` based on confidence and delivery readiness.
+4. Synthesize raw evidence with
+   `_refs/workflows/customer-discovery-synthesis.md`; preserve source IDs,
+   counterevidence, privacy constraints, and method limitations.
+5. Use `_refs/workflows/jobs-to-be-done-analysis.md` when the product decision
+   depends on customer progress, circumstances, alternatives, or barriers.
+6. Recommend solution direction without designing the full solution.
+7. Produce `_refs/templates/discovery/discovery-brief.md` and hand off to `brief`, `prototype`, `experiment`, or `spec` based on confidence and delivery readiness.
 
 ## Gates
 
@@ -34,3 +38,5 @@ Use before specification when the team must answer "should we build this?" befor
 - If confidence is low, park, research more, or explicitly accept the uncertainty.
 - Do not treat market size as product validation; pair market sizing with customer evidence.
 - Do not treat uncited external claims as facts; mark them as assumptions or low-quality signals.
+- Do not turn paraphrases into quotations, count repeated notes from one
+  participant as independent support, or hide contradictory evidence.

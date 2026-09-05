@@ -209,15 +209,25 @@ The resolver returns JSON with:
 request, inaccessible source, unsupported layer, or invalid profile is a script
 error.
 
-Consumers must persist or display the fingerprint with any preview. Before a
-write, resolve again and reject the write if the fingerprint changed.
+Consumers must bind the fingerprint to any protected preview and persist it in
+the technical audit record. Do not require the user to interpret or approve the
+fingerprint. Before a write, resolve again and reject the write if the
+fingerprint changed.
 
-Return a compact generation receipt alongside every authored artifact or
-preview using `_refs/templates/docs/generation-receipt.md`. Include the
-fingerprint, write disposition, outcome/mode/consumer, exact source IDs,
-baseline identity/path/SHA (or `new-artifact`), project profile sources,
-material decisions, and blockers. Keep it outside the artifact when the
-resolved profile forbids embedded metadata.
+Return the localized user-facing generation result defined in
+`_refs/templates/docs/generation-receipt.md` alongside every authored artifact
+or preview. Keep the technical audit record containing the fingerprint, write
+disposition, exact source IDs, baseline identity/path/SHA, project-profile
+sources, material decisions, and blockers internal or in a companion record.
+Expose it only for explicitly requested diagnostics or a required audit export.
+For a stale-state failure, explain what changed and which action must be
+repeated without returning raw comparison values. Keep both outside the
+artifact when the resolved profile forbids embedded metadata.
+
+The default response must not name the user-facing summary a `generation
+receipt`, expose resolver field names, or append the technical audit record.
+Translate the result into the completed action, human-readable target and
+source, baseline impact, concrete blocker, and next action.
 
 ## Material Conflict Rules
 

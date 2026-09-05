@@ -19,6 +19,8 @@ Use this standard to create or materially update canonical Annifity skills and t
 13. [External Sources And License Gate](#13-external-sources-and-license-gate)
 14. [Generated Adapters](#14-generated-adapters)
 15. [Definition Of Done](#15-definition-of-done)
+16. [Artifact Quality Anatomy](#16-artifact-quality-anatomy)
+17. [Task Progress Contract](#17-task-progress-contract)
 
 ## 1. Source Of Truth
 
@@ -89,6 +91,11 @@ Include the minimum needed to:
 - select decision branches, stop conditions, and escalation conditions;
 - load the required references;
 - identify the phase gate and downstream handoff.
+
+For user-facing output, require plain-language action, target, source, baseline
+impact, and any decision needed. Keep machine audit details out of ordinary
+responses and authored business artifacts. Translate a blocker into the
+concrete conflict and unblock action; technical diagnostics are opt-in.
 
 Prefer the repository's compact sections: `Process`, `Output`, `Reference Routing`, and `Handoff`. Route each reference by a recognizable condition and load only the minimum relevant files. Add `Input Contract` or `Decision Points` only when the behavior would otherwise be ambiguous. Do not duplicate detailed teaching material from `_refs/` inside the skill.
 
@@ -176,7 +183,7 @@ Required sequence:
 
 1. Search for overlap and choose skill versus reference.
 2. Define inputs, outcome, boundary, decisions, and handoff.
-3. Plan only the reusable resources that are needed.
+3. Plan only the reusable resources that are needed. Decide whether the workflow is multi-step under `_refs/operating-model/task-progress.md`; define verifiable task outcomes, completion evidence, and blocker representation when it is.
 4. Edit canonical sources and tests together.
 5. Run targeted validation.
 6. Run sync and inspect generated diffs.
@@ -203,6 +210,9 @@ A skill change is done only when:
 - `Input Contract`, `Output`, and `Handoff` conform to
   `_refs/schemas/skill-output-contract.md`, including primary-template fields;
 - output, decisions, assumptions, evidence, gate, and handoff are clear;
+- user-facing output uses product language and does not require the user to
+  interpret resolver fields, hashes, machine states, profile data, context IDs,
+  or confirmation tokens;
 - required references resolve and none are orphaned;
 - good examples and failure modes exist where they improve the capability;
 - positive, negative, ambiguous, handoff, and multilingual routing cases are updated as relevant;
@@ -212,3 +222,17 @@ A skill change is done only when:
 - targeted structural and semantic tests, `npm run check`, and
   `git diff --check` pass;
 - the final diff contains only intentional changes.
+
+## 16. Artifact Quality Anatomy
+
+For a material artifact family, apply `_refs/operating-model/artifact-quality-system.md`. Provide an inspectable method, template, synthetic gold example or declared shared anchor, rubric, and eval. Record externally sourced methods with `_refs/schemas/methodology-record.md`. Use `_refs/templates/skills/gold-example.md` when an artifact-specific quality anchor is necessary; do not load examples by default when method and template are sufficient.
+
+## 17. Task Progress Contract
+
+Treat progress visibility as shared operating behavior, not a new front-door skill or a repeated block in every `SKILL.md`.
+
+- Determine whether the work has two or more independently verifiable outcomes, multiple phases/tools/files, a material artifact, or a meaningful blocker/gate risk.
+- For qualifying work, define outcome-level tasks before execution and identify what evidence proves each completion.
+- Define blocked and skipped representation; do not equate task completion with lifecycle, gate, or artifact approval.
+- Route detailed behavior to `_refs/operating-model/task-progress.md`, persisted state to `_refs/schemas/task-progress-state.md`, display shape to `_refs/templates/docs/task-progress-checklist.md`, and review criteria to `_refs/checklists/task-progress-quality.md`.
+- Add positive, negative, interruption, plan-change, evidence, and runtime-portability evals when authoring a multi-step workflow.

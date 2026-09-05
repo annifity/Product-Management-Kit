@@ -1,0 +1,4 @@
+interface:
+  display_name: "Commercial Decisions"
+  short_description: "Evaluate pricing, economics, and market value"
+  default_prompt: "Use $commercial to evaluate this pricing or product economics decision."

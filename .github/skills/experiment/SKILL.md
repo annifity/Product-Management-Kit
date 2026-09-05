@@ -1,6 +1,6 @@
 ---
 name: experiment
-description: 'Design an evidence-producing product experiment from a hypothesis, brief, or prototype. Use when the user needs an experiment method, participants or sample size, success metrics, tracking, guardrails, or precommitted go/iterate/stop criteria before production delivery. Use `validate` after evidence exists to judge results; use `uat` to verify acceptance of already committed behavior.'
+description: 'Design an evidence-producing product experiment or AI evaluation plan from a hypothesis, brief, prototype, or confirmed AI behavior. Use when the user needs an experiment method, sample logic, success metrics, tracking, guardrails, or an AI golden set, graders, regression thresholds, latency/cost budgets, and precommitted go/iterate/stop criteria before production delivery. Use `validate` after evidence exists to judge results; use `uat` to verify acceptance of already committed deterministic behavior.'
 ---
 
 # experiment

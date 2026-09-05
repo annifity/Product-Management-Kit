@@ -21,6 +21,7 @@ Use this checklist to review a new or materially changed Annifity canonical skil
 ## Execution Gate
 
 - The high-level process is sequential and actionable.
+- Multi-step work follows `_refs/operating-model/task-progress.md`; its outcome-level tasks, completion evidence, and blocker representation are defined without duplicating the shared contract.
 - Decision branches, stop conditions, approvals, and escalation conditions are explicit where relevant.
 - The output contract is observable and useful to the next phase.
 - The skill stays compact; reusable depth is routed to `_refs/`.
@@ -28,10 +29,21 @@ Use this checklist to review a new or materially changed Annifity canonical skil
 ## Teaching And Decision Quality Gate
 
 - Concepts and jargon are explained in plain language when needed.
+- Default user-facing output does not expose or label internal resolver, hash,
+  fingerprint, disposition, profile-contract, or technical-audit fields.
+- Internal skill, phase, and gate labels are translated into the business action
+  or readiness meaning they represent.
+- Displayed artifact identity and version come from authoritative resolution or
+  declared document metadata, not filenames, changelogs, or provenance prose.
 - The method explains which decision it improves and which failure it prevents.
 - Trade-offs are visible rather than hidden behind a universal best practice.
+- Every user-facing confirmation names one decision, explains its consequence, and provides concrete options when known.
+- Business users are not asked to choose unexplained technical mechanisms; implementation decisions are routed to the technical owner.
 - A realistic good example and anti-pattern exist when quality would otherwise be ambiguous.
 - Important failure modes include signal, consequence, correction, and prevention.
+- A material artifact family has a method, template, gold-quality anchor, rubric, and eval under `_refs/operating-model/artifact-quality-system.md`.
+- Material decisions apply `_refs/workflows/pm-decision-challenge.md` and issue one explicit verdict.
+- External methodologies have provenance and a license or usage note under `_refs/schemas/methodology-record.md`.
 
 ## Evidence And Assumption Gate
 
@@ -53,12 +65,14 @@ Use this checklist to review a new or materially changed Annifity canonical skil
 - Canonical frontmatter contains only supported fields.
 - Naming follows lowercase kebab-case and current repository conventions.
 - Scripts are deterministic, reviewed, dependency-light, non-destructive, and network-free unless the repository explicitly permits otherwise.
+- Supported finance and experiment calculations call repository scripts rather than relying on model arithmetic.
 - No secret, local absolute path, or external skill dependency is committed.
 - External source use passed the license gate.
 
 ## Validation Gate
 
 - Positive, negative, ambiguous, and handoff cases are present for changed routing behavior.
+- Multi-step workflow changes include progress activation, non-activation, evidence, blocker, plan-change, interruption, and runtime-portability coverage as applicable.
 - Vietnamese and English cases exist when the skill is user-facing.
 - `npm run skill:validate` passes for canonical frontmatter and UI metadata.
 - `npm run routing:test` passes.
@@ -76,6 +90,9 @@ Use this checklist to review a new or materially changed Annifity canonical skil
 | Reference orphan | A new `_refs/` file has no canonical inbound route | Knowledge becomes undiscoverable | Add a specific route or remove the file | Run `npm run ref:check` |
 | Front-door bloat | Detailed theory and templates accumulate in `SKILL.md` | Context and maintenance cost grow | Move reusable depth to the correct reference family | Review line growth and duplication |
 | Hidden assumption | Recommendation sounds factual without evidence | Decisions become hard to audit | Label the assumption, confidence, and validation step | Apply the evidence gate |
+| Confirmation fog | A prompt asks the user to approve vague wording, several decisions at once, or unexplained technical choices | Approval is unreliable and rework follows | Restate one plain-language decision with options, consequences, owner, and timing | Apply the User Confirmation Clarity Gate |
+| Audit leakage | A normal handoff prints fingerprints, hashes, resolver states, or a “generation receipt” | Users must interpret implementation machinery and may mistake write safety for product approval | Replace it with action, target, baseline impact, blocker, and next action; retain technical values internally | Enforce prohibited output terms and template assertions in the output contract |
+| Provenance-as-version | A response reports a version parsed from source history or a filename | The user is told the wrong artifact identity | Use resolver output or declared identity metadata | Test blocked and accepted source paths separately |
 | Adapter drift | Generated files differ from canonical intent | Platforms behave inconsistently | Re-run sync and inspect generated paths/descriptions | Keep generated files read-only by policy |
 
 ## Verdict

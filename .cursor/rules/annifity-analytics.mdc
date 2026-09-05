@@ -1,0 +1,12 @@
+---
+description: 'Annifity skill analytics: Diagnose product performance and produce a decision-ready measurement plan from product events, funnels, cohorts, retention, activation, adoption, experiments, or KPI data. Use when a PM needs to define instrumentation, investigate metric movement, compare user segments, identify behavioral drivers, or turn product usage data into a recommended next analysis. Use `validate` for an independent evidence-quality verdict, `learn` after evidence is assessed and needs interpretation into a product decision, and `experiment` to design a prospective test.'
+alwaysApply: false
+---
+
+# analytics
+
+Use this rule when the request matches the description above.
+
+Canonical source: skills/analytics/SKILL.md
+
+Read the canonical skill file before acting, then load only the referenced _refs/ files needed for the task. If generated adapter text conflicts with the canonical source, the canonical source wins.

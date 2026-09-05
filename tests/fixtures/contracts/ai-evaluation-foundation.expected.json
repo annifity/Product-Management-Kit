@@ -1,0 +1,97 @@
+{
+  "name": "ai-evaluation-foundation",
+  "skill": "experiment",
+  "input": "ai-evaluation-foundation.input.md",
+  "sourceFiles": [
+    "skills/validate/SKILL.md",
+    "skills/ship/SKILL.md",
+    "_refs/workflows/ai-evaluation.md",
+    "_refs/schemas/ai-evaluation-suite.md",
+    "_refs/checklists/ai-evaluation-release-gate.md",
+    "_refs/checklists/ship-readiness.md",
+    "_refs/operating-model/phase-gates.md",
+    "_refs/templates/ai/evaluation-plan.md"
+  ],
+  "requiredTerms": [
+    "AI evaluation plan",
+    "versioned evaluation set",
+    "deployment context",
+    "held-out regression set",
+    "model-assisted",
+    "precommit thresholds",
+    "hard blockers",
+    "critical slice",
+    "baseline-to-candidate",
+    "latency",
+    "cost"
+  ],
+  "fileAssertions": [
+    {
+      "path": "skills/experiment/SKILL.md",
+      "requiredTerms": [
+        "_refs/workflows/ai-evaluation.md",
+        "_refs/schemas/ai-evaluation-suite.md",
+        "_refs/templates/ai/evaluation-plan.md",
+        "_refs/checklists/ai-evaluation-release-gate.md"
+      ]
+    },
+    {
+      "path": "skills/validate/SKILL.md",
+      "requiredTerms": [
+        "AI evaluation results",
+        "baseline-to-candidate",
+        "hard-blocker failure"
+      ]
+    },
+    {
+      "path": "skills/ship/SKILL.md",
+      "requiredTerms": [
+        "AI release regression gate",
+        "_refs/checklists/ai-evaluation-release-gate.md"
+      ]
+    },
+    {
+      "path": "_refs/schemas/ai-evaluation-suite.md",
+      "requiredTerms": [
+        "dataset provenance",
+        "holdout policy",
+        "slicePassRules",
+        "nonRegressionRule",
+        "unscorable"
+      ]
+    },
+    {
+      "path": "_refs/checklists/ai-evaluation-release-gate.md",
+      "requiredTerms": [
+        "Critical failures cannot be hidden by an aggregate score",
+        "unauthorized",
+        "uncalibrated automated grader",
+        "rollback"
+      ]
+    },
+    {
+      "path": "_refs/templates/ai/evaluation-plan.md",
+      "requiredTerms": [
+        "Dataset And Golden Set",
+        "Graders And Calibration",
+        "Precommitted Thresholds",
+        "Threshold fingerprint and confirmation"
+      ]
+    },
+    {
+      "path": "_refs/operating-model/phase-gates.md",
+      "requiredTerms": [
+        "versioned evaluation suite",
+        "critical-slice and hard-blocker failures"
+      ]
+    },
+    {
+      "path": "_refs/checklists/ship-readiness.md",
+      "requiredTerms": [
+        "baseline-to-candidate evaluation verdict",
+        "permitted deployment scope",
+        "human fallback"
+      ]
+    }
+  ]
+}

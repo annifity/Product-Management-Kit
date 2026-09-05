@@ -22,7 +22,7 @@
     "risk-based",
     "Do not create cases to satisfy a numeric quota",
     "AC-01",
-    "generation receipt",
+    "generation result",
     "hard blocker"
   ],
   "fileAssertions": [
@@ -42,7 +42,7 @@
         "full-regression",
         "risk-based",
         "Stop before test design",
-        "generation receipt"
+        "plain language"
       ]
     },
     {
@@ -88,10 +88,19 @@
     {
       "path": "_refs/templates/docs/generation-receipt.md",
       "requiredTerms": [
+        "User-Facing Result",
+        "Generation Result",
+        "Sources used",
+        "Baseline impact",
+        "Needs attention",
+        "machine record"
+      ],
+      "prohibitedTerms": [
+        "generation receipt",
         "Contract fingerprint",
         "Write disposition",
-        "Source authority",
-        "Open blockers"
+        "Source path / SHA-256",
+        "resolvedProfile"
       ]
     }
   ]

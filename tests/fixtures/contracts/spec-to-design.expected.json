@@ -1,0 +1,81 @@
+{
+  "name": "spec-to-design",
+  "skill": "design",
+  "input": "spec-to-design.input.md",
+  "sourceFiles": [
+    "_refs/workflows/spec-to-design.md",
+    "_refs/schemas/design-contract.md",
+    "_refs/schemas/design-artifact-manifest.md",
+    "_refs/checklists/design-readiness.md",
+    "_refs/checklists/design-quality.md",
+    "_refs/templates/design/design-handoff.md",
+    "_refs/templates/design/portable-html.html",
+    "_refs/operating-model/phase-gates.md",
+    "_refs/operating-model/routing.md",
+    "tools/new-design-package.ps1",
+    "tools/validate-design-package.ps1"
+  ],
+  "requiredTerms": [
+    "accepted product specification",
+    "authoritative baseline",
+    "design authority",
+    "Design Handoff Pack",
+    "REQ -> FLOW -> SCREEN -> STATE/INTERACTION",
+    "phase.design.ready",
+    "design-manifest.json",
+    "interactive-html",
+    "self-contained",
+    "prefers-reduced-motion",
+    "source SHA-256 mismatch",
+    "remote scripts"
+  ],
+  "fileAssertions": [
+    {
+      "path": "skills/design/SKILL.md",
+      "requiredTerms": [
+        "_refs/workflows/spec-to-design.md",
+        "_refs/schemas/design-contract.md",
+        "_refs/schemas/design-artifact-manifest.md",
+        "tools/new-design-package.ps1",
+        "tools/validate-design-package.ps1",
+        "route to `prototype`",
+        "declared identity metadata",
+        "provenance or `source` prose",
+        "not yet ready for design"
+      ]
+    },
+    {
+      "path": "_refs/schemas/design-contract.md",
+      "requiredTerms": [
+        "accepted-source-only",
+        "SOURCE BASELINE -> REQ-ID -> FLOW-ID -> SCREEN-ID -> STATE-ID / INT-ID",
+        "Design Gate"
+      ]
+    },
+    {
+      "path": "_refs/checklists/design-quality.md",
+      "requiredTerms": [
+        "permission-denied",
+        "reduced motion",
+        "AI-Native UX",
+        "Blocking gaps"
+      ]
+    },
+    {
+      "path": "_refs/operating-model/routing.md",
+      "requiredTerms": [
+        "Accepted spec must become a traceable UX/UI design",
+        "build-to-learn mockup",
+        "independent design review"
+      ]
+    },
+    {
+      "path": "tools/validate-design-package.ps1",
+      "requiredTerms": [
+        "path escapes the package",
+        "Source baseline hash no longer matches",
+        "must not depend on remote"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,295 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{TITLE}} - Design Preview</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --surface: #ffffff;
+      --surface-subtle: #f5f7fa;
+      --surface-sunken: #e9edf1;
+      --text: #17202a;
+      --text-muted: #52606d;
+      --border: #cbd2d9;
+      --focus: #005fcc;
+      --accent: #005fcc;
+      --danger: #b3261e;
+      --danger-surface: #fbeceb;
+      --success: #1e6b3c;
+      --success-surface: #eaf6ee;
+      --space-1: 0.5rem;
+      --space-2: 1rem;
+      --space-3: 1.5rem;
+      --radius: 0.5rem;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      color: var(--text);
+      background: var(--surface-subtle);
+      line-height: 1.5;
+    }
+    a, button, input, select, textarea { font: inherit; }
+    :focus-visible { outline: 3px solid var(--focus); outline-offset: 3px; }
+    .shell { width: min(72rem, 100%); margin-inline: auto; padding: var(--space-2); }
+    .meta, .screen {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: var(--space-3);
+    }
+    .meta { margin-block: var(--space-2); }
+
+    /* Screen navigation (tab pattern) */
+    .screen-nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-1);
+      margin-block-end: var(--space-2);
+    }
+    .screen-tab {
+      appearance: none;
+      cursor: pointer;
+      background: var(--surface);
+      color: var(--text);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 0.5rem 0.9rem;
+      font-weight: 600;
+    }
+    .screen-tab[aria-selected="true"] {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: #ffffff;
+    }
+
+    /* State toggle (radio-group pattern) within a screen */
+    .state-control {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-1);
+      margin-block: var(--space-2);
+    }
+    .state-btn {
+      appearance: none;
+      cursor: pointer;
+      background: var(--surface-sunken);
+      color: var(--text);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 0.3rem 0.75rem;
+      font-size: 0.875rem;
+    }
+    .state-btn[aria-pressed="true"] {
+      background: var(--text);
+      border-color: var(--text);
+      color: #ffffff;
+    }
+
+    .screen__state {
+      margin-block-start: var(--space-2);
+      padding: var(--space-2);
+      border-inline-start: 0.25rem solid var(--border);
+    }
+    .screen__state[data-tone="danger"] { border-inline-start-color: var(--danger); background: var(--danger-surface); }
+    .screen__state[data-tone="success"] { border-inline-start-color: var(--success); background: var(--success-surface); }
+
+    .muted { color: var(--text-muted); }
+
+    /* Sample form used to demonstrate client-side-only validation feedback */
+    .demo-form .field { margin-block-end: var(--space-2); }
+    .demo-form label { display: block; font-weight: 600; margin-block-end: 0.25rem; }
+    .demo-form input, .demo-form textarea {
+      width: 100%;
+      max-width: 28rem;
+      padding: 0.5rem 0.6rem;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: var(--surface);
+      color: var(--text);
+    }
+    .demo-form input[aria-invalid="true"] { border-color: var(--danger); }
+    .field-error {
+      color: var(--danger);
+      font-size: 0.875rem;
+      margin-block-start: 0.25rem;
+    }
+    .form-status {
+      margin-block-start: var(--space-2);
+      padding: var(--space-2);
+      border-radius: var(--radius);
+    }
+    .form-status[data-tone="danger"] { background: var(--danger-surface); color: var(--danger); }
+    .form-status[data-tone="success"] { background: var(--success-surface); color: var(--success); }
+    .demo-form button[type="submit"] {
+      appearance: none;
+      cursor: pointer;
+      background: var(--accent);
+      color: #ffffff;
+      border: 1px solid var(--accent);
+      border-radius: var(--radius);
+      padding: 0.5rem 1rem;
+      font-weight: 600;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        scroll-behavior: auto !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="shell">
+    <header>
+      <p class="muted">Design {{DESIGN_ID}} &middot; Source {{SOURCE_ID}}</p>
+      <h1>{{TITLE}}</h1>
+    </header>
+
+    <section class="meta" aria-labelledby="preview-context">
+      <h2 id="preview-context">Preview context</h2>
+      <p>Replace this section with the approved design mode, roles, viewport,
+        source limitations, and navigation instructions.</p>
+      <p class="muted">How to use this template: each top-level screen is a tab
+        in the nav below. Within a screen, the state buttons switch which
+        <code>.screen__state</code> panel is visible (loading, empty, error,
+        success, and so on, per the interaction/state matrix). Duplicate the
+        <code>&lt;article class="screen"&gt;</code> block per screen and the
+        <code>&lt;section class="screen__state"&gt;</code> block per state; keep
+        every id unique. This is still a design artifact for review, not
+        production frontend code &mdash; no network requests are made.</p>
+    </section>
+
+    <nav class="screen-nav" role="tablist" aria-label="Screens">
+      <button type="button" class="screen-tab" role="tab" id="tab-SCREEN-TBD"
+        aria-selected="true" aria-controls="panel-SCREEN-TBD"
+        data-screen-target="SCREEN-TBD">Screen name</button>
+      <button type="button" class="screen-tab" role="tab" id="tab-SCREEN-FORM-TBD"
+        aria-selected="false" aria-controls="panel-SCREEN-FORM-TBD"
+        data-screen-target="SCREEN-FORM-TBD">Screen with a form</button>
+    </nav>
+
+    <div class="screens" aria-label="Designed screens and states">
+      <article class="screen" id="panel-SCREEN-TBD" role="tabpanel"
+        aria-labelledby="tab-SCREEN-TBD" data-screen-id="SCREEN-TBD">
+        <h2>Screen name</h2>
+        <p>Replace this card with sourced content and interactions.</p>
+
+        <div class="state-control" role="group" aria-label="State for this screen">
+          <button type="button" class="state-btn" aria-pressed="true" data-state-target="STATE-TBD-loading">Loading</button>
+          <button type="button" class="state-btn" aria-pressed="false" data-state-target="STATE-TBD-empty">Empty</button>
+          <button type="button" class="state-btn" aria-pressed="false" data-state-target="STATE-TBD-error">Error</button>
+          <button type="button" class="state-btn" aria-pressed="false" data-state-target="STATE-TBD-success">Success</button>
+        </div>
+
+        <section class="screen__state" data-state-id="STATE-TBD-loading">
+          <h3>Loading</h3>
+          <p>Describe or implement the loading state and its recovery path.</p>
+        </section>
+        <section class="screen__state" data-state-id="STATE-TBD-empty" hidden>
+          <h3>Empty</h3>
+          <p>Describe or implement the empty state and its recovery path.</p>
+        </section>
+        <section class="screen__state" data-tone="danger" data-state-id="STATE-TBD-error" hidden>
+          <h3>Error</h3>
+          <p>Describe or implement the error state and its recovery path.</p>
+        </section>
+        <section class="screen__state" data-tone="success" data-state-id="STATE-TBD-success" hidden>
+          <h3>Success</h3>
+          <p>Describe or implement the success state and its recovery path.</p>
+        </section>
+      </article>
+
+      <article class="screen" id="panel-SCREEN-FORM-TBD" role="tabpanel"
+        aria-labelledby="tab-SCREEN-FORM-TBD" data-screen-id="SCREEN-FORM-TBD" hidden>
+        <h2>Screen with a form</h2>
+        <p>Sample client-side-only validation. No request is sent; this only
+          demonstrates the required/empty-field feedback pattern for review.</p>
+
+        <form class="demo-form" data-demo-validate novalidate>
+          <div class="field">
+            <label for="demo-name">Name</label>
+            <input id="demo-name" name="demo-name" type="text" required aria-describedby="demo-name-error">
+            <p class="field-error" id="demo-name-error" data-error-for="demo-name" hidden>Enter a name.</p>
+          </div>
+          <div class="field">
+            <label for="demo-note">Note</label>
+            <textarea id="demo-note" name="demo-note" rows="3"></textarea>
+          </div>
+          <button type="submit">Submit sample</button>
+          <p class="form-status" data-form-status hidden></p>
+        </form>
+      </article>
+    </div>
+  </main>
+
+  <script>
+  (function () {
+    "use strict";
+
+    function activateScreen(targetId) {
+      document.querySelectorAll(".screen-tab").forEach(function (tab) {
+        tab.setAttribute("aria-selected", String(tab.getAttribute("data-screen-target") === targetId));
+      });
+      document.querySelectorAll("[data-screen-id]").forEach(function (panel) {
+        panel.hidden = panel.getAttribute("data-screen-id") !== targetId;
+      });
+    }
+
+    document.querySelectorAll(".screen-tab").forEach(function (tab) {
+      tab.addEventListener("click", function () {
+        activateScreen(tab.getAttribute("data-screen-target"));
+      });
+    });
+
+    document.querySelectorAll(".screen").forEach(function (screen) {
+      var stateButtons = screen.querySelectorAll(".state-btn");
+      var statePanels = screen.querySelectorAll(".screen__state");
+      stateButtons.forEach(function (btn) {
+        btn.addEventListener("click", function () {
+          var targetId = btn.getAttribute("data-state-target");
+          stateButtons.forEach(function (b) {
+            b.setAttribute("aria-pressed", String(b === btn));
+          });
+          statePanels.forEach(function (panel) {
+            panel.hidden = panel.getAttribute("data-state-id") !== targetId;
+          });
+        });
+      });
+    });
+
+    document.querySelectorAll("form[data-demo-validate]").forEach(function (form) {
+      form.addEventListener("submit", function (evt) {
+        evt.preventDefault();
+        var allValid = true;
+        form.querySelectorAll("[required]").forEach(function (field) {
+          var errorEl = form.querySelector('[data-error-for="' + field.getAttribute("name") + '"]');
+          var isEmpty = field.value.trim().length === 0;
+          if (isEmpty) { allValid = false; }
+          if (errorEl) { errorEl.hidden = !isEmpty; }
+          if (isEmpty) {
+            field.setAttribute("aria-invalid", "true");
+          } else {
+            field.removeAttribute("aria-invalid");
+          }
+        });
+        var status = form.querySelector("[data-form-status]");
+        if (status) {
+          status.hidden = false;
+          status.setAttribute("data-tone", allValid ? "success" : "danger");
+          status.textContent = allValid
+            ? "Sample data only; no request was sent."
+            : "Fix the highlighted field before continuing.";
+        }
+      });
+    });
+  })();
+  </script>
+</body>
+</html>

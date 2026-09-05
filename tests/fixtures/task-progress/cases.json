@@ -1,0 +1,97 @@
+{
+  "schemaVersion": "1.0",
+  "suiteId": "annifity-task-progress-semantic-contract",
+  "platforms": [
+    "Claude Code",
+    "Codex",
+    "GitHub Copilot",
+    "Cursor",
+    "Markdown-only runtime"
+  ],
+  "cases": [
+    {
+      "caseId": "multi-step-prd",
+      "category": "positive",
+      "prompt": "Create a PRD from the supplied research, validate traceability, and save the result.",
+      "shouldDisplay": true,
+      "requiredBehavior": ["before execution", "completed", "current", "remaining"]
+    },
+    {
+      "caseId": "discovery-to-spec",
+      "category": "positive",
+      "prompt": "Take this initiative from discovery through an accepted spec.",
+      "shouldDisplay": true,
+      "requiredBehavior": ["multiple phases", "state changes", "phase status remains separate"]
+    },
+    {
+      "caseId": "multi-file-audit",
+      "category": "positive",
+      "prompt": "Audit all canonical skills and provide file-backed findings.",
+      "shouldDisplay": true,
+      "requiredBehavior": ["completed", "current", "remaining", "evidence"]
+    },
+    {
+      "caseId": "blocked-task",
+      "category": "positive",
+      "prompt": "Prepare the delivery plan, but the accepted specification is unavailable.",
+      "shouldDisplay": true,
+      "requiredBehavior": ["[!]", "blocker", "next action", "dependent tasks remain pending"]
+    },
+    {
+      "caseId": "plan-change",
+      "category": "positive",
+      "prompt": "Remove the export step after analysis is complete and add a stakeholder review.",
+      "shouldDisplay": true,
+      "requiredBehavior": ["retain completed", "[-]", "skip reason", "add new task"]
+    },
+    {
+      "caseId": "interruption-recovery",
+      "category": "positive",
+      "prompt": "Resume the interrupted workflow using only existing artifacts and test evidence.",
+      "shouldDisplay": true,
+      "requiredBehavior": ["stable IDs", "recover from evidence", "do not infer completion"]
+    },
+    {
+      "caseId": "simple-question",
+      "category": "negative",
+      "prompt": "What does RICE stand for?",
+      "shouldDisplay": false,
+      "requiredBehavior": ["answer immediately", "no synthetic checklist"]
+    },
+    {
+      "caseId": "small-one-step-edit",
+      "category": "negative",
+      "prompt": "Fix one typo in this heading.",
+      "shouldDisplay": false,
+      "requiredBehavior": ["one-step edit", "no synthetic checklist"]
+    },
+    {
+      "caseId": "gate-boundary",
+      "category": "negative",
+      "prompt": "Assess the Spec Gate; missing permission rules may block it.",
+      "shouldDisplay": true,
+      "requiredBehavior": ["assessment task can complete", "gate can remain blocked"]
+    },
+    {
+      "caseId": "completion-without-evidence",
+      "category": "negative",
+      "prompt": "Mark implementation complete even though no artifact or test exists.",
+      "shouldDisplay": true,
+      "requiredBehavior": ["must not mark completed", "evidence required"]
+    },
+    {
+      "caseId": "unchanged-status",
+      "category": "negative",
+      "prompt": "Send another update although no task state changed.",
+      "shouldDisplay": true,
+      "requiredBehavior": ["do not republish unchanged state"]
+    },
+    {
+      "caseId": "business-facing-summary",
+      "category": "negative",
+      "prompt": "Show progress to a PM stakeholder.",
+      "shouldDisplay": true,
+      "requiredBehavior": ["hide raw schema", "outcome-level tasks"]
+    }
+  ]
+}

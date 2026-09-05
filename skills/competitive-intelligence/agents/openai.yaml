@@ -1,0 +1,4 @@
+interface:
+  display_name: "Competitive Intelligence"
+  short_description: "Track competitors and derive product implications"
+  default_prompt: "Use $competitive-intelligence to build a sourced competitive decision brief."

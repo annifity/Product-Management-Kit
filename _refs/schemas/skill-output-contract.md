@@ -10,6 +10,20 @@ forward tests.
 ```json
 {
   "schemaVersion": "1.0",
+  "userFacingPolicy": {
+    "prohibitedOutputTerms": [
+      "generation receipt",
+      "contract fingerprint",
+      "write disposition",
+      "resolvedProfile"
+    ],
+    "prohibitedTemplateTerms": [
+      "generation receipt",
+      "contract fingerprint",
+      "write disposition",
+      "resolvedProfile"
+    ]
+  },
   "skills": [
     {
       "skill": "user-story",
@@ -17,7 +31,7 @@ forward tests.
         "requiredTerms": ["Reuse", "partial", "missing"]
       },
       "output": {
-        "requiredTerms": ["ticket", "generation receipt", "TBD"]
+        "requiredTerms": ["ticket", "plain language", "TBD"]
       },
       "handoff": {
         "requiredTerms": ["execution", "uat", "acceptance"]
@@ -29,8 +43,9 @@ forward tests.
             "As a [user]",
             "Acceptance Criteria",
             "AC-01",
-            "generation receipt"
-          ]
+            "baseline impact"
+          ],
+          "prohibitedTerms": ["generation receipt", "contract fingerprint"]
         }
       ]
     }
@@ -49,6 +64,13 @@ that skill's output or handoff. Template assertions check field labels,
 identifiers, generation evidence, or actionable placeholders—not merely that a
 heading exists. Skills without a primary artifact template may use an empty
 template list only when their Output section is self-contained.
+
+The contract defines `userFacingPolicy.prohibitedOutputTerms` and
+`prohibitedTemplateTerms` for generic resolver or audit terminology that must
+not appear in canonical skill `Output` sections or primary templates. A
+template record may add narrower `prohibitedTerms`. These negative assertions
+prevent a structurally valid skill from requiring users to interpret machine
+audit state.
 
 ## Change Rule
 
@@ -69,4 +91,4 @@ When an output, template, or handoff changes:
 | Template drift | Skill promises data absent from its template | Generated output silently omits it | Update skill/template together | Bind template fields in the manifest |
 | Partial skill coverage | Only common artifact skills are tested | A long-tail skill regresses unnoticed | Add all canonical skills | Exact set equality is a hard gate |
 | Cross-section false pass | A term appears only in Reference Routing | Output contract looks satisfied | Scope assertion to the section | Parse H2 section boundaries |
-
+| Audit leakage | An Output section or user-facing template requires resolver or hash terminology | Users mistake technical write safety for product approval | Replace it with action, target, impact, blocker, and next action | Enforce prohibited output and template terms |

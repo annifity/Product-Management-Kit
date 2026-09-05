@@ -1,0 +1,30 @@
+{
+  "schemaVersion": "1.0",
+  "skills": {
+    "analytics": ["metrics", "usage"],
+    "brief": ["brief"],
+    "change": ["change"],
+    "commercial": ["pricing", "economics"],
+    "competitive-intelligence": ["competitors", "implications"],
+    "discovery": ["discovery"],
+    "design": ["design", "UX/UI"],
+    "docs": ["document"],
+    "execution": ["delivery"],
+    "experiment": ["experiment", "AI evaluation"],
+    "growth": ["growth"],
+    "gtm": ["positioning", "adoption"],
+    "knowledge": ["knowledge"],
+    "learn": ["evidence"],
+    "memories": ["memory"],
+    "plan": ["plan"],
+    "prd": ["requirement"],
+    "prototype": ["prototype"],
+    "prioritize": ["priority"],
+    "ship": ["release"],
+    "spec": ["specification"],
+    "strategy": ["strategy", "portfolio"],
+    "uat": ["acceptance"],
+    "user-story": ["story"],
+    "validate": ["review"]
+  }
+}

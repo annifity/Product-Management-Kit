@@ -6,7 +6,7 @@ Use when a product workflow should run as a grounded, auditable AI-assisted oper
 
 1. Retrieve context: load only relevant docs, memories, decisions, evidence, and current initiative state.
 2. Frame: state objective, current skill, needed artifacts, assumptions, and approval gates.
-3. Produce: create or update the brief, prototype, experiment, spec, plan, or release artifact with source traceability.
+3. Produce: create or update the brief, prototype, experiment, spec, design handoff, plan, or release artifact with source traceability.
 4. Critique: use `_refs/checklists/artifact-quality-scorecard.md`, risk, edge, UAT, or experiment criteria as appropriate.
 5. Validate: check claims against `_refs/templates/docs/evidence-ledger.md`, local sources, prototype results, or experiment results.
 6. Learn: capture insight, decision, confidence, and roadmap implication.
@@ -14,7 +14,7 @@ Use when a product workflow should run as a grounded, auditable AI-assisted oper
 
 ## Skill Path
 
-`discovery -> brief -> prototype -> experiment -> validate -> learn -> spec -> plan -> execution -> ship`
+`discovery -> brief -> prototype -> experiment -> validate -> learn -> spec -> design (when user-visible) -> plan -> execution -> ship`
 
 Skip steps only when the user has already provided the required evidence or explicitly accepts the risk.
 

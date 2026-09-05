@@ -1,0 +1,12 @@
+---
+description: 'Annifity skill design: Turn an accepted product specification into a traceable UX/UI design package and delivery handoff. Use when confirmed requirements must become information architecture, user flows, screens, interaction and state behavior, responsive rules, accessibility obligations, or a design-system-bound handoff before planning or implementation. Use `prototype` for build-to-learn mockups before behavior is confirmed; use `validate` to audit an existing design; route design-discovered changes to accepted behavior through `change`.'
+alwaysApply: false
+---
+
+# design
+
+Use this rule when the request matches the description above.
+
+Canonical source: skills/design/SKILL.md
+
+Read the canonical skill file before acting, then load only the referenced _refs/ files needed for the task. If generated adapter text conflicts with the canonical source, the canonical source wins.

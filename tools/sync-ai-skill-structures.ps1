@@ -237,6 +237,8 @@ Annifity is a portable AI Product Builder Kit. Treat top-level skills/*/SKILL.md
 
 Generated folders (.claude/skills, .github/skills, .codex/skills) and Cursor rules are project-local adapters. They require the full repository root and are not standalone skill packages. Do not edit them manually; update skills/ or _refs/, then run tools/sync-ai-skill-structures.ps1.
 
+For work with two or more meaningful outcomes, multiple phases/tools/files, a material artifact, or blocker/gate risk, read `_refs/operating-model/task-progress.md` and show a concise outcome-level checklist before execution. Update it only when state changes. Do not use it for immediately answerable or genuinely one-step work, and do not equate task completion with lifecycle, gate, or artifact approval.
+
 "@
 }
 
@@ -252,7 +254,7 @@ function New-AgentInstructions {
     return @"
 # Annifity AI Product Builder Kit Skills
 
-Annifity is a portable Product Builder Kit for discovery, briefs, prototypes, experiments, validation, learning, specification, planning, execution support, shipping, documentation, memory, and product artifacts.
+Annifity is a portable Product Builder Kit for discovery, briefs, prototypes, experiments, validation, learning, specification, product design, planning, execution support, shipping, documentation, memory, and product artifacts.
 
 ## Source Of Truth
 
@@ -266,10 +268,11 @@ Annifity is a portable Product Builder Kit for discovery, briefs, prototypes, ex
 ## Working Rules
 
 - Match the user's language by default; Vietnamese and English are both first-class.
-- Follow the Annifity builder path: discovery -> brief -> prototype -> experiment -> validate -> learn -> spec -> plan -> execution -> ship.
+- For work with two or more meaningful outcomes, multiple phases/tools/files, a material artifact, or blocker/gate risk, read `_refs/operating-model/task-progress.md` and show a concise outcome-level checklist before execution. Update it only when state changes; require evidence for completion. Do not use it for immediately answerable or genuinely one-step work, and do not equate task completion with lifecycle, gate, or artifact approval.
+- Follow the Annifity builder path: discovery -> brief -> prototype -> experiment -> validate -> learn -> strategy when portfolio choice is material -> spec -> design when user-visible -> plan -> execution -> ship.
 - Use docs to save and index artifacts, and memories to persist durable context across workflow gates.
 - Resolve the artifact-generation contract and applicable project profile before drafting a deliverable; surface material decisions instead of silently inventing them.
-- Return the compact generation receipt with authored artifacts: fingerprint, disposition, source IDs, and exact baseline target.
+- Return a concise, localized generation result with authored artifacts: completed action, human-readable target and source, effect on any approved version, concrete blocker, and next action. Do not label it with resolver or audit terminology. Keep machine audit details out of ordinary user-facing responses and business artifacts. Translate skill, phase, and gate labels into the business action or readiness meaning they represent. Display identity/version only from authoritative resolution or declared document metadata, never from filenames or provenance prose. Explain stale or blocked state in plain language; return raw diagnostics only when the user explicitly requests them or an audit export requires them.
 - Resolve governed artifacts through the authoritative baseline registry rather than guessing from filenames or dates.
 - Apply source-backed minimality, negative-completeness checks, and the local mutation-safety workflow before changing controlled files.
 - For ambiguous requirements, clarify before drafting final deliverables.
@@ -299,11 +302,11 @@ function New-CopilotInstructions {
     return @"
 # Annifity AI Product Builder Kit Instructions
 
-Use Annifity for product-building work: discovery, briefs, prototypes, experiments, validation, learning, product specs, delivery planning, execution support, shipping, docs, memories, PRDs, user stories, UAT, change management, and org knowledge lookup.
+Use Annifity for product-building work: discovery, briefs, prototypes, experiments, validation, learning, product specs, traceable UX/UI design handoffs, delivery planning, execution support, shipping, docs, memories, PRDs, user stories, UAT, change management, and org knowledge lookup.
 
 Canonical source lives in top-level skills/*/SKILL.md, skills/*/agents/openai.yaml, and _refs/. Generated Copilot skill adapters live in .github/skills/; they are project-local, require the full repository root, and must not be installed alone. Do not edit adapters manually. Update skills/ or _refs/, then run tools/sync-ai-skill-structures.ps1.
 
-Match the user's language by default. Follow the Annifity builder path when doing end-to-end product work. Use docs to save artifacts and memories to preserve durable product context. Resolve the artifact-generation contract and project profile before drafting, return its compact generation receipt with authored artifacts, use the authoritative baseline registry for governed artifacts, and apply source-backed minimality plus local mutation safety before controlled edits. Clarify ambiguous requirements before drafting final deliverables.
+Match the user's language by default. For work with two or more meaningful outcomes, multiple phases/tools/files, a material artifact, or blocker/gate risk, read `_refs/operating-model/task-progress.md` and show a concise outcome-level checklist before execution; update it only when state changes and require evidence for completion. Skip it for immediately answerable or genuinely one-step work, and never equate task completion with lifecycle, gate, or artifact approval. Follow the Annifity builder path when doing end-to-end product work. Use docs to save artifacts and memories to preserve durable product context. Resolve the artifact-generation contract and project profile internally before drafting, return a concise localized generation result with authored artifacts, use the authoritative baseline registry for governed artifacts, and apply source-backed minimality plus local mutation safety before controlled edits. Keep machine audit details out of ordinary user-facing responses, business artifacts, and confirmation prompts. Translate skill, phase, and gate labels into their business meaning, and display identity/version only from authoritative resolution or declared document metadata. Explain blockers in plain language and return raw diagnostics only when explicitly requested. Clarify ambiguous requirements before drafting final deliverables.
 
 Top-level skills:
 
@@ -318,7 +321,7 @@ function New-ClaudePluginManifest {
         name = "annifity"
         displayName = "Annifity"
         version = "2.0.0"
-        description = "AI Product Builder Kit for discovery, briefs, prototypes, experiments, validation, learning, specification, planning, execution support, shipping, documentation, memory, PRDs, user stories, UAT, change management, and organizational knowledge retrieval."
+        description = "AI Product Builder Kit for discovery, briefs, prototypes, experiments, validation, learning, specification, product design, planning, execution support, shipping, documentation, memory, PRDs, user stories, UAT, change management, and organizational knowledge retrieval."
         author = [ordered]@{
             name = "nghiatt15"
             email = "nghiatt15@onemount.com"

@@ -29,6 +29,8 @@ Remove or relocate content that fails any applicable dimension. Record a gap ins
 - Keep test data, execution steps, environment, priority, permutations, and result recording in UAT rather than AC.
 - Keep internal services, data structures, algorithms, and orchestration in technical design unless they are the confirmed external contract.
 - Do not add a section merely because a generic template contains it. Omit it or mark `N/A` only when the target format requires an explicit applicability record.
+- Write each change-log/version-history entry as one line naming what changed and why in a phrase (see `_refs/templates/change/changelog.md`). Do not re-narrate the prior incorrect draft, the full resolution story of an open question, or scope already stated elsewhere in the entry — the entry records the delta, not a retelling of the artifact's history.
+- Once an open question resolves, replace it with a one-line resolved note (or remove it) instead of summarizing its resolution history — that history already lives in the change log; do not carry it in two places.
 
 ## Pruning Pass
 
@@ -49,6 +51,8 @@ A concise story depends on an external identity service that can block save. Ret
 
 A story repeats the same validation in an information table, Main Flow, Business Rules, three AC, an Edge Cases section, and UAT-like permutations. It also lists the target screen and shared design file as dependencies. The output is long but adds no decision value.
 
+A story's scope note, business context, and a note under a requirement all restate the same fact (e.g. "no PRD owns this capability") in different words, and its change log narrates, for every draft, the full prior wrong state and resolution story that its open-questions section then summarizes a second time. Both are long but add no decision value beyond the single authoritative statement.
+
 ## Failure Modes
 
 | Failure | Signal | Consequence | Correction | Prevention |
@@ -56,6 +60,7 @@ A story repeats the same validation in an information table, Main Flow, Business
 | Checklist filler | Sections exist only because the template lists them | Output becomes noisy and invites contradictions | Remove non-applicable sections | Apply relevance before template completion |
 | Defensive invention | Generic failures, retries, or safeguards lack a source | Unapproved scope enters delivery | Replace with a gap or remove | Require provenance for each behavior |
 | Duplicate truth | The same rule appears in several sections | Later edits create drift | Keep one authoritative expression | Run the pruning pass |
+| Narrative bloat | Change log entries or open-question notes re-narrate prior drafts, resolution history, or facts already stated elsewhere | Revision history crowds out the current, authoritative behavior and the artifact reads as long without adding decision value | Compress each change-log entry to one line of delta; replace a resolved open question with a one-line status | Write the delta once at commit time instead of accumulating narrative across drafts |
 | Scope halo | Broad product areas appear in dependencies or exclusions | Story boundary looks larger than it is | Retain only adjacent blockers or exclusions | Apply ownership and adjacency checks |
 | NFR leakage | Parent-level targets become story AC without authorization | Story becomes oversized and brittle | Move the target to its owning artifact | Resolve NFR placement in preflight |
 

@@ -1,6 +1,6 @@
 ---
 name: ship
-description: 'Prepare and coordinate a product release, rollout, retirement, or final stakeholder/support handoff. Use when the requested outcome is a ship package such as a launch or EOL plan, release notes, rollback/support notes, final document bundle, UAT signoff summary, or post-ship capture. Use `validate` for a read-only readiness audit without package creation and `uat` to create or execute acceptance tests.'
+description: 'Prepare and coordinate a product release, rollout, retirement, or final stakeholder/support handoff. Use when the requested outcome is a ship package such as an operational launch or EOL plan, release notes, rollback/support notes, final document bundle, UAT signoff summary, AI release regression gate, or post-ship capture. Use `gtm` for ICP, positioning, channels, enablement, and adoption motion before release operations; use `validate` for a read-only readiness verdict and `uat` to create or execute acceptance tests.'
 ---
 
 # ship

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Product Analytics"
+  short_description: "Diagnose product metrics and usage evidence"
+  default_prompt: "Use $analytics to diagnose this product metric and recommend the next action."

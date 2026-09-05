@@ -6,6 +6,7 @@ $ErrorActionPreference = "Stop"
 
 $Root = (Resolve-Path (Join-Path $PSScriptRoot "..")).Path
 $SkillsRoot = Join-Path $Root "skills"
+$UiCapabilityContractPath = Join-Path $Root "tests/fixtures/contracts/skill-ui-capability-contract.json"
 $AllowedFrontmatterKeys = @("name", "description")
 $validated = 0
 
@@ -26,6 +27,25 @@ function Get-QuotedYamlValue {
 
 if (-not (Test-Path -LiteralPath $SkillsRoot)) {
     throw "Missing canonical skills directory."
+}
+if (-not (Test-Path -LiteralPath $UiCapabilityContractPath)) {
+    throw "Missing UI capability contract."
+}
+$uiCapabilityContract = [System.IO.File]::ReadAllText(
+    $UiCapabilityContractPath
+) | ConvertFrom-Json
+$canonicalSkillNames = @(
+    Get-ChildItem -LiteralPath $SkillsRoot -Directory |
+        Sort-Object Name |
+        ForEach-Object { $_.Name }
+)
+$contractSkillNames = @(
+    $uiCapabilityContract.skills.PSObject.Properties |
+        ForEach-Object { $_.Name } |
+        Sort-Object
+)
+if (($canonicalSkillNames -join "`n") -cne ($contractSkillNames -join "`n")) {
+    throw "UI capability contract skill set must exactly match canonical skills."
 }
 
 foreach ($skillDir in (Get-ChildItem -LiteralPath $SkillsRoot -Directory | Sort-Object Name)) {
@@ -102,6 +122,22 @@ foreach ($skillDir in (Get-ChildItem -LiteralPath $SkillsRoot -Directory | Sort-
     }
     if ($defaultPrompt -notmatch [regex]::Escape("`$$name")) {
         throw "$openAiRelativePath default_prompt must explicitly mention `$$name."
+    }
+    $uiText = "$shortDescription $defaultPrompt"
+    $requiredUiTerms = @($uiCapabilityContract.skills.$name)
+    if ($requiredUiTerms.Count -eq 0) {
+        throw "$openAiRelativePath has no required UI capability terms."
+    }
+    foreach ($requiredUiTerm in $requiredUiTerms) {
+        if ($uiText.IndexOf(
+                [string]$requiredUiTerm,
+                [System.StringComparison]::OrdinalIgnoreCase
+            ) -lt 0) {
+            throw (
+                "$openAiRelativePath does not surface required capability " +
+                "'$requiredUiTerm'."
+            )
+        }
     }
 
     $validated++

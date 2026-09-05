@@ -1,0 +1,4 @@
+interface:
+  display_name: "Annifity Design"
+  short_description: "Build traceable UX/UI design handoffs"
+  default_prompt: "Use $design to turn this accepted product specification into a traceable UX/UI design handoff."

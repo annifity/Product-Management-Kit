@@ -1,5 +1,5 @@
 ---
-description: 'Annifity skill plan: Convert a confirmed product spec into an actionable delivery plan. Use for prioritization or investment decisions, roadmap and release slices, delivery-level epic maps, milestones, dependencies, grooming questions, and team handoff sequencing. This skill owns cross-epic slicing and sequence; use `user-story` for ticket-ready Jira epics, stories, and acceptance criteria, `spec` when requirements are unstable, and `execution` after delivery begins.'
+description: 'Annifity skill plan: Convert a confirmed product spec and, when applicable, its accepted design handoff into an actionable delivery plan. Use for release slices, delivery roadmaps, delivery-level epic maps, milestones, dependencies, grooming questions, and team handoff sequencing. This skill owns cross-epic slicing and sequence for selected stable scope; use `prioritize` while comparable options still need ranking, `strategy` for portfolio investment choices, `design` for unresolved UX/UI handoff, `user-story` for ticket-ready work, `spec` when requirements are unstable, and `execution` after delivery begins.'
 alwaysApply: false
 ---
 

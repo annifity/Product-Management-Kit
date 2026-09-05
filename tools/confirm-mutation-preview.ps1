@@ -75,7 +75,7 @@ foreach ($hashProperty in @(
 $recordedFingerprint = [string]$preview.hashes.fingerprint
 $confirmedFingerprint = $ConfirmFingerprint.Trim().ToLowerInvariant()
 if (-not $confirmedFingerprint.Equals($recordedFingerprint, [System.StringComparison]::Ordinal)) {
-    throw "Confirmation fingerprint does not match the displayed mutation preview."
+    throw "Confirmation does not match the reviewed mutation preview."
 }
 
 $tempDirectory = Join-Path ([System.IO.Path]::GetTempPath()) (

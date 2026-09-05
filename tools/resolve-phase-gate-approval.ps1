@@ -24,7 +24,9 @@ $StableGateIds = @(
     "phase.experiment.ready",
     "phase.validate.ready",
     "phase.learn.ready",
+    "phase.strategy.ready",
     "phase.spec.ready",
+    "phase.design.ready",
     "phase.plan.ready",
     "phase.execution.ready",
     "phase.ship.ready"
