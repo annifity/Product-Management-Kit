@@ -1,4 +1,4 @@
 interface:
   display_name: "Annifity Experiment"
-  short_description: "Design measurable product experiments"
-  default_prompt: "Use $experiment to design a measurable validation experiment for this hypothesis."
+  short_description: "Design product experiments and AI evaluations"
+  default_prompt: "Use $experiment to design a measurable product experiment or AI evaluation plan before evidence is collected."

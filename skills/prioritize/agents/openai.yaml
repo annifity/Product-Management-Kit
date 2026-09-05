@@ -1,0 +1,4 @@
+interface:
+  display_name: "Prioritize"
+  short_description: "Choose and apply a defensible priority method"
+  default_prompt: "Use $prioritize to rank these options with an evidence-aware method."

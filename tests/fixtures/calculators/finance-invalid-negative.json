@@ -1,0 +1,13 @@
+{
+  "currency": "USD",
+  "startingMrr": 100000,
+  "newMrr": 10000,
+  "expansionMrr": 5000,
+  "contractionMrr": 2000,
+  "churnedMrr": -3000,
+  "salesMarketingSpend": 20000,
+  "newCustomers": 10,
+  "monthlyArpa": 1000,
+  "grossMarginRate": 0.8,
+  "monthlyLogoChurnRate": 0.02
+}

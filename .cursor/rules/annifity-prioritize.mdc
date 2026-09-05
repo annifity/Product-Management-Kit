@@ -1,0 +1,12 @@
+---
+description: 'Annifity skill prioritize: Choose and apply an evidence-aware method to rank product opportunities, features, assumptions, experiments, or backlog options. Use when a PM needs a defensible priority order, framework comparison, sensitivity check, or an explicit explanation of why one option should precede another. Use `strategy` for portfolio investment and where-to-play choices, `plan` for sequencing stable delivery scope, and `discovery` when the options or problem are not yet sufficiently defined.'
+alwaysApply: false
+---
+
+# prioritize
+
+Use this rule when the request matches the description above.
+
+Canonical source: skills/prioritize/SKILL.md
+
+Read the canonical skill file before acting, then load only the referenced _refs/ files needed for the task. If generated adapter text conflicts with the canonical source, the canonical source wins.

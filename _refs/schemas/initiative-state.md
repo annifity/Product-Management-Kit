@@ -1,13 +1,15 @@
 # Initiative State Schema
 
-Use to persist the current state of a product initiative across discovery, brief, prototype, experiment, validation, learning, specification, planning, execution, and ship.
+Use to persist the current state of a product initiative across discovery,
+brief, prototype, experiment, validation, learning, strategy, specification,
+design, planning, execution, and ship.
 
 ```yaml
 ---
 id: INIT-001
 name: [Initiative name]
 owner: [Owner]
-status: discovery | brief | prototype | experiment | validate | learn | spec | plan | execution | ship | shipped | parked | cancelled
+status: discovery | brief | prototype | experiment | validate | learn | strategy | spec | design | plan | execution | ship | shipped | parked | cancelled
 phase_gate: not_started | in_progress | blocked | ready | approved
 updated: YYYY-MM-DD
 sources:
@@ -220,6 +222,12 @@ spec:
   requirement_count: 0
   readiness_score: 0
   blockers: [Count or links]
+design:
+  source_spec: [artifact_id@version]
+  mode: screen-architecture | wireframe | visual-design | interactive-html
+  traceability_status: incomplete | ready | blocked
+  design_gate: not_started | in_progress | blocked | ready | approved
+  blockers: [Count or links]
 plan:
   priority_method: [RICE / WSJF / MoSCoW / value-effort / other]
   release_slice: [Now / Next / Later]
@@ -240,7 +248,15 @@ ship:
 - Validate -> Learn when prototype or experiment results are compared against the agreed criteria and should feed product learning.
 - Validate -> Ship when blocking issues are resolved or accepted, UAT coverage is complete, and release risk is owned.
 - Learn -> Spec only when evidence supports delivery commitment.
-- Spec -> Plan only when requirements are testable, traceable, and readiness blockers are owned.
+- Spec -> Design when accepted user-visible behavior needs flows, screens,
+  interaction/state coverage, responsive rules, accessibility obligations, or
+  design-system binding.
+- Spec -> Plan directly when requirements are testable and traceable and no
+  design phase applies.
+- Design -> Validate or Plan only when the source baseline remains current,
+  traceability is complete or gaps are owned, and the Design Gate passes.
+- Design -> Spec or Change when the design exposes a missing decision or would
+  alter accepted behavior.
 - Plan -> Execution only when release slice, dependencies, owners, and Definition of Ready are clear.
 - Execution -> Validate when implementation questions, scope changes, and acceptance criteria are stabilized enough for readiness review.
 - Any phase -> Parked when evidence, priority, capacity, or business value no longer justifies progress.

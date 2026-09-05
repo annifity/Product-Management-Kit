@@ -2,7 +2,10 @@
 
 Add optional fields or sections only when they pass `_refs/checklists/source-backed-minimality.md`. Do not synthesize a project key, epic, release, or label; use `TBD` only when the target format requires a placeholder.
 
-Return the generation receipt alongside this ticket. Do not embed it in Jira fields unless the resolved project profile explicitly requires metadata there.
+Alongside the ticket, state only what was created or updated, its target,
+baseline impact, and any decision needed.
+
+<!-- Keep internal resolver data and machine identifiers out of Jira fields. -->
 
 ## Summary
 

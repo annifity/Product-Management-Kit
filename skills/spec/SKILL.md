@@ -1,6 +1,6 @@
 ---
 name: spec
-description: Turn confirmed product context into the detailed delivery source of truth. Use for a product or workflow specification with scoped requirements, business rules, states, permissions, edge cases, data/API behavior, non-functional requirements, assumptions, risks, and traceability before planning. Use `brief` while only direction-level alignment is needed, `prd` for a formal stakeholder requirements document, and `plan` only after the spec is stable.
+description: Turn confirmed product context into the detailed delivery source of truth. Use for a product specification, workflow, data/API, or AI behavior specification with scoped requirements, business rules, states, permissions, model/prompt/retrieval/tool boundaries, human oversight, edge cases, NFRs, risks, and traceability before design or planning. Use `brief` for direction-level alignment, `experiment` for evaluation design after behavior is specified, `design` for UX/UI handoff from accepted behavior, and `plan` only after the spec is stable.
 ---
 
 # Spec
@@ -16,11 +16,11 @@ Reuse the supplied brief, PRD/BRD, decisions, evidence, existing spec, profile, 
 1. Load the latest relevant docs and memories if available.
 2. Classify the source input: raw ask, discovery brief, BRD, PRD, meeting note, or existing spec.
 3. If the source lacks a confirmed problem, target users, or intended outcome, or selecting scope requires product strategy, stop and route to `discovery`. If direction is confirmed but only alignment-level detail exists, route to `brief`; do not invent delivery behavior.
-4. Run the material-decision preflight and confirm the target mode: product spec, BRD/PRD section, workflow spec, data/API note, or requirements register.
+4. Run the material-decision preflight and confirm the target mode: product spec, BRD/PRD section, workflow spec, data/API note, AI behavior specification, or requirements register.
 5. Draft a spec with requirement IDs, business rules, explicit assumptions, and source traceability.
 6. Map primary workflows, states, permissions, data touchpoints, dependencies, and failure modes.
 7. Run quality checks for ambiguity, edge cases, risk, operational readiness, testability, and source-backed minimality.
-8. Ask the user to confirm before moving to `plan` or artifact skills such as `prd`.
+8. Resolve the Spec Gate approval through `_refs/operating-model/phase-gates.md`. Reuse a valid recorded approval only while its source, evidence, and material decisions remain unchanged; otherwise ask for a fresh decision before moving to `design`, `plan`, or artifact skills such as `prd`.
 
 ## Spec Sections
 
@@ -39,6 +39,7 @@ Reuse the supplied brief, PRD/BRD, decisions, evidence, existing spec, profile, 
 - Dependencies
 - Open questions
 - Acceptance signals
+- AI behavior contract, human authority, evaluation obligations, and monitoring controls when AI is material
 
 ## Reference Routing
 
@@ -49,6 +50,7 @@ Load only references needed for the source and specification surface:
 - When authoring from or revising a governed source, resolve `_refs/operating-model/authoritative-baseline-resolution.md`; do not infer authority from filename recency.
 - Before declaring the spec ready for planning, use the Spec Gate in `_refs/operating-model/phase-gates.md`.
 - For the target spec, use only the matching template: `_refs/templates/spec/product-spec.md`, `_refs/templates/spec/workflow-spec.md`, `_refs/templates/spec/data-requirements.md`, or `_refs/templates/spec/api-contract.md`; use `_refs/templates/brd/default-brd.md` only when analyzing or structuring BRD input.
+- For material model, prompt, retrieval, agent, or tool-using behavior, use `_refs/workflows/ai-product-specification.md`, `_refs/schemas/ai-behavior-contract.md`, and `_refs/templates/ai/behavior-spec.md`; do not defer product-policy decisions to evaluation design.
 - For metric structure, use `_refs/templates/metrics/metric-tree.md`.
 - For core requirement analysis or feature design, use `_refs/workflows/requirement-analysis.md` and/or `_refs/workflows/feature-design.md`.
 - For quality and delivery readiness, use `_refs/checklists/spec-quality.md`, `_refs/checklists/artifact-quality-scorecard.md`, `_refs/checklists/business-analysis.md`, `_refs/checklists/definition-of-ready.md`, and `_refs/checklists/solution-quality.md` selectively.
@@ -58,8 +60,8 @@ Load only references needed for the source and specification surface:
 
 ## Output
 
-Return the smallest project-profile-compliant specification containing only sourced requirements, rules, states, permissions, data/integration behavior, applicable NFRs, risks, assumptions, open questions, traceability, and the compact generation receipt. Mark any material unresolved rule as a blocker rather than silently completing it.
+Return the smallest project-profile-compliant specification containing only sourced requirements, rules, states, permissions, data/integration behavior, applicable NFRs, risks, assumptions, open questions, and traceability. Alongside it, state the result, target, baseline impact, and any decision needed in plain language. Keep machine audit details internal unless diagnostics are explicitly requested. Mark any material unresolved rule as a blocker rather than silently completing it.
 
 ## Handoff
 
-Route to `plan` only when the Spec Gate passes and the confirmed spec contains testable scope, rules, risks, dependencies, and acceptance signals. Route to `prd` when stakeholders need a formal document derived from that confirmed source of truth.
+Route to `design` after the Spec Gate when accepted user-visible behavior needs flows, screens, interaction/state coverage, responsive and accessibility obligations, or a design handoff. Route directly to `plan` when the Spec Gate passes, no design phase is applicable, and the confirmed spec contains testable scope, rules, risks, dependencies, and acceptance signals. For AI behavior, route the accepted behavior contract to `experiment` before release planning when evaluation evidence does not yet exist. Route to `prd` when stakeholders need a formal document derived from the confirmed source of truth.

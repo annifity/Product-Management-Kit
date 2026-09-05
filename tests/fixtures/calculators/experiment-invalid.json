@@ -1,0 +1,8 @@
+{
+  "baselineRate": 1.2,
+  "absoluteMde": 0.02,
+  "alpha": 0.05,
+  "power": 0.8,
+  "variantCount": 2,
+  "dailyEligibleTraffic": 1000
+}

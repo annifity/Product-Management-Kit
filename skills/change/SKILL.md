@@ -9,7 +9,7 @@ Keep baselined artifacts consistent while recording the reason, impact, owner, a
 
 ## Input Contract
 
-Reuse the supplied baseline and change context. Require an identifiable current baseline and requested change; ask only for material gaps before assessing impact. Continue through non-blocking gaps with labeled assumptions, but do not apply edits until the change plan is confirmed.
+Reuse the supplied baseline and change context. Require an identifiable current baseline and requested change; ask only for material gaps before assessing impact. Continue through non-blocking gaps with labeled assumptions. Treat an explicit request as sufficient authorization for an unbaselined, reversible draft edit when the target and end state are unambiguous; otherwise apply the confirmation boundary from the local mutation-safety workflow.
 
 ## Process
 
@@ -18,8 +18,8 @@ Reuse the supplied baseline and change context. Require an identifiable current 
 3. Clarify the requested change.
 4. Classify change impact: minor, material/medium, or breaking.
 5. Assess impact on scope, stories, UAT, Jira tickets, Confluence pages, timeline, dependencies, risk, and release.
-6. Draft an impact-aware change plan and fingerprinted local mutation preview; ask for confirmation before applying edits.
-7. Revalidate the preview fingerprint, then apply only the confirmed surgical, source-backed edits and prune duplicated or superseded content.
+6. Draft an impact-aware change plan. When confirmation is required, use the User Confirmation Clarity Gate for any product decision, then show a separate plain-language summary of the exact file action, affected targets, expected end state, and baseline or destructive impact; never ask the user to confirm a fingerprint or contract term.
+7. Bind the user's natural-language approval to the unchanged internal preview, then apply only the approved surgical, source-backed edits and prune duplicated or superseded content.
 8. Verify the declared end state and affected pointers before asking `docs` to update changelog, spec context, registry, and decision logs.
 9. Ask `memories` to persist durable decisions.
 
@@ -39,7 +39,7 @@ Load only references needed for the affected baseline and channel:
 ## Output
 
 Return the impact assessment, proposed edits, change plan, exact preview,
-baseline disposition, traceability impact, and changelog entries.
+baseline impact, traceability impact, and changelog entries.
 
 ## Handoff
 

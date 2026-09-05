@@ -1,6 +1,6 @@
 ---
 name: brief
-description: 'Create a concise product-direction brief or Product Requirements Outline from confirmed discovery. Use for a one-page alignment artifact covering problem, users, goals, scope, metrics, assumptions, and risks before prototype, experiment, or detailed requirements. Use `brief` for pre-delivery direction; use `prd` for a formal PRD/BRD and `spec` for implementation-ready rules and behavior.'
+description: 'Create a concise product-direction brief or Product Requirements Outline from confirmed discovery. Use for a one-page alignment artifact covering problem, users, goals, scope, metrics, assumptions, and risks before prototype, experiment, or detailed requirements. Use `discovery` first when the problem, users, or outcome are still unconfirmed. Use `brief` for pre-delivery direction; use `prd` for a formal PRD/BRD and `spec` for implementation-ready rules and behavior.'
 ---
 
 # brief

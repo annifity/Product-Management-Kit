@@ -1,6 +1,6 @@
 ---
 name: user-story
-description: 'Create, split, refine, revise, or export ticket-ready Jira epic definitions, implementation-ready user stories, story maps, and acceptance criteria from a confirmed PRD, spec, roadmap item, or delivery plan. Use for INVEST splitting, Jira-ready tickets, and Given/When/Then criteria. Use `plan` for epic maps, sequencing, milestones, and dependencies; use `validate` for an independent story-quality/readiness verdict rather than authoring or correction.'
+description: 'Create, split, refine, revise, or export ticket-ready Jira epic definitions, implementation-ready user stories, story maps, and acceptance criteria from a confirmed PRD, spec, accepted design handoff, roadmap item, or delivery plan. Use for INVEST splitting, Jira-ready tickets, and Given/When/Then criteria. Use `design` for unresolved UX/UI behavior and handoff, use `plan` for epic maps, sequencing, milestones, and dependencies, and use `validate` for an independent story-quality/readiness verdict rather than authoring or correction.'
 ---
 
 # user-story

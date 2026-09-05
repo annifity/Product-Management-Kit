@@ -1,0 +1,57 @@
+{
+  "name": "user-confirmation-clarity",
+  "skill": "user-story",
+  "input": "user-confirmation-clarity.input.md",
+  "sourceFiles": [
+    "_refs/checklists/material-decision-preflight.md",
+    "_refs/checklists/skill-quality.md",
+    "skills/execution/SKILL.md"
+  ],
+  "requiredTerms": [
+    "User Confirmation Clarity Gate",
+    "one plain-language product decision",
+    "user-visible impact",
+    "concrete options when known",
+    "technical implementation choices to the technical owner",
+    "Decision needed:",
+    "Why it matters:",
+    "Owner / timing:",
+    "Confirmation fog"
+  ],
+  "fileAssertions": [
+    {
+      "path": "skills/user-story/SKILL.md",
+      "requiredTerms": [
+        "User Confirmation Clarity Gate",
+        "plain-language product decision",
+        "technical implementation choices to the technical owner"
+      ]
+    },
+    {
+      "path": "skills/execution/SKILL.md",
+      "requiredTerms": [
+        "User Confirmation Clarity Gate",
+        "user-visible impact",
+        "technical mechanism choices with the technical owner"
+      ]
+    },
+    {
+      "path": "_refs/checklists/material-decision-preflight.md",
+      "requiredTerms": [
+        "Decision needed:",
+        "Why it matters:",
+        "Options:",
+        "Recommendation:",
+        "Owner / timing:"
+      ]
+    },
+    {
+      "path": "_refs/checklists/skill-quality.md",
+      "requiredTerms": [
+        "Every user-facing confirmation names one decision",
+        "Business users are not asked to choose unexplained technical mechanisms",
+        "Confirmation fog"
+      ]
+    }
+  ]
+}

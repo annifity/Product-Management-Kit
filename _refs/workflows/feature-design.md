@@ -9,12 +9,12 @@ Use after discovery or a BRD when the team needs an engineering-ready feature de
 3. Workflow design: map actors, states, decision points, exception flows, and operational handling.
 4. Edge case analysis: use `_refs/checklists/edge-cases.md` and record severity, owner, and mitigation.
 5. Requirement definition: write functional requirements, NFRs, business rules, dependencies, and constraints.
-6. User stories: write INVEST stories and Given/When/Then acceptance criteria.
-7. Readiness review: check consistency across problem, workflow, requirements, edge cases, stories, and operations.
+6. Acceptance handoff: define requirement-level acceptance signals and hand the confirmed requirements, workflow, rules, and edge cases to `plan` or `user-story`; do not author ticket-ready stories inside feature design.
+7. Readiness review: check consistency across problem, workflow, requirements, edge cases, acceptance signals, and operations.
 
 ## Hard Rules
 
 - Do not write requirements before the problem is understood.
-- Do not write stories before the requirement set and story map are coherent.
+- Do not let feature design silently take ownership of release slicing, story mapping, or ticket-ready acceptance criteria.
 - If a critical edge case changes the solution, return to solution exploration.
 - If requirements conflict with business rules, fix requirements before planning.

@@ -721,6 +721,299 @@
       "mustNotRouteTo": [],
       "descriptionAny": ["AI release regression gate", "rollout"],
       "reason": "Assessed AI evidence has passed and now becomes a controlled release package."
+    },
+    {
+      "id": "positive-strategy-portfolio-en",
+      "kind": "positive",
+      "language": "en",
+      "prompt": "Make a product strategy and portfolio choice across three competing bets, including investment allocation, strategic outcomes, exclusions, and stop or continue decisions.",
+      "expectedSkill": "strategy",
+      "mustNotRouteTo": [],
+      "descriptionAny": ["product strategy", "portfolio choices", "investment allocation"],
+      "reason": "The requested outcome is a cross-initiative strategic investment choice rather than delivery sequencing."
+    },
+    {
+      "id": "positive-strategy-portfolio-vi",
+      "kind": "positive",
+      "language": "vi",
+      "prompt": "Hãy xác định product strategy và portfolio choices cho các sáng kiến, gồm investment allocation, outcome chiến lược và quyết định dừng hay tiếp tục.",
+      "expectedSkill": "strategy",
+      "mustNotRouteTo": [],
+      "descriptionAny": ["product strategy", "portfolio choices", "investment allocation"],
+      "reason": "Yêu cầu cần lựa chọn chiến lược và phân bổ đầu tư ở cấp portfolio."
+    },
+    {
+      "id": "ambiguous-strategy-not-delivery-plan-en",
+      "kind": "ambiguous",
+      "language": "en",
+      "prompt": "The roadmap has several portfolio bets but no investment choice yet; decide which strategic outcome to fund before creating delivery milestones, release slices, or sequencing.",
+      "expectedSkill": "strategy",
+      "mustNotRouteTo": ["plan"],
+      "boundaryAny": ["portfolio choices", "investment allocation", "stable delivery scope"],
+      "descriptionAny": ["portfolio choices", "investment allocation"],
+      "reason": "Investment and portfolio selection belong to strategy; delivery planning starts only after a bet has stable scope."
+    },
+    {
+      "id": "positive-design-from-accepted-spec-en",
+      "kind": "positive",
+      "language": "en",
+      "prompt": "Turn this accepted product specification into a traceable UX/UI design package with flows, screens, interaction states, responsive rules, accessibility obligations, and a delivery handoff.",
+      "expectedSkill": "design",
+      "mustNotRouteTo": [],
+      "descriptionAny": ["accepted product specification", "traceable UX/UI design package"],
+      "reason": "Accepted user-visible behavior must become a source-bound design contract and handoff."
+    },
+    {
+      "id": "positive-design-from-accepted-spec-vi",
+      "kind": "positive",
+      "language": "vi",
+      "prompt": "Từ đặc tả sản phẩm đã được chấp nhận, hãy tạo traceable UX/UI design package gồm luồng, màn hình, trạng thái tương tác, responsive, accessibility và bàn giao cho đội delivery.",
+      "expectedSkill": "design",
+      "mustNotRouteTo": [],
+      "descriptionAny": ["traceable UX/UI design package", "delivery handoff"],
+      "reason": "Đặc tả đã chấp nhận cần được chuyển thành gói thiết kế có truy vết và sẵn sàng bàn giao."
+    },
+    {
+      "id": "negative-build-to-learn-mockup-not-design-en",
+      "kind": "negative",
+      "language": "en",
+      "prompt": "The product direction is not yet confirmed, but the problem and user are clear enough to create a build-to-learn prototype mockup with mock data before writing the specification.",
+      "focusSkill": "design",
+      "expectedSkill": "prototype",
+      "mustNotRouteTo": ["design"],
+      "boundaryAny": ["build-to-learn mockups"],
+      "descriptionAny": ["build-to-learn prototype"],
+      "reason": "A learning mockup before accepted behavior belongs to prototype, not delivery design."
+    },
+    {
+      "id": "ambiguous-accepted-design-not-prototype-en",
+      "kind": "ambiguous",
+      "language": "en",
+      "prompt": "The product specification is accepted; create delivery UX/UI screens, state behavior, responsive rules, and a design handoff, not a build-to-learn prototype or exploratory mockup.",
+      "expectedSkill": "design",
+      "mustNotRouteTo": ["prototype"],
+      "boundaryAny": ["accepted product specification"],
+      "descriptionAny": ["delivery handoff", "accepted product specification"],
+      "reason": "Delivery design derives from accepted behavior; prototype remains a pre-commitment learning route."
+    },
+    {
+      "id": "ambiguous-review-existing-design-not-author-en",
+      "kind": "ambiguous",
+      "language": "en",
+      "prompt": "Review this existing UX/UI design for requirement coverage, accessibility, responsive behavior, and readiness; issue a verdict without substantially rewriting the design package.",
+      "expectedSkill": "validate",
+      "mustNotRouteTo": ["design"],
+      "boundaryAny": ["Audit an existing product artifact, UX/UI design"],
+      "descriptionAny": ["UX/UI design", "readiness or quality verdict"],
+      "reason": "An independent verdict on an existing design belongs to validate; design owns authoring and substantive revision."
+    },
+    {
+      "id": "handoff-spec-to-design-en",
+      "kind": "handoff",
+      "language": "en",
+      "prompt": "The product specification and its requirement IDs passed the Spec Gate; now turn the accepted user-visible behavior into a traceable UX/UI design package and handoff.",
+      "fromSkill": "spec",
+      "expectedSkill": "design",
+      "mustNotRouteTo": [],
+      "descriptionAny": ["accepted product specification", "UX/UI design package"],
+      "reason": "Stable user-visible behavior is ready for spec-to-design translation."
+    },
+    {
+      "id": "handoff-design-to-plan-en",
+      "kind": "handoff",
+      "language": "en",
+      "prompt": "The UX/UI design handoff is accepted with all blocking design gaps resolved; create the delivery plan, release slices, milestones, and dependencies.",
+      "fromSkill": "design",
+      "expectedSkill": "plan",
+      "mustNotRouteTo": [],
+      "descriptionAny": ["delivery plan", "release slices"],
+      "reason": "An accepted design handoff can now enter delivery sequencing."
+    },
+    {
+      "id": "positive-prioritize-en",
+      "kind": "positive",
+      "language": "en",
+      "prompt": "Create a defensible priority order for these six product opportunities and show which uncertain inputs can change the rank.",
+      "expectedSkill": "prioritize",
+      "mustNotRouteTo": [],
+      "descriptionAny": ["priority order", "rank product opportunities"],
+      "reason": "The primary job is evidence-aware option ranking, not strategy selection or delivery sequencing."
+    },
+    {
+      "id": "positive-prioritize-vi",
+      "kind": "positive",
+      "language": "vi",
+      "prompt": "Hãy rank product opportunities này thành priority order có giải thích, sensitivity và không tự bịa điểm confidence.",
+      "expectedSkill": "prioritize",
+      "mustNotRouteTo": [],
+      "descriptionAny": ["rank product opportunities", "priority order"],
+      "reason": "Yêu cầu cần xếp hạng minh bạch với độ nhạy và giới hạn evidence."
+    },
+    {
+      "id": "ambiguous-prioritize-not-plan-en",
+      "kind": "ambiguous",
+      "language": "en",
+      "prompt": "Rank these backlog options before we decide what enters delivery scope; do not create milestones, release slices, or a delivery sequence yet.",
+      "expectedSkill": "prioritize",
+      "mustNotRouteTo": ["plan"],
+      "boundaryAny": ["sequencing stable delivery scope"],
+      "descriptionAny": ["rank", "backlog options"],
+      "reason": "Ranking comparable options precedes planning stable delivery scope."
+    },
+    {
+      "id": "positive-analytics-en",
+      "kind": "positive",
+      "language": "en",
+      "prompt": "Diagnose this activation metric movement using product events, funnel cuts, cohorts, and a corrected instrumentation plan.",
+      "expectedSkill": "analytics",
+      "mustNotRouteTo": [],
+      "descriptionAny": ["metric movement", "product events"],
+      "reason": "The user needs a product-data diagnosis and measurement plan."
+    },
+    {
+      "id": "positive-analytics-vi",
+      "kind": "positive",
+      "language": "vi",
+      "prompt": "Hãy chẩn đoán metric movement của activation bằng product events, funnel, cohort và retention; nếu thiếu dữ liệu thì viết instrumentation plan.",
+      "expectedSkill": "analytics",
+      "mustNotRouteTo": [],
+      "descriptionAny": ["metric movement", "product events"],
+      "reason": "Yêu cầu là phân tích dữ liệu sản phẩm, không phải phán quyết readiness độc lập."
+    },
+    {
+      "id": "ambiguous-analytics-not-validate-en",
+      "kind": "ambiguous",
+      "language": "en",
+      "prompt": "Diagnose why this retention metric moved and recommend the next analysis; I do not need an independent evidence-quality verdict or readiness audit.",
+      "expectedSkill": "analytics",
+      "mustNotRouteTo": ["validate"],
+      "boundaryAny": ["independent evidence-quality verdict"],
+      "descriptionAny": ["metric movement", "retention"],
+      "reason": "Analytics owns diagnosis; validate owns the independent verdict."
+    },
+    {
+      "id": "positive-growth-en",
+      "kind": "positive",
+      "language": "en",
+      "prompt": "Find our binding growth constraint across activation and retention, then create a prioritized intervention and experiment backlog.",
+      "expectedSkill": "growth",
+      "mustNotRouteTo": [],
+      "descriptionAny": ["growth constraint", "retention"],
+      "reason": "The outcome is a cross-lifecycle growth intervention plan."
+    },
+    {
+      "id": "positive-growth-vi",
+      "kind": "positive",
+      "language": "vi",
+      "prompt": "Xác định growth constraint lớn nhất giữa activation, retention và referral rồi tạo intervention plan có experiment backlog.",
+      "expectedSkill": "growth",
+      "mustNotRouteTo": [],
+      "descriptionAny": ["growth constraint", "retention"],
+      "reason": "Yêu cầu vượt khỏi đo lường đơn thuần và cần kế hoạch tăng trưởng."
+    },
+    {
+      "id": "ambiguous-growth-not-analytics-en",
+      "kind": "ambiguous",
+      "language": "en",
+      "prompt": "Use cohort and retention data to find the growth constraint and build interventions, not just provide a measurement-only diagnosis.",
+      "expectedSkill": "growth",
+      "mustNotRouteTo": ["analytics"],
+      "boundaryAny": ["measurement-only diagnosis"],
+      "descriptionAny": ["growth constraint", "retention"],
+      "reason": "The requested outcome is intervention design, while analytics supplies the evidence layer."
+    },
+    {
+      "id": "positive-commercial-en",
+      "kind": "positive",
+      "language": "en",
+      "prompt": "Evaluate this pricing and packaging change with SaaS unit economics, downside sensitivity, and a quantified commercial verdict.",
+      "expectedSkill": "commercial",
+      "mustNotRouteTo": [],
+      "descriptionAny": ["pricing", "unit economics"],
+      "reason": "The decision is commercial viability and monetization."
+    },
+    {
+      "id": "positive-commercial-vi",
+      "kind": "positive",
+      "language": "vi",
+      "prompt": "Đánh giá pricing, packaging và unit economics cho gói Enterprise, gồm sensitivity và commercial decision rõ ràng.",
+      "expectedSkill": "commercial",
+      "mustNotRouteTo": [],
+      "descriptionAny": ["pricing", "unit economics"],
+      "reason": "Yêu cầu cần phân tích định lượng về pricing và economics."
+    },
+    {
+      "id": "ambiguous-commercial-not-strategy-en",
+      "kind": "ambiguous",
+      "language": "en",
+      "prompt": "Analyze pricing, packaging, SaaS metrics, and unit economics for this product; do not make the broader portfolio investment choice.",
+      "expectedSkill": "commercial",
+      "mustNotRouteTo": ["strategy"],
+      "boundaryAny": ["portfolio investment choices"],
+      "descriptionAny": ["pricing", "unit economics"],
+      "reason": "Commercial owns the economic analysis; strategy owns allocation across bets."
+    },
+    {
+      "id": "positive-gtm-en",
+      "kind": "positive",
+      "language": "en",
+      "prompt": "Create the ICP, positioning, launch tier, channel strategy, enablement, and adoption measurement for this defined feature.",
+      "expectedSkill": "gtm",
+      "mustNotRouteTo": [],
+      "descriptionAny": ["positioning", "adoption"],
+      "reason": "The product is defined and needs a go-to-market motion."
+    },
+    {
+      "id": "positive-gtm-vi",
+      "kind": "positive",
+      "language": "vi",
+      "prompt": "Thiết kế ICP, positioning, messaging, launch channel, enablement và adoption plan cho feature đã chốt.",
+      "expectedSkill": "gtm",
+      "mustNotRouteTo": [],
+      "descriptionAny": ["positioning", "adoption"],
+      "reason": "Yêu cầu là thiết kế GTM và adoption trước release operations."
+    },
+    {
+      "id": "ambiguous-gtm-not-ship-en",
+      "kind": "ambiguous",
+      "language": "en",
+      "prompt": "Design positioning, channels, and adoption hypotheses before release readiness; do not perform rollout, rollback, support, or launch execution yet.",
+      "expectedSkill": "gtm",
+      "mustNotRouteTo": ["ship"],
+      "boundaryAny": ["release readiness"],
+      "descriptionAny": ["positioning", "adoption"],
+      "reason": "GTM designs the market motion; ship owns operational readiness and execution."
+    },
+    {
+      "id": "positive-competitive-intelligence-en",
+      "kind": "positive",
+      "language": "en",
+      "prompt": "Update our competitor baseline into a sourced change digest and watchlist with product implications since last month.",
+      "expectedSkill": "competitive-intelligence",
+      "mustNotRouteTo": [],
+      "descriptionAny": ["competitor baseline", "change digest"],
+      "reason": "The job is recurring, dated, diffable competitive intelligence."
+    },
+    {
+      "id": "positive-competitive-intelligence-vi",
+      "kind": "positive",
+      "language": "vi",
+      "prompt": "Cập nhật competitor baseline thành change digest có nguồn, observed date, product implications và watchlist hàng tháng.",
+      "expectedSkill": "competitive-intelligence",
+      "mustNotRouteTo": [],
+      "descriptionAny": ["competitor baseline", "change digest"],
+      "reason": "Yêu cầu là competitive intelligence lặp lại theo cadence, không phải lookup một lần."
+    },
+    {
+      "id": "ambiguous-competitive-intelligence-not-discovery-en",
+      "kind": "ambiguous",
+      "language": "en",
+      "prompt": "Update the existing monthly competitor watchlist and change digest; the market boundary is already known, so this is not broad unresolved market exploration.",
+      "expectedSkill": "competitive-intelligence",
+      "mustNotRouteTo": ["discovery"],
+      "boundaryAny": ["broad unresolved market exploration"],
+      "descriptionAny": ["change digest", "watchlist"],
+      "reason": "A known category with a prior snapshot belongs to recurring competitive intelligence."
     }
   ]
 }

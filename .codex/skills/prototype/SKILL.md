@@ -1,6 +1,6 @@
 ---
 name: prototype
-description: 'Create a build-to-learn prototype package from a sufficiently clear product direction. Use for a PRO (Prototyping Requirements One-Pager), minimum user flow, screen list, wireframe descriptions, clickable mockup or frontend-builder prompt, and prototype handoff before experiment, PRD, or spec. If a raw idea still lacks a clear problem, user, or outcome, use `discovery` first; this skill prototypes a direction rather than resolving product strategy.'
+description: 'Create a build-to-learn prototype package from a sufficiently clear product direction. Use for a PRO (Prototyping Requirements One-Pager), minimum user flow, screen list, wireframe descriptions, clickable mockup or frontend-builder prompt, and prototype handoff before experiment, PRD, or spec. If a raw idea still lacks a clear problem, user, or outcome, use `discovery` first; use `design` when accepted requirements need a delivery-facing UX/UI contract rather than a learning mockup.'
 ---
 
 # prototype

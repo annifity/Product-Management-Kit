@@ -2,7 +2,10 @@
 
 Retain Context, Dependencies, and Open Questions only when they pass `_refs/checklists/source-backed-minimality.md`. Do not synthesize a project code or ticket ID.
 
-Return the generation receipt alongside this story; keep it outside the story when the project profile forbids metadata.
+Alongside the story, state only what was created or updated, its target and
+baseline impact, and any decision needed.
+
+<!-- Keep internal resolver data and machine identifiers out of this story. -->
 
 As a [user],
 I want [capability],

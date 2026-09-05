@@ -96,8 +96,27 @@ try {
     New-Item -ItemType Directory -Path $TempRoot -Force | Out-Null
     $manifest = [System.IO.File]::ReadAllText($ManifestPath) | ConvertFrom-Json
     $caseIds = @($manifest.cases | ForEach-Object { [string]$_.caseId })
-    if ($caseIds.Count -ne 5 -or @($caseIds | Sort-Object -Unique).Count -ne 5) {
-        throw "Semantic-forward corpus must contain five unique anonymized regression cases."
+    if (@($caseIds | Sort-Object -Unique).Count -ne $caseIds.Count) {
+        throw "Semantic-forward corpus must contain unique anonymized regression cases."
+    }
+    $canonicalSkills = @(
+        Get-ChildItem -LiteralPath (Join-Path $Root "skills") -Directory |
+            Select-Object -ExpandProperty Name |
+            Sort-Object
+    )
+    $coveredSkills = @(
+        $manifest.cases |
+            ForEach-Object { [string]$_.skill } |
+            Sort-Object -Unique
+    )
+    $missingSkills = @($canonicalSkills | Where-Object { $coveredSkills -cnotcontains $_ })
+    $unknownSkills = @($coveredSkills | Where-Object { $canonicalSkills -cnotcontains $_ })
+    if ($missingSkills.Count -gt 0 -or $unknownSkills.Count -gt 0) {
+        throw (
+            "Semantic-forward corpus skill coverage mismatch. Missing: [{0}]. Unknown: [{1}]." -f
+            ($missingSkills -join ", "),
+            ($unknownSkills -join ", ")
+        )
     }
 
     foreach ($caseId in $caseIds) {
@@ -323,7 +342,10 @@ workflow. The wording is refined without changing accepted scope.
         throw "Leaked evaluator oracle was accepted."
     }
 
-    Write-Host "OK semantic forward-test harness (5 blind cases; oracle-redaction and task-binding regressions)."
+    Write-Host (
+        "OK semantic forward-test harness ({0} blind cases; oracle-redaction and task-binding regressions)." `
+            -f $caseIds.Count
+    )
 }
 finally {
     if (Test-Path -LiteralPath $TempRoot) {

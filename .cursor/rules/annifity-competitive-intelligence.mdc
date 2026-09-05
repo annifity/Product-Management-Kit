@@ -1,0 +1,12 @@
+---
+description: 'Annifity skill competitive-intelligence: Build or update sourced competitive intelligence that tracks competitor products, positioning, pricing, customers, launches, and strategic moves over time. Use when a PM needs a competitor baseline, change digest, watchlist, battlecard input, or evidence-backed product implication rather than a one-off factual lookup. Use `knowledge` to retrieve existing internal intelligence, `discovery` for broad unresolved market exploration, and `strategy` to make the resulting product or portfolio choice.'
+alwaysApply: false
+---
+
+# competitive-intelligence
+
+Use this rule when the request matches the description above.
+
+Canonical source: skills/competitive-intelligence/SKILL.md
+
+Read the canonical skill file before acting, then load only the referenced _refs/ files needed for the task. If generated adapter text conflicts with the canonical source, the canonical source wins.

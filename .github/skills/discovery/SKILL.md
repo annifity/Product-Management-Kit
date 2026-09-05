@@ -1,6 +1,6 @@
 ---
 name: discovery
-description: 'Frame an unclear product problem or opportunity into a confirmed direction. Use for vague or solution-led stakeholder asks, early ideas, missing users/outcomes/evidence, customer interview or research synthesis, product strategy, opportunity framing, solution exploration, workshops, market sizing, business-model questions, research, or AI context design. Use `discovery` while evidence is raw or the problem or direction is unresolved; use `learn` after evidence has been assessed and only interpretation or a product decision remains; use `prototype` once a direction is clear enough to build to learn.'
+description: 'Frame an unclear product problem or opportunity into a confirmed direction. Use for vague or solution-led stakeholder asks, early ideas, missing users/outcomes/evidence, customer interview or research synthesis, opportunity framing, solution exploration, workshops, market sizing, business-model questions, new external market/competitor/company research, or AI context design. Use `discovery` while evidence is raw or the problem or direction is unresolved; use `strategy` when evidence is sufficient for product or portfolio choices; use `competitive-intelligence` for a known category and recurring competitor baseline; use `learn` after evidence has been assessed; use `prototype` once a direction is clear enough to build to learn; use `knowledge` instead to retrieve existing facts.'
 ---
 
 # discovery

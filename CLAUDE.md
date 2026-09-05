@@ -24,6 +24,7 @@ Annifity is a portable Product Builder Kit for Claude, Codex, Cursor, and Copilo
 | `validate` | Audit existing prototypes, evidence, artifacts, skills, readiness, and risks |
 | `learn` | Synthesize insight, retrospective, decision memo, and roadmap recommendation |
 | `spec` | Convert confirmed learning or direction into requirements, workflows, risks, and open questions |
+| `design` | Turn accepted requirements into traceable UX/UI flows, screens, states, and handoff |
 | `plan` | Build delivery plan, epic map, milestones, dependencies, and release slices |
 | `execution` | Support active delivery, answer questions, triage decisions, manage scope |
 | `ship` | Prepare release package, final docs, signoff, and post-ship memory |
@@ -48,11 +49,12 @@ Annifity is a portable Product Builder Kit for Claude, Codex, Cursor, and Copilo
 ## Working Rules
 
 - Match the user's language by default.
-- Follow the Annifity builder path for end-to-end work: `discovery -> brief -> prototype -> experiment -> validate -> learn -> spec -> plan -> execution -> ship`.
+- For work with two or more meaningful outcomes, multiple phases/tools/files, a material artifact, or blocker/gate risk, read `_refs/operating-model/task-progress.md` and show a concise outcome-level checklist before execution. Update it only when state changes; require evidence for completion. Do not use it for immediately answerable or genuinely one-step work, and do not equate task completion with lifecycle, gate, or artifact approval.
+- Follow the Annifity builder path for end-to-end work: `discovery -> brief -> prototype -> experiment -> validate -> learn -> strategy (when portfolio choice is material) -> spec -> design (when user-visible) -> plan -> execution -> ship`.
 - Use `docs` after artifact creation or phase gates.
 - Use `memories` before workflows and after durable decisions.
 - Resolve the artifact-generation contract and applicable project profile before drafting; do not silently invent material decisions.
-- Return the compact generation receipt with authored artifacts: fingerprint, disposition, source IDs, and exact baseline target.
+- Return a concise, localized generation result with authored artifacts: completed action, human-readable target and source, baseline impact, concrete blocker, and next action. Do not label it with resolver or audit terminology. Keep machine audit details out of ordinary user-facing responses and business artifacts. Explain stale or blocked state in plain language; return raw diagnostics only when the user explicitly requests them or an audit export requires them.
 - Resolve governed artifacts through the authoritative baseline registry rather than guessing from filenames or dates.
 - Apply source-backed minimality, negative-completeness checks, and the local mutation-safety workflow before changing controlled files.
 - Load only relevant `_refs/` files for the current task.

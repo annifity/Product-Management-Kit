@@ -1,6 +1,29 @@
 {
   "schemaVersion": "1.0",
+  "userFacingPolicy": {
+    "prohibitedOutputTerms": [
+      "generation receipt",
+      "contract fingerprint",
+      "write disposition",
+      "resolvedProfile"
+    ],
+    "prohibitedTemplateTerms": [
+      "generation receipt",
+      "contract fingerprint",
+      "write disposition",
+      "resolvedProfile"
+    ]
+  },
   "skills": [
+    {
+      "skill": "analytics",
+      "input": {"requiredTerms": ["Reuse", "raw data", "instrumentation"]},
+      "output": {"requiredTerms": ["Decision question", "metric contract", "Data-quality", "Diagnostic hypotheses", "Evidence limits"]},
+      "handoff": {"requiredTerms": ["validate", "learn", "experiment", "growth", "docs", "memories"]},
+      "templates": [
+        {"path": "_refs/templates/metrics/product-analytics-review.md", "requiredTerms": ["Decision Context", "Metric Contract", "Baseline, Target, And Material Slices", "Data Quality", "Findings", "Guardrails And Harmed Slices", "Evidence Verdict"]}
+      ]
+    },
     {
       "skill": "brief",
       "input": {"requiredTerms": ["Reuse", "partial", "discovery"]},
@@ -12,11 +35,29 @@
     },
     {
       "skill": "change",
-      "input": {"requiredTerms": ["Reuse", "baseline", "confirmed"]},
+      "input": {"requiredTerms": ["Reuse", "baseline", "explicit request"]},
       "output": {"requiredTerms": ["Impact assessment", "change plan", "preview", "changelog"]},
       "handoff": {"requiredTerms": ["prd", "spec", "user-story", "uat", "ship", "execution"]},
       "templates": [
         {"path": "_refs/templates/change/impact-analysis.md", "requiredTerms": ["Area", "Impact", "Severity", "Owner", "Action", "Scope", "Stories", "UAT", "Release"]}
+      ]
+    },
+    {
+      "skill": "commercial",
+      "input": {"requiredTerms": ["Reuse", "units", "currency", "time period", "source"]},
+      "output": {"requiredTerms": ["Commercial decision", "Calculated metrics", "Scenario", "Sensitivity", "Verdict"]},
+      "handoff": {"requiredTerms": ["discovery", "strategy", "experiment", "growth", "gtm", "plan"]},
+      "templates": [
+        {"path": "_refs/templates/strategy/commercial-decision.md", "requiredTerms": ["Decision", "Input Ledger", "Metrics And Scenarios", "Sensitivity", "Recommendation"]}
+      ]
+    },
+    {
+      "skill": "competitive-intelligence",
+      "input": {"requiredTerms": ["Reuse", "prior snapshot", "sources", "monitoring cadence"]},
+      "output": {"requiredTerms": ["Source ledger", "change digest", "Product", "Counterevidence", "Watchlist"]},
+      "handoff": {"requiredTerms": ["knowledge", "discovery", "strategy", "gtm", "docs", "memories"]},
+      "templates": [
+        {"path": "_refs/templates/strategy/competitive-intelligence-brief.md", "requiredTerms": ["Scope", "Evidence Ledger", "Change Digest", "Product Implications", "Watchlist And Handoff"]}
       ]
     },
     {
@@ -25,16 +66,29 @@
       "output": {"requiredTerms": ["Problem statement", "Target users", "Evidence", "Assumptions", "Open questions"]},
       "handoff": {"requiredTerms": ["brief", "prototype", "experiment", "spec", "docs", "memories"]},
       "templates": [
-        {"path": "_refs/templates/discovery/discovery-brief.md", "requiredTerms": ["Problem Statement", "Target Users And Jobs", "Evidence Summary", "Go / No-Go", "Handoff"]}
+        {"path": "_refs/templates/discovery/discovery-brief.md", "requiredTerms": ["Problem Statement", "Target Users And Jobs", "Evidence Summary", "Go / No-Go", "Handoff"]},
+        {"path": "_refs/templates/ai/opportunity-risk-brief.md", "requiredTerms": ["AI Decision", "Suitability verdict", "Minimum autonomy", "Risk tier", "Next Gate"]}
+      ]
+    },
+    {
+      "skill": "design",
+      "input": {"requiredTerms": ["Reuse", "accepted spec", "design authority", "source authority"]},
+      "output": {"requiredTerms": ["Design Handoff Pack", "Design contract", "artifact manifest", "screen inventory", "interaction/state", "traceability", "Design Gate"]},
+      "handoff": {"requiredTerms": ["plan", "user-story", "execution", "validate", "change"]},
+      "templates": [
+        {"path": "_refs/templates/design/design-handoff.md", "requiredTerms": ["Source And Status", "Design Decision", "Information Architecture And Flows", "Screen Inventory", "Interaction And State Coverage", "Spec-To-Design Traceability", "Design Gaps And Risks", "Design Gate And Handoff"], "prohibitedTerms": ["Contract fingerprint", "Source artifact ID / version / path / SHA-256"]},
+        {"path": "_refs/templates/design/design-brief.md", "requiredTerms": ["Source And Decision", "Source artifact ID / version", "Source path or link", "Baseline impact", "Users, Tasks, And Surfaces", "Authority And System"], "prohibitedTerms": ["Contract fingerprint", "Source path / SHA-256"]},
+        {"path": "_refs/templates/design/design-traceability.md", "requiredTerms": ["Requirement To Design", "Design To Requirement", "Coverage Gaps"]},
+        {"path": "_refs/templates/design/portable-html.html", "requiredTerms": ["<main", "prefers-reduced-motion", "Designed screens and states"]}
       ]
     },
     {
       "skill": "docs",
       "input": {"requiredTerms": ["Reuse", "exact path", "baseline"]},
-      "output": {"requiredTerms": ["path", "version", "lifecycle", "hash", "verification"]},
-      "handoff": {"requiredTerms": ["paths", "versions", "generation receipt", "conflicts"]},
+      "output": {"requiredTerms": ["path", "version", "lifecycle", "generation result", "verification"]},
+      "handoff": {"requiredTerms": ["paths", "versions", "generation result", "conflicts"]},
       "templates": [
-        {"path": "_refs/templates/docs/generation-receipt.md", "requiredTerms": ["Contract fingerprint", "Write disposition", "Source authority", "Baseline target", "Open blockers"]}
+        {"path": "_refs/templates/docs/generation-receipt.md", "requiredTerms": ["Generation Result", "User-Facing Result", "Result", "Target", "Sources used", "Baseline impact", "Needs attention", "machine record"]}
       ]
     },
     {
@@ -63,6 +117,24 @@
       "handoff": {"requiredTerms": ["evidence", "conflicts", "confidence", "docs", "memories"]},
       "templates": [
         {"path": "_refs/templates/docs/evidence-ledger.md", "requiredTerms": ["ID", "Claim", "Source", "Evidence Quality", "Confidence", "Decision Impact"]}
+      ]
+    },
+    {
+      "skill": "growth",
+      "input": {"requiredTerms": ["Reuse", "funnel", "cohort", "retention", "Without data"]},
+      "output": {"requiredTerms": ["Growth model", "binding constraint", "Driver", "interventions", "Experiment backlog", "Verdict"]},
+      "handoff": {"requiredTerms": ["analytics", "experiment", "gtm", "commercial", "learn", "strategy"]},
+      "templates": [
+        {"path": "_refs/templates/metrics/growth-plan.md", "requiredTerms": ["Growth Decision", "System And Constraint", "Drivers And Detractors", "Intervention Portfolio", "Anti-Plays And Risks"]}
+      ]
+    },
+    {
+      "skill": "gtm",
+      "input": {"requiredTerms": ["Reuse", "strategy", "ICP", "positioning", "pricing"]},
+      "output": {"requiredTerms": ["GTM decision", "Positioning", "Launch tier", "Enablement", "Metrics", "Verdict"]},
+      "handoff": {"requiredTerms": ["strategy", "commercial", "growth", "ship", "release readiness"]},
+      "templates": [
+        {"path": "_refs/templates/release/go-to-market-plan.md", "requiredTerms": ["Audience And Positioning", "Launch Motion", "Enablement And Support", "Adoption Measurement", "Post-Launch Review"]}
       ]
     },
     {
@@ -111,40 +183,63 @@
       ]
     },
     {
+      "skill": "prioritize",
+      "input": {"requiredTerms": ["Reuse", "options", "evidence", "constraints", "capacity"]},
+      "output": {"requiredTerms": ["Priority decision", "Ranked options", "Sensitivity", "Rejected methods", "Verdict"]},
+      "handoff": {"requiredTerms": ["strategy", "plan", "experiment", "discovery", "docs", "memories"]},
+      "templates": [
+        {"path": "_refs/templates/plan/prioritization-decision.md", "requiredTerms": ["Decision Context", "Method Selection", "Inputs", "Ranking", "Decision"]}
+      ]
+    },
+    {
       "skill": "ship",
       "input": {"requiredTerms": ["Reuse", "partial evidence", "blockers"]},
       "output": {"requiredTerms": ["readiness", "rollout", "rollback", "support", "release"]},
       "handoff": {"requiredTerms": ["release owner", "uat", "execution", "change", "learn", "memories", "evidence"]},
       "templates": [
-        {"path": "_refs/templates/docs/release-note.md", "requiredTerms": ["Summary", "User Impact", "Scope", "Known Limitations", "Support Notes"]}
+        {"path": "_refs/templates/docs/release-note.md", "requiredTerms": ["Summary", "User Impact", "Scope", "Known Limitations", "Support Notes"]},
+        {"path": "_refs/templates/ai/production-monitoring-plan.md", "requiredTerms": ["Baselines And Scope", "Signals And Actions", "Incident And Drift Controls", "Rollback And Re-evaluation", "Ownership"]},
+        {"path": "_refs/templates/release/go-to-market-plan.md", "requiredTerms": ["Audience And Positioning", "Launch Motion", "Enablement And Support", "Adoption Measurement", "Post-Launch Review"]}
       ]
     },
     {
       "skill": "spec",
       "input": {"requiredTerms": ["Reuse", "source authority", "partial input"]},
-      "output": {"requiredTerms": ["requirements", "rules", "states", "permissions", "traceability", "generation receipt"]},
+      "output": {"requiredTerms": ["requirements", "rules", "states", "permissions", "traceability", "plain language"]},
       "handoff": {"requiredTerms": ["plan", "Spec Gate", "testable scope", "prd"]},
       "templates": [
-        {"path": "_refs/templates/spec/product-spec.md", "requiredTerms": ["Context", "Objective", "Scope", "Requirements", "Risks", "Open Questions"]}
+        {"path": "_refs/templates/spec/product-spec.md", "requiredTerms": ["Context", "Objective", "Scope", "Requirements", "Risks", "Open Questions"]},
+        {"path": "_refs/templates/ai/behavior-spec.md", "requiredTerms": ["Autonomy And Human Authority", "Behavior Rules", "Context, Retrieval, And Data", "Tools And Side Effects", "Production Monitoring"]}
+      ]
+    },
+    {
+      "skill": "strategy",
+      "input": {"requiredTerms": ["Reuse", "decision horizon", "decision owner"]},
+      "output": {"requiredTerms": ["Strategic decision", "portfolio", "investment", "non-goals", "review triggers"]},
+      "handoff": {"requiredTerms": ["brief", "prototype", "experiment", "spec", "plan", "discovery", "learn"]},
+      "templates": [
+        {"path": "_refs/templates/strategy/product-strategy.md", "requiredTerms": ["Strategic Problem", "Strategic Choices", "What We Will Not Do", "Outcomes, Measures, And Guardrails", "Recommended Next Gate"]},
+        {"path": "_refs/templates/strategy/portfolio-decision.md", "requiredTerms": ["Portfolio Objective", "Current Commitments", "Bet Comparison", "Displaced Or Stopped Work", "Owners And Downstream Gates"]}
       ]
     },
     {
       "skill": "uat",
-      "input": {"requiredTerms": ["Reuse", "partial input", "confirmed source", "resolution diagnostics"]},
-      "output": {"requiredTerms": ["UAT plan", "test case register", "generation receipt", "diagnostics"]},
+      "input": {"requiredTerms": ["Reuse", "partial input", "confirmed source", "plain language"]},
+      "output": {"requiredTerms": ["UAT plan", "test case register", "plain language", "concrete blocker"]},
       "handoff": {"requiredTerms": ["ship", "execution", "change", "traceability"]},
       "templates": [
-        {"path": "_refs/templates/uat/uat-plan.md", "requiredTerms": ["Source And Generation Receipt", "Contract fingerprint", "Source baseline", "Source path / SHA-256", "UAT Mode", "Entry Criteria", "Exit Criteria"]},
+        {"path": "_refs/templates/uat/uat-plan.md", "requiredTerms": ["Source And Status", "Source baseline", "Source path or link", "Baseline impact", "Needs attention", "UAT Mode", "Entry Criteria", "Exit Criteria"], "prohibitedTerms": ["Contract fingerprint", "Write disposition", "Source path / SHA-256"]},
         {"path": "_refs/templates/uat/test-case-register.md", "requiredTerms": ["ID", "Req/Story/AC", "Expected Result", "Pass Criteria", "Fail Indicators", "Status"]}
       ]
     },
     {
       "skill": "user-story",
       "input": {"requiredTerms": ["Reuse", "partial input", "confirmed source scope"]},
-      "output": {"requiredTerms": ["ticket", "generation receipt", "TBD", "dependencies"]},
+      "output": {"requiredTerms": ["ticket", "plain language", "TBD", "dependencies"]},
       "handoff": {"requiredTerms": ["execution", "uat", "acceptance", "traceability"]},
       "templates": [
-        {"path": "_refs/templates/user-story/default-user-story.md", "requiredTerms": ["As a [user]", "Acceptance Criteria", "AC-01", "generation receipt", "Dependencies", "Open Questions"]}
+        {"path": "_refs/templates/user-story/default-user-story.md", "requiredTerms": ["As a [user]", "Acceptance Criteria", "AC-01", "baseline impact", "Dependencies", "Open Questions"], "prohibitedTerms": ["generation receipt", "contract fingerprint"]},
+        {"path": "_refs/templates/user-story/jira-user-story.md", "requiredTerms": ["Summary", "Description", "Acceptance Criteria", "AC-01", "baseline impact"], "prohibitedTerms": ["generation receipt", "contract fingerprint", "write disposition"]}
       ]
     },
     {

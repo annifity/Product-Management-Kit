@@ -101,6 +101,28 @@ Thresholds must be recorded before candidate execution and include:
 - `minimumRuns` or repeat policy;
 - `go`, `limitedRollout`, `iterate`, and `stop` dispositions.
 
+For executable release gates, encode thresholds as structured rules:
+
+```json
+{
+  "overallRules": [
+    {"metric": "quality", "operator": ">=", "value": 0.85}
+  ],
+  "sliceRules": [
+    {"sliceId": "vi", "metric": "quality", "operator": ">=", "value": 0.80}
+  ],
+  "hardBlockers": ["critical-privacy", "irreversible-action"],
+  "nonRegressionRules": [
+    {"metric": "quality", "maxDecline": 0.02}
+  ],
+  "latencyBudget": {"metric": "p95LatencyMs", "operator": "<=", "value": 2500},
+  "costBudget": {"metric": "costPerRun", "operator": "<=", "value": 0.05}
+}
+```
+
+Supported comparison operators are `>`, `>=`, `<`, `<=`, `==`, and `!=`.
+Do not store executable rules only as natural-language expressions.
+
 ## Run Result Contract
 
 Each immutable result requires:
@@ -114,6 +136,15 @@ Each immutable result requires:
 - grader disagreement and unscorable counts;
 - execution errors and evidence gaps;
 - artifact path or run URL plus result hash.
+
+For executable comparison, each result also declares:
+
+- `role`: exactly one `baseline` and one `candidate`;
+- `suiteVersion`, `datasetVersion`, `environmentFingerprint`, and ordered
+  `graderVersions`;
+- numeric `metrics`;
+- `sliceMetrics` keyed by declared slice ID;
+- `hardBlockerFailures` as declared blocker IDs.
 
 The verdict must cite exact run IDs and state the permitted deployment scope,
 residual risks, accepted-risk owners, rollback condition, and next review date.

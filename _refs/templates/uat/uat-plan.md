@@ -1,14 +1,16 @@
 # UAT Plan: [Feature Name]
 
-## Source And Generation Receipt
+## Source And Status
 
 | Field | Value |
 |---|---|
-| Contract fingerprint | `sha256:<hash>` |
-| Write disposition | `allowed` / `confirmation-required` |
 | Source baseline | `<artifactId>@<version>` |
-| Source path / SHA-256 | `<path>` / `<sha256>` |
-| UAT mode / consumer | [Resolved mode and audience] |
+| Source path or link | `<path-or-link>` |
+| UAT mode / audience | [Selected mode and audience] |
+| Baseline impact | [No baseline change / describe approved change] |
+| Needs attention | [None / concrete decision or blocker] |
+
+<!-- Keep internal resolver data and machine identifiers out of this UAT plan. -->
 
 ## UAT Mode
 

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Product Growth"
+  short_description: "Diagnose and improve sustainable product growth"
+  default_prompt: "Use $growth to diagnose this growth problem and build an experiment-backed plan."

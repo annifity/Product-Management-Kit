@@ -117,7 +117,11 @@ Identical intent and workspace state therefore produce an identical preview on r
 
 ## Confirmation Receipt
 
-Confirmation requires the user-supplied fingerprint to equal the recorded fingerprint and a fresh recomputation to equal all recorded hashes.
+Confirmation requires the caller-supplied fingerprint from the internally bound
+preview to equal the recorded fingerprint and a fresh recomputation to equal all
+recorded hashes. The user's natural-language approval authorizes the
+human-readable action-and-impact summary; the user must not be asked to supply
+or repeat the fingerprint.
 
 ```json
 {

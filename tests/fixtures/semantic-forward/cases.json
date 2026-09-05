@@ -147,6 +147,380 @@
         ],
         "maxWords": 260
       }
+    },
+    {
+      "caseId": "raw-customer-research-routing",
+      "skill": "discovery",
+      "prompt": "Synthesize the supplied raw customer interview notes into traceable findings without inventing evidence.",
+      "sourceFiles": [
+        "tests/fixtures/semantic-forward/sources/raw-customer-research-routing.md"
+      ],
+      "dimensions": [
+        "unsupported-behavior",
+        "context-adherence",
+        "minimality",
+        "baseline-selection",
+        "usability"
+      ],
+      "oracle": {
+        "requiredTerms": [
+          "source",
+          "counterevidence",
+          "confidence"
+        ],
+        "prohibitedTerms": [
+          "validated decision",
+          "release approved",
+          "all customers"
+        ],
+        "maxWords": 300
+      }
+    },
+    {
+      "caseId": "assessed-findings-learning-decision",
+      "skill": "learn",
+      "prompt": "Turn the supplied assessed discovery findings into a product decision and next learning action.",
+      "sourceFiles": [
+        "tests/fixtures/semantic-forward/sources/assessed-findings-learning-decision.md"
+      ],
+      "dimensions": [
+        "unsupported-behavior",
+        "context-adherence",
+        "minimality",
+        "baseline-selection",
+        "usability"
+      ],
+      "oracle": {
+        "requiredTerms": [
+          "assessed findings",
+          "confidence",
+          "next learning"
+        ],
+        "prohibitedTerms": [
+          "recruit participants",
+          "interview guide",
+          "raw transcript"
+        ],
+        "maxWords": 260
+      }
+    },
+    {
+      "caseId": "ai-evaluation-plan-before-results",
+      "skill": "experiment",
+      "prompt": "Design an AI evaluation plan for the confirmed assistant behavior before any candidate run exists.",
+      "sourceFiles": [
+        "tests/fixtures/semantic-forward/sources/ai-evaluation-plan-before-results.md"
+      ],
+      "dimensions": [
+        "unsupported-behavior",
+        "context-adherence",
+        "minimality",
+        "baseline-selection",
+        "usability"
+      ],
+      "oracle": {
+        "requiredTerms": [
+          "golden set",
+          "grader",
+          "hard blocker"
+        ],
+        "prohibitedTerms": [
+          "candidate passed",
+          "release approved",
+          "observed result"
+        ],
+        "maxWords": 320
+      }
+    },
+    {
+      "caseId": "ai-results-readiness-verdict",
+      "skill": "validate",
+      "prompt": "Assess the supplied AI baseline and candidate results and issue an evidence-backed release-readiness verdict.",
+      "sourceFiles": [
+        "tests/fixtures/semantic-forward/sources/ai-results-readiness-verdict.md"
+      ],
+      "dimensions": [
+        "unsupported-behavior",
+        "context-adherence",
+        "minimality",
+        "baseline-selection",
+        "usability"
+      ],
+      "oracle": {
+        "requiredTerms": [
+          "critical slice",
+          "hard blocker",
+          "blocked"
+        ],
+        "prohibitedTerms": [
+          "design an evaluation",
+          "collect results later",
+          "aggregate pass"
+        ],
+        "maxWords": 280
+      }
+    },
+    {
+      "caseId": "ai-verdict-to-controlled-ship",
+      "skill": "ship",
+      "prompt": "Prepare a controlled release package from the supplied passed AI evaluation verdict and rollout constraints.",
+      "sourceFiles": [
+        "tests/fixtures/semantic-forward/sources/ai-verdict-to-controlled-ship.md"
+      ],
+      "dimensions": [
+        "unsupported-behavior",
+        "context-adherence",
+        "minimality",
+        "baseline-selection",
+        "usability"
+      ],
+      "oracle": {
+        "requiredTerms": [
+          "rollback",
+          "monitoring",
+          "support"
+        ],
+        "prohibitedTerms": [
+          "global rollout immediately",
+          "skip monitoring",
+          "release without rollback"
+        ],
+        "maxWords": 300
+      }
+    },
+    {
+      "caseId": "confirmed-direction-brief",
+      "skill": "brief",
+      "prompt": "Create a compact product-direction brief from the confirmed source.",
+      "sourceFiles": ["tests/fixtures/semantic-forward/sources/confirmed-direction-brief.md"],
+      "dimensions": ["unsupported-behavior", "context-adherence", "minimality", "baseline-selection", "usability"],
+      "oracle": {
+        "requiredTerms": ["Problem", "Target users", "Success metrics"],
+        "prohibitedTerms": ["API endpoints", "implementation tasks", "database schema"],
+        "maxWords": 260
+      }
+    },
+    {
+      "caseId": "document-storage-without-product-mutation",
+      "skill": "docs",
+      "prompt": "Store and index the supplied accepted decision without making product changes.",
+      "sourceFiles": ["tests/fixtures/semantic-forward/sources/document-storage-only.md"],
+      "dimensions": ["unsupported-behavior", "context-adherence", "minimality", "baseline-selection", "usability"],
+      "oracle": {
+        "requiredTerms": [".annifity/docs/decisions/OPS-DEC-014_v1.0.md", "version", "baseline"],
+        "prohibitedTerms": ["prioritize the backlog", "new product decision", "scope expansion", "generation receipt", "fingerprint", "writeDisposition", "resolvedProfile"],
+        "expectedBaseline": "OPS-DEC-014@1.0",
+        "maxWords": 220
+      }
+    },
+    {
+      "caseId": "active-delivery-source-clarification",
+      "skill": "execution",
+      "prompt": "Answer the active-delivery question from the accepted baseline and preserve the scope boundary.",
+      "sourceFiles": ["tests/fixtures/semantic-forward/sources/active-delivery-clarification.md"],
+      "dimensions": ["unsupported-behavior", "context-adherence", "minimality", "baseline-selection", "usability"],
+      "oracle": {
+        "requiredTerms": ["OPS-SPEC-006@1.0", "Returned", "scope change"],
+        "prohibitedTerms": ["Closed cases may be reopened", "new acceptance criteria", "silent expansion"],
+        "expectedBaseline": "OPS-SPEC-006@1.0",
+        "maxWords": 220
+      }
+    },
+    {
+      "caseId": "existing-decision-knowledge-lookup",
+      "skill": "knowledge",
+      "prompt": "Answer why automated reassignment was excluded using only the supplied knowledge source.",
+      "sourceFiles": ["tests/fixtures/semantic-forward/sources/existing-decision-lookup.md"],
+      "dimensions": ["unsupported-behavior", "context-adherence", "minimality", "baseline-selection", "usability"],
+      "oracle": {
+        "requiredTerms": ["OPS-DEC-009@1.0", "confidence", "no later accepted decision"],
+        "prohibitedTerms": ["decision updated", "validated automation", "high confidence"],
+        "expectedBaseline": "OPS-DEC-009@1.0",
+        "maxWords": 220
+      }
+    },
+    {
+      "caseId": "persist-only-confirmed-memory",
+      "skill": "memories",
+      "prompt": "Persist only the confirmed terminology decision and report the durable record.",
+      "sourceFiles": ["tests/fixtures/semantic-forward/sources/persist-confirmed-context.md"],
+      "dimensions": ["unsupported-behavior", "context-adherence", "minimality", "baseline-selection", "usability"],
+      "oracle": {
+        "requiredTerms": ["service request", "source", "active"],
+        "prohibitedTerms": ["team prefers", "all artifacts", "inferred preference"],
+        "maxWords": 220
+      }
+    },
+    {
+      "caseId": "stable-scope-delivery-sequencing",
+      "skill": "plan",
+      "prompt": "Turn the stable accepted scope into delivery slices and dependencies.",
+      "sourceFiles": ["tests/fixtures/semantic-forward/sources/stable-spec-delivery-plan.md"],
+      "dimensions": ["unsupported-behavior", "context-adherence", "minimality", "baseline-selection", "usability"],
+      "oracle": {
+        "requiredTerms": ["release slice", "dependencies", "milestones"],
+        "prohibitedTerms": ["bulk assignment", "automated reassignment", "new requirement"],
+        "expectedBaseline": "OPS-SPEC-011@1.0",
+        "maxWords": 300
+      }
+    },
+    {
+      "caseId": "formal-prd-preserves-confirmed-scope",
+      "skill": "prd",
+      "prompt": "Create a stakeholder-facing PRD derived from the accepted specification.",
+      "sourceFiles": ["tests/fixtures/semantic-forward/sources/formal-prd-from-confirmed-scope.md"],
+      "dimensions": ["unsupported-behavior", "context-adherence", "minimality", "baseline-selection", "usability"],
+      "oracle": {
+        "requiredTerms": ["Scope", "assumptions", "Bulk assignment"],
+        "prohibitedTerms": ["automated assignment", "new behavior", "real-time escalation"],
+        "expectedBaseline": "OPS-SPEC-012@1.0",
+        "maxWords": 340
+      }
+    },
+    {
+      "caseId": "minimum-build-to-learn-prototype",
+      "skill": "prototype",
+      "prompt": "Create the minimum prototype package needed to answer the supplied learning question.",
+      "sourceFiles": ["tests/fixtures/semantic-forward/sources/build-to-learn-prototype.md"],
+      "dimensions": ["unsupported-behavior", "context-adherence", "minimality", "baseline-selection", "usability"],
+      "oracle": {
+        "requiredTerms": ["learning", "two-screen", "mock data"],
+        "prohibitedTerms": ["production backend", "database migration", "release-ready"],
+        "maxWords": 280
+      }
+    },
+    {
+      "caseId": "bounded-ai-behavior-spec",
+      "skill": "spec",
+      "prompt": "Specify the confirmed AI behavior and its authority and context boundaries.",
+      "sourceFiles": ["tests/fixtures/semantic-forward/sources/ai-behavior-specification.md"],
+      "dimensions": ["unsupported-behavior", "context-adherence", "minimality", "baseline-selection", "usability"],
+      "oracle": {
+        "requiredTerms": ["abstain", "human authority", "prohibited behavior"],
+        "prohibitedTerms": ["update the case", "release approved", "autonomous final decision"],
+        "maxWords": 340
+      }
+    },
+    {
+      "caseId": "uat-from-confirmed-requirement-only",
+      "skill": "uat",
+      "prompt": "Create traceable UAT cases from only the confirmed acceptance source.",
+      "sourceFiles": ["tests/fixtures/semantic-forward/sources/confirmed-scope-uat.md"],
+      "dimensions": ["unsupported-behavior", "context-adherence", "minimality", "baseline-selection", "usability"],
+      "oracle": {
+        "requiredTerms": ["OPS-REQ-021", "Expected Result", "ineligible"],
+        "prohibitedTerms": ["bulk assignment", "manager approval", "retry policy"],
+        "maxWords": 300
+      }
+    },
+    {
+      "caseId": "portfolio-bet-choice-not-delivery-plan",
+      "skill": "strategy",
+      "prompt": "Make the constrained portfolio choice with explicit exclusions and review conditions.",
+      "sourceFiles": ["tests/fixtures/semantic-forward/sources/portfolio-choice.md"],
+      "dimensions": ["unsupported-behavior", "context-adherence", "minimality", "baseline-selection", "usability"],
+      "oracle": {
+        "requiredTerms": ["invest", "pause", "review trigger"],
+        "prohibitedTerms": ["sprint backlog", "story points", "implementation milestones"],
+        "maxWords": 300
+      }
+    },
+    {
+      "caseId": "spec-derived-design-no-invention",
+      "skill": "design",
+      "prompt": "Turn the accepted source into a compact, traceable UX/UI design handoff without adding behavior.",
+      "sourceFiles": ["tests/fixtures/semantic-forward/sources/spec-derived-design-handoff.md"],
+      "dimensions": ["unsupported-behavior", "context-adherence", "minimality", "baseline-selection", "usability"],
+      "oracle": {
+        "requiredTerms": ["OPS-SPEC-020@1.0", "REQ-001", "permission", "SCREEN-"],
+        "prohibitedTerms": ["bulk approval", "automatic approval", "notify Staff App before", "generation receipt", "fingerprint", "writeDisposition", "resolvedProfile"],
+        "expectedBaseline": "OPS-SPEC-020@1.0",
+        "maxWords": 420
+      }
+    },
+    {
+      "caseId": "diagnose-instrumentation-before-product-cause",
+      "skill": "analytics",
+      "prompt": "Diagnose the activation movement and define the next analysis without claiming an unsupported product cause.",
+      "sourceFiles": ["tests/fixtures/semantic-forward/sources/product-analytics-diagnosis.md"],
+      "dimensions": ["unsupported-behavior", "context-adherence", "minimality", "baseline-selection", "usability"],
+      "oracle": {
+        "requiredTerms": ["Android 4.8", "instrumentation", "42%", "35%"],
+        "prohibitedTerms": ["activation truly fell", "redesign onboarding", "caused by user behavior"],
+        "maxWords": 260
+      }
+    },
+    {
+      "caseId": "commercial-decision-without-invented-wtp",
+      "skill": "commercial",
+      "prompt": "Evaluate the pricing decision with explicit evidence limits and a reversible next step.",
+      "sourceFiles": ["tests/fixtures/semantic-forward/sources/commercial-pricing-decision.md"],
+      "dimensions": ["unsupported-behavior", "context-adherence", "minimality", "baseline-selection", "usability"],
+      "oracle": {
+        "requiredTerms": ["USD 24", "directional", "new-customer test", "Proceed with conditions"],
+        "prohibitedTerms": ["validated willingness to pay", "portfolio allocation", "guaranteed revenue"],
+        "maxWords": 300
+      }
+    },
+    {
+      "caseId": "competitive-change-digest-no-parity-roadmap",
+      "skill": "competitive-intelligence",
+      "prompt": "Update the competitor snapshot with sourced changes and bounded product implications.",
+      "sourceFiles": ["tests/fixtures/semantic-forward/sources/competitive-intelligence-update.md"],
+      "dimensions": ["unsupported-behavior", "context-adherence", "minimality", "baseline-selection", "usability"],
+      "oracle": {
+        "requiredTerms": ["2026-07-22", "approval history export", "fact", "watch"],
+        "prohibitedTerms": ["automated compliance approval", "must build", "roadmap committed"],
+        "maxWords": 280
+      }
+    },
+    {
+      "caseId": "growth-constraint-with-causality-limit",
+      "skill": "growth",
+      "prompt": "Identify the binding growth constraint and propose a minimum test without treating correlation as causation.",
+      "sourceFiles": ["tests/fixtures/semantic-forward/sources/growth-constraint-diagnosis.md"],
+      "dimensions": ["unsupported-behavior", "context-adherence", "minimality", "baseline-selection", "usability"],
+      "oracle": {
+        "requiredTerms": ["invite a teammate", "22%", "correlation", "guardrail"],
+        "prohibitedTerms": ["proven causal", "send more notifications", "acquisition problem"],
+        "maxWords": 300
+      }
+    },
+    {
+      "caseId": "gtm-motion-does-not-claim-ship-readiness",
+      "skill": "gtm",
+      "prompt": "Create the market and adoption motion while preserving the boundary to operational shipping.",
+      "sourceFiles": ["tests/fixtures/semantic-forward/sources/gtm-motion-before-ship.md"],
+      "dimensions": ["unsupported-behavior", "context-adherence", "minimality", "baseline-selection", "usability"],
+      "oracle": {
+        "requiredTerms": ["operations administrator", "compliance lead", "adoption", "ship"],
+        "prohibitedTerms": ["release ready", "rollback approved", "launch executed"],
+        "maxWords": 300
+      }
+    },
+    {
+      "caseId": "prioritize-without-invented-rice",
+      "skill": "prioritize",
+      "prompt": "Rank the supplied opportunities transparently without creating missing scoring inputs.",
+      "sourceFiles": ["tests/fixtures/semantic-forward/sources/prioritization-without-false-precision.md"],
+      "dimensions": ["unsupported-behavior", "context-adherence", "minimality", "baseline-selection", "usability"],
+      "oracle": {
+        "requiredTerms": ["Approval reminders", "sensitivity", "Need evidence"],
+        "prohibitedTerms": ["RICE score", "reach =", "confidence = 80%"],
+        "maxWords": 280
+      }
+    },
+    {
+      "caseId": "analytics-slice-failure-not-hidden-by-aggregate",
+      "skill": "analytics",
+      "prompt": "Assess whether D30 retention supports a full rollout without letting the blended figure hide a failing channel.",
+      "sourceFiles": ["tests/fixtures/semantic-forward/sources/aggregate-retention-hides-slice-failure.md"],
+      "dimensions": ["unsupported-behavior", "context-adherence", "minimality", "baseline-selection", "usability"],
+      "oracle": {
+        "requiredTerms": ["invite-referred", "9%", "38%"],
+        "prohibitedTerms": ["blended retention is healthy", "ship to everyone", "overall retention is healthy"],
+        "maxWords": 260
+      }
     }
   ]
 }

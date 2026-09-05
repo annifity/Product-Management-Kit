@@ -18,7 +18,7 @@ $script:Diagnostics = New-Object System.Collections.Generic.List[object]
 $AllowedLifecycles = @("draft", "reviewed", "baselined", "shipped", "superseded")
 $ActiveBaselineStates = @("baselined", "shipped")
 $AllowedTypes = @(
-    "brd", "prd", "spec", "user-story", "uat", "decision", "changelog",
+    "brd", "prd", "spec", "design", "user-story", "uat", "decision", "changelog",
     "release-note", "session", "traceability", "roadmap", "risk"
 )
 

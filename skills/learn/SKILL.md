@@ -9,7 +9,7 @@ Convert assessed evidence into insight, a decision, and the next learning loop.
 
 ## Input Contract
 
-Reuse the supplied evidence, validation result, hypothesis, decisions, and memories. Require assessed evidence tied to a product question; if it is missing, stop and request it, and route raw, unevaluated evidence to `validate` first. Ask only for material gaps, continue with labeled assumptions for non-blocking gaps, and state confidence when evidence is partial.
+Reuse the supplied evidence, validation result, hypothesis, decisions, and memories. Require assessed evidence tied to a product question; if it is missing, stop and request it. Route raw customer interviews or research notes to `discovery`, and route raw experiment, prototype, release, or AI-run results that still need a verdict to `validate`. Ask only for material gaps, continue with labeled assumptions for non-blocking gaps, and state confidence when evidence is partial.
 
 ## Process
 
@@ -21,7 +21,7 @@ Reuse the supplied evidence, validation result, hypothesis, decisions, and memor
 4. Compare results to the original hypothesis, success metrics, and decision criteria.
 5. For prototype feedback, summarize feedback, evidence strength, validated value, usability issues, requested changes, risks, and recommendation.
 6. Identify reusable insights, product implications, and unresolved questions.
-7. Apply source-backed minimality and recommend iterate prototype, write PRD, specify, plan, ship, park, reject, or run another experiment.
+7. Apply source-backed minimality and recommend iterate prototype, revise strategy, write PRD, specify, plan, ship, park, reject, or run another experiment.
 8. Ask `docs` to save the artifact and `memories` to persist durable outcomes.
 
 ## Output
@@ -51,7 +51,9 @@ Load only references needed for the evidence and output:
 - For the requested learning artifact, use `_refs/templates/learning/insight-summary.md`, `_refs/templates/learning/product-retrospective.md`, `_refs/templates/learning/decision-memo.md`, and/or `_refs/templates/learning/roadmap-recommendation.md`.
 - For durable decision outcomes, use `_refs/templates/memories/decision-outcomes.md` and `_refs/templates/docs/decision-ledger.md`.
 - When checking whether learning supports another loop or entry into delivery, use `_refs/operating-model/phase-gates.md`.
+- For assessed production AI evidence, preserve slice, incident, configuration, and feedback provenance from `_refs/workflows/ai-production-monitoring.md` before changing roadmap or evaluation recommendations.
+- For assessed product analytics evidence, preserve metric definitions, populations, denominators, time windows, material slices, data-quality verdict, and causal limits from `_refs/workflows/product-analytics.md`; use `_refs/templates/metrics/product-analytics-review.md` when an auditable review artifact is needed.
 
 ## Handoff
 
-Hand off assessed evidence, observations, interpretations, the product decision, roadmap implication, confidence, and unresolved questions. Route to `spec` for delivery definition, `prototype` or `experiment` for another learning loop, `plan` when scope is already delivery-ready, or `ship` when only launch and handoff work remain.
+Hand off assessed evidence, observations, interpretations, the product decision, roadmap implication, confidence, and unresolved questions. Route to `strategy` when evidence changes a product or portfolio choice, `spec` for delivery definition, `prototype` or `experiment` for another learning loop, `plan` when scope is already delivery-ready, or `ship` when only launch and handoff work remain.

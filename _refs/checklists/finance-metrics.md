@@ -11,6 +11,23 @@ Use when a product decision needs commercial rigor: pricing, feature investment,
 | Capital Efficiency | Burn rate, runway, OpEx, net income, Rule of 40, magic number | Whether growth is sustainable. |
 | Portfolio and Concentration | revenue mix, revenue concentration, cohort performance | Business fragility and strategic focus. |
 
+## Formulas
+
+| Metric | Formula |
+|---|---|
+| MRR | Sum of active monthly recurring revenue across accounts |
+| ARR | MRR x 12 |
+| ARPU / ARPA | Revenue / active users or accounts |
+| NRR (Net Revenue Retention) | (Starting ARR + Expansion - Contraction - Churn) / Starting ARR |
+| Quick Ratio | (New MRR + Expansion MRR) / (Churned MRR + Contraction MRR) |
+| CAC | (Sales spend + marketing spend) / new customers acquired |
+| LTV | (ARPA x Gross Margin %) / Revenue Churn Rate |
+| LTV:CAC | LTV / CAC |
+| CAC Payback (months) | CAC / (ARPA x Gross Margin %) |
+| Rule of 40 | Revenue Growth Rate % + Profit Margin % (target >= 40) |
+| Magic Number | Net New ARR (quarter) / Sales & Marketing Spend (prior quarter) |
+| Gross Margin | (Revenue - COGS) / Revenue |
+
 ## Decision Frameworks
 
 ### Feature Investment

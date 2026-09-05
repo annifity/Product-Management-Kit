@@ -8,7 +8,7 @@ baseline status from the filename.
 ---
 artifact_id: GBIA-US-WFM-002B
 title: Publish a roster
-type: brd | prd | spec | user-story | uat | decision | changelog | release-note | session | traceability | roadmap | risk
+type: brd | prd | spec | design | user-story | uat | decision | changelog | release-note | session | traceability | roadmap | risk
 status: draft | reviewed | baselined | shipped | superseded
 updated: YYYY-MM-DD
 source: [Source artifact, accepted decision, ticket, or session]

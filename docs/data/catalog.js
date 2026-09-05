@@ -1,18 +1,36 @@
 window.ANNIFITY_CATALOG = {
     "generatedAt":  "2026-07-06T14:01:11Z",
     "summary":  {
-                    "skillCount":  17,
-                    "referenceCount":  152,
-                    "workflowCount":  22,
-                    "checklistCount":  26,
-                    "templateCount":  71
+                    "skillCount":  25,
+                    "referenceCount":  216,
+                    "workflowCount":  34,
+                    "checklistCount":  39,
+                    "templateCount":  101
                 },
     "skills":  [
                    {
+                       "name":  "analytics",
+                       "description":  "Diagnose product performance and produce a decision-ready measurement plan from product events, funnels, cohorts, retention, activation, adoption, experiments, or KPI data. Use when a PM needs to define instrumentation, investigate metric movement, compare user segments, identify behavioral drivers, or turn product usage data into a recommended next analysis. Use `validate` for an independent evidence-quality verdict, `learn` after evidence is assessed and needs interpretation into a product decision, and `experiment` to design a prospective test.",
+                       "source":  "skills/analytics/SKILL.md",
+                       "references":  [
+                                          "_refs/checklists/pm-decision-quality.md",
+                                          "_refs/checklists/product-analytics-quality.md",
+                                          "_refs/checklists/source-backed-minimality.md",
+                                          "_refs/operating-model/artifact-quality-system.md",
+                                          "_refs/schemas/metrics-event.md",
+                                          "_refs/templates/experiment/decision-criteria.md",
+                                          "_refs/templates/metrics/metric-tree.md",
+                                          "_refs/templates/metrics/product-analytics-review.md",
+                                          "_refs/workflows/pm-decision-challenge.md",
+                                          "_refs/workflows/product-analytics.md"
+                                      ]
+                   },
+                   {
                        "name":  "brief",
-                       "description":  "Create a concise product-direction brief or Product Requirements Outline from confirmed discovery. Use for a one-page alignment artifact covering problem, users, goals, scope, metrics, assumptions, and risks before prototype, experiment, or detailed requirements. Use `brief` for pre-delivery direction; use `prd` for a formal PRD/BRD and `spec` for implementation-ready rules and behavior.",
+                       "description":  "Create a concise product-direction brief or Product Requirements Outline from confirmed discovery. Use for a one-page alignment artifact covering problem, users, goals, scope, metrics, assumptions, and risks before prototype, experiment, or detailed requirements. Use `discovery` first when the problem, users, or outcome are still unconfirmed. Use `brief` for pre-delivery direction; use `prd` for a formal PRD/BRD and `spec` for implementation-ready rules and behavior.",
                        "source":  "skills/brief/SKILL.md",
                        "references":  [
+                                          "_refs/checklists/ai-suitability-risk-gate.md",
                                           "_refs/checklists/business-analysis.md",
                                           "_refs/checklists/edge-cases.md",
                                           "_refs/checklists/material-decision-preflight.md",
@@ -28,7 +46,8 @@ window.ANNIFITY_CATALOG = {
                                           "_refs/templates/ai/context-manifest.md",
                                           "_refs/templates/metrics/metric-tree.md",
                                           "_refs/templates/prd/one-pager.md",
-                                          "_refs/workflows/ai-native-pm-loop.md"
+                                          "_refs/workflows/ai-native-pm-loop.md",
+                                          "_refs/workflows/ai-suitability-risk-framing.md"
                                       ]
                    },
                    {
@@ -57,15 +76,88 @@ window.ANNIFITY_CATALOG = {
                                       ]
                    },
                    {
+                       "name":  "commercial",
+                       "description":  "Evaluate product commercial viability through pricing, packaging, willingness-to-pay, market sizing, SaaS metrics, unit economics, channel economics, or feature investment analysis. Use when a PM needs a quantified commercial decision, sensitivity analysis, monetization hypothesis, or business-case recommendation. Use `discovery` when the customer problem or market is still unclear, `strategy` for portfolio investment choices, `growth` for funnel or retention diagnosis, and `gtm` for launch messaging and channels.",
+                       "source":  "skills/commercial/SKILL.md",
+                       "references":  [
+                                          "_refs/checklists/ai-unit-economics.md",
+                                          "_refs/checklists/commercial-quality.md",
+                                          "_refs/checklists/finance-metrics.md",
+                                          "_refs/checklists/pm-decision-quality.md",
+                                          "_refs/checklists/source-backed-minimality.md",
+                                          "_refs/operating-model/artifact-quality-system.md",
+                                          "_refs/templates/ai/unit-economics.md",
+                                          "_refs/templates/strategy/commercial-decision.md",
+                                          "_refs/templates/strategy/market-sizing.md",
+                                          "_refs/workflows/commercial-decision.md",
+                                          "_refs/workflows/market-sizing.md",
+                                          "_refs/workflows/pm-decision-challenge.md"
+                                      ]
+                   },
+                   {
+                       "name":  "competitive-intelligence",
+                       "description":  "Build or update sourced competitive intelligence that tracks competitor products, positioning, pricing, customers, launches, and strategic moves over time. Use when a PM needs a competitor baseline, change digest, watchlist, battlecard input, or evidence-backed product implication rather than a one-off factual lookup. Use `knowledge` to retrieve existing internal intelligence, `discovery` for broad unresolved market exploration, and `strategy` to make the resulting product or portfolio choice.",
+                       "source":  "skills/competitive-intelligence/SKILL.md",
+                       "references":  [
+                                          "_refs/checklists/competitive-intelligence-quality.md",
+                                          "_refs/checklists/pm-decision-quality.md",
+                                          "_refs/checklists/source-backed-minimality.md",
+                                          "_refs/operating-model/artifact-quality-system.md",
+                                          "_refs/templates/docs/evidence-ledger.md",
+                                          "_refs/templates/strategy/company-research-brief.md",
+                                          "_refs/templates/strategy/competitive-intelligence-brief.md",
+                                          "_refs/workflows/competitive-intelligence.md",
+                                          "_refs/workflows/pm-decision-challenge.md",
+                                          "_refs/workflows/research-evidence.md"
+                                      ]
+                   },
+                   {
+                       "name":  "design",
+                       "description":  "Turn an accepted product specification into a traceable UX/UI design package and delivery handoff. Use when confirmed requirements must become information architecture, user flows, screens, interaction and state behavior, responsive rules, accessibility obligations, or a design-system-bound handoff before planning or implementation. Use `prototype` for build-to-learn mockups before behavior is confirmed; use `validate` to audit an existing design; route design-discovered changes to accepted behavior through `change`.",
+                       "source":  "skills/design/SKILL.md",
+                       "references":  [
+                                          "_refs/checklists/design-quality.md",
+                                          "_refs/checklists/design-readiness.md",
+                                          "_refs/checklists/material-decision-preflight.md",
+                                          "_refs/checklists/pm-decision-quality.md",
+                                          "_refs/checklists/security-privacy-accessibility.md",
+                                          "_refs/checklists/source-backed-minimality.md",
+                                          "_refs/operating-model/artifact-profile-resolution.md",
+                                          "_refs/operating-model/authoritative-baseline-resolution.md",
+                                          "_refs/operating-model/phase-gates.md",
+                                          "_refs/operating-model/routing.md",
+                                          "_refs/schemas/ai-behavior-contract.md",
+                                          "_refs/schemas/artifact-generation-contract.md",
+                                          "_refs/schemas/design-artifact-manifest.md",
+                                          "_refs/schemas/design-contract.md",
+                                          "_refs/templates/ai/behavior-spec.md",
+                                          "_refs/templates/design/design-brief.md",
+                                          "_refs/templates/design/design-handoff.md",
+                                          "_refs/templates/design/design-review.md",
+                                          "_refs/templates/design/design-system.md",
+                                          "_refs/templates/design/design-traceability.md",
+                                          "_refs/templates/design/interaction-state-matrix.md",
+                                          "_refs/templates/design/portable-html.html",
+                                          "_refs/templates/design/screen-design.md",
+                                          "_refs/templates/design/screen-spec.md",
+                                          "_refs/templates/design/spec-design-traceability.md",
+                                          "_refs/templates/skills/method-selection-record.md",
+                                          "_refs/workflows/pm-decision-challenge.md",
+                                          "_refs/workflows/spec-to-design.md"
+                                      ]
+                   },
+                   {
                        "name":  "discovery",
-                       "description":  "Frame an unclear product problem or opportunity into a confirmed direction. Use for vague or solution-led stakeholder asks, early ideas, missing users/outcomes/evidence, customer interview or research synthesis, product strategy, opportunity framing, solution exploration, workshops, market sizing, business-model questions, research, or AI context design. Use `discovery` while evidence is raw or the problem or direction is unresolved; use `learn` after evidence has been assessed and only interpretation or a product decision remains; use `prototype` once a direction is clear enough to build to learn.",
+                       "description":  "Frame an unclear product problem or opportunity into a confirmed direction. Use for vague or solution-led stakeholder asks, early ideas, missing users/outcomes/evidence, customer interview or research synthesis, opportunity framing, solution exploration, workshops, market sizing, business-model questions, new external market/competitor/company research, or AI context design. Use `discovery` while evidence is raw or the problem or direction is unresolved; use `strategy` when evidence is sufficient for product or portfolio choices; use `competitive-intelligence` for a known category and recurring competitor baseline; use `learn` after evidence has been assessed; use `prototype` once a direction is clear enough to build to learn; use `knowledge` instead to retrieve existing facts.",
                        "source":  "skills/discovery/SKILL.md",
                        "references":  [
+                                          "_refs/checklists/ai-suitability-risk-gate.md",
                                           "_refs/checklists/brainstorming-readiness.md",
                                           "_refs/checklists/business-analysis.md",
                                           "_refs/checklists/finance-metrics.md",
                                           "_refs/checklists/material-decision-preflight.md",
                                           "_refs/checklists/opportunity-scoring.md",
+                                          "_refs/checklists/pm-decision-quality.md",
                                           "_refs/checklists/source-backed-minimality.md",
                                           "_refs/operating-model/artifact-profile-resolution.md",
                                           "_refs/operating-model/builder-packs.md",
@@ -74,6 +166,7 @@ window.ANNIFITY_CATALOG = {
                                           "_refs/operating-model/routing.md",
                                           "_refs/schemas/artifact-generation-contract.md",
                                           "_refs/templates/ai/context-manifest.md",
+                                          "_refs/templates/ai/opportunity-risk-brief.md",
                                           "_refs/templates/discovery/discovery-brief.md",
                                           "_refs/templates/discovery/interview-plan.md",
                                           "_refs/templates/learning/insight-summary.md",
@@ -82,15 +175,18 @@ window.ANNIFITY_CATALOG = {
                                           "_refs/templates/memories/team-preferences.md",
                                           "_refs/templates/memories/terminology.md",
                                           "_refs/templates/metrics/metric-tree.md",
+                                          "_refs/templates/skills/method-selection-record.md",
                                           "_refs/templates/strategy/business-model-canvas.md",
                                           "_refs/templates/strategy/company-research-brief.md",
                                           "_refs/templates/strategy/market-sizing.md",
                                           "_refs/templates/strategy/opportunity-solution-tree.md",
                                           "_refs/workflows/ai-native-pm-loop.md",
+                                          "_refs/workflows/ai-suitability-risk-framing.md",
                                           "_refs/workflows/customer-discovery-synthesis.md",
                                           "_refs/workflows/discovery-to-spec.md",
                                           "_refs/workflows/jobs-to-be-done-analysis.md",
                                           "_refs/workflows/market-sizing.md",
+                                          "_refs/workflows/pm-decision-challenge.md",
                                           "_refs/workflows/product-discovery.md",
                                           "_refs/workflows/research-evidence.md",
                                           "_refs/workflows/solution-exploration.md",
@@ -132,16 +228,20 @@ window.ANNIFITY_CATALOG = {
                        "description":  "Provide product-owner decisions and requirement clarification during active implementation after planning. Use for developer questions, blocked tickets, acceptance interpretation, dependency or trade-off decisions, defect triage, and Jira/Confluence context handoff. Use `change` when the answer modifies committed scope, acceptance criteria, or user-visible behavior; use `validate` for a readiness or quality audit rather than day-to-day delivery support.",
                        "source":  "skills/execution/SKILL.md",
                        "references":  [
+                                          "_refs/checklists/material-decision-preflight.md",
                                           "_refs/checklists/stakeholder-governance.md",
                                           "_refs/integrations/jira.md",
                                           "_refs/operating-model/authoritative-baseline-resolution.md",
                                           "_refs/operating-model/phase-gates.md",
                                           "_refs/operating-model/routing.md",
+                                          "_refs/schemas/design-contract.md",
                                           "_refs/templates/change/spec-change-context.md",
                                           "_refs/templates/docs/decision-ledger.md",
                                           "_refs/templates/docs/decision-log.md",
+                                          "_refs/templates/strategy/stakeholder-decision-map.md",
                                           "_refs/workflows/change-governance.md",
-                                          "_refs/workflows/execution-support.md"
+                                          "_refs/workflows/execution-support.md",
+                                          "_refs/workflows/stakeholder-decision-governance.md"
                                       ]
                    },
                    {
@@ -151,6 +251,8 @@ window.ANNIFITY_CATALOG = {
                        "references":  [
                                           "_refs/checklists/ai-evaluation-release-gate.md",
                                           "_refs/checklists/material-decision-preflight.md",
+                                          "_refs/checklists/pm-decision-quality.md",
+                                          "_refs/checklists/product-analytics-quality.md",
                                           "_refs/checklists/security-privacy-accessibility.md",
                                           "_refs/checklists/source-backed-minimality.md",
                                           "_refs/operating-model/artifact-profile-resolution.md",
@@ -169,12 +271,52 @@ window.ANNIFITY_CATALOG = {
                                           "_refs/templates/experiment/sample-size.md",
                                           "_refs/templates/experiment/tracking-plan.md",
                                           "_refs/workflows/ai-evaluation.md",
-                                          "_refs/workflows/experiment-design.md"
+                                          "_refs/workflows/experiment-design.md",
+                                          "_refs/workflows/pm-decision-challenge.md",
+                                          "_refs/workflows/product-analytics.md"
+                                      ]
+                   },
+                   {
+                       "name":  "growth",
+                       "description":  "Diagnose and improve sustainable product growth across acquisition quality, activation, engagement, retention, referral, expansion, and growth loops. Use when a PM needs to find a growth constraint, identify an aha or critical event, explain churn, design a growth model, or build an evidence-backed intervention and experiment backlog. Use `analytics` for measurement-only diagnosis, `gtm` for positioning and launch-channel planning, and `commercial` for pricing, packaging, or unit-economics decisions.",
+                       "source":  "skills/growth/SKILL.md",
+                       "references":  [
+                                          "_refs/checklists/growth-quality.md",
+                                          "_refs/checklists/pm-decision-quality.md",
+                                          "_refs/checklists/product-analytics-quality.md",
+                                          "_refs/checklists/source-backed-minimality.md",
+                                          "_refs/operating-model/artifact-quality-system.md",
+                                          "_refs/schemas/metrics-event.md",
+                                          "_refs/templates/metrics/growth-plan.md",
+                                          "_refs/templates/metrics/metric-tree.md",
+                                          "_refs/workflows/go-to-market-adoption.md",
+                                          "_refs/workflows/pm-decision-challenge.md",
+                                          "_refs/workflows/product-analytics.md",
+                                          "_refs/workflows/product-growth.md"
+                                      ]
+                   },
+                   {
+                       "name":  "gtm",
+                       "description":  "Design an evidence-backed go-to-market and adoption motion for a defined product, feature, or segment. Use when a PM needs ICP, positioning, messaging, launch tier, channel strategy, enablement, rollout audiences, adoption hypotheses, or launch measurement before release operations. Use `strategy` for where-to-play and how-to-win choices, `commercial` for pricing and packaging decisions, `growth` for lifecycle optimization, and `ship` for release readiness, rollback, support, and execution.",
+                       "source":  "skills/gtm/SKILL.md",
+                       "references":  [
+                                          "_refs/checklists/gtm-quality.md",
+                                          "_refs/checklists/pm-decision-quality.md",
+                                          "_refs/checklists/source-backed-minimality.md",
+                                          "_refs/operating-model/artifact-quality-system.md",
+                                          "_refs/schemas/metrics-event.md",
+                                          "_refs/templates/metrics/metric-tree.md",
+                                          "_refs/templates/release/go-to-market-plan.md",
+                                          "_refs/templates/strategy/positioning-statement.md",
+                                          "_refs/workflows/go-to-market-adoption.md",
+                                          "_refs/workflows/pm-decision-challenge.md",
+                                          "_refs/workflows/product-analytics.md",
+                                          "_refs/workflows/stakeholder-decision-governance.md"
                                       ]
                    },
                    {
                        "name":  "knowledge",
-                       "description":  "Retrieve and synthesize existing product knowledge from local docs, memories, decision records, Jira, Confluence, pasted context, or workspace connectors, with source citations and confidence. Use when the user asks what exists, where it is documented, who owns it, or why a decision was made. This is read-oriented; use `docs` to write or index artifacts and `memories` to persist durable context.",
+                       "description":  "Retrieve and synthesize existing product knowledge from local docs, memories, decision records, Jira, Confluence, pasted context, or workspace connectors, with source citations and confidence. Use when the user asks what exists, where it is documented, who owns it, why a decision was made, or \"what do we know/remember about X\" as an open retrieval question spanning docs, memories, Jira, or Confluence. This is read-oriented; use `docs` to write or index artifacts and `memories` only to persist new durable context or fetch one named memory record by category.",
                        "source":  "skills/knowledge/SKILL.md",
                        "references":  [
                                           "_refs/integrations/confluence.md",
@@ -206,10 +348,13 @@ window.ANNIFITY_CATALOG = {
                                           "_refs/templates/learning/product-retrospective.md",
                                           "_refs/templates/learning/roadmap-recommendation.md",
                                           "_refs/templates/memories/decision-outcomes.md",
+                                          "_refs/templates/metrics/product-analytics-review.md",
                                           "_refs/templates/prototype/prototype-feedback-summary.md",
+                                          "_refs/workflows/ai-production-monitoring.md",
                                           "_refs/workflows/customer-discovery-synthesis.md",
                                           "_refs/workflows/jobs-to-be-done-analysis.md",
                                           "_refs/workflows/learning-synthesis.md",
+                                          "_refs/workflows/product-analytics.md",
                                           "_refs/workflows/prototype-first.md"
                                       ]
                    },
@@ -238,13 +383,11 @@ window.ANNIFITY_CATALOG = {
                    },
                    {
                        "name":  "plan",
-                       "description":  "Convert a confirmed product spec into an actionable delivery plan. Use for prioritization or investment decisions, roadmap and release slices, delivery-level epic maps, milestones, dependencies, grooming questions, and team handoff sequencing. This skill owns cross-epic slicing and sequence; use `user-story` for ticket-ready Jira epics, stories, and acceptance criteria, `spec` when requirements are unstable, and `execution` after delivery begins.",
+                       "description":  "Convert a confirmed product spec and, when applicable, its accepted design handoff into an actionable delivery plan. Use for release slices, delivery roadmaps, delivery-level epic maps, milestones, dependencies, grooming questions, and team handoff sequencing. This skill owns cross-epic slicing and sequence for selected stable scope; use `prioritize` while comparable options still need ranking, `strategy` for portfolio investment choices, `design` for unresolved UX/UI handoff, `user-story` for ticket-ready work, `spec` when requirements are unstable, and `execution` after delivery begins.",
                        "source":  "skills/plan/SKILL.md",
                        "references":  [
                                           "_refs/checklists/definition-of-ready.md",
-                                          "_refs/checklists/finance-metrics.md",
                                           "_refs/checklists/material-decision-preflight.md",
-                                          "_refs/checklists/opportunity-scoring.md",
                                           "_refs/checklists/prioritization.md",
                                           "_refs/checklists/risk-review.md",
                                           "_refs/checklists/security-privacy-accessibility.md",
@@ -257,10 +400,13 @@ window.ANNIFITY_CATALOG = {
                                           "_refs/operating-model/phase-gates.md",
                                           "_refs/operating-model/routing.md",
                                           "_refs/schemas/artifact-generation-contract.md",
+                                          "_refs/schemas/design-contract.md",
+                                          "_refs/templates/design/design-handoff.md",
+                                          "_refs/templates/plan/dependency-matrix.md",
                                           "_refs/templates/plan/grooming-questions.md",
+                                          "_refs/templates/plan/milestones.md",
                                           "_refs/templates/plan/product-roadmap.md",
                                           "_refs/templates/user-story/story-map.md",
-                                          "_refs/workflows/market-sizing.md",
                                           "_refs/workflows/spec-to-delivery-plan.md"
                                       ]
                    },
@@ -297,8 +443,25 @@ window.ANNIFITY_CATALOG = {
                                       ]
                    },
                    {
+                       "name":  "prioritize",
+                       "description":  "Choose and apply an evidence-aware method to rank product opportunities, features, assumptions, experiments, or backlog options. Use when a PM needs a defensible priority order, framework comparison, sensitivity check, or an explicit explanation of why one option should precede another. Use `strategy` for portfolio investment and where-to-play choices, `plan` for sequencing stable delivery scope, and `discovery` when the options or problem are not yet sufficiently defined.",
+                       "source":  "skills/prioritize/SKILL.md",
+                       "references":  [
+                                          "_refs/checklists/finance-metrics.md",
+                                          "_refs/checklists/opportunity-scoring.md",
+                                          "_refs/checklists/pm-decision-quality.md",
+                                          "_refs/checklists/prioritization.md",
+                                          "_refs/checklists/source-backed-minimality.md",
+                                          "_refs/operating-model/artifact-quality-system.md",
+                                          "_refs/operating-model/methodology-catalog.md",
+                                          "_refs/templates/plan/prioritization-decision.md",
+                                          "_refs/templates/skills/method-selection-record.md",
+                                          "_refs/workflows/pm-decision-challenge.md"
+                                      ]
+                   },
+                   {
                        "name":  "prototype",
-                       "description":  "Create a build-to-learn prototype package from a sufficiently clear product direction. Use for a PRO (Prototyping Requirements One-Pager), minimum user flow, screen list, wireframe descriptions, clickable mockup or frontend-builder prompt, and prototype handoff before experiment, PRD, or spec. If a raw idea still lacks a clear problem, user, or outcome, use `discovery` first; this skill prototypes a direction rather than resolving product strategy.",
+                       "description":  "Create a build-to-learn prototype package from a sufficiently clear product direction. Use for a PRO (Prototyping Requirements One-Pager), minimum user flow, screen list, wireframe descriptions, clickable mockup or frontend-builder prompt, and prototype handoff before experiment, PRD, or spec. If a raw idea still lacks a clear problem, user, or outcome, use `discovery` first; use `design` when accepted requirements need a delivery-facing UX/UI contract rather than a learning mockup.",
                        "source":  "skills/prototype/SKILL.md",
                        "references":  [
                                           "_refs/checklists/material-decision-preflight.md",
@@ -324,10 +487,11 @@ window.ANNIFITY_CATALOG = {
                    },
                    {
                        "name":  "ship",
-                       "description":  "Prepare and coordinate a product release, rollout, retirement, or final stakeholder/support handoff. Use when the requested outcome is a ship package such as a launch or EOL plan, release notes, rollback/support notes, final document bundle, UAT signoff summary, AI release regression gate, or post-ship capture. Use `validate` for a read-only readiness audit or AI evaluation verdict without package creation and `uat` to create or execute acceptance tests.",
+                       "description":  "Prepare and coordinate a product release, rollout, retirement, or final stakeholder/support handoff. Use when the requested outcome is a ship package such as an operational launch or EOL plan, release notes, rollback/support notes, final document bundle, UAT signoff summary, AI release regression gate, or post-ship capture. Use `gtm` for ICP, positioning, channels, enablement, and adoption motion before release operations; use `validate` for a read-only readiness verdict and `uat` to create or execute acceptance tests.",
                        "source":  "skills/ship/SKILL.md",
                        "references":  [
                                           "_refs/checklists/ai-evaluation-release-gate.md",
+                                          "_refs/checklists/ai-production-readiness.md",
                                           "_refs/checklists/material-decision-preflight.md",
                                           "_refs/checklists/operational-readiness.md",
                                           "_refs/checklists/security-privacy-accessibility.md",
@@ -340,18 +504,26 @@ window.ANNIFITY_CATALOG = {
                                           "_refs/operating-model/phase-gates.md",
                                           "_refs/operating-model/routing.md",
                                           "_refs/schemas/ai-evaluation-suite.md",
+                                          "_refs/schemas/ai-production-monitoring-plan.md",
                                           "_refs/schemas/artifact-generation-contract.md",
+                                          "_refs/templates/ai/production-monitoring-plan.md",
                                           "_refs/templates/docs/release-note.md",
+                                          "_refs/templates/release/eol-plan.md",
+                                          "_refs/templates/release/go-to-market-plan.md",
                                           "_refs/templates/release/rollout-plan.md",
                                           "_refs/templates/risk/risk-register.md",
+                                          "_refs/templates/strategy/stakeholder-decision-map.md",
                                           "_refs/templates/traceability/rtm.md",
                                           "_refs/workflows/ai-evaluation.md",
-                                          "_refs/workflows/release-readiness.md"
+                                          "_refs/workflows/ai-production-monitoring.md",
+                                          "_refs/workflows/go-to-market-adoption.md",
+                                          "_refs/workflows/release-readiness.md",
+                                          "_refs/workflows/stakeholder-decision-governance.md"
                                       ]
                    },
                    {
                        "name":  "spec",
-                       "description":  "Turn confirmed product context into the detailed delivery source of truth. Use for a product or workflow specification with scoped requirements, business rules, states, permissions, edge cases, data/API behavior, non-functional requirements, assumptions, risks, and traceability before planning. Use `brief` while only direction-level alignment is needed, `prd` for a formal stakeholder requirements document, and `plan` only after the spec is stable.",
+                       "description":  "Turn confirmed product context into the detailed delivery source of truth. Use for a product specification, workflow, data/API, or AI behavior specification with scoped requirements, business rules, states, permissions, model/prompt/retrieval/tool boundaries, human oversight, edge cases, NFRs, risks, and traceability before design or planning. Use `brief` for direction-level alignment, `experiment` for evaluation design after behavior is specified, `design` for UX/UI handoff from accepted behavior, and `plan` only after the spec is stable.",
                        "source":  "skills/spec/SKILL.md",
                        "references":  [
                                           "_refs/checklists/artifact-quality-scorecard.md",
@@ -370,7 +542,9 @@ window.ANNIFITY_CATALOG = {
                                           "_refs/operating-model/builder-packs.md",
                                           "_refs/operating-model/phase-gates.md",
                                           "_refs/operating-model/routing.md",
+                                          "_refs/schemas/ai-behavior-contract.md",
                                           "_refs/schemas/artifact-generation-contract.md",
+                                          "_refs/templates/ai/behavior-spec.md",
                                           "_refs/templates/brd/default-brd.md",
                                           "_refs/templates/metrics/metric-tree.md",
                                           "_refs/templates/spec/api-contract.md",
@@ -378,10 +552,43 @@ window.ANNIFITY_CATALOG = {
                                           "_refs/templates/spec/product-spec.md",
                                           "_refs/templates/spec/workflow-spec.md",
                                           "_refs/workflows/ai-native-pm-loop.md",
+                                          "_refs/workflows/ai-product-specification.md",
                                           "_refs/workflows/discovery-to-spec.md",
                                           "_refs/workflows/feature-design.md",
                                           "_refs/workflows/requirement-analysis.md",
                                           "_refs/workflows/research-evidence.md"
+                                      ]
+                   },
+                   {
+                       "name":  "strategy",
+                       "description":  "Define or revise product strategy and portfolio choices from evidence. Use for product vision, strategic choices, positioning, target segments, outcome and OKR architecture, portfolio bets, investment allocation, strategic roadmap themes, and stop/start/continue decisions across initiatives. Use `discovery` while an opportunity is unclear, `learn` when assessed evidence needs interpretation, `prioritize` to rank a defined option set, `commercial` for pricing or economic analysis, and `plan` only after a selected bet has stable delivery scope.",
+                       "source":  "skills/strategy/SKILL.md",
+                       "references":  [
+                                          "_refs/checklists/ai-suitability-risk-gate.md",
+                                          "_refs/checklists/ai-unit-economics.md",
+                                          "_refs/checklists/finance-metrics.md",
+                                          "_refs/checklists/material-decision-preflight.md",
+                                          "_refs/checklists/opportunity-scoring.md",
+                                          "_refs/checklists/pm-decision-quality.md",
+                                          "_refs/checklists/prioritization.md",
+                                          "_refs/checklists/source-backed-minimality.md",
+                                          "_refs/checklists/strategy-quality.md",
+                                          "_refs/operating-model/artifact-profile-resolution.md",
+                                          "_refs/operating-model/authoritative-baseline-resolution.md",
+                                          "_refs/operating-model/phase-gates.md",
+                                          "_refs/operating-model/routing.md",
+                                          "_refs/schemas/artifact-generation-contract.md",
+                                          "_refs/templates/ai/unit-economics.md",
+                                          "_refs/templates/skills/method-selection-record.md",
+                                          "_refs/templates/strategy/portfolio-decision.md",
+                                          "_refs/templates/strategy/positioning-statement.md",
+                                          "_refs/templates/strategy/product-strategy.md",
+                                          "_refs/workflows/go-to-market-adoption.md",
+                                          "_refs/workflows/market-sizing.md",
+                                          "_refs/workflows/pm-decision-challenge.md",
+                                          "_refs/workflows/product-analytics.md",
+                                          "_refs/workflows/product-strategy-portfolio.md",
+                                          "_refs/workflows/stakeholder-decision-governance.md"
                                       ]
                    },
                    {
@@ -406,7 +613,7 @@ window.ANNIFITY_CATALOG = {
                    },
                    {
                        "name":  "user-story",
-                       "description":  "Create, split, refine, revise, or export ticket-ready Jira epic definitions, implementation-ready user stories, story maps, and acceptance criteria from a confirmed PRD, spec, roadmap item, or delivery plan. Use for INVEST splitting, Jira-ready tickets, and Given/When/Then criteria. Use `plan` for epic maps, sequencing, milestones, and dependencies; use `validate` for an independent story-quality/readiness verdict rather than authoring or correction.",
+                       "description":  "Create, split, refine, revise, or export ticket-ready Jira epic definitions, implementation-ready user stories, story maps, and acceptance criteria from a confirmed PRD, spec, accepted design handoff, roadmap item, or delivery plan. Use for INVEST splitting, Jira-ready tickets, and Given/When/Then criteria. Use `design` for unresolved UX/UI behavior and handoff, use `plan` for epic maps, sequencing, milestones, and dependencies, and use `validate` for an independent story-quality/readiness verdict rather than authoring or correction.",
                        "source":  "skills/user-story/SKILL.md",
                        "references":  [
                                           "_refs/checklists/acceptance-criteria-quality.md",
@@ -420,6 +627,7 @@ window.ANNIFITY_CATALOG = {
                                           "_refs/operating-model/authoritative-baseline-resolution.md",
                                           "_refs/operating-model/builder-packs.md",
                                           "_refs/schemas/artifact-generation-contract.md",
+                                          "_refs/schemas/design-contract.md",
                                           "_refs/templates/traceability/rtm.md",
                                           "_refs/templates/user-story/acceptance-criteria-gwt.md",
                                           "_refs/templates/user-story/confluence-html.md",
@@ -432,19 +640,24 @@ window.ANNIFITY_CATALOG = {
                    },
                    {
                        "name":  "validate",
-                       "description":  "Audit an existing product artifact, evidence set, AI evaluation results, delivery package, or Annifity canonical skill and return a readiness or quality verdict with findings. Use when the user asks to review, validate, compare AI baseline and candidate runs, assess regression or release readiness, check completeness, consistency, testability, coverage, traceability, risk, or go/no-go status. Use `experiment` to design an evaluation before results exist; use `prd`, `spec`, `user-story`, `uat`, or `ship` to create or substantially rewrite their artifacts.",
+                       "description":  "Audit an existing product artifact, UX/UI design, evidence set, AI evaluation results, delivery package, or an Annifity repository skill/reference file and return a readiness or quality verdict with findings. Use when the user asks to review, validate, compare AI baseline and candidate runs, assess regression or release readiness, check completeness, consistency, testability, coverage, traceability, risk, or go/no-go status. Use `analytics` to diagnose metric movement or design instrumentation and `experiment` before results exist. Use `prd`, `spec`, `user-story`, `uat`, or `ship` to create or substantially rewrite those artifacts, and `design` to author or substantially revise a UX/UI package.",
                        "source":  "skills/validate/SKILL.md",
                        "references":  [
                                           "_refs/checklists/acceptance-criteria-quality.md",
                                           "_refs/checklists/ai-evaluation-release-gate.md",
+                                          "_refs/checklists/ai-production-readiness.md",
                                           "_refs/checklists/artifact-quality-scorecard.md",
                                           "_refs/checklists/business-analysis.md",
                                           "_refs/checklists/definition-of-done.md",
                                           "_refs/checklists/definition-of-ready.md",
+                                          "_refs/checklists/design-quality.md",
+                                          "_refs/checklists/design-readiness.md",
                                           "_refs/checklists/edge-cases.md",
                                           "_refs/checklists/material-decision-preflight.md",
                                           "_refs/checklists/negative-completeness.md",
                                           "_refs/checklists/operational-readiness.md",
+                                          "_refs/checklists/pm-decision-quality.md",
+                                          "_refs/checklists/product-analytics-quality.md",
                                           "_refs/checklists/risk-review.md",
                                           "_refs/checklists/security-privacy-accessibility.md",
                                           "_refs/checklists/ship-readiness.md",
@@ -453,6 +666,7 @@ window.ANNIFITY_CATALOG = {
                                           "_refs/checklists/spec-quality.md",
                                           "_refs/checklists/stakeholder-governance.md",
                                           "_refs/checklists/story-quality-invest.md",
+                                          "_refs/checklists/task-progress-quality.md",
                                           "_refs/checklists/uat-coverage.md",
                                           "_refs/integrations/claude.md",
                                           "_refs/integrations/codex.md",
@@ -460,28 +674,46 @@ window.ANNIFITY_CATALOG = {
                                           "_refs/integrations/cursor.md",
                                           "_refs/operating-model/annifity-principles.md",
                                           "_refs/operating-model/artifact-profile-resolution.md",
+                                          "_refs/operating-model/artifact-quality-system.md",
                                           "_refs/operating-model/authoritative-baseline-resolution.md",
                                           "_refs/operating-model/language-policy.md",
+                                          "_refs/operating-model/methodology-catalog.md",
                                           "_refs/operating-model/phase-gates.md",
                                           "_refs/operating-model/routing.md",
                                           "_refs/operating-model/skill-authoring.md",
+                                          "_refs/operating-model/task-progress.md",
                                           "_refs/schemas/ai-evaluation-suite.md",
+                                          "_refs/schemas/ai-production-monitoring-plan.md",
                                           "_refs/schemas/artifact-generation-contract.md",
                                           "_refs/schemas/context-consistency-manifest.md",
+                                          "_refs/schemas/design-artifact-manifest.md",
+                                          "_refs/schemas/design-contract.md",
                                           "_refs/schemas/drawio-validation-manifest.md",
                                           "_refs/schemas/first-pass-quality-dashboard.md",
                                           "_refs/schemas/initiative-state.md",
+                                          "_refs/schemas/methodology-record.md",
+                                          "_refs/schemas/metrics-event.md",
                                           "_refs/schemas/mutation-preview.md",
                                           "_refs/schemas/semantic-forward-test.md",
                                           "_refs/schemas/session-rework-observation.md",
                                           "_refs/schemas/skill-output-contract.md",
+                                          "_refs/schemas/task-progress-state.md",
+                                          "_refs/templates/design/design-review.md",
+                                          "_refs/templates/design/spec-design-traceability.md",
+                                          "_refs/templates/docs/task-progress-checklist.md",
                                           "_refs/templates/experiment/decision-criteria.md",
+                                          "_refs/templates/metrics/product-analytics-review.md",
                                           "_refs/templates/prototype/prototype-feedback-summary.md",
                                           "_refs/templates/risk/risk-register.md",
+                                          "_refs/templates/skills/gold-example.md",
+                                          "_refs/templates/skills/method-selection-record.md",
                                           "_refs/templates/skills/skill-template.md",
                                           "_refs/templates/traceability/rtm.md",
                                           "_refs/workflows/ai-evaluation.md",
+                                          "_refs/workflows/ai-production-monitoring.md",
                                           "_refs/workflows/local-mutation-safety.md",
+                                          "_refs/workflows/pm-decision-challenge.md",
+                                          "_refs/workflows/product-analytics.md",
                                           "_refs/workflows/prototype-first.md",
                                           "_refs/workflows/sprint-readiness.md"
                                       ]
@@ -499,6 +731,24 @@ window.ANNIFITY_CATALOG = {
                            "group":  "checklists",
                            "name":  "ai-evaluation-release-gate",
                            "lines":  118
+                       },
+                       {
+                           "path":  "_refs/checklists/ai-production-readiness.md",
+                           "group":  "checklists",
+                           "name":  "ai-production-readiness",
+                           "lines":  15
+                       },
+                       {
+                           "path":  "_refs/checklists/ai-suitability-risk-gate.md",
+                           "group":  "checklists",
+                           "name":  "ai-suitability-risk-gate",
+                           "lines":  38
+                       },
+                       {
+                           "path":  "_refs/checklists/ai-unit-economics.md",
+                           "group":  "checklists",
+                           "name":  "ai-unit-economics",
+                           "lines":  29
                        },
                        {
                            "path":  "_refs/checklists/artifact-quality-scorecard.md",
@@ -519,6 +769,18 @@ window.ANNIFITY_CATALOG = {
                            "lines":  99
                        },
                        {
+                           "path":  "_refs/checklists/commercial-quality.md",
+                           "group":  "checklists",
+                           "name":  "commercial-quality",
+                           "lines":  10
+                       },
+                       {
+                           "path":  "_refs/checklists/competitive-intelligence-quality.md",
+                           "group":  "checklists",
+                           "name":  "competitive-intelligence-quality",
+                           "lines":  12
+                       },
+                       {
                            "path":  "_refs/checklists/definition-of-done.md",
                            "group":  "checklists",
                            "name":  "definition-of-done",
@@ -531,6 +793,18 @@ window.ANNIFITY_CATALOG = {
                            "lines":  16
                        },
                        {
+                           "path":  "_refs/checklists/design-quality.md",
+                           "group":  "checklists",
+                           "name":  "design-quality",
+                           "lines":  53
+                       },
+                       {
+                           "path":  "_refs/checklists/design-readiness.md",
+                           "group":  "checklists",
+                           "name":  "design-readiness",
+                           "lines":  41
+                       },
+                       {
                            "path":  "_refs/checklists/edge-cases.md",
                            "group":  "checklists",
                            "name":  "edge-cases",
@@ -540,13 +814,25 @@ window.ANNIFITY_CATALOG = {
                            "path":  "_refs/checklists/finance-metrics.md",
                            "group":  "checklists",
                            "name":  "finance-metrics",
-                           "lines":  61
+                           "lines":  78
+                       },
+                       {
+                           "path":  "_refs/checklists/growth-quality.md",
+                           "group":  "checklists",
+                           "name":  "growth-quality",
+                           "lines":  11
+                       },
+                       {
+                           "path":  "_refs/checklists/gtm-quality.md",
+                           "group":  "checklists",
+                           "name":  "gtm-quality",
+                           "lines":  11
                        },
                        {
                            "path":  "_refs/checklists/material-decision-preflight.md",
                            "group":  "checklists",
                            "name":  "material-decision-preflight",
-                           "lines":  96
+                           "lines":  132
                        },
                        {
                            "path":  "_refs/checklists/negative-completeness.md",
@@ -567,10 +853,22 @@ window.ANNIFITY_CATALOG = {
                            "lines":  23
                        },
                        {
+                           "path":  "_refs/checklists/pm-decision-quality.md",
+                           "group":  "checklists",
+                           "name":  "pm-decision-quality",
+                           "lines":  54
+                       },
+                       {
                            "path":  "_refs/checklists/prioritization.md",
                            "group":  "checklists",
                            "name":  "prioritization",
                            "lines":  43
+                       },
+                       {
+                           "path":  "_refs/checklists/product-analytics-quality.md",
+                           "group":  "checklists",
+                           "name":  "product-analytics-quality",
+                           "lines":  29
                        },
                        {
                            "path":  "_refs/checklists/pro-quality.md",
@@ -600,7 +898,7 @@ window.ANNIFITY_CATALOG = {
                            "path":  "_refs/checklists/skill-quality.md",
                            "group":  "checklists",
                            "name":  "skill-quality",
-                           "lines":  85
+                           "lines":  102
                        },
                        {
                            "path":  "_refs/checklists/solution-quality.md",
@@ -612,7 +910,7 @@ window.ANNIFITY_CATALOG = {
                            "path":  "_refs/checklists/source-backed-minimality.md",
                            "group":  "checklists",
                            "name":  "source-backed-minimality",
-                           "lines":  66
+                           "lines":  71
                        },
                        {
                            "path":  "_refs/checklists/spec-quality.md",
@@ -639,6 +937,18 @@ window.ANNIFITY_CATALOG = {
                            "lines":  18
                        },
                        {
+                           "path":  "_refs/checklists/strategy-quality.md",
+                           "group":  "checklists",
+                           "name":  "strategy-quality",
+                           "lines":  31
+                       },
+                       {
+                           "path":  "_refs/checklists/task-progress-quality.md",
+                           "group":  "checklists",
+                           "name":  "task-progress-quality",
+                           "lines":  44
+                       },
+                       {
                            "path":  "_refs/checklists/uat-coverage.md",
                            "group":  "checklists",
                            "name":  "uat-coverage",
@@ -648,7 +958,7 @@ window.ANNIFITY_CATALOG = {
                            "path":  "_refs/index.md",
                            "group":  "overview",
                            "name":  "index",
-                           "lines":  85
+                           "lines":  114
                        },
                        {
                            "path":  "_refs/integrations/claude.md",
@@ -690,7 +1000,7 @@ window.ANNIFITY_CATALOG = {
                            "path":  "_refs/operating-model/annifity-principles.md",
                            "group":  "operating-model",
                            "name":  "annifity-principles",
-                           "lines":  10
+                           "lines":  12
                        },
                        {
                            "path":  "_refs/operating-model/artifact-lifecycle.md",
@@ -702,7 +1012,13 @@ window.ANNIFITY_CATALOG = {
                            "path":  "_refs/operating-model/artifact-profile-resolution.md",
                            "group":  "operating-model",
                            "name":  "artifact-profile-resolution",
-                           "lines":  135
+                           "lines":  154
+                       },
+                       {
+                           "path":  "_refs/operating-model/artifact-quality-system.md",
+                           "group":  "operating-model",
+                           "name":  "artifact-quality-system",
+                           "lines":  52
                        },
                        {
                            "path":  "_refs/operating-model/authoritative-baseline-resolution.md",
@@ -714,49 +1030,73 @@ window.ANNIFITY_CATALOG = {
                            "path":  "_refs/operating-model/builder-packs.md",
                            "group":  "operating-model",
                            "name":  "builder-packs",
-                           "lines":  95
+                           "lines":  173
                        },
                        {
                            "path":  "_refs/operating-model/language-policy.md",
                            "group":  "operating-model",
                            "name":  "language-policy",
-                           "lines":  7
+                           "lines":  28
                        },
                        {
                            "path":  "_refs/operating-model/learning-loop.md",
                            "group":  "operating-model",
                            "name":  "learning-loop",
-                           "lines":  34
+                           "lines":  40
+                       },
+                       {
+                           "path":  "_refs/operating-model/methodology-catalog.md",
+                           "group":  "operating-model",
+                           "name":  "methodology-catalog",
+                           "lines":  61
                        },
                        {
                            "path":  "_refs/operating-model/phase-gates.md",
                            "group":  "operating-model",
                            "name":  "phase-gates",
-                           "lines":  132
+                           "lines":  179
                        },
                        {
                            "path":  "_refs/operating-model/routing.md",
                            "group":  "operating-model",
                            "name":  "routing",
-                           "lines":  62
+                           "lines":  81
                        },
                        {
                            "path":  "_refs/operating-model/skill-authoring.md",
                            "group":  "operating-model",
                            "name":  "skill-authoring",
-                           "lines":  214
+                           "lines":  238
+                       },
+                       {
+                           "path":  "_refs/operating-model/task-progress.md",
+                           "group":  "operating-model",
+                           "name":  "task-progress",
+                           "lines":  86
+                       },
+                       {
+                           "path":  "_refs/schemas/ai-behavior-contract.md",
+                           "group":  "schemas",
+                           "name":  "ai-behavior-contract",
+                           "lines":  135
                        },
                        {
                            "path":  "_refs/schemas/ai-evaluation-suite.md",
                            "group":  "schemas",
                            "name":  "ai-evaluation-suite",
-                           "lines":  221
+                           "lines":  252
+                       },
+                       {
+                           "path":  "_refs/schemas/ai-production-monitoring-plan.md",
+                           "group":  "schemas",
+                           "name":  "ai-production-monitoring-plan",
+                           "lines":  28
                        },
                        {
                            "path":  "_refs/schemas/artifact-generation-contract.md",
                            "group":  "schemas",
                            "name":  "artifact-generation-contract",
-                           "lines":  246
+                           "lines":  256
                        },
                        {
                            "path":  "_refs/schemas/artifact-index.md",
@@ -783,6 +1123,18 @@ window.ANNIFITY_CATALOG = {
                            "lines":  28
                        },
                        {
+                           "path":  "_refs/schemas/design-artifact-manifest.md",
+                           "group":  "schemas",
+                           "name":  "design-artifact-manifest",
+                           "lines":  93
+                       },
+                       {
+                           "path":  "_refs/schemas/design-contract.md",
+                           "group":  "schemas",
+                           "name":  "design-contract",
+                           "lines":  128
+                       },
+                       {
                            "path":  "_refs/schemas/doc-frontmatter.md",
                            "group":  "schemas",
                            "name":  "doc-frontmatter",
@@ -804,13 +1156,19 @@ window.ANNIFITY_CATALOG = {
                            "path":  "_refs/schemas/initiative-state.md",
                            "group":  "schemas",
                            "name":  "initiative-state",
-                           "lines":  257
+                           "lines":  273
                        },
                        {
                            "path":  "_refs/schemas/memory-record.md",
                            "group":  "schemas",
                            "name":  "memory-record",
                            "lines":  12
+                       },
+                       {
+                           "path":  "_refs/schemas/methodology-record.md",
+                           "group":  "schemas",
+                           "name":  "methodology-record",
+                           "lines":  35
                        },
                        {
                            "path":  "_refs/schemas/metrics-event.md",
@@ -822,7 +1180,7 @@ window.ANNIFITY_CATALOG = {
                            "path":  "_refs/schemas/mutation-preview.md",
                            "group":  "schemas",
                            "name":  "mutation-preview",
-                           "lines":  142
+                           "lines":  146
                        },
                        {
                            "path":  "_refs/schemas/semantic-forward-test.md",
@@ -840,7 +1198,19 @@ window.ANNIFITY_CATALOG = {
                            "path":  "_refs/schemas/skill-output-contract.md",
                            "group":  "schemas",
                            "name":  "skill-output-contract",
-                           "lines":  72
+                           "lines":  94
+                       },
+                       {
+                           "path":  "_refs/schemas/task-progress-state.md",
+                           "group":  "schemas",
+                           "name":  "task-progress-state",
+                           "lines":  49
+                       },
+                       {
+                           "path":  "_refs/templates/ai/behavior-spec.md",
+                           "group":  "templates",
+                           "name":  "behavior-spec",
+                           "lines":  112
                        },
                        {
                            "path":  "_refs/templates/ai/context-manifest.md",
@@ -853,6 +1223,24 @@ window.ANNIFITY_CATALOG = {
                            "group":  "templates",
                            "name":  "evaluation-plan",
                            "lines":  145
+                       },
+                       {
+                           "path":  "_refs/templates/ai/opportunity-risk-brief.md",
+                           "group":  "templates",
+                           "name":  "opportunity-risk-brief",
+                           "lines":  49
+                       },
+                       {
+                           "path":  "_refs/templates/ai/production-monitoring-plan.md",
+                           "group":  "templates",
+                           "name":  "production-monitoring-plan",
+                           "lines":  46
+                       },
+                       {
+                           "path":  "_refs/templates/ai/unit-economics.md",
+                           "group":  "templates",
+                           "name":  "unit-economics",
+                           "lines":  36
                        },
                        {
                            "path":  "_refs/templates/brd/default-brd.md",
@@ -883,6 +1271,66 @@ window.ANNIFITY_CATALOG = {
                            "group":  "templates",
                            "name":  "spec-change-context",
                            "lines":  29
+                       },
+                       {
+                           "path":  "_refs/templates/design/design-brief.md",
+                           "group":  "templates",
+                           "name":  "design-brief",
+                           "lines":  43
+                       },
+                       {
+                           "path":  "_refs/templates/design/design-handoff.md",
+                           "group":  "templates",
+                           "name":  "design-handoff",
+                           "lines":  74
+                       },
+                       {
+                           "path":  "_refs/templates/design/design-review.md",
+                           "group":  "templates",
+                           "name":  "design-review",
+                           "lines":  34
+                       },
+                       {
+                           "path":  "_refs/templates/design/design-system.md",
+                           "group":  "templates",
+                           "name":  "design-system",
+                           "lines":  43
+                       },
+                       {
+                           "path":  "_refs/templates/design/design-traceability.md",
+                           "group":  "templates",
+                           "name":  "design-traceability",
+                           "lines":  24
+                       },
+                       {
+                           "path":  "_refs/templates/design/interaction-state-matrix.md",
+                           "group":  "templates",
+                           "name":  "interaction-state-matrix",
+                           "lines":  27
+                       },
+                       {
+                           "path":  "_refs/templates/design/portable-html.html",
+                           "group":  "templates",
+                           "name":  "portable-html",
+                           "lines":  295
+                       },
+                       {
+                           "path":  "_refs/templates/design/screen-design.md",
+                           "group":  "templates",
+                           "name":  "screen-design",
+                           "lines":  53
+                       },
+                       {
+                           "path":  "_refs/templates/design/screen-spec.md",
+                           "group":  "templates",
+                           "name":  "screen-spec",
+                           "lines":  50
+                       },
+                       {
+                           "path":  "_refs/templates/design/spec-design-traceability.md",
+                           "group":  "templates",
+                           "name":  "spec-design-traceability",
+                           "lines":  25
                        },
                        {
                            "path":  "_refs/templates/discovery/discovery-brief.md",
@@ -924,7 +1372,7 @@ window.ANNIFITY_CATALOG = {
                            "path":  "_refs/templates/docs/generation-receipt.md",
                            "group":  "templates",
                            "name":  "generation-receipt",
-                           "lines":  19
+                           "lines":  36
                        },
                        {
                            "path":  "_refs/templates/docs/release-note.md",
@@ -937,6 +1385,12 @@ window.ANNIFITY_CATALOG = {
                            "group":  "templates",
                            "name":  "session-note",
                            "lines":  23
+                       },
+                       {
+                           "path":  "_refs/templates/docs/task-progress-checklist.md",
+                           "group":  "templates",
+                           "name":  "task-progress-checklist",
+                           "lines":  26
                        },
                        {
                            "path":  "_refs/templates/docs/template-registry.md",
@@ -1047,16 +1501,46 @@ window.ANNIFITY_CATALOG = {
                            "lines":  5
                        },
                        {
+                           "path":  "_refs/templates/metrics/growth-plan.md",
+                           "group":  "templates",
+                           "name":  "growth-plan",
+                           "lines":  28
+                       },
+                       {
                            "path":  "_refs/templates/metrics/metric-tree.md",
                            "group":  "templates",
                            "name":  "metric-tree",
                            "lines":  26
                        },
                        {
+                           "path":  "_refs/templates/metrics/product-analytics-review.md",
+                           "group":  "templates",
+                           "name":  "product-analytics-review",
+                           "lines":  43
+                       },
+                       {
+                           "path":  "_refs/templates/plan/dependency-matrix.md",
+                           "group":  "templates",
+                           "name":  "dependency-matrix",
+                           "lines":  20
+                       },
+                       {
                            "path":  "_refs/templates/plan/grooming-questions.md",
                            "group":  "templates",
                            "name":  "grooming-questions",
                            "lines":  27
+                       },
+                       {
+                           "path":  "_refs/templates/plan/milestones.md",
+                           "group":  "templates",
+                           "name":  "milestones",
+                           "lines":  16
+                       },
+                       {
+                           "path":  "_refs/templates/plan/prioritization-decision.md",
+                           "group":  "templates",
+                           "name":  "prioritization-decision",
+                           "lines":  31
                        },
                        {
                            "path":  "_refs/templates/plan/product-roadmap.md",
@@ -1143,6 +1627,18 @@ window.ANNIFITY_CATALOG = {
                            "lines":  24
                        },
                        {
+                           "path":  "_refs/templates/release/eol-plan.md",
+                           "group":  "templates",
+                           "name":  "eol-plan",
+                           "lines":  46
+                       },
+                       {
+                           "path":  "_refs/templates/release/go-to-market-plan.md",
+                           "group":  "templates",
+                           "name":  "go-to-market-plan",
+                           "lines":  42
+                       },
+                       {
                            "path":  "_refs/templates/release/rollout-plan.md",
                            "group":  "templates",
                            "name":  "rollout-plan",
@@ -1153,6 +1649,18 @@ window.ANNIFITY_CATALOG = {
                            "group":  "templates",
                            "name":  "risk-register",
                            "lines":  44
+                       },
+                       {
+                           "path":  "_refs/templates/skills/gold-example.md",
+                           "group":  "templates",
+                           "name":  "gold-example",
+                           "lines":  28
+                       },
+                       {
+                           "path":  "_refs/templates/skills/method-selection-record.md",
+                           "group":  "templates",
+                           "name":  "method-selection-record",
+                           "lines":  35
                        },
                        {
                            "path":  "_refs/templates/skills/skill-template.md",
@@ -1191,10 +1699,22 @@ window.ANNIFITY_CATALOG = {
                            "lines":  25
                        },
                        {
+                           "path":  "_refs/templates/strategy/commercial-decision.md",
+                           "group":  "templates",
+                           "name":  "commercial-decision",
+                           "lines":  29
+                       },
+                       {
                            "path":  "_refs/templates/strategy/company-research-brief.md",
                            "group":  "templates",
                            "name":  "company-research-brief",
                            "lines":  47
+                       },
+                       {
+                           "path":  "_refs/templates/strategy/competitive-intelligence-brief.md",
+                           "group":  "templates",
+                           "name":  "competitive-intelligence-brief",
+                           "lines":  30
                        },
                        {
                            "path":  "_refs/templates/strategy/market-sizing.md",
@@ -1206,6 +1726,30 @@ window.ANNIFITY_CATALOG = {
                            "path":  "_refs/templates/strategy/opportunity-solution-tree.md",
                            "group":  "templates",
                            "name":  "opportunity-solution-tree",
+                           "lines":  38
+                       },
+                       {
+                           "path":  "_refs/templates/strategy/portfolio-decision.md",
+                           "group":  "templates",
+                           "name":  "portfolio-decision",
+                           "lines":  32
+                       },
+                       {
+                           "path":  "_refs/templates/strategy/positioning-statement.md",
+                           "group":  "templates",
+                           "name":  "positioning-statement",
+                           "lines":  33
+                       },
+                       {
+                           "path":  "_refs/templates/strategy/product-strategy.md",
+                           "group":  "templates",
+                           "name":  "product-strategy",
+                           "lines":  47
+                       },
+                       {
+                           "path":  "_refs/templates/strategy/stakeholder-decision-map.md",
+                           "group":  "templates",
+                           "name":  "stakeholder-decision-map",
                            "lines":  38
                        },
                        {
@@ -1230,7 +1774,7 @@ window.ANNIFITY_CATALOG = {
                            "path":  "_refs/templates/uat/uat-plan.md",
                            "group":  "templates",
                            "name":  "uat-plan",
-                           "lines":  37
+                           "lines":  39
                        },
                        {
                            "path":  "_refs/templates/user-story/acceptance-criteria-gwt.md",
@@ -1248,7 +1792,7 @@ window.ANNIFITY_CATALOG = {
                            "path":  "_refs/templates/user-story/default-user-story.md",
                            "group":  "templates",
                            "name":  "default-user-story",
-                           "lines":  30
+                           "lines":  33
                        },
                        {
                            "path":  "_refs/templates/user-story/jira-epic.md",
@@ -1260,7 +1804,7 @@ window.ANNIFITY_CATALOG = {
                            "path":  "_refs/templates/user-story/jira-user-story.md",
                            "group":  "templates",
                            "name":  "jira-user-story",
-                           "lines":  25
+                           "lines":  28
                        },
                        {
                            "path":  "_refs/templates/user-story/story-map.md",
@@ -1281,10 +1825,40 @@ window.ANNIFITY_CATALOG = {
                            "lines":  47
                        },
                        {
+                           "path":  "_refs/workflows/ai-production-monitoring.md",
+                           "group":  "workflows",
+                           "name":  "ai-production-monitoring",
+                           "lines":  46
+                       },
+                       {
+                           "path":  "_refs/workflows/ai-product-specification.md",
+                           "group":  "workflows",
+                           "name":  "ai-product-specification",
+                           "lines":  92
+                       },
+                       {
+                           "path":  "_refs/workflows/ai-suitability-risk-framing.md",
+                           "group":  "workflows",
+                           "name":  "ai-suitability-risk-framing",
+                           "lines":  56
+                       },
+                       {
                            "path":  "_refs/workflows/change-governance.md",
                            "group":  "workflows",
                            "name":  "change-governance",
                            "lines":  16
+                       },
+                       {
+                           "path":  "_refs/workflows/commercial-decision.md",
+                           "group":  "workflows",
+                           "name":  "commercial-decision",
+                           "lines":  23
+                       },
+                       {
+                           "path":  "_refs/workflows/competitive-intelligence.md",
+                           "group":  "workflows",
+                           "name":  "competitive-intelligence",
+                           "lines":  33
                        },
                        {
                            "path":  "_refs/workflows/customer-discovery-synthesis.md",
@@ -1302,7 +1876,7 @@ window.ANNIFITY_CATALOG = {
                            "path":  "_refs/workflows/execution-support.md",
                            "group":  "workflows",
                            "name":  "execution-support",
-                           "lines":  17
+                           "lines":  52
                        },
                        {
                            "path":  "_refs/workflows/experiment-design.md",
@@ -1315,6 +1889,12 @@ window.ANNIFITY_CATALOG = {
                            "group":  "workflows",
                            "name":  "feature-design",
                            "lines":  20
+                       },
+                       {
+                           "path":  "_refs/workflows/go-to-market-adoption.md",
+                           "group":  "workflows",
+                           "name":  "go-to-market-adoption",
+                           "lines":  39
                        },
                        {
                            "path":  "_refs/workflows/idea-to-prototype.md",
@@ -1338,7 +1918,7 @@ window.ANNIFITY_CATALOG = {
                            "path":  "_refs/workflows/local-mutation-safety.md",
                            "group":  "workflows",
                            "name":  "local-mutation-safety",
-                           "lines":  103
+                           "lines":  139
                        },
                        {
                            "path":  "_refs/workflows/market-sizing.md",
@@ -1347,10 +1927,34 @@ window.ANNIFITY_CATALOG = {
                            "lines":  45
                        },
                        {
+                           "path":  "_refs/workflows/pm-decision-challenge.md",
+                           "group":  "workflows",
+                           "name":  "pm-decision-challenge",
+                           "lines":  80
+                       },
+                       {
+                           "path":  "_refs/workflows/product-analytics.md",
+                           "group":  "workflows",
+                           "name":  "product-analytics",
+                           "lines":  41
+                       },
+                       {
                            "path":  "_refs/workflows/product-discovery.md",
                            "group":  "workflows",
                            "name":  "product-discovery",
                            "lines":  42
+                       },
+                       {
+                           "path":  "_refs/workflows/product-growth.md",
+                           "group":  "workflows",
+                           "name":  "product-growth",
+                           "lines":  39
+                       },
+                       {
+                           "path":  "_refs/workflows/product-strategy-portfolio.md",
+                           "group":  "workflows",
+                           "name":  "product-strategy-portfolio",
+                           "lines":  45
                        },
                        {
                            "path":  "_refs/workflows/prototype-first.md",
@@ -1389,10 +1993,22 @@ window.ANNIFITY_CATALOG = {
                            "lines":  11
                        },
                        {
+                           "path":  "_refs/workflows/spec-to-design.md",
+                           "group":  "workflows",
+                           "name":  "spec-to-design",
+                           "lines":  77
+                       },
+                       {
                            "path":  "_refs/workflows/sprint-readiness.md",
                            "group":  "workflows",
                            "name":  "sprint-readiness",
                            "lines":  44
+                       },
+                       {
+                           "path":  "_refs/workflows/stakeholder-decision-governance.md",
+                           "group":  "workflows",
+                           "name":  "stakeholder-decision-governance",
+                           "lines":  27
                        },
                        {
                            "path":  "_refs/workflows/workshop-facilitation.md",

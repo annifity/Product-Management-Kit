@@ -12,12 +12,12 @@ Express confirmed scope as observable business-acceptance scenarios and executio
 - Reuse requirements, stories, acceptance criteria, roles, and execution evidence supplied inline or by file.
 - Accept partial input and expose coverage gaps; ask only for missing information that changes a test condition or pass criterion.
 - If no confirmed requirement or acceptance source exists, stop and route to `spec` or `user-story`. Do not invent acceptance behavior; label safe assumptions and open questions.
-- For a governed source, `authoritative-baseline-resolution` must return `resolved` before case design. A named draft, newest filename, or unmanaged candidate is not a confirmed source. When resolution is blocked, return only the resolution diagnostics and unblock action unless the user explicitly asks for a non-executable exploratory test-design draft.
+- For a governed source, `authoritative-baseline-resolution` must return `resolved` before case design. A named draft, newest filename, or unmanaged candidate is not a confirmed source. When resolution is blocked, explain the source problem and unblock action in plain language; return raw diagnostics only when the user explicitly requests them. Do not produce a provisional case package unless the user explicitly asks for a non-executable exploratory test-design draft.
 
 ## Process
 
 1. Resolve every governed source baseline. Stop before test design on any blocked result.
-2. Run the material-decision preflight to resolve source authority, audience, explicit `business-demo`, `business-acceptance`, or `full-regression` mode, and destination. Do not choose a mode merely because the user said “UAT”.
+2. Run the material-decision preflight to resolve source authority, audience, explicit `business-demo`, `business-acceptance`, or `full-regression` mode, and destination. Do not choose a mode merely because the user said "UAT".
 3. Read the source PRD/spec/stories and identify roles, flows, permissions, data conditions, acceptance criteria, and NFR thresholds.
 4. Produce risk-based test coverage for only the applicable happy, unhappy, edge/boundary, permission, and NFR behavior.
 5. Trace every test case to a requirement, story, or acceptance criterion.
@@ -40,7 +40,7 @@ Load only references needed for the requested UAT artifact:
 
 ## Output
 
-Return a UAT plan plus a test case register or scenario test package and the compact generation receipt. A blocked baseline or material preflight returns diagnostics only, not a provisional case package.
+Return a UAT plan plus a test case register or scenario test package. Alongside it, state the result, target, source baseline, and any decision needed in plain language. Keep machine audit details internal unless diagnostics are explicitly requested. A blocked baseline or material preflight returns the concrete blocker and unblock action only, not a provisional case package.
 
 ## Handoff
 

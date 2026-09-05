@@ -60,9 +60,32 @@ function Assert-Terms {
     }
 }
 
+function Assert-ProhibitedTerms {
+    param(
+        [Parameter(Mandatory = $true)][string]$Text,
+        [Parameter(Mandatory = $true)]$Terms,
+        [Parameter(Mandatory = $true)][string]$Context
+    )
+
+    foreach ($termValue in @($Terms)) {
+        $term = [string]$termValue
+        if (-not [string]::IsNullOrWhiteSpace($term) -and
+            $Text.IndexOf($term, [System.StringComparison]::OrdinalIgnoreCase) -ge 0) {
+            throw "$Context contains prohibited user-facing term '$term'."
+        }
+    }
+}
+
 $contract = (Read-RepoText -RelativePath $ContractPath) | ConvertFrom-Json
 if ([string]$contract.schemaVersion -cne "1.0") {
     throw "Unsupported skill output contract schema."
+}
+if ($null -eq $contract.PSObject.Properties["userFacingPolicy"] -or
+    $null -eq $contract.userFacingPolicy.PSObject.Properties["prohibitedOutputTerms"] -or
+    @($contract.userFacingPolicy.prohibitedOutputTerms).Count -eq 0 -or
+    $null -eq $contract.userFacingPolicy.PSObject.Properties["prohibitedTemplateTerms"] -or
+    @($contract.userFacingPolicy.prohibitedTemplateTerms).Count -eq 0) {
+    throw "Output contract must define non-empty prohibited output and template terms."
 }
 $records = @($contract.skills)
 $canonicalSkills = @(
@@ -88,6 +111,10 @@ foreach ($record in $records) {
     Assert-Terms -Text $inputSection -Terms $record.input.requiredTerms -Context "Skill '$skill' Input Contract"
     Assert-Terms -Text $outputSection -Terms $record.output.requiredTerms -Context "Skill '$skill' Output"
     Assert-Terms -Text $handoffSection -Terms $record.handoff.requiredTerms -Context "Skill '$skill' Handoff"
+    Assert-ProhibitedTerms `
+        -Text $outputSection `
+        -Terms $contract.userFacingPolicy.prohibitedOutputTerms `
+        -Context "Skill '$skill' Output"
 
     if ($null -eq $record.PSObject.Properties["templates"]) {
         throw "Skill '$skill' contract must declare a templates array, even when empty."
@@ -99,8 +126,17 @@ foreach ($record in $records) {
             -Text $templateText `
             -Terms $template.requiredTerms `
             -Context "Skill '$skill' template '$templatePath'"
+        Assert-ProhibitedTerms `
+            -Text $templateText `
+            -Terms $contract.userFacingPolicy.prohibitedTemplateTerms `
+            -Context "Skill '$skill' template '$templatePath'"
+        if ($null -ne $template.PSObject.Properties["prohibitedTerms"]) {
+            Assert-ProhibitedTerms `
+                -Text $templateText `
+                -Terms $template.prohibitedTerms `
+                -Context "Skill '$skill' template '$templatePath'"
+        }
     }
 }
 
 Write-Host "OK output-contract and template conformance ($($records.Count)/$($canonicalSkills.Count) skills)."
-

@@ -1,0 +1,12 @@
+---
+description: 'Annifity skill strategy: Define or revise product strategy and portfolio choices from evidence. Use for product vision, strategic choices, positioning, target segments, outcome and OKR architecture, portfolio bets, investment allocation, strategic roadmap themes, and stop/start/continue decisions across initiatives. Use `discovery` while an opportunity is unclear, `learn` when assessed evidence needs interpretation, `prioritize` to rank a defined option set, `commercial` for pricing or economic analysis, and `plan` only after a selected bet has stable delivery scope.'
+alwaysApply: false
+---
+
+# strategy
+
+Use this rule when the request matches the description above.
+
+Canonical source: skills/strategy/SKILL.md
+
+Read the canonical skill file before acting, then load only the referenced _refs/ files needed for the task. If generated adapter text conflicts with the canonical source, the canonical source wins.

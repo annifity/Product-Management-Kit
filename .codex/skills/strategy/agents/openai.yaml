@@ -1,0 +1,4 @@
+interface:
+  display_name: "Annifity Strategy"
+  short_description: "Make product and portfolio strategy choices"
+  default_prompt: "Use $strategy to turn this evidence and portfolio context into explicit product strategy choices."

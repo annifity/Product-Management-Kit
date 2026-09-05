@@ -1,0 +1,4 @@
+interface:
+  display_name: "Go-to-Market"
+  short_description: "Design positioning, launch, and adoption motion"
+  default_prompt: "Use $gtm to create an evidence-backed go-to-market and adoption plan."

@@ -1,6 +1,6 @@
 # Material Decision Preflight
 
-Run this preflight before drafting a PRD, spec, prototype package, delivery plan, user story, UAT package, release artifact, or controlled revision. Its purpose is to stop a structurally polished output from silently choosing product behavior, ownership, audience, or publication state.
+Run this preflight before drafting a PRD, spec, prototype package, design handoff, delivery plan, user story, UAT package, release artifact, or controlled revision. Its purpose is to stop a structurally polished output from silently choosing product behavior, ownership, audience, or publication state.
 
 Reuse supplied context. Do not ask again for a decision already present in the request, current accepted baseline, active decision record, project profile, or memories.
 
@@ -35,6 +35,7 @@ Choose the mode before choosing a template:
 |---|---|---|
 | Brief or PRD | Direction brief / formal requirements / prototype-feedback PRD | Select by consumer and decision depth, not by document length |
 | Spec | Workflow / product behavior / data / API | Include only the dimensions needed to make delivery decisions |
+| Design | Low-fidelity structure / delivery design / design-system handoff | Select by review decision, source maturity, design authority, and downstream consumer |
 | User story | Concise Jira / detailed delivery / project-specific rule-based | Follow the resolved project profile and confirmed story boundary |
 | UAT | Business demo / business acceptance / full regression | Select by audience, signoff purpose, and release risk before choosing coverage |
 | Release artifact | Internal readiness / rollout / retirement / stakeholder handoff | Select by release decision and named owner |
@@ -60,6 +61,40 @@ Stop and route the gap to the owning skill when:
 - the selected deliverable mode cannot serve the stated consumer or decision.
 
 Do not block on wording, formatting, optional metadata, or another non-material preference when a safe labeled default exists.
+
+## User Confirmation Clarity Gate
+
+Before asking a user to confirm a decision or placing it in `Open Questions`:
+
+1. Name the exact decision in the first sentence using the user's language and product terminology.
+2. Explain briefly why the decision is needed and which user-visible behavior, scope, or acceptance outcome it changes.
+3. Ask one decision per question. Split business behavior from implementation design.
+4. Offer two or three mutually exclusive options when the available choices are known. Describe the observable consequence of each option and identify the recommended option when evidence supports one.
+5. Define unavoidable acronyms or technical terms. Do not require a business user to interpret architecture, API, storage, or orchestration language.
+6. Assign technical implementation choices to the technical owner. Ask the product or business owner only for the behavior or outcome they own.
+7. State the owner and whether the decision blocks the current artifact or can be deferred.
+
+Use this compact pattern:
+
+```markdown
+Decision needed: [plain-language choice].
+Why it matters: [user-visible or scope impact].
+Options:
+- A — [behavior and consequence].
+- B — [behavior and consequence].
+Recommendation: [option and short evidence-based reason, when applicable].
+Owner / timing: [owner]; [blocking or deferred].
+```
+
+Good confirmation question:
+
+> Decision needed: If an employee rejects an optional consent purpose, which Staff App functions remain available? This decision defines the user's access. Choose full block, limited access to named functions, or no access restriction. Product and Legal own the outcome; Architecture owns how it is implemented.
+
+Anti-pattern:
+
+> Does CTMS/ECMP return the access decision, or does Staff App Backend evaluate it from purpose-level results?
+
+The anti-pattern asks a business reviewer to choose a technical mechanism without first resolving the user-visible access rule.
 
 ## Responsibility Preview
 
@@ -88,6 +123,7 @@ A request asks for a roster publication story. Without resolving whether minimum
 | Ownership smear | One story contains behavior owned by another story or system | Split/merge churn and duplicated AC | Build the responsibility preview | Confirm owner before story slicing |
 | Mockup promotion | Illustrative UI becomes accepted behavior without approval | Presentation details are over-specified | Mark mockup authority explicitly | Resolve design authority in the card |
 | Repeated interrogation | Agent asks for context already stored in project memory | User repeats constraints and loses trust | Reuse the resolved profile and provenance | Apply the source precedence before asking |
+| Confirmation fog | A question says only “confirm this,” mixes several decisions, or uses unexplained technical language | The user cannot tell what they are approving or how the answer changes the product | Rewrite it as one plain-language decision with options, consequences, owner, and timing | Apply the User Confirmation Clarity Gate before presenting the question |
 
 ## Verdict
 

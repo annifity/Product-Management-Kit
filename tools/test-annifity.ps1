@@ -7,21 +7,30 @@ $ErrorActionPreference = "Stop"
 . (Join-Path $PSScriptRoot "file-hash-compat.ps1")
 
 $Root = (Resolve-Path (Join-Path $PSScriptRoot "..")).Path
+$PowerShell = (Get-Process -Id $PID).Path
 $ExpectedSkills = @(
+    "analytics",
     "brief",
     "change",
+    "commercial",
+    "competitive-intelligence",
+    "design",
     "discovery",
     "docs",
     "execution",
     "experiment",
+    "growth",
+    "gtm",
     "knowledge",
     "learn",
     "memories",
     "plan",
     "prd",
     "prototype",
+    "prioritize",
     "ship",
     "spec",
+    "strategy",
     "uat",
     "validate",
     "user-story"
@@ -62,7 +71,7 @@ $canonicalSkillRelPaths = @($canonicalSkillFiles | ForEach-Object { ConvertTo-Re
 $expectedSkillRelPaths = @($ExpectedSkills | ForEach-Object { "skills/$_/SKILL.md" })
 Assert-EqualList -Label "Canonical SKILL.md files" -Expected $expectedSkillRelPaths -Actual $canonicalSkillRelPaths
 
-$phaseGateSkills = @("brief", "discovery", "execution", "experiment", "learn", "plan", "prototype", "ship", "spec", "validate")
+$phaseGateSkills = @("brief", "design", "discovery", "execution", "experiment", "learn", "plan", "prototype", "ship", "spec", "strategy", "validate")
 foreach ($skill in $ExpectedSkills) {
     $skillText = [System.IO.File]::ReadAllText((Join-Path $skillsRoot "$skill/SKILL.md"))
     if ($skillText -notmatch "(?m)^## Input Contract\s*$") {
@@ -199,6 +208,30 @@ $requiredProductBuilderFiles = @(
     "_refs/schemas/context-consistency-manifest.md",
     "_refs/operating-model/phase-gates.md",
     "_refs/schemas/initiative-state.md",
+    "_refs/workflows/spec-to-design.md",
+    "_refs/schemas/design-contract.md",
+    "_refs/schemas/design-artifact-manifest.md",
+    "_refs/checklists/design-readiness.md",
+    "_refs/checklists/design-quality.md",
+    "_refs/templates/design/design-handoff.md",
+    "_refs/templates/design/portable-html.html",
+    "tools/new-design-package.ps1",
+    "tools/validate-design-package.ps1",
+    "tools/test-design-package.ps1",
+    "tools/calculate-finance-metrics.ps1",
+    "tools/estimate-experiment-sample.ps1",
+    "tools/test-pm-calculators.ps1",
+    "tools/test-pm-decision-quality.ps1",
+    "tools/test-task-progress-contract.ps1",
+    "tests/fixtures/task-progress/cases.json",
+    "_refs/operating-model/task-progress.md",
+    "_refs/schemas/task-progress-state.md",
+    "_refs/templates/docs/task-progress-checklist.md",
+    "_refs/checklists/task-progress-quality.md",
+    "_refs/operating-model/artifact-quality-system.md",
+    "_refs/operating-model/methodology-catalog.md",
+    "_refs/workflows/pm-decision-challenge.md",
+    "_refs/checklists/pm-decision-quality.md",
     "tools/audit-session-rework.ps1",
     "tools/test-session-rework-audit.ps1",
     "tools/new-semantic-forward-run.ps1",
@@ -262,6 +295,10 @@ $requiredScripts = @(
     "baseline:test",
     "registry-migration:test",
     "mutation:test",
+    "design:test",
+    "pm-calculators:test",
+    "pm-quality:test",
+    "task-progress:test",
     "p0:test",
     "session-audit:test",
     "semantic:test",
@@ -297,6 +334,20 @@ foreach ($instructionFile in @("README.md", "AGENTS.md", "CLAUDE.md")) {
     }
     if ($instructionText -notmatch "project-local") {
         throw "$instructionFile must explain that generated adapters are project-local."
+    }
+}
+
+foreach ($userFacingInstruction in @("AGENTS.md", "CLAUDE.md", ".github/copilot-instructions.md")) {
+    $instructionText = [System.IO.File]::ReadAllText((Join-Path $Root $userFacingInstruction))
+    foreach ($requiredBoundary in @(
+        "generation result",
+        "machine audit details",
+        "plain language",
+        "explicit"
+    )) {
+        if ($instructionText -notmatch [regex]::Escape($requiredBoundary)) {
+            throw "$userFacingInstruction is missing the user-facing technical boundary: $requiredBoundary"
+        }
     }
 }
 
@@ -370,7 +421,7 @@ try {
 
     $previousErrorActionPreference = $ErrorActionPreference
     $ErrorActionPreference = "Continue"
-    & powershell -NoProfile -ExecutionPolicy Bypass -File $routingTestScript -FixturePath $mutatedRoutingFixturePath 1>$null 2>$null
+    & $PowerShell -NoProfile -ExecutionPolicy Bypass -File $routingTestScript -FixturePath $mutatedRoutingFixturePath 1>$null 2>$null
     $mutatedRoutingExitCode = $LASTEXITCODE
     $ErrorActionPreference = $previousErrorActionPreference
     $global:LASTEXITCODE = 0
@@ -385,16 +436,22 @@ finally {
 }
 & (Join-Path $Root "tools/test-skill-contracts.ps1")
 & (Join-Path $Root "tools/test-output-contract-conformance.ps1")
+& (Join-Path $Root "tools/test-pm-calculators.ps1")
+& (Join-Path $Root "tools/test-pm-decision-quality.ps1")
+& (Join-Path $Root "tools/test-task-progress-contract.ps1")
 & (Join-Path $Root "tools/test-artifact-profile-resolution.ps1")
 & (Join-Path $Root "tools/test-authoritative-baseline.ps1")
 & (Join-Path $Root "tools/test-artifact-registry-migration.ps1")
 & (Join-Path $Root "tools/test-mutation-safety.ps1")
+& (Join-Path $Root "tools/test-design-package.ps1")
 & (Join-Path $Root "tools/test-session-rework-audit.ps1")
 & (Join-Path $Root "tools/test-semantic-forward-harness.ps1")
+& (Join-Path $Root "tools/test-semantic-forward-live.ps1")
 & (Join-Path $Root "tools/test-first-pass-quality-dashboard.ps1")
 & (Join-Path $Root "tools/test-drawio-validation.ps1")
 & (Join-Path $Root "tools/test-context-consistency-linter.ps1")
 & (Join-Path $Root "tools/test-phase-gate-approval.ps1")
+& (Join-Path $Root "tools/test-ai-evaluation-verdict.ps1")
 & (Join-Path $Root "tools/test-repo-doctor.ps1")
 
 Write-Host "OK Annifity structure self-test passed ($($ExpectedSkills.Count) skills)."

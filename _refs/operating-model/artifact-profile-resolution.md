@@ -87,12 +87,28 @@ conflict and blocks drafting.
 | State | Meaning | Required action |
 |---|---|---|
 | `allowed` | No unresolved material conflict or confirmation gate | Proceed using the exact resolved profile |
-| `confirmation-required` | The profile is deterministic but contains a warning, non-material open question, or authorized baseline change | Show preview and fingerprint; obtain confirmation |
+| `confirmation-required` | The profile is deterministic but contains a warning, non-material open question, or authorized baseline change | Show a plain-language action-and-impact preview; obtain approval and keep the fingerprint internal |
 | `blocked` | A material conflict, unresolved material question, or required-value gap exists | Resolve authority or route committed-scope change to `change` |
 
 The resolver does not create or modify the target artifact. It only establishes
 the contract a later write must follow through
 `_refs/workflows/local-mutation-safety.md`.
+
+## User-Facing Language
+
+`resolvedProfile`, `writeDisposition`, and `fingerprint` are internal contract
+terms. Do not make the user interpret them.
+
+- Explain the concrete document action, affected target, retained or replaced
+  content, and any baseline impact.
+- Translate `confirmation-required` into a direct approval question.
+- Translate `blocked` into the one unresolved decision or conflict the user
+  needs to resolve.
+- Do not show resolver fields, hashes, reason codes, profile data, or machine
+  identifiers unless the user explicitly requests technical diagnostics.
+- A stale-state failure still uses plain language: say what changed and which
+  action must be repeated without showing internal comparison values.
+- Do not request confirmation merely to acknowledge an `allowed` resolution.
 
 ## Provenance And Fingerprint
 
@@ -130,6 +146,9 @@ Do not include time, machine paths, source-array order, or other volatile data.
   `change`.
 - `blocked` by missing authority or open question: return the smallest material
   question to the user or source owner.
-- For every disposition, return the compact generation receipt defined in
-  `_refs/templates/docs/generation-receipt.md`; a blocked receipt records the
-  exact blockers and must not be presented as approval to draft or mutate.
+- For every disposition, return the user-facing generation result defined in
+  `_refs/templates/docs/generation-receipt.md`. Do not call it a generation
+  receipt or expose resolver fields in the default response. Retain the
+  technical audit record for audit and stale-state checks; a blocked result
+  records the exact blockers and must not be presented as approval to draft or
+  mutate.

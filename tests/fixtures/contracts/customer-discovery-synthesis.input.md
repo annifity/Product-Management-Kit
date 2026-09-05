@@ -8,4 +8,3 @@ invent quotations, participants, prevalence, or product demand.
 The expected contract routes raw research through `discovery`, keeps assessed
 evidence and product decisions with `learn`, and treats AI output as analysis
 rather than source evidence.
-

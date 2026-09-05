@@ -1,6 +1,6 @@
 ---
 name: validate
-description: 'Audit an existing product artifact, evidence set, AI evaluation results, delivery package, or Annifity canonical skill and return a readiness or quality verdict with findings. Use when the user asks to review, validate, compare AI baseline and candidate runs, assess regression or release readiness, check completeness, consistency, testability, coverage, traceability, risk, or go/no-go status. Use `experiment` to design an evaluation before results exist; use `prd`, `spec`, `user-story`, `uat`, or `ship` to create or substantially rewrite their artifacts.'
+description: 'Audit an existing product artifact, UX/UI design, evidence set, AI evaluation results, delivery package, or an Annifity repository skill/reference file and return a readiness or quality verdict with findings. Use when the user asks to review, validate, compare AI baseline and candidate runs, assess regression or release readiness, check completeness, consistency, testability, coverage, traceability, risk, or go/no-go status. Use `analytics` to diagnose metric movement or design instrumentation and `experiment` before results exist. Use `prd`, `spec`, `user-story`, `uat`, or `ship` to create or substantially rewrite those artifacts, and `design` to author or substantially revise a UX/UI package.'
 ---
 
 # validate

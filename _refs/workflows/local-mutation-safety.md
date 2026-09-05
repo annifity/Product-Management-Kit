@@ -15,6 +15,38 @@ Always require the complete Preview -> Confirm -> Apply workflow for a baseline
 change, overwrite, move, rename, deletion, ignore-rule change, bulk operation,
 or generated-output replacement.
 
+## User-Facing Confirmation
+
+Ask the user to approve the proposed action and its effect, not an internal
+identifier.
+
+- If approval also requires a product or business decision, apply the User
+  Confirmation Clarity Gate in
+  `_refs/checklists/material-decision-preflight.md` first. Keep the product
+  decision separate from permission to edit files.
+- Match the user's language.
+- State the exact action, affected paths or item count, expected end state, and
+  any destructive or baseline impact.
+- Ask one direct question that can be answered naturally, such as `Có, hãy cập
+  nhật` or `Không`.
+- Never ask the user to read, repeat, paste, or approve a fingerprint, hash,
+  `writeDisposition`, or profile-contract value.
+- Keep fingerprints in the preview and confirmation tools as internal stale
+  state protection. Bind the user's plain-language approval to the current
+  preview fingerprint when invoking the tool.
+- Do not ask again when the user's current request already explicitly
+  authorizes an `allowed`, unbaselined, reversible draft create/update and the
+  exact target is unambiguous.
+
+Good:
+
+> Tôi sẽ cập nhật 3 user story đang ở trạng thái draft và không thay đổi các
+> bản đã finalize. Bạn xác nhận thực hiện chứ?
+
+Avoid:
+
+> Confirm fingerprint `sha256:...` for a `confirmation-required` mutation?
+
 ## 1. Bound The Mutation
 
 1. Inspect `git status --short`.
@@ -45,11 +77,15 @@ The preview records deterministic SHA-256 hashes for:
 - the complete negative-completeness manifest;
 - the combined preview fingerprint.
 
-Review the operations, source and target states, expected negative-completeness checks, and preview fingerprint. Preview generation does not apply an operation.
+Review the operations, source and target states, expected negative-completeness
+checks, and preview fingerprint internally. Show the user only the
+human-readable action-and-impact summary unless they request technical
+diagnostics. Preview generation does not apply an operation.
 
 ## 3. Confirm
 
-Obtain explicit confirmation of the displayed fingerprint, then run:
+Obtain explicit confirmation of the human-readable action-and-impact summary.
+Use the fingerprint from that unchanged preview when running:
 
 ```powershell
 powershell -NoProfile -ExecutionPolicy Bypass -File tools/confirm-mutation-preview.ps1 `

@@ -1,6 +1,6 @@
 ---
 name: knowledge
-description: Retrieve and synthesize existing product knowledge from local docs, memories, decision records, Jira, Confluence, pasted context, or workspace connectors, with source citations and confidence. Use when the user asks what exists, where it is documented, who owns it, or why a decision was made. This is read-oriented; use `docs` to write or index artifacts and `memories` to persist durable context.
+description: Retrieve and synthesize existing product knowledge from local docs, memories, decision records, Jira, Confluence, pasted context, or workspace connectors, with source citations and confidence. Use when the user asks what exists, where it is documented, who owns it, why a decision was made, or "what do we know/remember about X" as an open retrieval question spanning docs, memories, Jira, or Confluence. This is read-oriented; use `docs` to write or index artifacts and `memories` only to persist new durable context or fetch one named memory record by category.
 ---
 
 # Knowledge

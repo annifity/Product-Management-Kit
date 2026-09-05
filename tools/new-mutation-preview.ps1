@@ -564,5 +564,5 @@ else {
     $utf8NoBom = New-Object System.Text.UTF8Encoding($false)
     [System.IO.File]::WriteAllText($outputFullPath, $previewJson, $utf8NoBom)
     Write-Host "OK mutation preview written: $outputFullPath"
-    Write-Host "Fingerprint: $fingerprint"
+    Write-Host "Internal confirmation binding recorded."
 }

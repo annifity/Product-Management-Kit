@@ -1,6 +1,6 @@
 ---
 name: spec
-description: 'Turn confirmed product context into the detailed delivery source of truth. Use for a product or workflow specification with scoped requirements, business rules, states, permissions, edge cases, data/API behavior, non-functional requirements, assumptions, risks, and traceability before planning. Use `brief` while only direction-level alignment is needed, `prd` for a formal stakeholder requirements document, and `plan` only after the spec is stable.'
+description: 'Turn confirmed product context into the detailed delivery source of truth. Use for a product specification, workflow, data/API, or AI behavior specification with scoped requirements, business rules, states, permissions, model/prompt/retrieval/tool boundaries, human oversight, edge cases, NFRs, risks, and traceability before design or planning. Use `brief` for direction-level alignment, `experiment` for evaluation design after behavior is specified, `design` for UX/UI handoff from accepted behavior, and `plan` only after the spec is stable.'
 ---
 
 # spec

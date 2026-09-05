@@ -1,0 +1,41 @@
+{
+  "schemaVersion": "1.0",
+  "surfaces": [
+    {
+      "path": "_refs/workflows/pm-decision-challenge.md",
+      "requiredTerms": ["Decision frame", "Method selection", "Strongest evidence", "counterevidence", "Proceed with conditions", "Need evidence", "Reframe", "Do not proceed", "false precision", "correlation"]
+    },
+    {
+      "path": "_refs/operating-model/artifact-quality-system.md",
+      "requiredTerms": ["Method", "Template", "Gold example", "Rubric", "Eval", "Trade-Off"]
+    },
+    {
+      "path": "_refs/checklists/pm-decision-quality.md",
+      "requiredTerms": ["Decision Gate", "Evidence Gate", "Metric And Experiment Gate", "Recommendation Gate", "Blockers"]
+    },
+    {
+      "path": "_refs/schemas/methodology-record.md",
+      "requiredTerms": ["decision_supported", "best_when", "not_when", "required_inputs", "license_or_usage_note", "annifity_adaptation"]
+    },
+    {
+      "path": "_refs/operating-model/methodology-catalog.md",
+      "requiredTerms": ["rice", "wsjf", "kano", "jobs-to-be-done", "opportunity-solution-tree", "ab-proportion-planning", "saas-unit-economics"]
+    }
+  ],
+  "skillRoutes": {
+    "analytics": ["pm-decision-challenge.md", "pm-decision-quality.md", "artifact-quality-system.md"],
+    "commercial": ["pm-decision-challenge.md", "pm-decision-quality.md", "calculate-finance-metrics.ps1"],
+    "competitive-intelligence": ["pm-decision-challenge.md", "pm-decision-quality.md", "artifact-quality-system.md"],
+    "discovery": ["pm-decision-challenge.md", "pm-decision-quality.md"],
+    "strategy": ["pm-decision-challenge.md", "method-selection-record.md", "pm-decision-quality.md"],
+    "experiment": ["pm-decision-challenge.md", "pm-decision-quality.md", "estimate-experiment-sample.ps1"],
+    "growth": ["pm-decision-challenge.md", "pm-decision-quality.md", "artifact-quality-system.md"],
+    "gtm": ["pm-decision-challenge.md", "pm-decision-quality.md", "artifact-quality-system.md"],
+    "prioritize": ["pm-decision-challenge.md", "pm-decision-quality.md", "method-selection-record.md"],
+    "validate": ["artifact-quality-system.md", "methodology-catalog.md", "pm-decision-challenge.md", "gold-example.md", "methodology-record.md"]
+  },
+  "calculators": [
+    "tools/calculate-finance-metrics.ps1",
+    "tools/estimate-experiment-sample.ps1"
+  ]
+}

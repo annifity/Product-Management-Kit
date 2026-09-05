@@ -1,0 +1,12 @@
+---
+description: 'Annifity skill commercial: Evaluate product commercial viability through pricing, packaging, willingness-to-pay, market sizing, SaaS metrics, unit economics, channel economics, or feature investment analysis. Use when a PM needs a quantified commercial decision, sensitivity analysis, monetization hypothesis, or business-case recommendation. Use `discovery` when the customer problem or market is still unclear, `strategy` for portfolio investment choices, `growth` for funnel or retention diagnosis, and `gtm` for launch messaging and channels.'
+alwaysApply: false
+---
+
+# commercial
+
+Use this rule when the request matches the description above.
+
+Canonical source: skills/commercial/SKILL.md
+
+Read the canonical skill file before acting, then load only the referenced _refs/ files needed for the task. If generated adapter text conflicts with the canonical source, the canonical source wins.
